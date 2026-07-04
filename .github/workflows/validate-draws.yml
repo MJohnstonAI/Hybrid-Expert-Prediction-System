@@ -1,0 +1,26 @@
+name: Validate HEPS draw ledger
+
+on:
+  push:
+    paths:
+      - 'data/draw_history.jsonl'
+      - 'data/draw_manifest.json'
+      - 'scripts/validate_draws.py'
+      - '.github/workflows/validate-draws.yml'
+  pull_request:
+    paths:
+      - 'data/draw_history.jsonl'
+      - 'data/draw_manifest.json'
+      - 'scripts/validate_draws.py'
+      - '.github/workflows/validate-draws.yml'
+
+jobs:
+  validate-draws:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate draw ledger
+        run: python scripts/validate_draws.py data/draw_history.jsonl
