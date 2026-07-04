@@ -1,84 +1,159 @@
 #!/usr/bin/env python3
-"""
-Validate the HEPS canonical draw ledger.
-
-Usage:
-    python scripts/validate_draws.py data/draw_history.jsonl
-"""
+"""Strict validation for the HEPS canonical South African PowerBall ledger."""
 from __future__ import annotations
 
+import argparse
 import json
-import sys
-from pathlib import Path
 from datetime import date
+from pathlib import Path
+from typing import Any
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_LEDGER = REPO_ROOT / "data" / "draw_history.jsonl"
+REGIME = "mechanical_50_16"
+SOURCE_URL_MISSING = "source_url_missing"
 
 
-def load_jsonl(path: Path):
-    rows = []
-    with path.open("r", encoding="utf-8") as f:
-        for line_no, line in enumerate(f, start=1):
+def load_jsonl(path: Path) -> list[tuple[int, dict[str, Any]]]:
+    rows: list[tuple[int, dict[str, Any]]] = []
+    with path.open("r", encoding="utf-8") as handle:
+        for line_no, line in enumerate(handle, start=1):
             stripped = line.strip()
             if not stripped or stripped.startswith("#"):
                 continue
             try:
-                rows.append((line_no, json.loads(stripped)))
+                value = json.loads(stripped)
             except json.JSONDecodeError as exc:
-                raise ValueError(f"Invalid JSON on line {line_no}: {exc}") from exc
+                raise ValueError(f"Line {line_no}: invalid JSON: {exc}") from exc
+            if not isinstance(value, dict):
+                raise ValueError(f"Line {line_no}: row must be a JSON object")
+            rows.append((line_no, value))
     return rows
 
 
-def validate(path: Path) -> int:
-    rows = load_jsonl(path)
-    seen_dates = set()
-    errors = []
+def parse_iso_date(value: Any, line_no: int, errors: list[str]) -> date | None:
+    if not isinstance(value, str):
+        errors.append(f"Line {line_no}: draw_date must be an ISO date string")
+        return None
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        errors.append(f"Line {line_no}: invalid draw_date {value!r}")
+        return None
+
+
+def validate_main_numbers(value: Any, line_no: int, errors: list[str]) -> list[int] | None:
+    if not isinstance(value, list) or len(value) != 5:
+        errors.append(f"Line {line_no}: main_numbers must contain exactly five integers")
+        return None
+    if any(not isinstance(number, int) or isinstance(number, bool) for number in value):
+        errors.append(f"Line {line_no}: main_numbers must contain only integers")
+        return None
+    if len(set(value)) != 5:
+        errors.append(f"Line {line_no}: main_numbers must be unique order statistics: {value}")
+    if any(number < 1 or number > 50 for number in value):
+        errors.append(f"Line {line_no}: main_numbers out of South African PowerBall bounds 1-50: {value}")
+    if value != sorted(value):
+        errors.append(f"Line {line_no}: main_numbers must be sorted ascending order statistics: {value}")
+    return value
+
+
+def validate_flags(row: dict[str, Any], line_no: int, errors: list[str]) -> None:
+    machine_name = row.get("machine_name", "unknown")
+    if machine_name is None:
+        machine_name = "unknown"
+    if not isinstance(machine_name, str) or not machine_name.strip():
+        errors.append(f"Line {line_no}: machine_name must be a non-empty string or omitted")
+
+    source_url = row.get("source_url")
+    source_missing = source_url is None or (isinstance(source_url, str) and not source_url.strip())
+    flags = row.get("data_quality_flags", [])
+    if not isinstance(flags, list) or any(not isinstance(flag, str) for flag in flags):
+        errors.append(f"Line {line_no}: data_quality_flags must be an array of strings")
+        return
+    if source_missing and SOURCE_URL_MISSING not in flags:
+        errors.append(
+            f"Line {line_no}: missing source_url must be flagged with data_quality_flags "
+            f'containing "{SOURCE_URL_MISSING}"'
+        )
+
+
+def validate_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
+    errors: list[str] = []
+    if not rows:
+        return ["Ledger must contain at least one draw row"]
+
+    seen_dates: set[str] = set()
+    previous_date: date | None = None
+    previous_draw_id = 0
 
     for line_no, row in rows:
-        draw_date = row.get("draw_date")
-        main = row.get("main")
-        pb = row.get("powerball")
-        macro_sum = row.get("macro_sum")
-
-        try:
-            date.fromisoformat(draw_date)
-        except Exception:
-            errors.append(f"Line {line_no}: invalid draw_date {draw_date!r}")
-
-        if draw_date in seen_dates:
-            errors.append(f"Line {line_no}: duplicate draw_date {draw_date}")
-        seen_dates.add(draw_date)
-
-        if not isinstance(main, list) or len(main) != 5:
-            errors.append(f"Line {line_no}: main must be a list of five integers")
-            continue
-
-        if len(set(main)) != 5:
-            errors.append(f"Line {line_no}: main numbers must be unique: {main}")
-
-        if any((not isinstance(n, int) or n < 1 or n > 50) for n in main):
-            errors.append(f"Line {line_no}: main numbers out of range 1-50: {main}")
-
-        if main != sorted(main):
+        draw_id = row.get("draw_id")
+        if not isinstance(draw_id, int) or isinstance(draw_id, bool):
+            errors.append(f"Line {line_no}: draw_id must be an integer")
+        elif draw_id != previous_draw_id + 1:
             errors.append(
-                f"Line {line_no}: main numbers should be sorted ascending unless drawn-order data is explicitly represented: {main}"
+                f"Line {line_no}: draw_id must be strictly sequential with no gaps; "
+                f"expected {previous_draw_id + 1}, found {draw_id}"
             )
+            previous_draw_id = draw_id
+        else:
+            previous_draw_id = draw_id
 
-        if not isinstance(pb, int) or pb < 1 or pb > 16:
-            errors.append(f"Line {line_no}: powerball out of range 1-16: {pb}")
+        draw_date_text = row.get("draw_date")
+        parsed_date = parse_iso_date(draw_date_text, line_no, errors)
+        if isinstance(draw_date_text, str):
+            if draw_date_text in seen_dates:
+                errors.append(f"Line {line_no}: duplicate draw_date {draw_date_text}")
+            seen_dates.add(draw_date_text)
+        if parsed_date is not None:
+            if previous_date is not None and parsed_date <= previous_date:
+                errors.append(f"Line {line_no}: draw_date must be strictly chronological")
+            previous_date = parsed_date
 
-        expected_sum = sum(main)
-        if macro_sum != expected_sum:
-            errors.append(f"Line {line_no}: macro_sum {macro_sum} != sum(main) {expected_sum}")
+        main_numbers = validate_main_numbers(row.get("main_numbers"), line_no, errors)
 
+        powerball = row.get("powerball")
+        if not isinstance(powerball, int) or isinstance(powerball, bool) or powerball < 1 or powerball > 16:
+            errors.append(f"Line {line_no}: powerball must be an integer in South African PowerBall bounds 1-16")
+
+        macro_sum = row.get("macro_sum")
+        if main_numbers is not None and macro_sum != sum(main_numbers):
+            errors.append(f"Line {line_no}: macro_sum {macro_sum!r} != sum(main_numbers) {sum(main_numbers)}")
+
+        if row.get("regime") != REGIME:
+            errors.append(f'Line {line_no}: regime must equal "{REGIME}"')
+
+        validate_flags(row, line_no, errors)
+
+    return errors
+
+
+def validate(path: Path = DEFAULT_LEDGER) -> int:
+    rows = load_jsonl(path)
+    errors = validate_rows(rows)
     if errors:
-        print("HEPS draw ledger validation FAILED")
-        for err in errors:
-            print(f"- {err}")
+        print(f"HEPS draw ledger validation FAILED: {path}")
+        for error in errors:
+            print(f"- {error}")
         return 1
 
-    print(f"HEPS draw ledger validation passed: {len(rows)} rows")
+    print(f"HEPS draw ledger validation passed: {path} ({len(rows)} rows)")
     return 0
 
 
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "ledger",
+        nargs="?",
+        type=Path,
+        default=DEFAULT_LEDGER,
+        help=f"Ledger JSONL path. Defaults to {DEFAULT_LEDGER}",
+    )
+    args = parser.parse_args()
+    return validate(args.ledger)
+
+
 if __name__ == "__main__":
-    input_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("data/draw_history.jsonl")
-    raise SystemExit(validate(input_path))
+    raise SystemExit(main())

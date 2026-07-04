@@ -1,67 +1,147 @@
 #!/usr/bin/env python3
-"""
-Append a new HEPS draw row to data/draw_history.jsonl after validation.
-
-Usage:
-    python scripts/append_draw.py 2026-07-03 1,2,3,4,5 11
-"""
+"""Append a validated South African PowerBall draw to the HEPS ledger."""
 from __future__ import annotations
 
+import argparse
 import json
-import sys
-from pathlib import Path
 from datetime import date
+from pathlib import Path
+from typing import Any
 
-LEDGER = Path("data/draw_history.jsonl")
-
-
-def read_rows():
-    if not LEDGER.exists():
-        return []
-    rows = []
-    for line in LEDGER.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if line and not line.startswith("#"):
-            rows.append(json.loads(line))
-    return rows
+from sync_manifest import DEFAULT_MANIFEST, sync_manifest
+from validate_draws import DEFAULT_LEDGER, REGIME, SOURCE_URL_MISSING, load_jsonl, validate_rows
 
 
-def append_draw(draw_date: str, main_csv: str, pb: str):
-    date.fromisoformat(draw_date)
-    main = sorted(int(x.strip()) for x in main_csv.split(","))
-    pb_int = int(pb)
+def parse_main_numbers(value: str) -> list[int]:
+    parts = [part.strip() for part in value.split(",")]
+    if len(parts) != 5:
+        raise argparse.ArgumentTypeError("--main must contain exactly five comma-separated integers")
+    try:
+        numbers = [int(part) for part in parts]
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("--main must contain only integers") from exc
+    if len(set(numbers)) != 5:
+        raise argparse.ArgumentTypeError("--main must contain five unique main numbers")
+    if any(number < 1 or number > 50 for number in numbers):
+        raise argparse.ArgumentTypeError("--main numbers must be within South African PowerBall bounds 1-50")
+    return sorted(numbers)
 
-    if len(main) != 5 or len(set(main)) != 5:
-        raise ValueError("main numbers must contain five unique values")
-    if any(n < 1 or n > 50 for n in main):
-        raise ValueError("main numbers must be between 1 and 50")
-    if pb_int < 1 or pb_int > 16:
-        raise ValueError("powerball must be between 1 and 16")
 
-    rows = read_rows()
-    if any(r["draw_date"] == draw_date for r in rows):
-        raise ValueError(f"draw_date already exists: {draw_date}")
+def parse_powerball(value: str) -> int:
+    try:
+        powerball = int(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("--pb must be an integer") from exc
+    if powerball < 1 or powerball > 16:
+        raise argparse.ArgumentTypeError("--pb must be within South African PowerBall bounds 1-16")
+    return powerball
 
-    next_id = max([r.get("draw_id", 0) for r in rows] or [0]) + 1
-    row = {
-        "draw_id": next_id,
+
+def parse_date(value: str) -> str:
+    try:
+        return date.fromisoformat(value).isoformat()
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("--date must use YYYY-MM-DD format") from exc
+
+
+def make_row(
+    rows: list[tuple[int, dict[str, Any]]],
+    draw_date: str,
+    main_numbers: list[int],
+    powerball: int,
+    machine_name: str,
+    source_url: str | None,
+) -> dict[str, Any]:
+    if any(row["draw_date"] == draw_date for _, row in rows):
+        raise ValueError(f"draw_date already exists in ledger: {draw_date}")
+    if rows and draw_date <= rows[-1][1]["draw_date"]:
+        raise ValueError(
+            f"draw_date must be later than the current ledger tail "
+            f"{rows[-1][1]['draw_date']}; received {draw_date}"
+        )
+
+    flags: list[str] = []
+    if source_url is None or not source_url.strip():
+        flags.append(SOURCE_URL_MISSING)
+
+    return {
+        "draw_id": len(rows) + 1,
         "draw_date": draw_date,
-        "main": main,
-        "powerball": pb_int,
-        "macro_sum": sum(main),
-        "regime": "mechanical_50_16",
-        "source_url": None,
-        "machine_name": None,
+        "main_numbers": main_numbers,
+        "powerball": powerball,
+        "macro_sum": sum(main_numbers),
+        "regime": REGIME,
+        "machine_name": machine_name.strip() or "unknown",
+        "source_url": source_url.strip() if source_url and source_url.strip() else None,
+        "data_quality_flags": flags,
     }
 
-    with LEDGER.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(row, separators=(",", ":")) + "\n")
+
+def append_draw(
+    ledger_path: Path,
+    manifest_path: Path,
+    draw_date: str,
+    main_numbers: list[int],
+    powerball: int,
+    machine_name: str,
+    source_url: str | None,
+    sync: bool,
+) -> int:
+    rows = load_jsonl(ledger_path) if ledger_path.exists() else []
+    errors = validate_rows(rows)
+    if errors:
+        joined = "\n".join(f"- {error}" for error in errors)
+        raise ValueError(f"Refusing to append to invalid ledger:\n{joined}")
+
+    row = make_row(rows, draw_date, main_numbers, powerball, machine_name, source_url)
+    candidate_rows = [*rows, (len(rows) + 1, row)]
+    candidate_errors = validate_rows(candidate_rows)
+    if candidate_errors:
+        joined = "\n".join(f"- {error}" for error in candidate_errors)
+        raise ValueError(f"Refusing to append invalid row:\n{joined}")
+
+    with ledger_path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(row, separators=(",", ":")) + "\n")
+
+    if sync:
+        sync_manifest(ledger_path, manifest_path, check=False)
 
     print(json.dumps(row, indent=2))
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--date", required=True, type=parse_date, help="Draw date in YYYY-MM-DD format")
+    parser.add_argument("--main", required=True, type=parse_main_numbers, help="Five main numbers, comma-separated")
+    parser.add_argument("--pb", required=True, type=parse_powerball, help="PowerBall number")
+    parser.add_argument("--machine", default="unknown", help='Machine name, defaults to "unknown"')
+    parser.add_argument("--source-url", default=None, help="Source URL for provenance")
+    parser.add_argument("--ledger", type=Path, default=DEFAULT_LEDGER, help=f"Ledger path. Defaults to {DEFAULT_LEDGER}")
+    parser.add_argument(
+        "--manifest",
+        type=Path,
+        default=DEFAULT_MANIFEST,
+        help=f"Manifest path. Defaults to {DEFAULT_MANIFEST}",
+    )
+    parser.add_argument("--no-sync-manifest", action="store_true", help="Append without updating draw_manifest.json")
+    args = parser.parse_args()
+
+    try:
+        return append_draw(
+            args.ledger,
+            args.manifest,
+            args.date,
+            args.main,
+            args.pb,
+            args.machine,
+            args.source_url,
+            sync=not args.no_sync_manifest,
+        )
+    except ValueError as exc:
+        print(exc)
+        return 1
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print(__doc__)
-        raise SystemExit(2)
-    append_draw(sys.argv[1], sys.argv[2], sys.argv[3])
+    raise SystemExit(main())

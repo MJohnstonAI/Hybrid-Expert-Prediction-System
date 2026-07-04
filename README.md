@@ -54,6 +54,14 @@ outputs/improvement/      Self-improvement tracker
 
 ```bash
 python scripts/validate_draws.py data/draw_history.jsonl
+python scripts/sync_manifest.py --check
+python scripts/simulate_null_model.py --trials 100000 --seed 20260704
+```
+
+## Append a draw
+
+```bash
+python scripts/append_draw.py --date YYYY-MM-DD --main 1,2,3,4,5 --pb 11 --machine "Khaya" --source-url "https://example.com/source"
 ```
 
 ## Important correction

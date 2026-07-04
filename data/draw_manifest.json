@@ -1,28 +1,34 @@
 {
   "project": "Hybrid Expert Prediction System",
-  "active_branch": "HEPS v33.2 External IDE Mechanical Research Workspace",
   "canonical_file": "data/draw_history.jsonl",
   "active_regime": "mechanical_50_16",
+  "latest_draw_id": 9,
   "latest_draw_date": "2026-06-30",
-  "latest_main_numbers": [21, 26, 40, 42, 44],
+  "latest_main_numbers": [
+    21,
+    26,
+    40,
+    42,
+    44
+  ],
   "latest_powerball": 15,
-  "latest_sum": 173,
+  "latest_macro_sum": 173,
   "row_count": 9,
-  "last_updated": "2026-07-04",
+  "last_synced": "2026-07-04",
   "known_data_rules": [
     "Use post-May/June 2026 mechanical-era draws for active modelling",
     "No Excel required for active HEPS processing",
     "Sort draws chronologically before modelling",
     "Do not treat sorted Slot1-Slot5 as physical draw order unless drawn order is available",
-    "21+26+40+42+44=173, not 193"
+    "South African PowerBall bounds: main numbers 1-50 unique ascending, PowerBall 1-16"
   ],
   "primary_kpis": [
     "Top-10 3+ main-number overlap",
     "Top-100 3+ main-number overlap",
     "Top-100 4+ main-number overlap",
     "PowerBall exact hit rate",
-    "±1 drift support",
+    "+/-1 drift support",
     "macro-sum pass/fail",
-    "random-filtered baseline comparison"
+    "randomized null-model baseline comparison"
   ]
 }
