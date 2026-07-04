@@ -5,4 +5,9 @@ __pycache__/
 .venv/
 node_modules/
 .DS_Store
-
+*.tmp
+.cache/
+outputs/**/*.csv
+outputs/**/*.parquet
+outputs/**/*.pkl
+outputs/**/candidate_pool_*.jsonl
