@@ -1,0 +1,24 @@
+{
+  "branch": "HEPS v33.2 External IDE Mechanical Research Workspace",
+  "target_draw_date": "YYYY-MM-DD",
+  "dataset_manifest": "data/draw_manifest.json",
+  "generated_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "status": "paper_trading_only",
+  "portfolio_allocation": {
+    "tri_cluster_high_register": 3,
+    "void_bridge": 3,
+    "stiction_shadow": 2,
+    "sorted_position_momentum": 1,
+    "chaos_baseline": 1
+  },
+  "slates": [
+    {
+      "rank": 1,
+      "lane": "tri_cluster_high_register",
+      "main": [0, 0, 0, 0, 0],
+      "powerball": 0,
+      "rationale": ""
+    }
+  ],
+  "risk_notes": []
+}
