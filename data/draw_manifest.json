@@ -2,18 +2,18 @@
   "project": "Hybrid Expert Prediction System",
   "canonical_file": "data/draw_history.jsonl",
   "active_regime": "mechanical_50_16",
-  "latest_draw_id": 9,
-  "latest_draw_date": "2026-06-30",
+  "latest_draw_id": 10,
+  "latest_draw_date": "2026-07-03",
   "latest_main_numbers": [
-    21,
-    26,
-    40,
-    42,
-    44
+    9,
+    14,
+    27,
+    32,
+    34
   ],
   "latest_powerball": 15,
-  "latest_macro_sum": 173,
-  "row_count": 9,
+  "latest_macro_sum": 116,
+  "row_count": 10,
   "last_synced": "2026-07-04",
   "known_data_rules": [
     "Use post-May/June 2026 mechanical-era draws for active modelling",

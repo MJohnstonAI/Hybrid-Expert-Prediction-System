@@ -7,3 +7,4 @@
 {"draw_id":7,"draw_date":"2026-06-23","main_numbers":[16,25,32,33,50],"powerball":11,"macro_sum":156,"regime":"mechanical_50_16","machine_name":"unknown","source_url":null,"data_quality_flags":["source_url_missing"]}
 {"draw_id":8,"draw_date":"2026-06-26","main_numbers":[17,26,37,40,45],"powerball":13,"macro_sum":165,"regime":"mechanical_50_16","machine_name":"unknown","source_url":null,"data_quality_flags":["source_url_missing"]}
 {"draw_id":9,"draw_date":"2026-06-30","main_numbers":[21,26,40,42,44],"powerball":15,"macro_sum":173,"regime":"mechanical_50_16","machine_name":"unknown","source_url":null,"data_quality_flags":["source_url_missing"]}
+{"draw_id":10,"draw_date":"2026-07-03","main_numbers":[9,14,27,32,34],"powerball":15,"macro_sum":116,"regime":"mechanical_50_16","machine_name":"unknown","source_url":"https://www.quickread.co.za/powerball-and-powerball-xtra-results-for-friday-3-july-2026/","data_quality_flags":[]}
