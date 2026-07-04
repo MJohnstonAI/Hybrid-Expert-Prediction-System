@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HEPS Mechanical Era Draw Row",
+  "type": "object",
+  "required": ["draw_id", "draw_date", "main", "powerball", "macro_sum", "regime"],
+  "properties": {
+    "draw_id": { "type": "integer", "minimum": 1 },
+    "draw_date": { "type": "string", "format": "date" },
+    "main": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "type": "integer", "minimum": 1, "maximum": 50 }
+    },
+    "powerball": { "type": "integer", "minimum": 1, "maximum": 16 },
+    "macro_sum": { "type": "integer", "minimum": 15, "maximum": 240 },
+    "regime": { "type": "string" },
+    "source_url": { "type": ["string", "null"] },
+    "machine_name": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}
