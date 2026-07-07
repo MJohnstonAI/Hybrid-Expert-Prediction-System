@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from algebraic_sequence_features import algebraic_sequence_diagnostics, algebraic_sequence_feature_scores
 from validate_draws import DEFAULT_LEDGER, load_jsonl, validate_rows
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -71,7 +72,7 @@ def feature_scores(rows: list[dict[str, Any]]) -> dict[str, dict[int, float]]:
     mid = {number: 1.0 - abs(number - 25.5) / 24.5 for number in MAIN_POOL}
     high_register = {number: max(0.0, (number - 30) / 20) for number in MAIN_POOL}
 
-    return {
+    features = {
         "hot": normalize(hot),
         "cold_void": normalize(cold),
         "stiction_shadow": normalize(shadow),
@@ -79,6 +80,8 @@ def feature_scores(rows: list[dict[str, Any]]) -> dict[str, dict[int, float]]:
         "midfield": normalize(mid),
         "high_register": normalize(high_register),
     }
+    features.update(algebraic_sequence_feature_scores(rows, pool=MAIN_POOL))
+    return features
 
 
 def weighted_scores(features: dict[str, dict[int, float]], weights: dict[str, float]) -> dict[int, float]:
@@ -263,7 +266,17 @@ def strategy_grid() -> dict[str, dict[str, float]]:
             "cold_void": 0.05,
         },
     }
-    feature_names = ["hot", "cold_void", "stiction_shadow", "pair_bridge", "midfield", "high_register"]
+    feature_names = [
+        "hot",
+        "cold_void",
+        "stiction_shadow",
+        "pair_bridge",
+        "midfield",
+        "high_register",
+        "residue_partition_frequency",
+        "gap_completion_exposure",
+        "markov_residue_state",
+    ]
     for feature in feature_names:
         named[f"grid_single_{feature}"] = {feature: 1.0}
     for left, right in itertools.combinations(feature_names, 2):
@@ -282,9 +295,18 @@ def walk_forward(rows: list[dict[str, Any]], min_train: int, slate_count: int) -
     strategies = strategy_grid()
     pb_strategies = ["repeat_shadow", "hot", "cold", "random_control"]
     results = []
+    algebraic_walk_forward_diagnostics = []
     for target_index in range(min_train, len(rows)):
         training = rows[:target_index]
         target = rows[target_index]
+        algebraic_walk_forward_diagnostics.append(
+            {
+                "target_draw_id": target["draw_id"],
+                "target_draw_date": target["draw_date"],
+                "training_rows": len(training),
+                "diagnostics": algebraic_sequence_diagnostics(training),
+            }
+        )
         for strategy_name, weights in strategies.items():
             generated = generate_main_slates(training, weights, slate_count=slate_count)
             for pb_strategy in pb_strategies:
@@ -302,7 +324,7 @@ def walk_forward(rows: list[dict[str, Any]], min_train: int, slate_count: int) -
                         "best_lines": sorted(evaluation["per_slate"], key=lambda item: (-item["main_hits"], not item["powerball_hit"]))[:3],
                     }
                 )
-    return summarize_results(results, strategies, pb_strategies, rows, slate_count)
+    return summarize_results(results, strategies, pb_strategies, rows, slate_count, algebraic_walk_forward_diagnostics)
 
 
 def summarize_results(
@@ -311,6 +333,7 @@ def summarize_results(
     pb_strategies: list[str],
     rows: list[dict[str, Any]],
     slate_count: int,
+    algebraic_walk_forward_diagnostics: list[dict[str, Any]],
 ) -> dict[str, Any]:
     """Summarize walk-forward results; no min_rows gate because it reports the observed test window size."""
     grouped: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
@@ -360,6 +383,14 @@ def summarize_results(
             "draws_tested": sorted({item["target_draw_date"] for item in results}),
             "slate_count": slate_count,
             "note": "Strategy selection after viewing this report is meta-overfit on a tiny sample; use only as scaffolding.",
+        },
+        "algebraic_sequence_module": {
+            "placement": "scripts/algebraic_sequence_features.py",
+            "interface": "feature name -> main-number score map, consumed by feature_scores and weighted_scores",
+            "framing": "calibration diagnostics and overfitting gauntlet; not a standalone prediction path",
+            "harness_gap": "distributional comparisons are attached as diagnostics because the combiner only accepts per-number score maps",
+            "latest_training_slice_diagnostics": algebraic_sequence_diagnostics(rows[:-1]) if len(rows) > 1 else None,
+            "walk_forward_training_diagnostics": algebraic_walk_forward_diagnostics,
         },
         "strategies": strategies,
         "powerball_strategies": pb_strategies,
