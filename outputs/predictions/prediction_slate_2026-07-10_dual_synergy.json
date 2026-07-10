@@ -1,0 +1,308 @@
+{
+  "branch": "HEPS v33.2 experimental dual-synergy discovery slate",
+  "target_draw_date": "2026-07-10",
+  "dataset_manifest": "data/draw_manifest.json",
+  "dataset_state": {
+    "latest_draw_id": 11,
+    "latest_draw_date": "2026-07-07",
+    "row_count": 11
+  },
+  "generated_at": "2026-07-10T10:53:16Z",
+  "status": "paper_trading_only",
+  "architecture_status": "experimental_not_merged",
+  "portfolio_allocation": {
+    "core_10_coverage": 10,
+    "expansion_20_total": 20,
+    "hot_high_synergy_candidates": 10,
+    "structural_synergy_candidates": 10
+  },
+  "slates": [
+    {
+      "rank": 1,
+      "tier": "core_10",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        40,
+        44,
+        45
+      ],
+      "powerball": 11,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 2,
+      "tier": "core_10",
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        16,
+        31,
+        32,
+        33
+      ],
+      "powerball": 13,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 3,
+      "tier": "core_10",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        27,
+        40,
+        43,
+        45
+      ],
+      "powerball": 15,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 4,
+      "tier": "core_10",
+      "lane": "structural_synergy",
+      "main": [
+        17,
+        31,
+        32,
+        33,
+        34
+      ],
+      "powerball": 12,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 5,
+      "tier": "core_10",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        37,
+        40,
+        43
+      ],
+      "powerball": 10,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 6,
+      "tier": "core_10",
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        17,
+        30,
+        32,
+        33
+      ],
+      "powerball": 9,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 7,
+      "tier": "core_10",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        45,
+        49,
+        50
+      ],
+      "powerball": 6,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 8,
+      "tier": "core_10",
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        30,
+        31,
+        32,
+        34
+      ],
+      "powerball": 7,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 9,
+      "tier": "core_10",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        33,
+        40,
+        43,
+        44
+      ],
+      "powerball": 14,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 10,
+      "tier": "core_10",
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        30,
+        32,
+        33,
+        34
+      ],
+      "powerball": 1,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 11,
+      "tier": "expansion_20",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        43,
+        44,
+        49
+      ],
+      "powerball": 8,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 12,
+      "tier": "expansion_20",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        43,
+        45,
+        48
+      ],
+      "powerball": 16,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 13,
+      "tier": "expansion_20",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        44,
+        48,
+        50
+      ],
+      "powerball": 5,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 14,
+      "tier": "expansion_20",
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        27,
+        43,
+        44,
+        48
+      ],
+      "powerball": 4,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 15,
+      "tier": "expansion_20",
+      "lane": "hot_high_synergy",
+      "main": [
+        9,
+        16,
+        40,
+        43,
+        45
+      ],
+      "powerball": 3,
+      "rationale": "frequency/high-register continuation blend"
+    },
+    {
+      "rank": 16,
+      "tier": "expansion_20",
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        17,
+        30,
+        31,
+        32
+      ],
+      "powerball": 2,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 17,
+      "tier": "expansion_20",
+      "lane": "structural_synergy",
+      "main": [
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "powerball": 11,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 18,
+      "tier": "expansion_20",
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        16,
+        17,
+        32,
+        34
+      ],
+      "powerball": 13,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 19,
+      "tier": "expansion_20",
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        29,
+        32,
+        33,
+        34
+      ],
+      "powerball": 15,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    },
+    {
+      "rank": 20,
+      "tier": "expansion_20",
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        17,
+        29,
+        31,
+        32
+      ],
+      "powerball": 12,
+      "rationale": "midfield plus sorted-slot EWMA and gap-echo structural blend"
+    }
+  ],
+  "risk_notes": [
+    "Discovery-only strategy selected after retrospective search on the first 10 mechanical-era rows.",
+    "The genuinely unseen 2026-07-07 holdout reached only one main number; no predictive improvement is established.",
+    "The 20-line expansion increases exposure and must be compared with a portfolio-specific random baseline.",
+    "No historical test produced 4+, 5, or a same-line 3+ plus PowerBall outcome.",
+    "This dual-synergy slate does not replace the accepted production lane allocation and has no embedded chaos line."
+  ]
+}

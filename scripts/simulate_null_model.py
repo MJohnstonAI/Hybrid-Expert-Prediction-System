@@ -6,6 +6,7 @@ import argparse
 import json
 import random
 from collections import Counter
+from math import comb
 from pathlib import Path
 from typing import Any
 
@@ -42,6 +43,12 @@ def simulate(target: dict[str, Any], trials: int, seed: int) -> dict[str, Any]:
     def rate(count: int) -> float:
         return count / trials if trials else 0.0
 
+    total_main_combinations = comb(50, 5)
+    theoretical_exact = {
+        hits: (comb(5, hits) * comb(45, 5 - hits)) / total_main_combinations
+        for hits in range(0, 6)
+    }
+
     return {
         "model": "uniform_random_null_model",
         "trials": trials,
@@ -58,6 +65,24 @@ def simulate(target: dict[str, Any], trials: int, seed: int) -> dict[str, Any]:
             "main_hits_at_least_3": rate(sum(main_hit_counts[hits] for hits in range(3, 6))),
             "main_hits_at_least_4": rate(sum(main_hit_counts[hits] for hits in range(4, 6))),
             "main_hits_exactly_5": rate(main_hit_counts[5]),
+        },
+        "joint_threshold_rates": {
+            "main_hits_at_least_3_plus_powerball": rate(
+                sum(main_plus_powerball_counts[f"{hits}+PB1"] for hits in range(3, 6))
+            ),
+            "main_hits_at_least_4_plus_powerball": rate(
+                sum(main_plus_powerball_counts[f"{hits}+PB1"] for hits in range(4, 6))
+            ),
+            "main_hits_exactly_5_plus_powerball": rate(main_plus_powerball_counts["5+PB1"]),
+        },
+        "theoretical_rates": {
+            "main_hits_at_least_3": sum(theoretical_exact[hits] for hits in range(3, 6)),
+            "main_hits_at_least_4": sum(theoretical_exact[hits] for hits in range(4, 6)),
+            "main_hits_exactly_5": theoretical_exact[5],
+            "main_hits_at_least_3_plus_powerball": sum(theoretical_exact[hits] for hits in range(3, 6)) / 16,
+            "main_hits_at_least_4_plus_powerball": sum(theoretical_exact[hits] for hits in range(4, 6)) / 16,
+            "main_hits_exactly_5_plus_powerball": theoretical_exact[5] / 16,
+            "full_5_plus_powerball_odds_denominator": total_main_combinations * 16,
         },
         "main_plus_powerball_distribution": dict(sorted(main_plus_powerball_counts.items())),
     }

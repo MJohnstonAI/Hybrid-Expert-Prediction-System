@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from algebraic_sequence_features import algebraic_sequence_diagnostics, algebraic_sequence_feature_scores
+from portfolio_orchestration import select_coverage_diverse
 from validate_draws import DEFAULT_LEDGER, load_jsonl, validate_rows
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -128,6 +129,7 @@ def generate_main_slates(
     weights: dict[str, float],
     slate_count: int = 10,
     pool_limit: int = 18,
+    selection_mode: str = "legacy_ranked",
 ) -> list[dict[str, Any]]:
     """Generate unique, sorted 5-number slates from prior rows; no min_rows gate, reports tiny-sample risk upstream."""
     features = feature_scores(rows)
@@ -151,6 +153,19 @@ def generate_main_slates(
         }
         total = base + 0.2 * local_cluster + sum_fit
         scored_combos.append((total, combo, feature_trace))
+
+    candidates = [
+        {
+            "main": list(combo),
+            "main_score": round(total, 6),
+            "feature_trace": {key: round(value, 4) for key, value in sorted(feature_trace.items())},
+        }
+        for total, combo, feature_trace in scored_combos
+    ]
+    if selection_mode == "coverage_diverse":
+        return select_coverage_diverse(candidates, slate_count=slate_count)
+    if selection_mode != "legacy_ranked":
+        raise ValueError(f"unknown selection_mode: {selection_mode}")
 
     slates: list[dict[str, Any]] = []
     for total, combo, feature_trace in sorted(scored_combos, key=lambda item: (-item[0], item[1])):

@@ -88,6 +88,10 @@ Every prediction slate must include:
 
 Primary KPIs:
 
+- per-line and per-game exact 3, 4, and 5 main-number outcomes;
+- same-line 3+ main numbers plus PowerBall;
+- same-line 4+ main numbers plus PowerBall;
+- same-line 5 main numbers plus PowerBall (ultimate outcome);
 - Top-10 3+ main-number overlap;
 - Top-100 3+ main-number overlap;
 - Top-100 4+ main-number overlap;
@@ -96,6 +100,11 @@ Primary KPIs:
 - macro-sum pass/fail;
 - diversity / coordinate-overlap score;
 - comparison against a random-filtered baseline.
+
+Always report submitted line volume with hit counts. An eventual isolated win
+must be evaluated against cumulative exposure and the corresponding random/null
+probability; it is the ultimate game outcome but does not alone prove a durable
+predictive edge.
 
 Do not claim a strategy is proven without walk-forward validation and a random-filtered baseline.
 

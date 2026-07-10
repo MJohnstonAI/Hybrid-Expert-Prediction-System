@@ -1,0 +1,174 @@
+{
+  "status": "paper_trading_research_only",
+  "ledger_window": {
+    "first_draw_date": "2026-06-02",
+    "latest_draw_date": "2026-07-07",
+    "row_count": 11
+  },
+  "method": {
+    "target_boundary": "Each target uses only earlier ledger rows.",
+    "feature_random_expectation": "A target-blind top-10 number set has 1.0 expected hits per draw.",
+    "selection_warning": "The prior hot/high-register hypotheses were selected after earlier retrospective research and remain meta-overfit."
+  },
+  "feature_audit_min_train_3": {
+    "midfield": {
+      "targets": 8,
+      "top_10_hits": 11,
+      "top_10_hits_per_draw": 1.375,
+      "mean_hit_rank": 21.9
+    },
+    "residue_partition_frequency": {
+      "targets": 8,
+      "top_10_hits": 8,
+      "top_10_hits_per_draw": 1.0,
+      "mean_hit_rank": 26.1
+    },
+    "high_register": {
+      "targets": 8,
+      "top_10_hits": 8,
+      "top_10_hits_per_draw": 1.0,
+      "mean_hit_rank": 27.025
+    },
+    "gap_completion_exposure": {
+      "targets": 8,
+      "top_10_hits": 8,
+      "top_10_hits_per_draw": 1.0,
+      "mean_hit_rank": 28.475
+    },
+    "cold_void": {
+      "targets": 8,
+      "top_10_hits": 7,
+      "top_10_hits_per_draw": 0.875,
+      "mean_hit_rank": 26.475
+    },
+    "pair_bridge": {
+      "targets": 8,
+      "top_10_hits": 7,
+      "top_10_hits_per_draw": 0.875,
+      "mean_hit_rank": 26.975
+    },
+    "hot": {
+      "targets": 8,
+      "top_10_hits": 7,
+      "top_10_hits_per_draw": 0.875,
+      "mean_hit_rank": 27.125
+    },
+    "markov_residue_state": {
+      "targets": 8,
+      "top_10_hits": 5,
+      "top_10_hits_per_draw": 0.625,
+      "mean_hit_rank": 27.425
+    },
+    "stiction_shadow": {
+      "targets": 8,
+      "top_10_hits": 5,
+      "top_10_hits_per_draw": 0.625,
+      "mean_hit_rank": 31.4
+    }
+  },
+  "portfolio_audit_min_train_3": {
+    "heps_default_soft:legacy_ranked": {
+      "targets": 8,
+      "draws_with_2_plus": 1,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 1,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 75.25
+    },
+    "heps_default_soft:coverage_diverse": {
+      "targets": 8,
+      "draws_with_2_plus": 1,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 1,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 83.125
+    },
+    "grid_pair_hot_high_register:legacy_ranked": {
+      "targets": 8,
+      "draws_with_2_plus": 3,
+      "draws_with_3_plus": 1,
+      "total_2_plus_lines": 11,
+      "total_3_plus_lines": 1,
+      "mean_unique_triples": 79.75
+    },
+    "grid_pair_hot_high_register:coverage_diverse": {
+      "targets": 8,
+      "draws_with_2_plus": 4,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 6,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 98.0
+    },
+    "grid_triple_hot_cold_void_high_register:legacy_ranked": {
+      "targets": 8,
+      "draws_with_2_plus": 2,
+      "draws_with_3_plus": 1,
+      "total_2_plus_lines": 12,
+      "total_3_plus_lines": 1,
+      "mean_unique_triples": 78.25
+    },
+    "grid_triple_hot_cold_void_high_register:coverage_diverse": {
+      "targets": 8,
+      "draws_with_2_plus": 2,
+      "draws_with_3_plus": 1,
+      "total_2_plus_lines": 9,
+      "total_3_plus_lines": 1,
+      "mean_unique_triples": 90.5
+    }
+  },
+  "portfolio_audit_min_train_5": {
+    "heps_default_soft:legacy_ranked": {
+      "targets": 6,
+      "draws_with_2_plus": 0,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 0,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 72.833333
+    },
+    "heps_default_soft:coverage_diverse": {
+      "targets": 6,
+      "draws_with_2_plus": 0,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 0,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 84.666667
+    },
+    "grid_pair_hot_high_register:legacy_ranked": {
+      "targets": 6,
+      "draws_with_2_plus": 2,
+      "draws_with_3_plus": 1,
+      "total_2_plus_lines": 6,
+      "total_3_plus_lines": 1,
+      "mean_unique_triples": 79.666667
+    },
+    "grid_pair_hot_high_register:coverage_diverse": {
+      "targets": 6,
+      "draws_with_2_plus": 3,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 4,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 98.0
+    },
+    "grid_triple_hot_cold_void_high_register:legacy_ranked": {
+      "targets": 6,
+      "draws_with_2_plus": 1,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 6,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 79.666667
+    },
+    "grid_triple_hot_cold_void_high_register:coverage_diverse": {
+      "targets": 6,
+      "draws_with_2_plus": 1,
+      "draws_with_3_plus": 0,
+      "total_2_plus_lines": 5,
+      "total_3_plus_lines": 0,
+      "mean_unique_triples": 89.5
+    }
+  },
+  "interpretation": {
+    "promote_new_predictive_expert": false,
+    "reason": "No candidate produced a robust held-out improvement across the 8-target and 6-target windows.",
+    "accepted_infrastructure_improvement": "Add auditable prediction and lane scoring; keep coverage selection experimental."
+  }
+}

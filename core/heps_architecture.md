@@ -127,6 +127,10 @@ For a top-10 prediction slate:
 
 ## Current primary KPIs
 
+- exact 3, 4, and 5 main-number outcomes per submitted line and per game;
+- same-line 3+ main numbers plus PowerBall;
+- same-line 4+ main numbers plus PowerBall;
+- same-line 5 main numbers plus PowerBall as the ultimate game outcome;
 - Top-10 3+ main-number overlap;
 - Top-100 3+ main-number overlap;
 - Top-100 4+ main-number overlap;
@@ -134,3 +138,8 @@ For a top-10 prediction slate:
 - ±1 drift support;
 - macro-sum pass/fail;
 - random-filtered baseline comparison.
+
+All outcome rates must retain their submitted-line denominator. A single
+ultimate outcome is a valid project milestone, but it is not evidence of a
+durable predictive edge unless performance also survives walk-forward and
+random/null comparison.

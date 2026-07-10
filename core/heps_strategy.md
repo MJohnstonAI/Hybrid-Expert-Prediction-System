@@ -59,4 +59,14 @@ For overlapping lines, the final confidence score ($HEPS_{score}$) for any candi
 
 $$HEPS_{score} = w_1 E_1 + w_2 E_2 + w_3 E_3 + w_4 E_4$$
 
-Where the weights ($w_i$) are dynamically penalised or rewarded by the automated results from `scripts/score_prediction.py` after each draw cycle.
+`scripts/score_prediction.py` records portfolio and lane-level evidence after
+each draw cycle. It does **not** automatically change the weights ($w_i$) from a
+single result. Preserve weights across independently generated pre-draw slates;
+after at least 20 scored targets, compare each lane against chaos/random-null
+baselines and submit any proposed weight change through the contribution,
+red-team, and merge-decision workflow. The 20-target threshold is a minimum
+review gate, not evidence that a predictive edge exists.
+
+The current research scorer does not yet implement a distinct
+`sorted_position_momentum` feature. Do not treat the generic `midfield` score as
+an equivalent implementation; retain this as an explicit calibration TODO.

@@ -89,6 +89,38 @@ Treat tri-cluster as a portfolio lane, not a universal forced rule. Treat
 mechanical hypotheses as provisional until enough post-transition evidence
 supports them.
 
+## Current Experimental Discovery - Dual-Synergy Candidate
+
+Before modifying expert orchestration, candidate generation, sorted-position
+features, or the current paper-trading slate, read this discovery chain in
+order:
+
+1. `workspace/contributions/contributor_codex_2026-07-10_aggressive_dual_synergy.md`
+2. `workspace/reviews/red_team_codex_2026-07-10_aggressive_dual_synergy.md`
+3. `workspace/reviews/qna_grounding_2026-07-10_aggressive_dual_synergy.md`
+4. `workspace/reviews/merge_decision_2026-07-10_aggressive_dual_synergy.md`
+5. `outputs/research/aggressive_expert_lab_2026-07-10.md`
+6. `outputs/research/aggressive_expert_lab_2026-07-10.json`
+
+The candidate preserves two blended experts at the line level rather than
+averaging their scores:
+
+- `hot_high_synergy`: Bayesian-shrunk frequency plus high-register exposure;
+- `structural_synergy`: midfield support plus sorted-slot EWMA and gap-echo
+  structure.
+
+The 20-line historical union found two 3-main-number results across eight
+walk-forward targets, but no 4+, 5, or same-line 3+ plus PowerBall result. Its
+portfolio-specific unadjusted random tail was approximately `8.33%`, and all
+expert-ranking results failed multiple-search correction. The first genuinely
+unseen target, `2026-07-07`, failed with a best overlap of one main number.
+
+Status: **discovery-only / hold for prospective evidence**. It is not accepted
+core architecture and must not replace the current lane allocation. Preserve
+the frozen `outputs/predictions/prediction_slate_2026-07-10_dual_synergy.json`
+artifact and score it after the target result is appended; do not regenerate or
+retrofit it after seeing the result.
+
 ## Deprecated or Forbidden Reintroductions
 
 - Do not reintroduce ink-mass weighting.
@@ -139,14 +171,10 @@ expert contribution notes, recommended adjustments, and merge/no-merge decision.
 - Preserve user or unrelated working-tree changes.
 - Do not invent undocumented workflows to make the guide feel complete.
 
-## Current TODOs
+## Current Notes and TODOs
 
-- TODO: `core/heps_strategy.md` references `scripts/score_prediction.py`, but
-  that file is not currently present. Do not instruct agents to run it until it
-  is implemented.
+- `scripts/score_prediction.py` scores stored pre-draw slates against the
+  canonical ledger and reports portfolio and lane evidence. It does not
+  automatically tune expert weights from a single result.
 - TODO: Decide whether root `AGENTS.md` should replace `configs/agent.md` as
   the primary guide or serve as a root-level index pointing to it.
-- TODO: Clean up stale references such as `/data/draw_history.json` in
-  `outputs/post_game/self_improvement.md`; the actual canonical ledger is
-  `data/draw_history.jsonl`.
-

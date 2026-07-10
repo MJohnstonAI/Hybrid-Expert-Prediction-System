@@ -64,6 +64,15 @@ python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 python scripts/append_draw.py --date YYYY-MM-DD --main 1,2,3,4,5 --pb 11 --machine "Khaya" --source-url "https://example.com/source"
 ```
 
+## Score a stored prediction
+
+After the target result has been appended and validated, score the preserved
+pre-draw slate without automatically changing expert weights:
+
+```bash
+python scripts/score_prediction.py --prediction outputs/predictions/<stored-slate>.json
+```
+
 ## Important correction
 
 For the draw `21, 26, 40, 42, 44`, the macro-sum is `173`, not `193`.
