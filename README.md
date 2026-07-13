@@ -26,6 +26,7 @@ workspace/reviews/        Red-team critique, Q&A, merge decisions
 outputs/predictions/      Prediction slate outputs
 outputs/post_game/        Post-draw retrospective analysis
 outputs/improvement/      Self-improvement tracker
+outputs/research/         Machine-readable research and experiment artifacts
 ```
 
 ## Source of truth hierarchy
@@ -38,17 +39,37 @@ outputs/improvement/      Self-improvement tracker
 6. `workspace/reviews/` — red-team critique and merge decisions.
 7. `outputs/` — generated prediction slates, post-game reports, and improvement logs.
 
+## Current research handovers
+
+AI agents evaluating ensemble architecture, the Coulomb family, July 2026 failures, or future blind-test design should read the following files before proposing changes:
+
+1. `workspace/contributions/contributor_chatgpt_sol_2026-07-13_coalition_heps.md`
+   - ChatGPT Sol's scenario-preserving coalition architecture;
+   - candidate, assembly, and routing failure decomposition;
+   - low-Coulomb topology proposal;
+   - structural portfolio-diversity design;
+   - walk-forward and matched-null protocol.
+2. `workspace/reviews/red_team_chatgpt_sol_2026-07-13_coalition_heps.md`
+   - independent limitations and promotion gates;
+   - tiny-sample and multiple-search warnings;
+   - required ablations and prospective evidence.
+3. `outputs/research/chatgpt_sol_coalition_heps_experiment_spec_2026-07-13.json`
+   - machine-readable architecture tournament specification.
+
+These files are challenger research only. They do not modify the accepted architecture in `core/heps_architecture.md`.
+
 ## Standard workflow
 
 1. Read `configs/agent.md`.
 2. Read `core/heps_architecture.md`.
-3. Validate `data/draw_history.jsonl`.
-4. Generate a prediction slate under `outputs/predictions/`.
-5. After the draw, append the actual result to the ledger.
-6. Write post-game analysis under `outputs/post_game/`.
-7. Record proposed improvements under `outputs/improvement/`.
-8. Submit any architecture change as a proposal under `workspace/contributions/`.
-9. Red-team the proposal before editing `core/heps_architecture.md`.
+3. Read relevant current research handovers.
+4. Validate `data/draw_history.jsonl`.
+5. Generate a prediction slate under `outputs/predictions/`.
+6. After the draw, append the actual result to the ledger.
+7. Write post-game analysis under `outputs/post_game/`.
+8. Record proposed improvements under `outputs/improvement/`.
+9. Submit any architecture change as a proposal under `workspace/contributions/`.
+10. Red-team the proposal before editing `core/heps_architecture.md`.
 
 ## Quick validation
 
