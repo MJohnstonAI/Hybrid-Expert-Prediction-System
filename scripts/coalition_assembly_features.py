@@ -1,7 +1,10 @@
 """Target-blind feature construction for the HEPS coalition assembly benchmark."""
 from __future__ import annotations
 
+import base64
 import csv
+import gzip
+import io
 import itertools
 import math
 from collections import Counter, defaultdict
@@ -28,7 +31,13 @@ class Draw:
 
 def read_draws(path: Path) -> list[Draw]:
     rows: list[Draw] = []
-    with path.open(newline="", encoding="utf-8") as handle:
+    if path.name.endswith(".gz.b64"):
+        compressed = base64.b64decode(path.read_text(encoding="ascii"))
+        text = gzip.decompress(compressed).decode("utf-8")
+        handle = io.StringIO(text, newline="")
+    else:
+        handle = path.open(newline="", encoding="utf-8")
+    try:
         for row in csv.DictReader(handle):
             rows.append(Draw(
                 source=row["source_game"],
@@ -36,6 +45,8 @@ def read_draws(path: Path) -> list[Draw]:
                 main=tuple(sorted(int(row[f"n{i}"]) for i in range(1, 6))),
                 bonus=int(row["bonus"]),
             ))
+    finally:
+        handle.close()
     rows.sort(key=lambda item: (item.source, item.draw_date))
     return rows
 
