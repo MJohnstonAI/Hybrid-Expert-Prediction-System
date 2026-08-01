@@ -18,7 +18,8 @@
       "sha256": "4bc91ebc74e6f97dda3bffd14c223289c415f1c936c07e8edc6114549ab661d4"
     },
     "normalized_history_csv": {
-      "path": "data/research/coalition_assembly_training_2018_2025.csv",
+      "source_csv_path": "data/research/coalition_assembly_training_2018_2025.csv",
+      "committed_snapshot_path": "data/research/coalition_assembly_training_2018_2025.csv.gz.b64",
       "rows": 1621,
       "sha256": "e7120a50f8ae02ed83a5075554f8396033a56de436910417d14fed060abfb92f"
     },
