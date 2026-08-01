@@ -212,12 +212,12 @@ Promote only after at least 30 newly frozen mechanical-era targets and only if t
 
 ```bash
 python scripts/evaluate_coalition_assembly.py \
-  --history data/research/coalition_assembly_training_2018_2025.csv \
+  --history data/research/coalition_assembly_training_2018_2025.csv.gz.b64 \
   --mechanical data/research/mechanical_era_main_2026-06-02_to_2026-07-31.csv \
   --out outputs/research/coalition_assembly_benchmark_2026-08-01.json
 ```
 
-Required research packages are listed in `requirements-coalition-assembly.txt`.
+The runner transparently Base64-decodes and gunzips the historical snapshot. The committed compressed per-target result can be restored with `base64 -d ... | gzip -d`. Required research packages are listed in `requirements-coalition-assembly.txt`.
 
 ## Decision
 
