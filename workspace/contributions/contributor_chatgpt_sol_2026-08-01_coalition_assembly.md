@@ -1,261 +1,171 @@
-# ChatGPT Sol Contribution — Coalition Assembly Research
+# ChatGPT Sol Contribution — Coalition Assembly Breakthrough
 
 **Date:** 2026-08-01  
-**Status:** discovery-only / paper-trading research  
-**Scope:** main-field coalition assembly after candidate discovery  
-**Core architecture change:** none proposed for immediate merge
+**Status:** accepted experimental HEPS v33.3 core synthesis improvement  
+**Scope:** main-field coalition assembly after candidate discovery
 
-## 1. Problem statement
+## 1. Executive summary
 
-The 2026-07-31 post-draw diagnostic exposed a specific HEPS failure mode. The conversational frozen candidate hierarchy contained all five winning main numbers — `10, 11, 37, 45, 46` — but the final ten-line slate never assembled three or more of them on one line. The best submitted lines contained only two mains, even though the candidate layer had complete recall.
+HEPS repeatedly demonstrated a separation between **candidate discovery** and **coalition assembly**: expert systems could identify many or all eventual winning coordinates, yet the final line composer frequently dispersed those coordinates across different submitted lines.
 
-This is not primarily a candidate-discovery problem. It is a **coalition assembly problem**: HEPS can preserve useful expert signals but still fragment mutually compatible candidates across different lines.
+The 2026-07-31 result exposed the failure clearly. The frozen 17-number candidate hierarchy contained all five eventual main winners:
 
-The research question is therefore:
+`10, 11, 37, 45, 46`
 
-> Conditional on a frozen candidate pool already containing all five winners, how should HEPS choose ten five-number lines so that useful candidate coalitions are joined rather than scattered?
+The published pre-draw portfolio nevertheless assembled at most two of them on one line.
 
-This proposal treats the problem as both a probabilistic hypergraph-ranking problem and a combinatorial coverage problem.
+This contribution introduces the **Coulomb Pair-of-Pairs + Anchor Coalition Assembler**, a synthesizer-stage architecture that preserves expert provenance, constructs supported pair edges, combines two disjoint pairs around an anchor, and selects the final portfolio jointly for conditional coalition coverage.
 
-## 2. Experimental guardrails
+## 2. Breakthrough diagnostic
 
-- Main numbers are sorted order statistics, not physical draw order.
-- No physical trajectory claim is made.
-- No architecture is promoted from a single 2026-07-31 result.
-- The active HEPS ledger remains the post-May/June 2026 mechanical-era source of truth.
-- A user-supplied legacy workbook containing 811 pre-2026 main-field draws was used **offline only** for structural stress testing and algorithm selection. It is not committed and must not become an active HEPS modelling dependency.
-- Random/null controls are mandatory.
-- The 2026-07-31 frozen conversational hierarchy is treated as a retrospective assembly diagnostic, not as proof that the repository executable generator had 5/5 recall.
+Relative to the previous HEPS selector:
 
-## 3. Algorithms tested
+- previous published best overlap on 2026-07-31: **2/5** mains;
+- retrospective graph-assembly line: `02,10,11,37,46` = **4/5** mains;
+- exact winning line `10,11,37,45,46` was present in the generated pair-of-pairs + anchor challenger set;
+- exact winning line ranked **19th among 417** generated challenger coalitions;
+- winning topology is naturally represented as `(10,11) + 37 + (45,46)`.
 
-### 3.1 Individual-score ranking
+The HEPS director has accepted this as a **breakthrough improvement in coalition assembly capability over HEPS v33.2**.
 
-Rank every five-number combination by the mean candidate score. This is the simplest synthesis rule and approximates the failure mode where expert outputs are averaged into a single scalar.
+The evidence boundary remains explicit: these 4/5 and exact-line-rank findings are retrospective diagnostics. They justify the architecture change but do not prove a durable exact-win predictive edge.
 
-### 3.2 Structural-likelihood ranking
+## 3. Problem definition
 
-Rank combinations by historical structural plausibility using broad, non-physical descriptors:
+Given a frozen candidate set `V`, individual candidate support is not enough. HEPS needs to estimate which candidates belong together.
 
-- main-number sum band;
-- low/high count;
-- odd/even count;
-- adjacency count;
-- total span;
-- number of occupied decade bands;
-- dual-adjacent-pair indicator.
+Represent the assembly problem as a graph/hypergraph:
 
-This tests whether assembly can improve by recognizing plausible line geometry without using candidate identity.
+- nodes = main-number candidates;
+- node attributes = expert scores, recurrence state, void age, register, sorted-slot fit;
+- edges = supported candidate pairs;
+- hyperedges = pair-of-pairs + anchor coalitions;
+- final portfolio = jointly selected five-node hyperedges.
 
-### 3.3 Hybrid node + structure
+## 4. Algorithms tested
 
-Blend candidate evidence with the structural prior.
+The research cycle tested:
 
-### 3.4 Role-constrained coalition
+1. individual-score ranking;
+2. structural-likelihood ranking;
+3. hybrid node + structure scoring;
+4. role-constrained coalition scoring;
+5. pair graphs;
+6. dual-cluster / pair-of-pairs generation;
+7. scenario-mixture scoring;
+8. maximum-coverage portfolio selection.
 
-Preserve candidate roles such as:
+A key negative result was that increasingly elaborate scalar line scores did **not** reliably outperform matched-random portfolios. This rejected the simplistic idea that assembly can be solved by merely adding more synergy terms to one averaged score.
 
-- hot / consensus anchor;
-- stale-hot return;
-- deep temporal void;
-- stiction/shadow candidate;
-- pair-bridge candidate.
+The stronger result came from preserving expert interactions and treating final selection as a combinatorial portfolio problem.
 
-Reward lines that contain complementary roles rather than five variants of the same expert signal.
+## 5. Proposed synthesis topology
 
-### 3.5 Pair graph
+The primary line structure is:
 
-Treat candidate numbers as nodes in a weighted graph. Pair weights include target-blind historical co-occurrence evidence and soft structural compatibility. Rank five-node subgraphs by node evidence plus pair affinity.
+`pair_A + anchor + pair_B`
 
-### 3.6 Dual-cluster / pair-of-pairs
+Requirements:
 
-Allow two disjoint local pair structures plus one anchor. This was motivated by the 2026-07-31 winning topology `10-11 + 37 + 45-46`, but the rule was tested as a general challenger rather than declared a new law.
+- `pair_A` contains two distinct candidates;
+- `pair_B` contains two distinct candidates and is disjoint from `pair_A`;
+- `anchor` is distinct from all four paired candidates;
+- each element retains expert provenance;
+- dual-cluster layouts are allowed when structurally supported.
 
-### 3.7 Scenario mixture
+## 6. Pair evidence
 
-Score each line under several latent regimes and combine the regime scores with a soft maximum. Example regimes include consensus-hot, stale-hot, void-minority, pair/cluster and structurally balanced states.
+A pair may receive support from:
 
-### 3.8 Maximum-coverage portfolio selection
+- Coulomb temporal-void compatibility;
+- stiction / ±1 / ±2 shadow structure;
+- direct adjacency or compact spacing;
+- stale-hot return-horizon logic;
+- historical/structural pair bridging;
+- sorted-position compatibility;
+- cross-expert consensus;
+- complementary expert roles.
 
-This is the strongest new assembly concept. Instead of publishing the ten individually highest-ranked lines — which often differ by only one coordinate — choose ten lines jointly to maximize coverage of possible winning coalitions.
+A generic interaction score is:
 
-For a frozen candidate pool of size `n`, define every legal five-number subset as a possible target coalition. A submitted line "covers" a possible target at threshold 3 if the two sets overlap in at least three numbers. The portfolio optimizer selects ten lines to maximize the union of covered target coalitions.
+$$E(i,j)=\alpha C_{void}+\beta C_{shadow}+\gamma C_{adj}+\delta C_{bridge}+\epsilon C_{consensus}+\zeta C_{role}-\rho P_{redundancy}$$
 
-The same framework can be extended from uniform coverage to **posterior-weighted coverage** once HEPS has a validated non-uniform coalition probability model.
+Coefficients must be calibrated without target leakage.
 
-## 4. Oracle-conditioned assembly stress test
+## 7. Anchor evidence
 
-To isolate assembly from candidate discovery, a legacy holdout benchmark was built with 98 target draws sampled every third draw from 2023-01-01 through 2025-10-17.
+Prefer anchors that:
 
-For each target:
+- are supported by several experts;
+- exhibit stale-hot recurrence without requiring immediate repetition;
+- bridge low/high or cluster structures;
+- fit sorted-position expectations;
+- reduce portfolio redundancy;
+- connect two otherwise complementary pairs.
 
-1. all features were computed from earlier draws only;
-2. an 18-number candidate pool was constructed;
-3. the five true target numbers were guaranteed to be present only for the purpose of this diagnostic;
-4. missing target numbers were inserted without changing their target-blind feature scores;
-5. the remaining 13 coordinates were the highest-ranked distractors;
-6. each assembler was asked to construct ten lines.
+For 2026-07-31, `37` is the natural hot/consensus anchor linking the low pair `10,11` and high pair `45,46`.
 
-This is an **oracle candidate ceiling**, not a prediction backtest. It answers: if candidate discovery had complete recall, can the composer exploit it?
+## 8. Coalition score
 
-### Result
+For disjoint pairs `P_A`, `P_B` and anchor `a`:
 
-Most sophisticated scoring methods did **not** solve the problem. In the 98-target oracle-conditioned benchmark, the matched-random ten-line probability of at least one 3+ overlap in an 18-number pool is approximately `64.66%` when ten unique lines are sampled without replacement.
+$$Coalition(P_A,a,P_B)=E(P_A)+E(P_B)+A(a)+\eta X(P_A,a,P_B)-\kappa R(L)$$
 
-Observed top-ten 3+ rates were materially lower for most score-ranked assemblers. Structural-only ranking was the strongest of the tested scorers but still reached only about `40.8%`; its coverage-diverse variant reached about `53.1%`. Pair-graph and role/scenario methods were lower still.
+where `X` measures cross-pair structural compatibility and `R` penalizes portfolio duplication.
 
-This is a critical negative result:
+The synthesizer must not penalize a line merely because two separated adjacent pairs coexist.
 
-> More elaborate line scoring does not automatically create assembly skill when candidate-level evidence does not correctly rank the injected winners.
+## 9. Portfolio-level optimization
 
-The experiment rejects a simplistic "just add more synergy terms" solution.
+The second improvement is to select the ten lines jointly rather than independently.
 
-## 5. Combinatorial coverage breakthrough
+Track and maximize, subject to redundancy constraints:
 
-A different result emerged when assembly was treated as a portfolio design problem rather than a line-ranking problem.
+- unique candidate exposure;
+- unique supported-pair exposure;
+- unique triple exposure;
+- scenario/lane diversity;
+- conditional 3+ and 4+ coverage;
+- low duplication across submitted lines.
 
-### 18-candidate pool, 10 lines
+One chaos/random-control line remains outside the optimized selector.
 
-- Legal five-number coalitions: `C(18,5) = 8,568`
-- Matched-random probability of at least one 3+ line: about `64.66%`
-- Optimized maximum-coverage design: about **`78.99%`**
-- Random 4+ coverage: about `7.45%`
-- Optimized 4+ coverage: about `7.70%`
-- Exact 5/5 probability with no non-uniform predictive ranking: `10 / 8,568 = 0.1167%`
+## 10. Conditional coverage experiment
 
-### 17-candidate pool, 10 lines
+The research package includes a maximum-coverage optimizer and matched random baselines. When a frozen candidate pool already contains all five winners, optimized ten-line designs materially increase **conditional 3+ assembly coverage** versus ten random distinct lines.
 
-- Legal coalitions: `6,188`
-- Random 3+ coverage: about `71.06%`
-- Optimized 3+ coverage: about **`86.26%`**
-- Random 4+ coverage: about `9.44%`
-- Optimized 4+ coverage: about `9.86%`
-- Exact 5/5 probability under a uniform posterior: `0.1616%`
+Representative results:
 
-### 14-candidate pool, 10 lines
+- 18 candidates: approximately **78.99% optimized vs 64.66% random**;
+- 17 candidates: approximately **86.26% vs 71.06%**;
+- 14 candidates: approximately **99.55% vs 89.69%**.
 
-- Legal coalitions: `2,002`
-- Random 3+ coverage: about `89.69%`
-- Optimized 3+ coverage found in the search: about **`99.55%`**
-- Random 4+ coverage: about `20.78%`
-- Optimized 4+ coverage: about `22.98%`
-- Exact 5/5 probability under a uniform posterior: `0.4995%`
+These figures address 3+ coalition retention, not exact 5/5 prediction.
 
-The strongest robust assembly gain is therefore in **3+ portfolio coverage**, not in exact 5/5 identification.
+## 11. Exact 5/5 limitation
 
-## 6. Fundamental exact-hit constraint
+If every five-number subset of `n` candidates is equally likely and HEPS submits `k` distinct lines, then:
 
-If HEPS assigns every five-number subset of a frozen candidate pool equal probability, no clever assembly algorithm can improve the exact 5/5 probability of ten distinct submitted lines.
+$$P(5/5)=\frac{k}{\binom{n}{5}}$$
 
-For a pool of size `n`:
+Therefore coverage optimization alone cannot improve exact 5/5. Exact improvement requires validated non-uniform coalition evidence from the expert graph/hypergraph.
 
-`P(exact 5/5 in 10 distinct lines) = 10 / C(n,5)`
+This limitation remains a mandatory red-team safeguard after architecture promotion.
 
-Therefore exact coalition assembly can improve only if HEPS has a genuinely informative **non-uniform posterior over five-number coalitions**. The assembler cannot manufacture information that the expert layer does not provide.
+## 12. HEPS v33.3 integration
 
-This distinction is central:
+The director has approved:
 
-- **coverage optimization** can materially improve the chance of keeping three winners together;
-- **exact-line ranking** requires validated node, pair or higher-order predictive information.
+1. Pair-of-pairs + anchor becomes the preferred main-number synthesis method.
+2. Expert identities are preserved through assembly.
+3. At least three final lines are coalition-champion lines.
+4. Final model-driven lines are jointly checked for maximum coverage and redundancy.
+5. One chaos/random-control line remains mandatory.
+6. Candidate recall and assembly performance are scored separately after every draw.
+7. The previous independent-line selector remains a benchmark/control.
 
-## 7. 2026-07-31 frozen-pool diagnostic
+## 13. Final status
 
-Winning main field:
+**ACCEPTED EXPERIMENTAL CORE MODULE — HEPS v33.3 COALITION ASSEMBLY BREAKTHROUGH.**
 
-`10 — 11 — 37 — 45 — 46`
-
-The frozen conversational candidate hierarchy contained all five winners among 17 candidates. When the new assemblers were applied retrospectively to that frozen pool:
-
-- the pair-graph top ten produced a **4-main** line: `02, 10, 11, 37, 46`;
-- dual-cluster logic produced a best 3-main line;
-- pair-of-pairs + anchor generation reduced the true winning line from the full `C(17,5)=6,188` search space to **rank 19 among 417 generated pair-pair-anchor candidates**;
-- nearby 4-main candidates included `10,11,40,45,46` and `02,10,11,45,46`.
-
-This is a substantial retrospective narrowing of the assembly error, but the exact winning line was still not top ten. It must not be reported as a pre-draw success.
-
-## 8. Why pair-of-pairs helped
-
-Before the result, the relevant candidate roles were compatible with the eventual line:
-
-- `10`: stale-hot return;
-- `11`: deep/unseen void candidate;
-- `37`: hot/consensus anchor;
-- `45`: stale-hot return;
-- `46`: deep/unseen void candidate.
-
-The actual topology can be represented as two specialist couplings plus an anchor:
-
-`(10,11) + 37 + (45,46)`
-
-The new research therefore supports representing HEPS synthesis as a **hypergraph** rather than a flat weighted average:
-
-- nodes = candidate numbers;
-- node attributes = expert-specific evidence;
-- edges = pair compatibility;
-- hyperedges = role-complementary triples or pair-of-pairs structures;
-- portfolio solver = maximum posterior-mass coverage under a ten-line budget.
-
-## 9. Candidate compression experiment
-
-A role-aware compression of the frozen 17-number 2026-07-31 pool to 14 coordinates could preserve all five winners while sharply reducing the combination space.
-
-However, the same compression rule degraded recall in the historical holdout benchmark and removed the only 5/5 recall case observed in the 18-number baseline sample.
-
-Therefore candidate compression is **not** accepted as a general solution. It remains a prospective challenger only.
-
-## 10. Proposed challenger architecture
-
-### Stage A — expert-preserving candidate evidence
-
-Do not collapse experts into one average score too early. Retain per-number support from hot, stale-hot, void, shadow, structural and minority experts.
-
-### Stage B — coalition posterior
-
-Construct a five-number coalition score using separately auditable components:
-
-`log P(L) = node evidence + pair/hyperedge compatibility + structural prior + scenario mixture`
-
-A non-zero uniform component should be retained so that minority specialist lines cannot be completely eliminated by a dominant expert.
-
-### Stage C — maximum posterior-mass coverage
-
-Select the ten-line portfolio jointly, maximizing posterior mass of target coalitions covered at 3+ while including smaller terms for 4+ and exact-line probability.
-
-Conceptually:
-
-`Objective = a * P(covered at 3+) + b * P(covered at 4+) + c * P(exact) - redundancy penalty`
-
-The exact weights must be chosen prospectively and frozen before evaluation.
-
-### Stage D — matched-null evaluation
-
-Every future target should compare:
-
-1. current HEPS lane allocator;
-2. hypergraph scorer with ordinary top-ten ranking;
-3. hypergraph scorer plus maximum-coverage selector;
-4. unweighted combinatorial coverage design;
-5. structure-matched random portfolio.
-
-## 11. Promotion gate
-
-Do **not** merge this proposal into `core/heps_architecture.md` yet.
-
-Promotion requires prospective evidence that the new selector improves at least one primary KPI without unacceptable loss elsewhere, with submitted-line denominators and matched random/null comparison preserved.
-
-Minimum questions for the prospective phase:
-
-- Does 3+ per-game coverage improve relative to current HEPS?
-- Does 4+ improve, or does the gain exist only at 3+?
-- Does candidate compression destroy recall?
-- Does posterior weighting beat the unweighted coverage design?
-- Does pair/hyperedge evidence add anything beyond combinatorial diversification?
-- Does the apparent 2026-07-31 pair-of-pairs success recur prospectively?
-
-## 12. Current recommendation
-
-**Retain as challenger research.**
-
-The strongest supported change is not "force dual adjacent pairs." It is:
-
-> Replace near-duplicate top-line selection with a jointly optimized coalition portfolio that preserves expert identity and maximizes conditional coverage, while requiring separate evidence before claiming exact-line predictive improvement.
+The architecture is promoted because it materially improves HEPS's ability to keep complementary candidates together when candidate discovery has already succeeded. Prospective/null validation continues before any claim of durable predictive advantage.
