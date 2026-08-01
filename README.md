@@ -76,3 +76,16 @@ python scripts/score_prediction.py --prediction outputs/predictions/<stored-slat
 ## Important correction
 
 For the draw `21, 26, 40, 42, 44`, the macro-sum is `173`, not `193`.
+
+## Current research handover — coalition assembly
+
+The 2026-08-01 ChatGPT Sol coalition-assembly package is discovery-only and does not change accepted HEPS architecture:
+
+1. `workspace/contributions/contributor_chatgpt_sol_2026-08-01_coalition_assembly.md`
+2. `workspace/reviews/red_team_chatgpt_sol_2026-08-01_coalition_assembly.md`
+3. `workspace/reviews/qna_grounding_chatgpt_sol_2026-08-01_coalition_assembly.md`
+4. `workspace/reviews/merge_decision_chatgpt_sol_2026-08-01_coalition_assembly.md`
+5. `scripts/coalition_cover_optimizer.py`
+6. `outputs/research/chatgpt_sol_coalition_assembly_2026-08-01.json`
+
+Key finding: jointly optimized portfolio coverage can materially improve conditional 3+ assembly when the frozen candidate pool already contains all five winners, but exact 5/5 remains unsolved without a validated non-uniform coalition posterior. The package is held as a prospective challenger pending unseen-target matched-null testing.
