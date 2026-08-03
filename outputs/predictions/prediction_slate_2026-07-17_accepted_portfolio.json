@@ -1,0 +1,142 @@
+{
+  "branch": "HEPS v33.2 accepted diversified portfolio",
+  "git_branch": "main",
+  "target_draw_date": "2026-07-17",
+  "dataset_manifest": "data/draw_manifest.json",
+  "dataset_state": {
+    "latest_draw_id": 13,
+    "latest_draw_date": "2026-07-14",
+    "latest_main_numbers": [9, 13, 21, 36, 40],
+    "latest_powerball": 4,
+    "row_count": 13
+  },
+  "generated_at": "2026-07-15T06:23:37Z",
+  "status": "paper_trading_only",
+  "architecture_status": "accepted_lane_allocation_no_weight_change",
+  "portfolio_allocation": {
+    "tri_cluster_high_register": 3,
+    "void_bridge": 3,
+    "stiction_shadow": 2,
+    "sorted_position_momentum": 1,
+    "chaos_baseline": 1
+  },
+  "generation_method": {
+    "main_numbers": "Existing HEPS expert rankings synthesized at the line level with hard macro-sum and portfolio-diversity governors.",
+    "macro_sum_band": [110, 160],
+    "chaos_seed": 20260717,
+    "powerball_method": "Prequential PowerBall consensus ranking from existing expert maps; used diagnostically without changing core weights.",
+    "powerball_ranking_used": [4, 11, 12, 5, 3, 6, 13, 15, 10, 9],
+    "symmetry_feature_status": "not_used_single_post_hoc_observation"
+  },
+  "portfolio_diagnostics": {
+    "line_count": 10,
+    "unique_main_coordinates": 32,
+    "unique_pairs": 97,
+    "unique_triples": 100,
+    "mean_pairwise_line_overlap": 0.511111,
+    "max_pairwise_line_overlap": 2,
+    "portfolio_specific_random_3_plus_game_rate": 0.04719,
+    "random_baseline_trials": 100000,
+    "random_baseline_seed": 20260717
+  },
+  "slates": [
+    {
+      "rank": 1,
+      "lane": "tri_cluster_high_register",
+      "main": [13, 26, 36, 40, 41],
+      "powerball": 4,
+      "macro_sum": 156,
+      "spread": 28,
+      "rationale": "High-register continuation with a 36-41 tri-cluster and restrained recurrence from the latest draw."
+    },
+    {
+      "rank": 2,
+      "lane": "tri_cluster_high_register",
+      "main": [8, 24, 41, 42, 43],
+      "powerball": 11,
+      "macro_sum": 158,
+      "spread": 35,
+      "rationale": "Compact 41-43 high-register cluster supported by low and midfield bridge anchors."
+    },
+    {
+      "rank": 3,
+      "lane": "tri_cluster_high_register",
+      "main": [6, 20, 33, 34, 38],
+      "powerball": 12,
+      "macro_sum": 131,
+      "spread": 32,
+      "rationale": "Lower-sum high-register hedge with three coordinates inside the 33-38 band."
+    },
+    {
+      "rank": 4,
+      "lane": "void_bridge",
+      "main": [1, 15, 24, 35, 46],
+      "powerball": 5,
+      "macro_sum": 121,
+      "spread": 45,
+      "rationale": "Cold-coordinate line spanning the lower field, the recent 21-36 canyon, and the upper tail."
+    },
+    {
+      "rank": 5,
+      "lane": "void_bridge",
+      "main": [3, 11, 28, 39, 49],
+      "powerball": 3,
+      "macro_sum": 130,
+      "spread": 46,
+      "rationale": "Dispersed void coverage with 28 and 39 bridging underrepresented middle and upper sectors."
+    },
+    {
+      "rank": 6,
+      "lane": "void_bridge",
+      "main": [4, 22, 31, 38, 45],
+      "powerball": 6,
+      "macro_sum": 140,
+      "spread": 41,
+      "rationale": "Independent canyon-fill line covering cold coordinates around 22, 31, and 38."
+    },
+    {
+      "rank": 7,
+      "lane": "stiction_shadow",
+      "main": [9, 14, 20, 36, 41],
+      "powerball": 13,
+      "macro_sum": 120,
+      "spread": 32,
+      "rationale": "Two latest-draw repeats combined with +1/-1 shadows around 13, 21, and 40."
+    },
+    {
+      "rank": 8,
+      "lane": "stiction_shadow",
+      "main": [11, 13, 22, 35, 40],
+      "powerball": 15,
+      "macro_sum": 121,
+      "spread": 29,
+      "rationale": "Repeat-plus-shadow hedge using 13 and 40 with nearby support around 9, 21, and 36."
+    },
+    {
+      "rank": 9,
+      "lane": "sorted_position_momentum",
+      "main": [11, 17, 25, 33, 41],
+      "powerball": 10,
+      "macro_sum": 127,
+      "spread": 30,
+      "rationale": "Rounded recency-weighted means for sorted Slots 1-5; these are order statistics, not physical draw order."
+    },
+    {
+      "rank": 10,
+      "lane": "chaos_baseline",
+      "main": [8, 15, 38, 45, 47],
+      "powerball": 9,
+      "macro_sum": 153,
+      "spread": 39,
+      "rationale": "Seeded random control; first generated line passing the fixed 110-160 macro-sum governor."
+    }
+  ],
+  "risk_notes": [
+    "Only 13 mechanical-era draws are available, so all feature estimates remain unstable.",
+    "The updated held-out orchestration audit found no robust predictive improvement.",
+    "The frozen dual-synergy slate failed on 2026-07-10 with a best overlap of one and was not reused.",
+    "The 4.719% random baseline is the chance that this fixed 10-line portfolio reaches at least one 3-main line against a uniform random draw; any future hit must retain the submitted-line denominator.",
+    "The 2026-07-14 PowerBall-coupled symmetry is recorded as a diagnostic only and did not influence these lines.",
+    "This slate is experimental paper-trading research, not a guarantee, durable-edge claim, or gambling advice."
+  ]
+}

@@ -1,0 +1,400 @@
+{
+  "scored_at": "2026-07-15T06:25:50Z",
+  "status": "paper_trading_calibration_only",
+  "prediction_target_draw_date": "2026-07-10",
+  "target": {
+    "draw_id": 12,
+    "draw_date": "2026-07-10",
+    "main_numbers": [
+      2,
+      12,
+      13,
+      20,
+      23
+    ],
+    "powerball": 12
+  },
+  "portfolio_metrics": {
+    "lines": 20,
+    "best_main_hits": 1,
+    "total_main_hits": 9,
+    "lines_with_2_plus": 0,
+    "lines_with_3_plus": 0,
+    "lines_with_4_plus": 0,
+    "lines_with_exactly_3": 0,
+    "lines_with_exactly_4": 0,
+    "lines_with_exactly_5": 0,
+    "powerball_hits": 2,
+    "joint_2_plus_and_powerball": 0,
+    "joint_3_plus_and_powerball": 0,
+    "joint_4_plus_and_powerball": 0,
+    "full_5_plus_powerball": 0,
+    "three_plus_rate_per_line": 0.0,
+    "joint_three_plus_powerball_rate_per_line": 0.0,
+    "line_count": 20,
+    "unique_pairs": 84,
+    "unique_triples": 143,
+    "unique_main_coordinates": 20,
+    "mean_pairwise_line_overlap": 1.531579,
+    "max_pairwise_line_overlap": 3
+  },
+  "lane_metrics": {
+    "hot_high_synergy": {
+      "lines": 10,
+      "best_main_hits": 1,
+      "total_main_hits": 9,
+      "lines_with_2_plus": 0,
+      "lines_with_3_plus": 0,
+      "lines_with_4_plus": 0,
+      "lines_with_exactly_3": 0,
+      "lines_with_exactly_4": 0,
+      "lines_with_exactly_5": 0,
+      "powerball_hits": 0,
+      "joint_2_plus_and_powerball": 0,
+      "joint_3_plus_and_powerball": 0,
+      "joint_4_plus_and_powerball": 0,
+      "full_5_plus_powerball": 0,
+      "three_plus_rate_per_line": 0.0,
+      "joint_three_plus_powerball_rate_per_line": 0.0
+    },
+    "structural_synergy": {
+      "lines": 10,
+      "best_main_hits": 0,
+      "total_main_hits": 0,
+      "lines_with_2_plus": 0,
+      "lines_with_3_plus": 0,
+      "lines_with_4_plus": 0,
+      "lines_with_exactly_3": 0,
+      "lines_with_exactly_4": 0,
+      "lines_with_exactly_5": 0,
+      "powerball_hits": 2,
+      "joint_2_plus_and_powerball": 0,
+      "joint_3_plus_and_powerball": 0,
+      "joint_4_plus_and_powerball": 0,
+      "full_5_plus_powerball": 0,
+      "three_plus_rate_per_line": 0.0,
+      "joint_three_plus_powerball_rate_per_line": 0.0
+    }
+  },
+  "per_slate": [
+    {
+      "rank": 1,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        40,
+        44,
+        45
+      ],
+      "powerball": 11,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 2,
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        16,
+        31,
+        32,
+        33
+      ],
+      "powerball": 13,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 3,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        27,
+        40,
+        43,
+        45
+      ],
+      "powerball": 15,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 4,
+      "lane": "structural_synergy",
+      "main": [
+        17,
+        31,
+        32,
+        33,
+        34
+      ],
+      "powerball": 12,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": true
+    },
+    {
+      "rank": 5,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        37,
+        40,
+        43
+      ],
+      "powerball": 10,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 6,
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        17,
+        30,
+        32,
+        33
+      ],
+      "powerball": 9,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 7,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        45,
+        49,
+        50
+      ],
+      "powerball": 6,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 8,
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        30,
+        31,
+        32,
+        34
+      ],
+      "powerball": 7,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 9,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        33,
+        40,
+        43,
+        44
+      ],
+      "powerball": 14,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 10,
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        30,
+        32,
+        33,
+        34
+      ],
+      "powerball": 1,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 11,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        43,
+        44,
+        49
+      ],
+      "powerball": 8,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 12,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        43,
+        45,
+        48
+      ],
+      "powerball": 16,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 13,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        16,
+        44,
+        48,
+        50
+      ],
+      "powerball": 5,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 14,
+      "lane": "hot_high_synergy",
+      "main": [
+        2,
+        27,
+        43,
+        44,
+        48
+      ],
+      "powerball": 4,
+      "main_hits": 1,
+      "matched_main_numbers": [
+        2
+      ],
+      "powerball_hit": false
+    },
+    {
+      "rank": 15,
+      "lane": "hot_high_synergy",
+      "main": [
+        9,
+        16,
+        40,
+        43,
+        45
+      ],
+      "powerball": 3,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 16,
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        17,
+        30,
+        31,
+        32
+      ],
+      "powerball": 2,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 17,
+      "lane": "structural_synergy",
+      "main": [
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "powerball": 11,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 18,
+      "lane": "structural_synergy",
+      "main": [
+        15,
+        16,
+        17,
+        32,
+        34
+      ],
+      "powerball": 13,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 19,
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        29,
+        32,
+        33,
+        34
+      ],
+      "powerball": 15,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": false
+    },
+    {
+      "rank": 20,
+      "lane": "structural_synergy",
+      "main": [
+        16,
+        17,
+        29,
+        31,
+        32
+      ],
+      "powerball": 12,
+      "main_hits": 0,
+      "matched_main_numbers": [],
+      "powerball_hit": true
+    }
+  ],
+  "calibration_note": "Do not update expert weights from one result. Accumulate independently generated, pre-draw reports and compare against random/null baselines before changing architecture."
+}
