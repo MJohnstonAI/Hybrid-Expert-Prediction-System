@@ -1,0 +1,56 @@
+{
+  "project": "HEPS",
+  "target_draw_date": "2026-08-04",
+  "generated_at": "2026-08-04T08:12:37+02:00",
+  "status": "paper_trading_only",
+  "architecture": "HEPS v33.3 - Coalition Assembly Breakthrough",
+  "branch": "agent/coalition-assembly-research-2026-08-01",
+  "data_cutoff": "2026-07-31",
+  "latest_observed_draw": {"date":"2026-07-31","main_numbers":[10,11,37,45,46],"powerball":11},
+  "evidence_boundary": "Heuristic/experimental ranking; no demonstrated durable predictive edge. Every legal line remains equally likely under a fair independent draw absent validated non-uniform evidence.",
+  "main_candidate_hierarchy": [2,9,37,44,16,26,40,43,33,10,45,12,47,21,27,32,48,35,19,39,11,46],
+  "challenger_13_pool": [2,9,10,12,16,26,33,37,40,43,44,45,47],
+  "powerball_ranking": [4,12,13,1,16,15,6,11,7,10,2,3,5,8,9,14],
+  "powerball_lead": 4,
+  "champion_lines": [
+    {"rank":1,"main_numbers":[9,10,26,27,44],"powerball":4,"lane":"pair_of_pairs_anchor"},
+    {"rank":2,"main_numbers":[9,10,37,47,48],"powerball":12,"lane":"pair_of_pairs_anchor"},
+    {"rank":3,"main_numbers":[32,33,37,44,45],"powerball":13,"lane":"pair_of_pairs_anchor"},
+    {"rank":4,"main_numbers":[2,19,35,43,44],"powerball":1,"lane":"void_led_coalition"},
+    {"rank":5,"main_numbers":[2,9,35,39,48],"powerball":16,"lane":"void_led_coalition"},
+    {"rank":6,"main_numbers":[2,9,37,40,44],"powerball":4,"lane":"tri_cluster_high_register"},
+    {"rank":7,"main_numbers":[2,10,37,45,46],"powerball":15,"lane":"tri_cluster_high_register"},
+    {"rank":8,"main_numbers":[10,11,12,46,47],"powerball":11,"lane":"stiction_shadow"},
+    {"rank":9,"main_numbers":[2,16,26,33,47],"powerball":6,"lane":"cross_expert_max_coverage"},
+    {"rank":10,"main_numbers":[3,4,5,26,31],"powerball":8,"lane":"chaos_random_control"}
+  ],
+  "challenger_lines": [
+    {"rank":11,"main_numbers":[2,9,10,12,16],"powerball":12,"lane":"13_number_covering_design"},
+    {"rank":12,"main_numbers":[26,33,37,40,43],"powerball":15,"lane":"13_number_covering_design"},
+    {"rank":13,"main_numbers":[2,26,44,45,47],"powerball":16,"lane":"13_number_covering_design"},
+    {"rank":14,"main_numbers":[9,10,33,44,45],"powerball":6,"lane":"13_number_covering_design"},
+    {"rank":15,"main_numbers":[12,16,37,40,47],"powerball":11,"lane":"13_number_covering_design"},
+    {"rank":16,"main_numbers":[12,16,43,44,45],"powerball":13,"lane":"13_number_covering_design"},
+    {"rank":17,"main_numbers":[2,9,10,43,47],"powerball":1,"lane":"13_number_covering_design"},
+    {"rank":18,"main_numbers":[9,10,12,16,26],"powerball":12,"lane":"13_number_covering_design"},
+    {"rank":19,"main_numbers":[2,9,33,37,40],"powerball":4,"lane":"13_number_covering_design"},
+    {"rank":20,"main_numbers":[2,9,10,12,26],"powerball":13,"lane":"13_number_covering_design"}
+  ],
+  "challenger_property": {
+    "pool_size": 13,
+    "line_count": 10,
+    "conditional_3plus_coverage": 1.0,
+    "condition": "All five winning main numbers must lie inside the frozen 13-number challenger pool."
+  },
+  "scoring_plan": [
+    "score champion 10 and challenger 10 separately",
+    "report candidate-pool recall before assembly",
+    "report best main overlap, counts of 2+/3+/4+/5 main hits, and exact PowerBall hits",
+    "compare against matched-random 20-line exposure",
+    "do not modify this artifact after the target result is known"
+  ],
+  "sources": [
+    "Powerball.net South Africa result 2026-07-31",
+    "za.national-lottery.com PowerBall archive/results for preceding mechanical-era draws"
+  ]
+}
