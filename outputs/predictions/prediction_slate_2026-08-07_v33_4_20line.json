@@ -1,0 +1,108 @@
+{
+  "project": "HEPS",
+  "target_draw_date": "2026-08-07",
+  "generated_at": "2026-08-05T10:35:00+02:00",
+  "status": "paper_trading_only",
+  "architecture": "HEPS v33.4 - Candidate Recall Guard + Directional Scenario Routing",
+  "branch": "agent/postdraw-2026-08-04-candidate-recall-v33-4",
+  "data_cutoff": "2026-08-04",
+  "latest_observed_draw": {
+    "date": "2026-08-04",
+    "main_numbers": [16, 24, 29, 34, 38],
+    "powerball": 15
+  },
+  "evidence_boundary": "Experimental paper-trading slate. Current candidate experts are approximately null-equivalent in the small mechanical-era walk-forward sample. This artifact tests architecture and attribution; it is not evidence of a durable lottery edge.",
+  "candidate_method": {
+    "core_pool_method": "rank-consensus across hot, cold_void, stiction_shadow, pair_bridge, midfield and high_register evidence with expert provenance preserved",
+    "rescue_pool_method": "union of each expert's top-six nominations; used as omission-risk control rather than predictive claim",
+    "core_pool": [9, 10, 11, 16, 21, 24, 26, 27, 28, 29, 30, 34, 35, 37, 38, 45, 48, 49],
+    "rescue_pool": [1, 2, 5, 9, 10, 16, 23, 24, 25, 26, 27, 28, 29, 35, 36, 37, 38, 39, 40, 45, 46, 47, 48, 49, 50],
+    "core_pool_size": 18,
+    "rescue_pool_size": 25,
+    "null_expected_winner_recall": {
+      "core_pool": 1.8,
+      "rescue_pool": 2.5
+    },
+    "feature_top15": {
+      "hot": [37, 40, 2, 9, 16, 27, 10, 12, 13, 21, 45, 47, 8, 19, 20],
+      "cold_void": [1, 35, 39, 28, 49, 5, 48, 7, 30, 19, 43, 25, 33, 17, 26],
+      "stiction_shadow": [38, 37, 36, 16, 24, 29, 34, 10, 11, 35, 39, 45, 46, 15, 17],
+      "pair_bridge": [37, 16, 10, 29, 45, 9, 11, 24, 27, 34, 38, 46, 2, 33, 17],
+      "midfield": [25, 26, 24, 27, 23, 28, 22, 29, 21, 30, 20, 31, 19, 32, 18],
+      "high_register": [50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36]
+    }
+  },
+  "directional_scenarios": {
+    "reference_main": [16, 24, 29, 34, 38],
+    "null_geometry": {
+      "template": ["L", "L", "L", "H", "H"],
+      "slot_probabilities": [
+        {"slot": 1, "current": 16, "L": 0.8468, "R": 0.0219, "H": 0.1313},
+        {"slot": 2, "current": 24, "L": 0.7714, "R": 0.0282, "H": 0.2004},
+        {"slot": 3, "current": 29, "L": 0.6162, "R": 0.0375, "H": 0.3464},
+        {"slot": 4, "current": 34, "L": 0.4403, "R": 0.0412, "H": 0.5185},
+        {"slot": 5, "current": 38, "L": 0.2057, "R": 0.0312, "H": 0.7631}
+      ]
+    },
+    "hlr_motif_challenger": {
+      "template": ["L", "L", "H", "H", "H"],
+      "status": "challenger_only",
+      "note": "Legacy holdout does not establish a global HLR edge; preserved because the mechanical PB-direction sample remains hypothesis-generating."
+    }
+  },
+  "powerball_model": {
+    "current_powerball": 15,
+    "direction_call": "L",
+    "direction_null_probability": 0.875,
+    "direction_interpretation": "Weak discriminator because 14 of 16 fair PB values are already lower than 15.",
+    "exact_ranking_method": "rank consensus of recurrence-frequency, recent +/-1/+/-2 shadow and stale-hot support",
+    "exact_ranking": [13, 11, 1, 4, 15, 6, 12, 16, 7, 2, 3, 14, 9, 10, 5, 8],
+    "primary_exact_candidate": 13,
+    "secondary_exact_candidate": 11,
+    "vvd_status": "no new director VVD displacement call frozen for 2026-08-07"
+  },
+  "lines": [
+    {"rank":1,"class":"core_coalition","main_numbers":[10,16,29,37,45],"powerball":13,"pair_a":[16,29],"anchor":10,"pair_b":[37,45],"hlr":"L-L-R-H-H"},
+    {"rank":2,"class":"core_coalition","main_numbers":[9,16,24,27,29],"powerball":11,"pair_a":[9,27],"anchor":24,"pair_b":[16,29],"hlr":"L-L-L-L-L"},
+    {"rank":3,"class":"core_coalition","main_numbers":[10,24,27,30,37],"powerball":14,"pair_a":[10,37],"anchor":24,"pair_b":[27,30],"hlr":"L-R-L-L-L"},
+    {"rank":4,"class":"core_coalition","main_numbers":[9,27,34,37,45],"powerball":1,"pair_a":[9,27],"anchor":34,"pair_b":[37,45],"hlr":"L-H-H-H-H"},
+    {"rank":5,"class":"core_coalition","main_numbers":[10,11,34,35,37],"powerball":4,"pair_a":[10,11],"anchor":37,"pair_b":[34,35],"hlr":"L-L-H-H-L"},
+    {"rank":6,"class":"core_coalition","main_numbers":[9,10,28,37,49],"powerball":15,"pair_a":[9,10],"anchor":37,"pair_b":[28,49],"hlr":"L-L-L-H-H"},
+    {"rank":7,"class":"core_coalition","main_numbers":[16,21,26,29,35],"powerball":6,"pair_a":[16,29],"anchor":35,"pair_b":[21,26],"hlr":"R-L-L-L-L"},
+    {"rank":8,"class":"core_coalition","main_numbers":[16,28,29,34,49],"powerball":12,"pair_a":[16,29],"anchor":34,"pair_b":[28,49],"hlr":"R-H-R-R-H"},
+    {"rank":9,"class":"rescue_coalition","main_numbers":[2,16,23,29,37],"powerball":13,"pair_a":[2,23],"anchor":37,"pair_b":[16,29],"hlr":"L-L-L-L-L"},
+    {"rank":10,"class":"rescue_coalition","main_numbers":[10,16,29,36,40],"powerball":11,"pair_a":[16,29],"anchor":10,"pair_b":[36,40],"hlr":"L-L-R-H-H"},
+    {"rank":11,"class":"rescue_coalition","main_numbers":[16,24,25,29,50],"powerball":14,"pair_a":[16,29],"anchor":24,"pair_b":[25,50],"hlr":"R-R-L-L-H"},
+    {"rank":12,"class":"rescue_coalition","main_numbers":[16,23,27,45,46],"powerball":4,"pair_a":[23,27],"anchor":16,"pair_b":[45,46],"hlr":"R-L-L-H-H"},
+    {"rank":13,"class":"directional_null_geometry","main_numbers":[10,16,27,37,47],"powerball":13,"pair_a":[10,37],"anchor":16,"pair_b":[27,47],"hlr":"L-L-L-H-H"},
+    {"rank":14,"class":"directional_null_geometry","main_numbers":[1,2,5,39,48],"powerball":11,"pair_a":[1,2],"anchor":39,"pair_b":[5,48],"hlr":"L-L-L-H-H"},
+    {"rank":15,"class":"directional_hlr_motif","main_numbers":[10,16,37,38,39],"powerball":14,"pair_a":[10,37],"anchor":16,"pair_b":[38,39],"hlr":"L-L-H-H-H"},
+    {"rank":16,"class":"directional_hlr_motif","main_numbers":[2,23,35,36,47],"powerball":12,"pair_a":[2,23],"anchor":35,"pair_b":[36,47],"hlr":"L-L-H-H-H"},
+    {"rank":17,"class":"maximum_coverage_rescue","main_numbers":[2,26,27,28,40],"powerball":15,"pair_a":[2,28],"anchor":27,"pair_b":[26,40],"hlr":"L-H-L-L-H"},
+    {"rank":18,"class":"maximum_coverage_rescue","main_numbers":[2,24,38,45,49],"powerball":16,"pair_a":[2,49],"anchor":45,"pair_b":[24,38],"hlr":"L-R-H-H-H"},
+    {"rank":19,"class":"random_control","main_numbers":[3,22,24,29,50],"powerball":7,"hlr":"L-L-L-L-H","seed":20260807},
+    {"rank":20,"class":"random_control","main_numbers":[4,19,21,28,31],"powerball":5,"hlr":"L-L-L-L-L","seed":20260807}
+  ],
+  "portfolio_diagnostics": {
+    "line_count": 20,
+    "unique_main_coordinates_used": 34,
+    "unique_pairs_used": 161,
+    "unique_triples_used": 193,
+    "allocation": {
+      "core_coalition": 8,
+      "rescue_coalition": 4,
+      "directional_scenario": 4,
+      "maximum_coverage_rescue": 2,
+      "random_control": 2
+    },
+    "mandatory_post_draw_scoring": [
+      "core and rescue candidate recall with pool-size null",
+      "null-geometry versus HLR scenario accuracy",
+      "pair and anchor attribution",
+      "best line overlap and all 20-line denominators",
+      "PB direction, exact PB and VVD scored separately",
+      "matched random/control comparison",
+      "no retrospective Main/XTRA credit leakage"
+    ]
+  }
+}
