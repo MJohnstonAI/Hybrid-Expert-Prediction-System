@@ -1,275 +1,174 @@
 # HEPS STRATEGIC COMPENDIUM & COGNITIVE SPECIFICATION
 
-This document serves as the authoritative mathematical and semantic reference for autonomous HEPS agents. It defines the active expert lanes and the synthesis protocol used to combine their outputs into final prediction slates.
+This document is the mathematical/semantic operating reference for HEPS agents.
 
----
+## 1. HEPS v33.4 operating sequence
 
-## 1. Expert Roster & Strategy Specifications
+`Expert nominations → Core/Rescue recall guard → Directional scenarios → Pair-of-Pairs coalition synthesis → 20-line portfolio covering → Frozen artifact → Post-draw attribution`
 
-### Lane 1: The Coulomb Void Starvation Engine (`expert_void_bridge`)
+No downstream stage may receive credit for information that was absent upstream.
 
-**Core principle:** Track prolonged numerical absence and under-filled regions as temporal/spatial starvation features.
+## 2. Candidate experts
 
-For a number `x` with starvation interval `t_x`:
+### Coulomb Void Starvation (`expert_void_bridge`)
 
-$$C(x) = 1 - e^{-\lambda t_x}$$
+Track prolonged absence and under-filled numerical regions. A starvation score may be expressed as:
 
-This is a research score, not proof that an overdue number becomes intrinsically more likely in a fair draw.
+$$C(x)=1-e^{-\lambda t_x}$$
 
-**Behavioral role:** nominate deep-void, unseen, canyon-fill, and bridge candidates for the coalition synthesizer.
+This is a ranking feature, not an overdue-number probability law.
 
-### Lane 2: The Kinetic Inertia & Step Drift Tracker (`expert_stiction_shadow`)
+### Stiction / Shadow (`expert_stiction_shadow`)
 
-**Core principle:** Track exact repeats and local ±1/±2 numerical shadows around recent winning coordinates.
+Track exact repeat and ±1/±2 numerical neighbourhoods around recent draws. Sorted slots are order statistics, not physical ball trajectories.
 
-A simple displacement diagnostic is:
+### Sorted-position structure (`expert_sorted_momentum`)
 
-$$V_t = X_t - X_{t-1}$$
+Track slot-specific order-statistic distributions and structural compatibility.
 
-Sorted values are order statistics, not physical draw order. This lane is therefore treated as a numerical-neighborhood feature rather than proof of a physical trajectory.
+### Tri-cluster / register (`expert_tri_cluster_high`)
 
-**Behavioral role:** nominate exact-repeat and local-neighbor candidates and provide pair-edge support when two candidates form a credible local coalition.
+Generate compact/high-register hypotheses as one lane only. Do not impose a universal high-register multiplier.
 
-### Lane 3: Sorted-Position Momentum (`expert_sorted_momentum`)
+### Stale-hot / return horizon
 
-**Core principle:** Model historical distributions for sorted Slot1–Slot5 order statistics and reject or penalize structurally implausible line geometries.
+Preserve recurring but rested candidates separately from pure cold/void logic.
 
-**Behavioral role:** provide slot-compatibility evidence and identify anchors/bridges that make a pair-of-pairs coalition structurally coherent.
+### Midfield / structural rescue
 
-### Lane 4: The Tri-Cluster High-Register Engine (`expert_tri_cluster_high`)
+Preserve credible central candidates that may otherwise be erased by high-register, hot or void dominance. This is a recall hedge, not a predictive claim.
 
-**Core principle:** Track empirical clustered/high-register structures without treating them as mandatory.
+### Chaos/null control (`expert_chaos_hedge`)
 
-**Behavioral role:** generate cluster candidates and pair structures, especially when multiple supported high-register coordinates can coexist in the same line.
+Produce explicit random/control candidates and lines.
 
-### Lane 5: The Randomized Control Baseline (`expert_chaos_hedge`)
+## 3. Dual-Pool Candidate Recall Guard
 
-**Core principle:** Represent filtered lottery entropy and protect the research program from confirmation bias.
+### Core pool
 
-**Behavioral role:** produce one mandatory control line that bypasses the optimized coalition synthesizer.
+Compact candidate set for dense coalition search. Research range: 13–18 numbers.
 
-### Supporting feature: Stale-Hot / Return-Horizon Expert
+### Rescue pool
 
-A candidate may receive support when it has both:
+Broader specialist/structural union. Research range: roughly 22–26 numbers.
 
-- sufficient historical recurrence to avoid being a pure one-off frequency artifact; and
-- a meaningful but capped absence interval.
+Every prediction must report both pool sizes and winner recall after the draw. Pool-size-adjusted nulls are mandatory.
 
-This feature is particularly useful for identifying "rested" anchors and should be kept distinct from pure cold/overdue logic.
+For a uniformly random 5-of-50 target, expected candidate recall for a pool of size `v` is:
 
----
+$$E[R]=5v/50=v/10$$
 
-## 2. HEPS v33.3 Synthesis Protocol — Coulomb Pair-of-Pairs + Anchor
+Therefore a larger rescue pool cannot be described as improved prediction merely because it captures more winners.
 
-### 2.1 Architectural objective
+Mechanical-era single-feature 22-number candidate pools are currently approximately null-equivalent. Do not chase weights after one miss.
 
-The previous HEPS synthesizer could identify strong candidates but frequently failed to keep complementary winners together on the same final line. HEPS v33.3 changes the synthesis problem from:
+## 4. Directional Scenario Routing
 
-> rank individual five-number lines independently
+For sorted main slot `j`, define state:
 
-into:
+- `H` if next slot value is greater;
+- `L` if lower;
+- `R` if equal.
 
-> preserve expert provenance, identify supported pairs/hyperedges, assemble coherent pair-of-pairs coalitions, and select the final portfolio jointly.
+The states are not equiprobable. The exact fair probability of slot `j` taking value `x` in a 5-of-50 draw is:
 
-The primary synthesis topology is:
+$$P(X_j=x)=\frac{\binom{x-1}{j-1}\binom{50-x}{5-j}}{\binom{50}{5}}$$
 
-$$L = P_A \cup \{a\} \cup P_B$$
+Use this to calculate exact conditional `P(L)`, `P(R)` and `P(H)` relative to the current slot value.
 
-where:
+### Required scenarios
 
-- `P_A` is a supported two-number pair;
-- `P_B` is a second supported pair disjoint from `P_A`;
-- `a` is a compatible anchor not contained in either pair.
+1. `null_geometry` — modal H/L/R state from exact fair slot geometry;
+2. `hlr_motif_challenger` — frozen symbolic motif rule;
+3. optional `director_motif` — user/director hypothesis frozen pre-draw.
 
-This creates a five-number coalition with explicit expert attribution.
+HLR is never a hard veto. Disagreement creates separate scenario lines.
 
-### 2.2 Pair construction
+### HLR evidence boundary
 
-For candidate pair `(i,j)`, calculate a soft interaction score from available evidence:
+An 811-draw legacy diagnostic (2018-01-09 to 2025-10-17) was used as a prior only. A 600-train/211-holdout motif classifier underperformed fair modal slot geometry in every main slot and PB. Therefore no global motif edge is accepted.
 
-$$E(i,j) = \alpha C_{void} + \beta C_{shadow} + \gamma C_{adj} + \delta C_{bridge} + \epsilon C_{consensus} + \zeta C_{role} - \rho P_{redundancy}$$
+On 14 testable mechanical-era targets, the frozen legacy PB-direction motif rule scored 9/14 versus 7/14 for the fair modal direction. This remains a challenger signal only.
 
-where the terms represent normalized evidence from:
+## 5. Pair-of-Pairs + Anchor synthesis
 
-- void / temporal-starvation compatibility;
-- stiction or ±1/±2 shadow support;
-- adjacency / short-span geometry;
-- historical or structural bridge evidence;
-- cross-expert agreement;
-- complementary expert roles;
-- redundancy penalties.
+The v33.3 assembler remains the preferred Stage-C synthesizer.
 
-The exact coefficients remain calibration parameters. Agents must not tune them on the target draw being evaluated.
+$$L=P_A\cup\{a\}\cup P_B$$
 
-### 2.3 Anchor selection
+where `P_A` and `P_B` are supported disjoint pairs and `a` is a compatible anchor.
 
-An anchor is a candidate capable of linking two pairs into one structurally coherent line. Prefer anchors with one or more of:
+A soft pair score may retain evidence from void, shadow, adjacency, pair bridge, stale-hot, expert consensus, role complementarity and directional-scenario compatibility. Preserve all provenance.
 
-- cross-expert consensus;
-- stale-hot return-horizon support;
-- strong historical recurrence without immediate over-concentration;
-- sorted-position compatibility;
-- midfield or register-bridge function;
-- low redundancy across the existing portfolio.
+Do not reject dual-cluster lines merely for containing two compact pairs. The retrospective 2026-07-31 structure `(10,11)+37+(45,46)` remains the canonical assembly example.
 
-### 2.4 Coalition score
+## 6. 20-line portfolio protocol
 
-For disjoint pairs `P_A`, `P_B` and anchor `a`:
+Default v33.4 experimental allocation:
 
-$$Coalition(P_A,a,P_B) = E(P_A) + E(P_B) + A(a) + \eta X(P_A,a,P_B) - \kappa R(L)$$
+- 8 `core_coalition` lines;
+- 4 `rescue_coalition` lines;
+- 4 `directional_scenario` lines;
+- 2 `maximum_coverage_rescue` lines;
+- 2 `random_control` lines.
 
-where:
+The 20-line denominator is immutable after freeze.
 
-- `A(a)` is anchor evidence;
-- `X` rewards cross-pair complementarity and valid line geometry;
-- `R(L)` penalizes excessive portfolio duplication, not merely local clustering.
+A 10-line v33.3 slate may still be generated as a separate reduced-budget benchmark.
 
-A dual-cluster line must **not** be rejected solely because it contains two adjacent or compact pairs. The 2026-07-31 winning topology `(10,11) + 37 + (45,46)` demonstrates why the architecture must allow two separated pair clusters joined by one anchor.
+## 7. Matrix B — PowerBall hierarchy
 
-### 2.5 Expert-preserving synthesis
+### B1 Direction
 
-Do not average all experts into a single number score before assembly. Preserve three classes:
+For current PB `p` in the 1–16 pool:
 
-1. **Consensus candidates** — supported by multiple experts.
-2. **Specialist candidates** — strongly supported by one expert, such as Coulomb void.
-3. **Coalition candidates** — individually moderate but strongly compatible as a pair or pair-of-pairs structure.
+$$P(L)=\frac{p-1}{16},\quad P(R)=\frac1{16},\quad P(H)=\frac{16-p}{16}$$
 
-Each candidate line must retain the expert provenance for both pairs and the anchor.
+Score every directional prediction against this conditional null.
 
----
+### B2 VVD / displacement
 
-## 3. Maximum-Coverage Portfolio Selection
+A VVD hypothesis may select likely displacement magnitudes after direction is chosen. Its definition must be explicit. Do not silently equate the director's intuitive VVD with simple absolute numeric delta.
 
-HEPS v33.3 does not simply take the ten highest independently scored coalitions. It selects the portfolio jointly.
+### B3 Exact PB
 
-The optimization objective is to maximize useful candidate interaction coverage while controlling redundancy. At minimum track:
+Rank exact candidates using frozen features such as recurrence, capped absence, stale-hot and local shadow. Report exact selection separately from direction and VVD.
 
-- unique candidate count;
-- unique supported pairs;
-- unique triples;
-- overlap between submitted lines;
-- scenario / expert-lane diversity;
-- estimated 3+ and 4+ conditional coverage.
+## 8. 2026-08-04 diagnostic
 
-The existing `scripts/coalition_cover_optimizer.py` is the reference research implementation for this family of selectors.
+Actual main result: `16,24,29,34,38 | PB15`.
 
-### Conditional coverage finding
+Frozen v33.3 hierarchy contained `16` only: candidate recall 1/5. The frozen 20-line slate achieved best main overlap 1/5. This is a candidate-discovery failure, not an assembly failure.
 
-When a frozen candidate pool already contains all five eventual winners, research found that optimized 10-line designs can materially improve the chance that at least three winning candidates are kept together relative to ten random distinct lines. This is an assembly/coverage improvement only.
+The pre-draw director HLR template `L-H-L-L-H | H` matched actual `H-H-L-L-L | H` in S2, S3, S4 and PB. The PB direction `H (>11)` was a prospective directional hit. The later exact VVD/HLR primary PB13 missed the main PB15; PB13 appearing in XTRA is cross-game diagnostic only.
 
-If every five-number subset has equal posterior probability, exact 5/5 probability remains proportional only to the number of distinct submitted lines. Therefore exact-win improvement requires genuinely informative pair/coalition evidence, not coverage optimization alone.
+## 9. Next-target scenario state after 2026-08-04
 
----
+Current main: `16,24,29,34,38`; PB15.
 
-## 4. Breakthrough Diagnostic — 31 July 2026
+- null-geometry modal template: `L-L-L-H-H | L`;
+- frozen legacy HLR motif template: `L-L-H-H-H | L`.
 
-Actual main result:
+Only S3 differs in the main-field scenarios. PB direction does not discriminate: both predict lower than 15, and the fair null already assigns `P(L)=14/16=87.5%`.
 
-`10, 11, 37, 45, 46`
+## 10. PowerBall/XTRA and machine metadata
 
-The frozen pre-draw 17-number HEPS candidate hierarchy contained all five winners, but the previous published final portfolio assembled at most **2/5** on one line.
+Main PowerBall and PowerBall XTRA are separate draws. Cross-game matches receive no prospective credit unless the game was explicitly targeted before the draw.
 
-The new coalition research produced:
+Track machine names when trustworthy metadata are available. Do not infer swaps from result similarity. The alleged 2026-06-22 PowerBall primary-RNG cutover is not accepted as established.
 
-- retrospective graph line `02,10,11,37,46` = **4/5** main hits;
-- exact winning line `10,11,37,45,46` present in the pair-of-pairs + anchor challenger set;
-- exact winning line ranked **19th of 417** generated coalition challengers;
-- winning structure represented naturally as `(10,11) + 37 + (45,46)`.
+## 11. Post-draw attribution order
 
-HEPS therefore recognizes this work as a **breakthrough improvement in coalition assembly capability over the previous synthesizer**.
+1. core-pool recall;
+2. rescue-pool recall;
+3. HLR/null scenario accuracy with base rates;
+4. pair-edge capture;
+5. coalition generation;
+6. final routing;
+7. PB direction;
+8. PB VVD/displacement;
+9. PB exact hit;
+10. Main/XTRA cross-score as retrospective diagnostic only;
+11. matched-null comparison.
 
-Evidence boundary: these assembly diagnostics are retrospective. They justify the architectural change, but they do not prove a durable prospective lottery-prediction edge.
-
----
-
-## 5. Final 10-Line Portfolio Blueprint
-
-The expert lanes still create diverse evidence, but the final portfolio is now synthesized through the coalition layer.
-
-| Final ranks | Line class | Purpose |
-|---|---|---|
-| **1–3** | `pair_of_pairs_anchor` | Highest-supported cross-expert pair-of-pairs coalitions |
-| **4–5** | `void_led_coalition` | Preserve Coulomb temporal-void / unseen candidate evidence |
-| **6–7** | `tri_cluster_coalition` | Preserve clustered / high-register hypotheses |
-| **8** | `stiction_or_sorted_coalition` | Preserve local shadow or order-statistic structure |
-| **9** | `maximum_coverage_coalition` | Add the line with highest marginal pair/triple coverage |
-| **10** | `chaos_hedge` | Mandatory matched-random / filtered-random control |
-
-The chaos line must not be optimized by the coalition model.
-
----
-
-## 6. PowerBall Synthesis
-
-Matrix B remains separate from Matrix A. Current research features may include:
-
-- recurrence / frequency support;
-- return horizon / capped absence;
-- stale-hot compromise;
-- exact repeat and ±1/±2 shadow;
-- low/high register hedge;
-- circuit-breaker logic.
-
-A PowerBall ranking must still be compared against the 1/16 uniform null. A correct top-ranked PowerBall is a prospective success event, not by itself proof of predictive edge.
-
----
-
-## 7. Required Prediction Artifact Fields
-
-Every prediction artifact must include:
-
-- target draw date;
-- ledger cutoff date;
-- architecture version;
-- candidate hierarchy;
-- candidate expert provenance;
-- generated pair set or summary;
-- top pair-of-pairs + anchor challengers;
-- final ten submitted lines;
-- pair A, pair B and anchor rationale for coalition lines;
-- coverage / redundancy diagnostics;
-- PowerBall ranking;
-- mandatory chaos-control line;
-- `paper_trading_only` status.
-
----
-
-## 8. Post-Draw Attribution Protocol
-
-Score the system in this order:
-
-1. **Candidate discovery:** how many actual winning mains were in the frozen candidate pool?
-2. **Pair discovery:** how many actual winning pairs were represented by supported edges?
-3. **Coalition generation:** did any generated challenger contain 3+, 4+ or 5 winners?
-4. **Portfolio selection:** did the final ten retain the best generated coalition?
-5. **PowerBall:** was the PB ranked and/or selected correctly?
-6. **Null comparison:** how does cumulative performance compare with matched random controls?
-
-Failure labels:
-
-- candidate failure;
-- pair-edge failure;
-- anchor failure;
-- coalition-generation failure;
-- final-selection/routing failure;
-- regime failure;
-- PowerBall candidate failure;
-- PowerBall pairing failure;
-- null-equivalent result.
-
-Do not automatically retune expert weights from a single draw. Preserve frozen pre-draw artifacts for scoring.
-
----
-
-## 9. Validation Doctrine
-
-The Pair-of-Pairs + Anchor Coalition Assembler is an accepted experimental core module and the preferred HEPS synthesis method from v33.3 onward.
-
-It must continue to be evaluated prospectively against:
-
-- the previous independent-line selector;
-- unweighted maximum coverage;
-- weighted/hypergraph coalition variants;
-- the mandatory chaos/random baseline.
-
-Claims of durable predictive advantage still require walk-forward or prospective evidence and matched-null comparison. Architectural improvement and predictive edge are separate claims.
+Do not automatically retune from one target. Claims of predictive advantage require substantially more prospective data and matched random/null controls.
