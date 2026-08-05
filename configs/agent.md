@@ -4,165 +4,168 @@ This file establishes the operating rules for all AI coding agents, LLM reviewer
 
 ## 1. Operating mode
 
-This repository is a private, proprietary, paper-trading research workspace for the South African PowerBall HEPS system.
+This repository is a private, proprietary, paper-trading research workspace for South African PowerBall HEPS.
 
-All generated prediction slates are experimental. Do not present any slate as guaranteed, financially reliable, or suitable as gambling advice.
+All prediction slates are experimental. Do not present them as guaranteed, financially reliable, or as evidence of a durable lottery edge.
 
 ## 2. Active data doctrine
 
-- Use post-May/June 2026 South African PowerBall mechanical-era data as the active modelling dataset.
-- Do not require Excel files for active processing.
+- Use the post-May/June 2026 South African PowerBall 5/50 + PB 1/16 regime for active modelling.
+- Do not require Excel files for active processing; legacy spreadsheets may be used only as explicitly labeled diagnostic priors.
 - Use `data/draw_history.jsonl` as the canonical ledger.
-- Use `data/draw_manifest.json` as the current dataset state file.
-- Earlier HEPS algorithms may be reused, but all parameters must be recalibrated on the active dataset.
+- Use `data/draw_manifest.json` as current dataset state.
+- Earlier algorithms may be reused only with current-regime recalibration/validation.
+- Do not assume PowerBall became primary electronic RNG on 2026-06-22. Treat mechanism as mechanical-primary-or-unconfirmed until direct operator evidence resolves it.
 
-## 3. File boundary and source-of-truth hierarchy
-
-Only read and write within this repository unless the user explicitly instructs otherwise.
-
-Source-of-truth order:
+## 3. Source-of-truth hierarchy
 
 1. `data/draw_history.jsonl`
 2. `data/draw_manifest.json`
 3. `configs/agent.md`
 4. `core/heps_architecture.md`
-5. `workspace/contributions/`
-6. `workspace/reviews/`
-7. `outputs/`
+5. `core/heps_strategy.md`
+6. `workspace/contributions/`
+7. `workspace/reviews/`
+8. `outputs/`
 
-## 4. Data validation rules
+## 4. Data validation
 
-Before any prediction, backtest, or post-game analysis, validate the draw ledger.
+Before prediction/backtest/post-draw work verify:
 
-Each draw row must satisfy:
+- unique chronological draw dates;
+- five unique sorted main integers 1–50;
+- PowerBall integer 1–16;
+- `macro_sum` equals the main-number sum;
+- each row has `regime`;
+- machine name is `unknown` rather than guessed when evidence is absent.
 
-- unique `draw_date`;
-- five unique main numbers;
-- main numbers are integers from 1 to 50;
-- PowerBall is an integer from 1 to 16;
-- main numbers are sorted ascending unless true drawn-order data is explicitly available;
-- `macro_sum` equals the sum of the five main numbers;
-- the draw row includes `regime`.
+Known correction: `21+26+40+42+44 = 173`, not 193.
 
-Known correction:
+## 5. Architecture review discipline
 
-- `21 + 26 + 40 + 42 + 44 = 173`, not 193.
+Use:
 
-## 5. Architecture update rules
+1. `workspace/contributions/` proposal;
+2. `workspace/reviews/red_team_*` critique;
+3. grounding/Q&A when factual uncertainty matters;
+4. `workspace/reviews/merge_decision_*` decision;
+5. only accepted experimental methodology enters core docs.
 
-Do not rewrite `core/heps_architecture.md` directly because one model proposed a change.
+HEPS v33.4 accepts the Pair-of-Pairs assembler from v33.3 plus the Candidate Recall Guard and Directional Scenario Router as experimental core workflow. This is an architecture claim, not a predictive-edge claim.
 
-Use this merge discipline:
+## 6. Required prediction pipeline
 
-1. Proposal goes to `workspace/contributions/contributor_<model>_<date>.md`.
-2. Red-team critique goes to `workspace/reviews/red_team_<date>.md`.
-3. Grounding Q&A goes to `workspace/reviews/qna_grounding_<date>.md`.
-4. Merge decision goes to `workspace/reviews/merge_decision_<date>.md`.
-5. Only accepted changes may be incorporated into `core/heps_architecture.md`.
+### Stage A — Expert nominations
 
-The 2026-08-01 Coulomb Pair-of-Pairs + Anchor Coalition Assembler has completed this review path and is accepted as an **experimental core assembly module** in HEPS v33.3.
+Generate candidate evidence from accepted experts including void, shadow, sorted-position, stale-hot, midfield/structural rescue, register/tri-cluster and controls. Preserve provenance before aggregation.
 
-## 6. Prediction portfolio rules
+### Stage A2 — Dual candidate pools
 
-Use diversified expert evidence, but do not publish expert-lane seed lines independently without coalition synthesis.
+Maintain and publish:
 
-### Required synthesis order
+- `core_pool` (research range 13–18);
+- `rescue_pool` (roughly 22–26).
 
-1. Generate candidate evidence from tri-cluster/high-register, void-bridge, stiction-shadow, sorted-position, stale-hot/return-horizon, and other accepted experts.
-2. Preserve candidate provenance; do not flatten all expert identities into a single score too early.
-3. Build supported pair edges and pair-of-pairs + anchor challenger lines.
-4. Permit dual-cluster topology when supported, including one low pair plus one high pair joined by an anchor.
-5. Select the nine model-driven final lines jointly using coalition rank plus maximum-coverage/redundancy control.
-6. Keep one chaos/random-control line outside the optimized selector.
+Report pool size with every recall metric. Larger pools mechanically improve expected recall and must not be presented as model skill.
 
-### Required top-10 allocation
+### Stage B — H/L/R scenarios
 
-- 3 pair-of-pairs + anchor coalition champion lines;
-- 2 void-led coalition lines;
-- 2 tri-cluster/high-register coalition lines;
-- 1 stiction-shadow or sorted-structure coalition line;
-- 1 cross-expert maximum-coverage coalition line;
-- 1 chaos / random-baseline hedge line.
+Publish at least:
 
-Every prediction slate must include:
+- `null_geometry` scenario from exact fair order-statistic H/L/R probabilities;
+- `hlr_motif_challenger` frozen before the target;
+- optional `director_motif` if the user explicitly freezes one pre-draw.
 
-- branch/version;
-- target draw date;
-- dataset manifest reference;
-- generation timestamp;
-- prediction status: `paper_trading_only`;
-- candidate hierarchy and expert provenance;
-- supported-pair summary;
-- pair-of-pairs + anchor challenger summary;
-- main-number slates;
-- PowerBall candidates/ranking;
-- coalition/lane rationale;
-- portfolio coverage and redundancy diagnostics;
-- uncertainty notes.
+HLR is a scenario router, never a hard veto. Different scenarios receive different lines.
 
-## 7. Coalition assembly rules
+### Stage C — Pair-of-Pairs + Anchor
 
-The preferred synthesis topology is:
+Preferred topology:
 
 `pair_A + anchor + pair_B`
 
-where the two pairs are disjoint and the anchor is distinct from both.
+Preserve pair/anchor expert provenance. Dual compact clusters are legal.
 
-Pair support may come from:
+### Stage D — 20-line default research slate
 
-- Coulomb void / temporal starvation;
-- stiction and ±1/±2 shadow;
-- adjacency / short-span geometry;
-- stale-hot return horizon;
-- pair-bridge evidence;
-- sorted-position compatibility;
-- cross-expert consensus;
-- complementary expert roles.
+Unless the user explicitly requests another volume:
 
-Each coalition line must retain:
+- 8 core-pool coalition lines;
+- 4 rescue-pool specialist coalitions;
+- 4 directional-scenario lines;
+- 2 maximum-coverage rescue lines;
+- 2 matched random/control lines.
 
-- pair A and its supporting experts;
-- pair B and its supporting experts;
-- anchor and its supporting experts;
-- candidate scores before assembly;
-- coalition score / interaction rationale;
-- portfolio marginal-coverage contribution.
+For 10-line experiments, label them as a separate v33.3/reduced-budget benchmark.
 
-Do not reject a line solely because it contains two separated adjacent/compact pairs. The 2026-07-31 diagnostic showed that the actual winning topology `10,11,37,45,46` can be represented as `(10,11) + 37 + (45,46)`.
+All submitted lines stay in the denominator after the result.
 
-## 8. Evaluation rules
+## 7. Matrix B PowerBall protocol
 
-Primary KPIs:
+Score three separate layers:
 
-- candidate-pool recall of the five winning mains;
-- pair-edge recall of winning pairs;
-- per-line and per-game exact 3, 4, and 5 main-number outcomes;
-- best assembled overlap conditional on candidate recall;
-- same-line 3+ main numbers plus PowerBall;
-- same-line 4+ main numbers plus PowerBall;
-- same-line 5 main numbers plus PowerBall (ultimate outcome);
-- Top-10 3+ main-number overlap;
-- Top-100 3+ main-number overlap;
-- Top-100 4+ main-number overlap;
-- PowerBall exact hit rate;
-- anchor hit rate;
-- unique-pair / unique-triple portfolio coverage;
-- ±1 drift support;
-- macro-sum pass/fail;
-- diversity / coordinate-overlap score;
-- comparison against the previous selector and a matched random-filtered baseline.
+1. **Direction** H/L/R relative to current PB;
+2. **VVD/displacement** challenger, with an explicit definition;
+3. **Exact PB ranking**.
 
-Always report submitted line volume with hit counts. Candidate discovery and assembly must be scored separately.
+Exact fair direction probabilities from current PB `p` are:
 
-The accepted 2026-08-01 breakthrough is an **assembly-architecture improvement**: the previous 31 July portfolio assembled at most 2/5 from a candidate hierarchy that contained all five winners, while the retrospective coalition diagnostic assembled 4/5 and generated the exact winning line among its challenger set. This does not by itself prove a durable predictive edge.
+- `P(L)=(p-1)/16`
+- `P(R)=1/16`
+- `P(H)=(16-p)/16`
 
-Do not claim a strategy is proven without walk-forward/prospective validation and a random-filtered baseline.
+Never evaluate H/L/R against a naïve 1/3 baseline.
 
-## 9. Mechanical-era caution rules
+Do not silently equate the director's intuitive VVD with absolute numerical delta.
 
-- Sorted Slot1–Slot5 values are order statistics, not physical draw order.
-- Do not claim physical laminar path tracking unless drawn-order data exists.
-- Treat cross-chamber coupling as unproven unless strong empirical or machine-design evidence is added.
-- Use tri-cluster as a portfolio component, not a universal forced rule.
-- Treat all mechanical hypotheses as provisional until enough post-transition draws exist.
-- Do not describe retrospective 4/5 assembly as a guaranteed or proven exact-win method.
+## 8. Prediction artifact requirements
+
+Every frozen prediction artifact must contain:
+
+- target date;
+- ledger cutoff;
+- architecture version;
+- generation timestamp;
+- `paper_trading_only` status;
+- core and rescue pools with provenance;
+- HLR/null/director scenarios;
+- supported pairs and top Pair-of-Pairs coalitions;
+- all submitted lines and class labels;
+- coverage/redundancy diagnostics;
+- PB direction base rates;
+- VVD hypothesis if used;
+- exact PB ranking;
+- matched-control design;
+- uncertainty/evidence boundary.
+
+## 9. Post-draw attribution order
+
+1. core-pool candidate recall;
+2. rescue-pool candidate recall;
+3. HLR/scenario direction accuracy versus exact null;
+4. pair-edge recall;
+5. coalition generation;
+6. final portfolio routing;
+7. PB direction;
+8. PB VVD/displacement;
+9. exact PB;
+10. matched random comparison;
+11. retrospective Main/XTRA cross-score only if useful.
+
+Failure labels include candidate, scenario, pair-edge, anchor, coalition, final-routing, PB-direction, PB-VVD, PB-exact, regime/machine uncertainty and null-equivalent.
+
+## 10. PowerBall XTRA / machine rules
+
+PowerBall and PowerBall XTRA are separate draws. A main-game prediction cannot receive prospective XTRA credit unless XTRA was explicitly targeted pre-draw.
+
+Record machine identity only from a trustworthy source. Do not infer a machine swap from numerical similarity or from which slate would have performed better.
+
+## 11. Caution rules
+
+- Sorted slots are order statistics, not physical draw order.
+- Physical/mechanical hypotheses remain provisional.
+- No hard entropy, macro-sum, parity, decade or adjacency vetoes.
+- Do not promote HLR or VVD from one successful directional call.
+- Do not retune expert weights aggressively after one target.
+- Maximum coverage improves conditional assembly, not exact-win probability under a uniform posterior.
+- Every claim of predictive advantage requires prospective/walk-forward evidence and matched-null comparison.
