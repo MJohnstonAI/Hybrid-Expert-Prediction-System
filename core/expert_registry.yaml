@@ -1,0 +1,225 @@
+schema_version: 1
+updated: 2026-08-06
+purpose: >-
+  Machine-readable registry of HEPS experts, their architectural stage,
+  scientific status, and allowed authority. Detailed formulas remain in
+  core/heps_architecture.md, expert-specific files, and experiment packages.
+
+architecture_stages:
+  - slot_forecast
+  - candidate_funnel
+  - coalition_assembly
+  - morphology
+  - winner_float_ranking
+  - portfolio_optimization
+  - powerball_matrix
+
+experts:
+  - expert_id: MAIN_STICTION_SHADOW
+    name: Coulomb Stiction / Shadow
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Tracks exact repeats and +/-1 or +/-2 coordinate shadows.
+      - Sorted coordinates are not physical draw order.
+
+  - expert_id: MAIN_VOID_BRIDGE
+    name: Coulomb Void Potential / Canyon Fill
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+
+  - expert_id: MAIN_SORTED_SLOT_DENSITY
+    name: Sorted-Position Momentum / Slot Density
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Treat Slot1-Slot5 strictly as order statistics.
+
+  - expert_id: MAIN_HARMONIC_BOUNDARY
+    name: Harmonic Boundary Governor
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+
+  - expert_id: MAIN_TRI_CLUSTER
+    name: Tri-Cluster Lane
+    stage: morphology
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Portfolio/morphology lane only; never universal forced structure.
+
+  - expert_id: MORPH_SUM_SPREAD
+    name: Sum / Spread Governor
+    stage: morphology
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Central-looking morphology is not itself predictive evidence.
+      - Hard boundaries require separate promotion evidence.
+
+  - expert_id: PORTFOLIO_CHAOS_BASELINE
+    name: Chaos / Random Baseline Hedge
+    stage: portfolio_optimization
+    evidence: BREAKTHROUGH
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Breakthrough status refers to its methodological necessity as a control,
+        not predictive superiority.
+
+  - expert_id: MAIN_GPR8
+    name: Gap-Phase Residual Ensemble GPR-8
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    evidence_paths:
+      - workspace/contributions/experimental_discovery_lab/HEPS_BREAKTHROUGH_HANDOFF.md
+    falsification:
+      - Must survive frozen prospective comparison against recency before promotion.
+
+  - expert_id: MAIN_HLR_SLOT
+    name: Slot High-Low-Repeat
+    stage: slot_forecast
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    mandatory_output_when_enabled: true
+    output:
+      unit: sorted_slot
+      states: [LOW, REPEAT, HIGH]
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    notes:
+      - When enabled for an experiment, must commit one direction for each Slot1-Slot5.
+      - Do not conflate with LEGACY_HIGH_LOW_MACRO.
+
+  - expert_id: MAIN_VVD_DELTA
+    name: Vertical Variance Delta
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    dependencies: [MAIN_HLR_SLOT]
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    formula: abs(slot_t - slot_t_minus_1)
+    notes:
+      - Movement magnitude; HLR supplies direction.
+      - Do not conflate with LEGACY_VVD_VOLUME.
+
+  - expert_id: MORPH_SLDV
+    name: Sum of Last-Digit Variance
+    stage: morphology
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    notes:
+      - Combination morphology feature, not standalone candidate predictor.
+      - Prefer null-adjusted residual scoring over raw frequency when tested.
+
+  - expert_id: COALITION_PAIR_OF_PAIRS_ANCHOR
+    name: Pair-of-Pairs plus Anchor
+    stage: coalition_assembly
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+
+  - expert_id: RANK_WINNER_FLOAT
+    name: Winner-Float Ranker
+    stage: winner_float_ranking
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    objective:
+      - Improve future exact-winning-line rank within a frozen survivor universe.
+      - Evaluate against matched random and current-score baselines.
+
+  - expert_id: PB_ACTIVE_MATRIX
+    name: Active PowerBall Matrix
+    stage: powerball_matrix
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Operates on 1-16 field separately from main field.
+
+legacy_identifiers:
+  - expert_id: LEGACY_VVD_VOLUME
+    name: Variance Volume Density
+    architecture_status: archived
+    evidence: REJECT
+    do_not_conflate_with: MAIN_VVD_DELTA
+
+  - expert_id: LEGACY_HIGH_LOW_MACRO
+    name: Whole-field High/Low oscillator
+    architecture_status: archived
+    evidence: REJECT
+    do_not_conflate_with: MAIN_HLR_SLOT
+
+  - expert_id: LEGACY_INK_MASS
+    name: Ink-Mass Weighting
+    architecture_status: archived
+    evidence: REJECT
