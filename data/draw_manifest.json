@@ -1,7 +1,15 @@
 {
   "project": "Hybrid Expert Prediction System",
   "canonical_file": "data/draw_history.jsonl",
-  "active_regime": "mechanical_50_16",
+  "active_game_format": "powerball_50_16",
+  "observed_draw_methods": [
+    "mechanical_machine"
+  ],
+  "observed_machine_names": [
+    "Khaya",
+    "PB1",
+    "SIZWE"
+  ],
   "latest_draw_id": 13,
   "latest_draw_date": "2026-07-14",
   "latest_main_numbers": [
@@ -13,14 +21,18 @@
   ],
   "latest_powerball": 4,
   "latest_macro_sum": 119,
+  "latest_draw_method": "mechanical_machine",
+  "latest_machine_name": "SIZWE",
   "row_count": 13,
-  "last_synced": "2026-07-15",
+  "last_synced": "2026-08-06",
   "known_data_rules": [
-    "Use post-May/June 2026 mechanical-era draws for active modelling",
-    "No Excel required for active HEPS processing",
+    "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
+    "Game format, draw method, and machine identity are distinct metadata axes",
+    "Do not infer draw mechanism from game-format labels or from draw date alone",
     "Sort draws chronologically before modelling",
     "Do not treat sorted Slot1-Slot5 as physical draw order unless drawn order is available",
-    "South African PowerBall bounds: main numbers 1-50 unique ascending, PowerBall 1-16"
+    "Physical/mechanical experts must report whether training data mix draw methods or machine identities",
+    "No Excel required for active HEPS processing"
   ],
   "primary_kpis": [
     "Top-10 3+ main-number overlap",
