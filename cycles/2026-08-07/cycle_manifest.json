@@ -1,18 +1,19 @@
 {
   "schema_version": 1,
   "target_draw_date": "2026-08-07",
-  "status": "preparing",
+  "status": "pre_draw_frozen",
   "paper_trading_only": true,
-  "architecture_candidate": "HEPS-v34-collaborative-moe",
-  "pre_draw_frozen": false,
+  "architecture_candidate": "HEPS-v34-collaborative-moe + Candidate Lattice v0.1 shadow",
+  "pre_draw_frozen": true,
+  "freeze_date": "2026-08-06",
+  "training_cutoff": "2026-08-04",
+  "training_rows": 19,
   "result_known": false,
-  "required_pre_draw_artifacts": [
-    "dataset_snapshot",
-    "architecture_snapshot",
-    "expert_outputs",
-    "candidate_or_slot_funnel",
-    "ranking_or_assembly_state",
-    "prediction_slate"
+  "pre_draw_artifacts": [
+    "pre_draw/dataset_snapshot.json",
+    "pre_draw/architecture_snapshot.json",
+    "pre_draw/candidate_lattice_v01.json",
+    "pre_draw/prediction_slate.json"
   ],
   "required_post_draw_artifacts": [
     "actual_result",
@@ -22,7 +23,10 @@
     "improvement_proposals"
   ],
   "notes": [
-    "Do not write the actual result into this cycle until the draw has occurred and the canonical ledger is updated.",
-    "HLR/VVD Slot Constraint Funnel remains experimental until independent review/reproduction supports promotion."
+    "Do not regenerate or edit the frozen prediction slate after the 2026-08-07 result becomes known.",
+    "Committed HLR vector is HLHHL; joint flow scenarios are rescue/portfolio scenarios and do not overwrite that forecast.",
+    "Pre-June PRNG history has zero active parameter authority for this cycle.",
+    "Mechanical-era slot histograms are diagnostic-only at the current sample size.",
+    "Candidate Lattice v0.1 remains experimental and the direct recent Top-20 replay was weak; this cycle is a prospective shadow test."
   ]
 }
