@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "target_draw_date": "2026-08-07",
+  "status": "preparing",
+  "paper_trading_only": true,
+  "architecture_candidate": "HEPS-v34-collaborative-moe",
+  "pre_draw_frozen": false,
+  "result_known": false,
+  "required_pre_draw_artifacts": [
+    "dataset_snapshot",
+    "architecture_snapshot",
+    "expert_outputs",
+    "candidate_or_slot_funnel",
+    "ranking_or_assembly_state",
+    "prediction_slate"
+  ],
+  "required_post_draw_artifacts": [
+    "actual_result",
+    "scorecard",
+    "expert_attribution",
+    "physics_of_failure",
+    "improvement_proposals"
+  ],
+  "notes": [
+    "Do not write the actual result into this cycle until the draw has occurred and the canonical ledger is updated.",
+    "HLR/VVD Slot Constraint Funnel remains experimental until independent review/reproduction supports promotion."
+  ]
+}
