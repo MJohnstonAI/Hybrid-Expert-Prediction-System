@@ -1,56 +1,215 @@
-# HEPS Agent Collaboration Guide
+# HEPS Autonomous Agent Constitution
 
-This file is the root onboarding guide for AI agents collaborating on the
-Hybrid Expert Prediction System (HEPS). It summarizes the mandatory operating
-rules from the current repository. Keep future edits narrow, evidence-based,
-and grounded in observed repo workflows.
+This is the mandatory entry point for every AI model, coding agent, reviewer, synthesizer, or automation operating in the Hybrid Expert Prediction System (HEPS) repository.
 
-## Mission and Safety Frame
+HEPS is an AI-driven, multi-agent, paper-trading research environment for South African PowerBall. The repository is the shared scientific memory, blackboard, laboratory, peer-review system, and architecture-evolution record for all participating models.
 
-- HEPS is a private, proprietary, paper-trading research workspace for South
-  African PowerBall mechanical-era analysis.
-- All generated slates, backtests, and diagnostics are experimental calibration
-  artifacts only.
-- Never present any output as guaranteed, financially reliable, or suitable as
-  gambling advice.
-- Avoid language that frames HEPS output as a durable predictive edge unless it
-  is supported by walk-forward validation and random/null baselines.
+## 1. Constitutional invariants
 
-## Source of Truth and Read Order
+The AI collective may autonomously choose research directions, invent roles, create hypotheses, fork challenger architectures, reproduce results, red-team claims, and recommend architecture changes. It may not violate these invariants:
 
-Before strategy, modeling, prediction, or architecture work, read:
+1. **Data integrity** — never alter a historical draw to improve a model.
+2. **Temporal integrity** — target draws may not appear in their own training or feature windows.
+3. **Evidence integrity** — predictive claims require explicit baselines and preserved denominators.
+4. **Architecture integrity** — no single agent session may silently rewrite active HEPS doctrine from its own unreviewed idea.
+5. **Paper-trading only** — outputs are experimental research artifacts, not guaranteed or financially reliable gambling advice.
 
-1. `README.md`
-2. `configs/agent.md`
-3. `core/heps_architecture.md`
-4. `core/heps_strategy.md`
-5. `docs/architecture_history.md`
+## 2. Mandatory read order
 
-Use this source-of-truth order:
+Before substantive research or prediction work, read in this order:
 
-1. `data/draw_history.jsonl` - canonical mechanical-era draw ledger.
-2. `data/draw_manifest.json` - current dataset state and latest draw summary.
-3. `configs/agent.md` - detailed operating constraints.
-4. `core/heps_architecture.md` - accepted architecture and strategy doctrine.
-5. `workspace/contributions/` - external AI proposals.
-6. `workspace/reviews/` - red-team, Q&A, and merge decisions.
-7. `outputs/` - generated prediction, post-game, research, and improvement
-   artifacts.
+1. `AGENTS.md`
+2. `governance/nomenclature.md`
+3. `governance/research_protocol.md`
+4. `data/draw_manifest.json`
+5. `core/heps_architecture.md`
+6. `core/expert_registry.yaml`
+7. `knowledge/open_questions.md`
+8. `experiments/registry.csv`
+9. the relevant experiment, cycle, contribution, or review files for the task
 
-Do not use old pre-transition draw history as an active modeling dependency
-unless the user explicitly requests it and the work is clearly labeled as
-legacy analysis.
+Use `data/draw_history.jsonl` as the canonical active draw ledger.
 
-## Data and Validation Rules
+## 3. Autonomous role selection
 
-- Main numbers are sorted order statistics, not physical draw order.
-- South African PowerBall active bounds are five unique main numbers from
-  `1-50` and one PowerBall from `1-16`.
-- Preserve the known correction: `21 + 26 + 40 + 42 + 44 = 173`.
-- If appending a draw, use `scripts/append_draw.py`; do not hand-edit ledger
-  rows unless explicitly directed.
+Agents are **not assigned fixed research roles**.
 
-Validate before prediction, backtest, post-game analysis, or ledger changes:
+After reading the current repository state, independently decide where your capabilities are most likely to improve, reproduce, falsify, simplify, challenge, or synthesize HEPS.
+
+You may choose or invent any research role, including but not limited to:
+
+- hypothesis explorer;
+- quantitative tester;
+- independent reproducer;
+- adversarial statistician;
+- expert-redundancy auditor;
+- state-space modeller;
+- architecture challenger;
+- implementation engineer;
+- Physics-of-Failure analyst;
+- synthesis architect;
+- meta-research auditor.
+
+Before creating substantive research artifacts, declare your intent using `collaboration/templates/agent_intent.yaml` or the same fields in your experiment package.
+
+Agents may change roles when repository evidence indicates a higher-value problem. Document why.
+
+## 4. Research freedom and coordination
+
+Agents may:
+
+- create new falsifiable hypotheses;
+- challenge accepted or provisional experts;
+- independently reproduce another model's result;
+- open challenger architectures under `architectures/challengers/`;
+- create meta-reviews when the research process itself is failing;
+- identify neglected open questions;
+- recommend that another research direction be abandoned;
+- propose new expert stages or scoring mechanisms;
+- disagree with other models.
+
+Agents must not overwrite another model's experiment package. Add a reproduction, critique, or challenger artifact instead.
+
+Disagreement is preserved as evidence. Do not force consensus before the evidence justifies it.
+
+## 5. Evidence classifications
+
+Every material hypothesis or expert claim must use exactly one evidence classification:
+
+- `BREAKTHROUGH`
+- `PROVISIONAL_SIGNAL`
+- `INSUFFICIENT_EVIDENCE`
+- `REJECT`
+
+Every expert also has one architecture status:
+
+- `production`
+- `shadow`
+- `experimental`
+- `archived`
+
+Evidence classification and architecture status are different concepts. An expert may be `PROVISIONAL_SIGNAL` and still remain `shadow` or `experimental`.
+
+## 6. Experimental protocol
+
+All predictive experiments must state before evaluation:
+
+- hypothesis;
+- target variable;
+- training window;
+- validation or prospective window;
+- feature definitions;
+- baselines;
+- metrics;
+- hyperparameter selection rule;
+- falsification rule;
+- multiple-testing exposure.
+
+Strict walk-forward order is mandatory:
+
+1. use only information before target draw `t`;
+2. compute features and scores;
+3. freeze output;
+4. reveal `t`;
+5. score;
+6. update only for target `t+1`.
+
+Random/null and simple baseline comparisons are mandatory for claims of improvement.
+
+## 7. Mixture-of-Experts architecture stages
+
+HEPS is a staged mixture of experts, not a flat voting system.
+
+Canonical stages are:
+
+1. **Slot Forecast** — directional or state forecasts for sorted Slot1-Slot5.
+2. **Candidate Funnel** — rank and retain candidate coordinates without premature over-compression.
+3. **Coalition Assembly** — estimate which candidate coordinates belong together.
+4. **Morphology** — score completed lines by structural properties such as SLDV, gaps, span, parity/register, and related features.
+5. **Winner-Float Ranking** — rank legal surviving combinations using transparent expert evidence.
+6. **Portfolio Optimization** — select the final paper-trading slate while controlling duplicate exposure.
+7. **PowerBall Matrix** — maintain the separate 1-16 PowerBall field.
+
+An expert's **forecast** and its **authority** are separate. An expert may be required to make a forecast while having no authority to hard-eliminate conflicting candidates.
+
+## 8. Self-improvement operates at three speeds
+
+### Fast: state updates
+After each draw, deterministic frozen formulas may update state: HLR history, VVD history, gaps, recurrence intervals, sufficient statistics, and score ledgers.
+
+### Medium: parameter learning
+Weights, shrinkage coefficients, transition probabilities, and ranking coefficients may update only through predeclared algorithms. Never change a weight merely because one draw missed.
+
+### Slow: architecture evolution
+Adding/removing experts or changing expert meaning requires evidence, reproduction, adversarial review, and a promotion decision.
+
+## 9. Experiment package workflow
+
+New research belongs under `experiments/<experiment_id>/` using the format described in `experiments/README.md`.
+
+Minimum package:
+
+- `hypothesis.md`
+- `protocol.yaml`
+- `results.json` or reproducible result artifact
+- `findings.md`
+- `red_team/`
+- `reproductions/`
+- `decision.md`
+
+Legacy research in `workspace/contributions/` and `workspace/reviews/` remains valid historical evidence and must not be deleted. New work should prefer experiment packages.
+
+## 10. Promotion path
+
+`core/heps_architecture.md` is the **end of the research pipeline**, not a scratchpad.
+
+Architecture evolution follows:
+
+`proposal -> experiment -> reproduction -> red-team -> synthesis -> promotion decision -> core architecture`
+
+A single model may contribute at several stages, but it may not use its own unreviewed result as sole authority for promotion.
+
+Use `governance/promotion_policy.md`.
+
+## 11. Per-draw cycle integrity
+
+Each target draw should have a directory under `cycles/YYYY-MM-DD/`.
+
+Pre-draw artifacts are immutable once frozen. After the result, write post-draw scoring, expert attribution, and Physics-of-Failure artifacts without regenerating the original slate.
+
+Use `cycles/README.md`.
+
+## 12. Physics of Failure
+
+After each target, diagnose where the actual winning coordinates or line were lost:
+
+- slot-direction forecast;
+- movement estimate;
+- candidate rank;
+- basket survival;
+- combination generation;
+- morphology survival;
+- final combination rank;
+- portfolio inclusion.
+
+Where possible, compute leave-one-expert-out counterfactual ranks. Do not infer causality from one miss; accumulate evidence across targets.
+
+## 13. Nomenclature is binding
+
+Read `governance/nomenclature.md` before using legacy names.
+
+In particular:
+
+- `MAIN_HLR_SLOT` means per-slot Low/Repeat/High flow prediction.
+- `MAIN_VVD_DELTA` means Vertical Variance Delta: absolute sorted-slot movement between consecutive draws.
+- `LEGACY_VVD_VOLUME` means the rejected historical Variance Volume Density concept.
+- `LEGACY_HIGH_LOW_MACRO` means the rejected/demoted whole-field high/low oscillator.
+
+Do not conflate similarly named concepts.
+
+## 14. Engineering and validation
+
+Before prediction, backtest, or ledger changes, run the repository's validation tools when available:
 
 ```bash
 python scripts/validate_draws.py data/draw_history.jsonl
@@ -58,123 +217,10 @@ python scripts/sync_manifest.py --check
 python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 ```
 
-For quick research or CI-style smoke checks, a smaller null-model trial count is
-acceptable only when clearly labeled as a smoke check.
+Main numbers are sorted order statistics, not physical draw order. Never convert order-statistic movement into unsupported physical ball-trajectory claims.
 
-## Modeling and Backtest Doctrine
+## 15. Final agent obligation
 
-- All model improvements must respect walk-forward validation: no target draw
-  may appear inside its own training window.
-- Random/null baselines are mandatory for claims of improvement.
-- In-sample pattern discovery is not evidence of a durable edge unless it
-  survives out-of-sample testing.
-- Treat the current post-May/June 2026 mechanical-era sample as small and
-  provisional.
-- The algebraic sequence feature module is calibration and diagnostic
-  infrastructure, not a standalone prediction engine.
-- Distributional diagnostics should be reported as diagnostics unless the
-  existing combiner explicitly supports them as feature inputs.
+Leave HEPS more auditable than you found it.
 
-## Accepted Strategy Lanes
-
-Maintain diversified portfolio lanes rather than one monolithic expert:
-
-- tri-cluster / high-register continuation
-- void-bridge / canyon-fill
-- stiction-shadow continuation
-- sorted-position momentum
-- chaos / randomized baseline
-
-Treat tri-cluster as a portfolio lane, not a universal forced rule. Treat
-mechanical hypotheses as provisional until enough post-transition evidence
-supports them.
-
-## Current Experimental Discovery - Dual-Synergy Candidate
-
-Before modifying expert orchestration, candidate generation, sorted-position
-features, or the current paper-trading slate, read this discovery chain in
-order:
-
-1. `workspace/contributions/contributor_codex_2026-07-10_aggressive_dual_synergy.md`
-2. `workspace/reviews/red_team_codex_2026-07-10_aggressive_dual_synergy.md`
-3. `workspace/reviews/qna_grounding_2026-07-10_aggressive_dual_synergy.md`
-4. `workspace/reviews/merge_decision_2026-07-10_aggressive_dual_synergy.md`
-5. `outputs/research/aggressive_expert_lab_2026-07-10.md`
-6. `outputs/research/aggressive_expert_lab_2026-07-10.json`
-
-The candidate preserves two blended experts at the line level rather than
-averaging their scores:
-
-- `hot_high_synergy`: Bayesian-shrunk frequency plus high-register exposure;
-- `structural_synergy`: midfield support plus sorted-slot EWMA and gap-echo
-  structure.
-
-The 20-line historical union found two 3-main-number results across eight
-walk-forward targets, but no 4+, 5, or same-line 3+ plus PowerBall result. Its
-portfolio-specific unadjusted random tail was approximately `8.33%`, and all
-expert-ranking results failed multiple-search correction. The first genuinely
-unseen target, `2026-07-07`, failed with a best overlap of one main number.
-
-Status: **discovery-only / hold for prospective evidence**. It is not accepted
-core architecture and must not replace the current lane allocation. Preserve
-the frozen `outputs/predictions/prediction_slate_2026-07-10_dual_synergy.json`
-artifact and score it after the target result is appended; do not regenerate or
-retrofit it after seeing the result.
-
-## Deprecated or Forbidden Reintroductions
-
-- Do not reintroduce ink-mass weighting.
-- Do not make physical drop-order, laminar-path, or pneumatic trajectory claims
-  without true drawn-order data.
-- Do not recreate deprecated modules from `docs/architecture_history.md` under
-  new names.
-- Do not treat sorted slots as physical ball trajectory data.
-- Check proposed model features against `docs/architecture_history.md` so old
-  failure modes are not reintroduced as proxy variables.
-
-## Contribution and Merge Workflow
-
-Architecture changes must use the repo's review path:
-
-1. Write the proposal under `workspace/contributions/`.
-2. Add a red-team review under `workspace/reviews/`.
-3. Add a Q&A grounding log when unresolved evidence questions remain.
-4. Add a merge decision before changing core architecture files.
-
-Do not rewrite `core/heps_architecture.md` directly based on a single model
-proposal. Record uncertainty explicitly; prefer a short TODO over unsupported
-claims.
-
-## Artifact Destinations
-
-- Prediction slates go under `outputs/predictions/` and must use
-  `paper_trading_only`.
-- Post-game analyses go under `outputs/post_game/`.
-- Improvement proposals go under `outputs/improvement/`.
-- Research and backtest outputs go under `outputs/research/`.
-
-Prediction slates should include dataset state, target draw date, branch or
-version, generation timestamp, lane allocation, slate rationale, and uncertainty
-notes.
-
-Post-game reports should include the actual draw, slate hit counts, best
-overlap, PowerBall result, +/-1 drift support, macro-sum/spread comparison,
-expert contribution notes, recommended adjustments, and merge/no-merge decision.
-
-## Engineering Rules
-
-- Keep changes narrow and evidence-based.
-- Prefer existing Python scripts and file-based workflows over introducing new
-  frameworks.
-- Add or update tests for mathematical feature work, especially residue
-  partitioning, gap distributions, and no-leakage behavior.
-- Preserve user or unrelated working-tree changes.
-- Do not invent undocumented workflows to make the guide feel complete.
-
-## Current Notes and TODOs
-
-- `scripts/score_prediction.py` scores stored pre-draw slates against the
-  canonical ledger and reports portfolio and lane evidence. It does not
-  automatically tune expert weights from a single result.
-- TODO: Decide whether root `AGENTS.md` should replace `configs/agent.md` as
-  the primary guide or serve as a root-level index pointing to it.
+A useful contribution is not merely a new prediction. It may be a falsification, reproduction, nomenclature repair, stronger baseline, failure diagnosis, implementation test, open question, or evidence that an attractive strategy should be removed.
