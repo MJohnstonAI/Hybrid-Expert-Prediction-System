@@ -1,0 +1,150 @@
+{
+  "project": "Hybrid Expert Prediction System",
+  "contributor": "ChatGPT Sol",
+  "created_at": "2026-07-13",
+  "status": "research_specification_not_executed",
+  "paper_trading_only": true,
+  "canonical_ledger": "data/draw_history.jsonl",
+  "required_ledger_update": {
+    "target_date": "2026-07-10",
+    "main_numbers": [2, 12, 13, 20, 23],
+    "powerball": 12,
+    "must_be_independently_verified": true,
+    "must_be_appended_before_tournament": true
+  },
+  "warmup_draw_count": 4,
+  "historical_targets": [
+    "2026-06-16",
+    "2026-06-19",
+    "2026-06-23",
+    "2026-06-26",
+    "2026-06-30",
+    "2026-07-03",
+    "2026-07-07",
+    "2026-07-10"
+  ],
+  "architectures": [
+    {
+      "id": "current_heps_control",
+      "description": "Current repository weighted feature and line selection path"
+    },
+    {
+      "id": "gemini_aggregate_ensemble",
+      "description": "Expert vectors aggregated before line construction"
+    },
+    {
+      "id": "chatgpt_sol_coalition_v1",
+      "description": "Scenario-preserving evidence vectors with pair/triple coalition assembly"
+    },
+    {
+      "id": "coulomb_specialist",
+      "description": "Temporal void, stale-hot, bridge, stiction, and shadow specialist"
+    },
+    {
+      "id": "matched_random_control",
+      "description": "Seeded random portfolios matched to line volume and structural constraints"
+    }
+  ],
+  "line_counts": {
+    "core": 10,
+    "expansion": 20,
+    "score_separately": true
+  },
+  "coalition_scenarios": [
+    "hot_high_continuation",
+    "balanced_structural",
+    "low_coulomb_topology",
+    "cluster_relocation",
+    "opposite_register_rebound",
+    "minority_specialist",
+    "chaos_null_control"
+  ],
+  "core_10_allocation": {
+    "core_coalition_consensus": 2,
+    "hot_high_continuation": 2,
+    "low_coulomb_topology": 2,
+    "balanced_structural": 1,
+    "opposite_register_rebound": 1,
+    "minority_specialist": 1,
+    "chaos_null_control": 1
+  },
+  "candidate_stages": [
+    "candidate_pool",
+    "all_generated_lines",
+    "selected_portfolio"
+  ],
+  "metrics": [
+    "candidate_capture_top_10",
+    "candidate_capture_top_15",
+    "candidate_capture_top_20",
+    "candidate_capture_top_25",
+    "mean_actual_number_rank",
+    "oracle_candidate_overlap",
+    "best_generated_overlap",
+    "best_selected_overlap",
+    "lines_with_2_plus",
+    "lines_with_3_plus",
+    "lines_with_4_plus",
+    "lines_with_5",
+    "powerball_candidate_coverage",
+    "same_line_3_plus_powerball",
+    "same_line_4_plus_powerball",
+    "same_line_5_powerball",
+    "submitted_line_count",
+    "unique_pairs",
+    "unique_triples",
+    "structural_correlation",
+    "matched_null_percentile"
+  ],
+  "failure_taxonomy": {
+    "candidate_failure": "Fewer than three actual mains in the candidate pool",
+    "assembly_failure": "Candidate pool contains at least three actual mains but no generated 3+ line",
+    "routing_failure": "A generated 3+ line is excluded from the selected portfolio",
+    "regime_failure": "Actual register or sum profile is absent from the selected portfolio",
+    "concentration_failure": "Nominally distinct lines or experts share the same structural exposure",
+    "powerball_candidate_failure": "Actual PowerBall is absent from the frozen PowerBall pool",
+    "powerball_pairing_failure": "PowerBall is covered but not paired with the strongest main overlap",
+    "null_equivalent": "Observed result is not distinguishable from the matched random distribution"
+  },
+  "ablation_matrix": [
+    "full_coalition",
+    "minus_temporal_void",
+    "minus_stale_hot",
+    "minus_numeric_bridge",
+    "minus_stiction_shadow",
+    "minus_pair_affinity",
+    "minus_triple_affinity",
+    "minus_minority_hypothesis_coverage",
+    "minus_structural_correlation_penalty",
+    "minus_register_profile_allocation",
+    "hot_high_only",
+    "coulomb_only",
+    "unrestricted_random",
+    "structure_matched_random"
+  ],
+  "reproducibility": {
+    "configuration_hash_required": true,
+    "ledger_hash_required": true,
+    "random_seed_required": true,
+    "frozen_per_target_artifacts_required": true,
+    "record_all_tested_variants": true,
+    "prohibit_post_result_regeneration": true,
+    "single_command_rerun_required": true
+  },
+  "claims_policy": {
+    "no_guaranteed_prediction_claims": true,
+    "no_physical_causality_without_telemetry": true,
+    "do_not_count_powerball_as_main_candidate": true,
+    "historical_replay_is_not_genuinely_prospective": true,
+    "preliminary_chat_results_are_not_validated": true
+  },
+  "promotion_gate": {
+    "executable_implementation": true,
+    "unit_tests": true,
+    "walk_forward_artifacts": true,
+    "matched_null_analysis": true,
+    "red_team_review": true,
+    "future_frozen_target": true,
+    "merge_decision": true
+  }
+}
