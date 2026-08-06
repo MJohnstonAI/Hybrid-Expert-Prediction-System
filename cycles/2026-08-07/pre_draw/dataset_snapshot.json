@@ -1,0 +1,13 @@
+{
+  "target_draw_date": "2026-08-07",
+  "frozen_at": "2026-08-06",
+  "canonical_ledger": "data/draw_history.jsonl",
+  "latest_included_draw_id": 19,
+  "latest_included_draw_date": "2026-08-04",
+  "latest_main_numbers": [16,24,29,34,38],
+  "latest_powerball": 15,
+  "row_count": 19,
+  "game_format": "powerball_50_16",
+  "pre_june_active_parameter_authority": false,
+  "future_target_excluded": true
+}
