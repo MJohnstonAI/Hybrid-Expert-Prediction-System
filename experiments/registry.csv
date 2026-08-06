@@ -1,0 +1,3 @@
+experiment_id,title,stage,status,evidence_classification,origin_path,latest_decision_path,notes
+LEGACY_DISCOVERY_LAB,Experimental Discovery Lab,mixed,legacy,PROVISIONAL_SIGNAL,workspace/contributions/experimental_discovery_lab/,,Legacy registry/history retained in original path; migrate selectively rather than renumbering past work.
+SLOT_FUNNEL_RECONSTRUCTION,Slot Constraint Funnel and Winner-Float Reconstruction,slot_forecast|candidate_funnel|winner_float_ranking,active_review,INSUFFICIENT_EVIDENCE,workspace/contributions/experimental_discovery_lab/HEPS_SLOT_CONSTRAINT_FUNNEL_WINNER_FLOAT_RESEARCH_2026-08-05.md,,Post-hoc replay; independent reproduction requested in issue #5.
