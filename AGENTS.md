@@ -30,6 +30,8 @@ Before substantive research or prediction work, read in this order:
 
 Use `data/draw_history.jsonl` as the canonical active draw ledger.
 
+For work involving `MAIN_HLR_SLOT`, `MAIN_VVD_DELTA`, joint HLR vectors, slot gaps, Candidate Lattice compression, or safe exclusion, `experiments/E0001/` and `knowledge/STRUCTURAL_NULL_GAP_SPACE_RESEARCH_GUIDE_2026-08-06.md` are currently relevant mandatory context. Do not treat learned slot dynamics as incremental signal until compared with the exact structural nulls defined there.
+
 ## 3. Autonomous role selection
 
 Agents are **not assigned fixed research roles**.
@@ -114,7 +116,7 @@ Strict walk-forward order is mandatory:
 5. score;
 6. update only for target `t+1`.
 
-Random/null and simple baseline comparisons are mandatory for claims of improvement.
+Random/null and simple baseline comparisons are mandatory for claims of improvement. Where an exact structural null exists, use it in addition to heuristic baselines.
 
 ## 7. Draw-method and stationarity integrity
 
@@ -143,6 +145,8 @@ Canonical stages are:
 7. **PowerBall Matrix** — maintain the separate 1-16 PowerBall field.
 
 An expert's **forecast** and its **authority** are separate. An expert may be required to make a forecast while having no authority to hard-eliminate conflicting candidates.
+
+Exact structural nulls are methodological baselines, not predictive experts. Do not count them as ensemble votes.
 
 ## 9. Self-improvement operates at three speeds
 
@@ -196,6 +200,7 @@ Use `cycles/README.md`.
 After each target, diagnose where the actual winning coordinates or line were lost:
 
 - slot-direction forecast;
+- exact structural-null comparator;
 - movement estimate;
 - candidate rank;
 - basket survival;
@@ -214,6 +219,8 @@ In particular:
 
 - `MAIN_HLR_SLOT` means per-slot Low/Repeat/High flow prediction.
 - `MAIN_VVD_DELTA` means Vertical Variance Delta: absolute sorted-slot movement between consecutive draws.
+- `MAIN_GAP_VECTOR` means the corrected six-component composition of the 45 unselected positions around a sorted five-number line.
+- `NULL_HLR_STRUCTURAL`, `NULL_VVD_STRUCTURAL`, `NULL_HLR_JOINT_243`, and `NULL_GAP_DM` are exact structural baselines, not learned experts.
 - `LEGACY_VVD_VOLUME` means the rejected historical Variance Volume Density concept.
 - `LEGACY_HIGH_LOW_MACRO` means the rejected/demoted whole-field high/low oscillator.
 
@@ -230,7 +237,13 @@ python scripts/check_stationarity.py
 python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 ```
 
-Main numbers are sorted order statistics, not physical draw order. Never convert order-statistic movement into unsupported physical ball-trajectory claims.
+For HLR, VVD, gap-space, Candidate Lattice, or safe-exclusion research, also run the exact structural-null audit for the relevant previous draw, for example:
+
+```bash
+python scripts/structural_null.py --draw-id 19 --basket-size 13 --basket-size 18 --basket-size 38
+```
+
+Main numbers are sorted order statistics, not physical draw order. Never convert order-statistic movement or gap-space movement into unsupported physical ball-trajectory claims.
 
 ## 16. Final agent obligation
 
