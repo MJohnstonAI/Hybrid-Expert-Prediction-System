@@ -15,6 +15,71 @@ features:
     role: movement_magnitude
     note: Direction is supplied separately by MAIN_HLR_SLOT.
 
+  MAIN_GAP_VECTOR:
+    type: structured_integer_vector
+    unit: completed_sorted_main_draw
+    formula: >-
+      [S1-1, S2-S1-1, S3-S2-1, S4-S3-1, S5-S4-1, 50-S5]
+    invariants:
+      - six nonnegative components
+      - sum equals 45
+    role: state_space_representation
+    leakage_rule: For target t, only G through t-1 may be used to forecast t.
+    note: This is not physical draw order.
+
+  MAIN_GAP_RESIDUAL:
+    type: real_vector
+    unit: gap_component
+    formula: >-
+      (G_i_t - G_i_t_minus_1) - (7.5 - G_i_t_minus_1)
+    equivalent_formula: G_i_t - 7.5
+    role: experimental_null_adjusted_state
+    leakage_rule: Target residual may only be scored after target reveal; forecasts must be frozen from prior data.
+    evidence_note: Predictive value is unproven and is audited in E0001.
+
+  NULL_ORDER_STATISTIC_SLOT:
+    type: probability_distribution
+    unit: sorted_slot_coordinate
+    formula: >-
+      C(n-1,j-1) * C(50-n,5-j) / C(50,5)
+    role: exact_structural_null
+    note: Required baseline for sorted-slot coordinate claims.
+
+  NULL_HLR_STRUCTURAL:
+    type: probability_distribution
+    unit: sorted_slot_direction
+    definition: >-
+      Sum NULL_ORDER_STATISTIC_SLOT below, at, and above the previous same-slot coordinate to obtain LOW, REPEAT, HIGH probabilities.
+    role: exact_structural_null
+    note: Captures order-statistic mean reversion without temporal dependence.
+
+  NULL_VVD_STRUCTURAL:
+    type: probability_distribution
+    unit: sorted_slot_displacement
+    definition: >-
+      For displacement d from previous coordinate p, sum exact slot probability at legal p-d and p+d coordinates, counting d=0 once.
+    role: exact_structural_null
+    note: Required comparator for MAIN_VVD_DELTA predictive claims.
+
+  NULL_HLR_JOINT_243:
+    type: probability_distribution
+    unit: five_slot_hlr_vector
+    definition: >-
+      Enumerate all C(50,5)=2,118,760 legal sorted next draws relative to a fixed previous draw and count their 243 HLR vectors.
+    role: exact_structural_null
+    note: Do not multiply per-slot HLR marginals because sorted slots are dependent.
+
+  NULL_GAP_DM:
+    type: probability_distribution
+    unit: six_component_gap_vector
+    distribution: Dirichlet-Multinomial
+    parameters:
+      N: 45
+      alpha: [1, 1, 1, 1, 1, 1]
+    role: exact_structural_null
+    note: >-
+      Exactly uniform over weak compositions of 45 into six nonnegative gaps; not an ordinary multinomial with fixed p=1/6.
+
   MORPH_SLDV:
     type: integer
     unit: combination
@@ -66,3 +131,4 @@ features:
 rules:
   - Every new feature must define unit, formula/semantics, stage, and leakage rule before use in a promotable experiment.
   - Features with the same acronym but different definitions require different canonical identifiers.
+  - Exact structural-null features are methodological baselines, not predictive experts and not evidence of lottery edge.
