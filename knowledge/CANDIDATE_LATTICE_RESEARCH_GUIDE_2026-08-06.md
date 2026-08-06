@@ -5,6 +5,8 @@
 **Target:** candidate discovery before wheeling/assembly  
 **Active dataset:** South African PowerBall rows through 2026-08-04 only
 
+> **Superseding structural-null note — 2026-08-06:** Claude Sonnet's corrected red-team review and `experiments/E0001/` show that the previously encouraging realized joint-flow ranks `3/243, 8/243, 8/243` are not standalone evidence of predictive skill. Exact IID joint-null ranks for those realized vectors were `2, 26, 3`. Two of three are explained at least as well by sorted 5/50 geometry. Read `knowledge/STRUCTURAL_NULL_GAP_SPACE_RESEARCH_GUIDE_2026-08-06.md` and `experiments/E0001/` before using HLR/VVD/joint-flow results. Candidate Lattice remains `INSUFFICIENT_EVIDENCE`; no frozen 2026-08-07 artifact is changed by this note.
+
 ## 1. Research objective
 
 The primary HEPS candidate-discovery problem is not to produce a flat Top-K ranking of 1-50. It is to construct the smallest defensible candidate structure that minimizes catastrophic exclusion of any of the five future winning coordinates before assembly.
@@ -76,6 +78,8 @@ For previous value p:
 
 The HLR forecast and HLR authority are separate. A committed HLR call does not automatically grant hard-veto authority because HLR is imperfect.
 
+**Current research gate:** learned HLR must be scored against `NULL_HLR_STRUCTURAL` under `E0001` before receiving additional authority.
+
 ## 5. VVD is conditional movement, not an independent veto
 
 VVD is `abs(next_slot - previous_slot)`.
@@ -83,6 +87,8 @@ VVD is `abs(next_slot - previous_slot)`.
 VVD operates **inside the HLR direction scenario**. If HLR=HIGH from 48 and a VVD displacement hypothesis proposes +5, the pair `HIGH + delta 5` is infeasible because 53 exceeds 50. HIGH itself may still remain feasible at 49 or 50 under smaller displacement support.
 
 Infeasible HLR/VVD pairs are removed deterministically. Feasible alternative displacement mass is renormalized rather than allowing one impossible VVD mode to kill the whole HLR scenario.
+
+**Current research gate:** learned VVD must be scored against `NULL_VVD_STRUCTURAL` under `E0001` before receiving additional authority.
 
 ## 6. Constraint propagation
 
@@ -107,7 +113,7 @@ Discovery-only replay produced these ranks for the actual flow vector:
 - 2026-07-31: actual flow ranked 8th;
 - 2026-08-04: actual flow ranked 8th.
 
-This was developed with the outcomes already known and is therefore **non-confirmatory**. It justifies prospective shadow testing, not promotion.
+These were developed with outcomes already known and are non-confirmatory. `E0001` further showed exact structural-null ranks of `2, 26, 3` for those same realized vectors. Therefore the `3/8/8` result is **not evidence of edge** and the joint ranker is diagnostic for architecture decisions until a prospective record exists.
 
 ## 8. Candidate-set optimization principle
 
@@ -124,6 +130,8 @@ The candidate objective should reward:
 
 A useful candidate can rank modestly globally yet be essential because it protects a weak slot or alternate flow scenario.
 
+All candidate claims must now report exact matched-exposure null survival or retained probability mass where feasible.
+
 ## 9. Safe-exclusion framing
 
 HEPS should learn which coordinates are safe to exclude rather than only which are attractive to include.
@@ -138,17 +146,21 @@ For each excluded coordinate record:
 
 Post-draw exclusion errors are catastrophic candidate-stage failures and should be tracked separately from ranking errors.
 
+At the current sample size, safe-exclusion is measurement/bookkeeping rather than new hard-pruning authority.
+
 ## 10. Structural null versus mechanical evidence
 
-The exact combinatorial order-statistic distribution may be used as a **structural null/prior** because it follows from sorting five unique values from 1-50. It is not mechanical-era empirical evidence.
+The exact combinatorial order-statistic distribution is a required **structural null** because it follows from sorting five unique values from 1-50. It is not mechanical-era empirical evidence.
 
-Mechanical deviations from that null may become useful only after enough active-era data accumulate and survive walk-forward testing.
+Mechanical deviations from that null may become useful only after enough active-era data accumulate and survive walk-forward/prospective testing.
+
+See `NULL_ORDER_STATISTIC_SLOT`, `NULL_HLR_STRUCTURAL`, `NULL_VVD_STRUCTURAL`, and `NULL_HLR_JOINT_243` in binding nomenclature.
 
 ## 11. Orthogonal expert weighting
 
 Experts that encode substantially the same information must not receive independent full weight merely because they have different names.
 
-HLR, VVD, sorted-position density and related order-statistic features should be audited for incremental information. Weight should track incremental walk-forward value, not apparent standalone fit.
+HLR, VVD, sorted-position density and related order-statistic features should be audited for incremental information. Weight should track incremental walk-forward value beyond exact structural baselines, not apparent standalone fit.
 
 ## 12. Physics of Failure for candidate discovery
 
@@ -157,7 +169,10 @@ For every post-draw analysis record, per slot:
 - previous coordinate;
 - committed HLR call;
 - actual H/L/R direction;
+- exact structural-null HLR probabilities;
+- learned HLR probability output;
 - VVD forecast/support;
+- exact structural VVD null;
 - actual displacement;
 - hard-feasibility status;
 - candidate rank;
@@ -167,6 +182,7 @@ For every post-draw analysis record, per slot:
 Then record:
 
 - whether all 5 winning coordinates survived;
+- exact null survival probability at matched exposure;
 - whether the exact line was legally generated;
 - morphology survival;
 - final winner-float rank;
@@ -199,6 +215,8 @@ Vector: **HLHHL**.
 
 The independent call is retained even though the joint feasibility model ranks alternative vectors above it.
 
+`E0001` calculates that `HLHHL` has exact structural-null probability approximately `0.01585833%` and rank `109/243` relative to the previous draw. This baseline was added after the original slate freeze but before the target and does not modify the slate.
+
 ### Friday joint scenario ranking — discovery-only
 
 Top scenario vectors under the frozen v0.1 calculation:
@@ -212,10 +230,12 @@ Top scenario vectors under the frozen v0.1 calculation:
 7. LLLLL
 8. HLLHH
 
-These scenarios are used for portfolio rescue coverage; they are not alternative retroactive HLR calls.
+These scenarios are used in the frozen portfolio as originally recorded; they are not alternative retroactive HLR calls. Future architecture decisions must compare them with `NULL_HLR_JOINT_243`.
 
 ## 14. Evidence classification
 
-**Candidate Lattice / Joint Flow Reconciliation:** `INSUFFICIENT_EVIDENCE`, architecture status `experimental/shadow`.
+**Candidate Lattice / Joint Flow Reconciliation:** `INSUFFICIENT_EVIDENCE`, architecture status `experimental/shadow research`.
 
-The architecture is worth prospective testing because it makes the candidate process auditable and constraint-consistent. It is not evidence that an exact lottery line has altered nominal probability.
+The architecture remains useful as an auditable constraint-and-provenance framework. It has not demonstrated that learned HLR/VVD/joint-flow information improves prediction beyond exact sorted-5/50 geometry.
+
+Current critical gate: `experiments/E0001/`.
