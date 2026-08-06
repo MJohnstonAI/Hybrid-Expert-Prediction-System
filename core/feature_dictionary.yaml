@@ -1,0 +1,68 @@
+schema_version: 1
+updated: 2026-08-06
+features:
+  MAIN_HLR_SLOT:
+    type: categorical
+    unit: sorted_slot
+    values: [LOW, REPEAT, HIGH]
+    definition: Direction of target slot relative to previous same sorted slot.
+    leakage_rule: Must be forecast before target draw is revealed.
+
+  MAIN_VVD_DELTA:
+    type: integer
+    unit: sorted_slot
+    formula: abs(slot_t - slot_t_minus_1)
+    role: movement_magnitude
+    note: Direction is supplied separately by MAIN_HLR_SLOT.
+
+  MORPH_SLDV:
+    type: integer
+    unit: combination
+    formula: abs(sum(last_digit(candidate_line)) - previous_draw_last_digit_sum)
+    role: morphology
+
+  MORPH_MACRO_SUM:
+    type: integer
+    unit: combination
+    formula: sum(main_numbers)
+    role: morphology
+
+  MORPH_SPAN:
+    type: integer
+    unit: combination
+    formula: max(main_numbers) - min(main_numbers)
+    role: morphology
+
+  MORPH_PARITY_COUNT:
+    type: integer
+    unit: combination
+    definition: Count of odd or even numbers, with convention declared by experiment.
+    role: morphology
+
+  MORPH_REGISTER_COUNT:
+    type: structured
+    unit: combination
+    definition: Occupancy across explicitly declared numeric registers or bands.
+    role: morphology
+
+  COALITION_PAIR_SCORE:
+    type: real
+    unit: pair
+    definition: Experiment-specific support that two candidates belong in the same line.
+    role: coalition_assembly
+
+  CANDIDATE_RECENCY:
+    type: real
+    unit: coordinate
+    definition: Recency-based candidate baseline; exact convention must be declared.
+    role: candidate_funnel
+
+  CANDIDATE_FREQUENCY:
+    type: real
+    unit: coordinate
+    definition: Cumulative or windowed frequency baseline; window must be declared.
+    role: candidate_funnel
+
+rules:
+  - Every new feature must define unit, formula/semantics, stage, and leakage rule before use in a promotable experiment.
+  - Features with the same acronym but different definitions require different canonical identifiers.
