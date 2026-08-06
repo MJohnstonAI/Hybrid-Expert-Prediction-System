@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "architecture_id": "HEPS-v34-collaborative-moe",
+  "status": "migration_candidate",
+  "updated": "2026-08-06",
+  "canonical_architecture": "core/heps_architecture.md",
+  "expert_registry": "core/expert_registry.yaml",
+  "active_data": "data/draw_history.jsonl",
+  "dataset_manifest": "data/draw_manifest.json",
+  "pipeline": [
+    "slot_forecast",
+    "candidate_funnel",
+    "coalition_assembly",
+    "morphology",
+    "winner_float_ranking",
+    "portfolio_optimization",
+    "powerball_matrix"
+  ],
+  "learning_speeds": {
+    "fast": "deterministic state updates after each draw",
+    "medium": "predeclared parameter-learning algorithms",
+    "slow": "reviewed architecture promotion"
+  },
+  "promotion_policy": "governance/promotion_policy.md",
+  "paper_trading_only": true
+}
