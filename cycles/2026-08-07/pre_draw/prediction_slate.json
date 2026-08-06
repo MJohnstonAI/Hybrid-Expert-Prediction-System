@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "target_draw_date": "2026-08-07",
+  "generated_on": "2026-08-06",
+  "training_cutoff": "2026-08-04",
+  "dataset_rows": 19,
+  "paper_trading_only": true,
+  "architecture": "HEPS-v34 Candidate Lattice v0.1 shadow overlay",
+  "committed_hlr_vector": "HLHHL",
+  "powerball_primary_direction": "LOW",
+  "lines": [
+    {"rank":1,"main":[21,22,35,36,37],"powerball":11,"flow":"HLHHL","lane":"committed_hlr"},
+    {"rank":2,"main":[22,23,35,36,37],"powerball":12,"flow":"HLHHL","lane":"committed_hlr"},
+    {"rank":3,"main":[20,21,34,36,37],"powerball":10,"flow":"HLHHL","lane":"committed_hlr"},
+    {"rank":4,"main":[19,23,34,35,37],"powerball":13,"flow":"HLHHL","lane":"committed_hlr"},
+    {"rank":5,"main":[4,12,34,43,47],"powerball":9,"flow":"LLHHH","lane":"joint_flow_rescue"},
+    {"rank":6,"main":[6,18,36,44,48],"powerball":8,"flow":"LLHHH","lane":"joint_flow_rescue"},
+    {"rank":7,"main":[8,20,38,45,49],"powerball":14,"flow":"LLHHH","lane":"joint_flow_rescue"},
+    {"rank":8,"main":[10,22,40,46,50],"powerball":16,"flow":"LLHHH","lane":"joint_flow_rescue"},
+    {"rank":9,"main":[3,11,21,43,47],"powerball":15,"flow":"LLLHH","lane":"joint_flow_rescue"},
+    {"rank":10,"main":[5,13,23,44,48],"powerball":7,"flow":"LLLHH","lane":"joint_flow_rescue"},
+    {"rank":11,"main":[7,17,22,45,49],"powerball":6,"flow":"LLLHH","lane":"joint_flow_rescue"},
+    {"rank":12,"main":[4,26,35,43,47],"powerball":5,"flow":"LHHHH","lane":"joint_flow_rescue"},
+    {"rank":13,"main":[9,27,37,45,50],"powerball":4,"flow":"LHHHH","lane":"joint_flow_rescue"},
+    {"rank":14,"main":[19,21,34,43,47],"powerball":3,"flow":"HLHHH","lane":"joint_flow_rescue"},
+    {"rank":15,"main":[20,23,38,45,49],"powerball":2,"flow":"HLHHH","lane":"joint_flow_rescue"},
+    {"rank":16,"main":[4,12,21,30,47],"powerball":1,"flow":"LLLLH","lane":"joint_flow_rescue"},
+    {"rank":17,"main":[17,25,34,43,47],"powerball":11,"flow":"HHHHH","lane":"joint_flow_rescue"},
+    {"rank":18,"main":[4,12,21,30,36],"powerball":12,"flow":"LLLLL","lane":"joint_flow_rescue"},
+    {"rank":19,"main":[18,20,23,43,47],"powerball":10,"flow":"HLLHH","lane":"joint_flow_rescue"},
+    {"rank":20,"main":[5,18,31,33,47],"powerball":13,"flow":"LLHLH","lane":"diversity_rescue"}
+  ],
+  "powerball_coverage": {
+    "all_1_to_16_covered_at_least_once": true,
+    "repeated_highest_shadow_candidates": [11,12,10,13]
+  },
+  "selection_notes": [
+    "Ranks 1-4 preserve the mandatory independent HLR forecast HLHHL.",
+    "Remaining lines diversify across high-ranked joint flow scenarios and a lower-ranked structural rescue.",
+    "Mechanical slot histograms have no pruning authority at the current sample size.",
+    "Pre-June PRNG data were not used to set active Friday parameters.",
+    "This is a frozen prospective paper-trading slate."
+  ],
+  "evidence_status": "INSUFFICIENT_EVIDENCE"
+}
