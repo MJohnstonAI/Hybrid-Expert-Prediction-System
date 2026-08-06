@@ -8,7 +8,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from validate_draws import DEFAULT_LEDGER, REGIME, load_jsonl, validate_rows
+from validate_draws import DEFAULT_LEDGER, GAME_FORMAT, load_jsonl, validate_rows
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = REPO_ROOT / "data" / "draw_manifest.json"
@@ -19,23 +19,31 @@ def build_manifest(rows: list[tuple[int, dict[str, Any]]]) -> dict[str, Any]:
         raise ValueError("Cannot build manifest from an empty ledger")
 
     _, latest = rows[-1]
+    observed_methods = sorted({row.get("draw_method", "unknown") for _, row in rows})
+    observed_machines = sorted({row.get("machine_name", "unknown") for _, row in rows})
     return {
         "project": "Hybrid Expert Prediction System",
         "canonical_file": "data/draw_history.jsonl",
-        "active_regime": REGIME,
+        "active_game_format": GAME_FORMAT,
+        "observed_draw_methods": observed_methods,
+        "observed_machine_names": observed_machines,
         "latest_draw_id": latest["draw_id"],
         "latest_draw_date": latest["draw_date"],
         "latest_main_numbers": latest["main_numbers"],
         "latest_powerball": latest["powerball"],
         "latest_macro_sum": latest["macro_sum"],
+        "latest_draw_method": latest.get("draw_method", "unknown"),
+        "latest_machine_name": latest.get("machine_name", "unknown"),
         "row_count": len(rows),
         "last_synced": date.today().isoformat(),
         "known_data_rules": [
-            "Use post-May/June 2026 mechanical-era draws for active modelling",
-            "No Excel required for active HEPS processing",
+            "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
+            "Game format, draw method, and machine identity are distinct metadata axes",
+            "Do not infer draw mechanism from game-format labels or from draw date alone",
             "Sort draws chronologically before modelling",
             "Do not treat sorted Slot1-Slot5 as physical draw order unless drawn order is available",
-            "South African PowerBall bounds: main numbers 1-50 unique ascending, PowerBall 1-16",
+            "Physical/mechanical experts must report whether training data mix draw methods or machine identities",
+            "No Excel required for active HEPS processing",
         ],
         "primary_kpis": [
             "Top-10 3+ main-number overlap",
@@ -51,11 +59,16 @@ def build_manifest(rows: list[tuple[int, dict[str, Any]]]) -> dict[str, Any]:
 
 def calculated_fields(manifest: dict[str, Any]) -> dict[str, Any]:
     keys = [
+        "active_game_format",
+        "observed_draw_methods",
+        "observed_machine_names",
         "latest_draw_id",
         "latest_draw_date",
         "latest_main_numbers",
         "latest_powerball",
         "latest_macro_sum",
+        "latest_draw_method",
+        "latest_machine_name",
         "row_count",
     ]
     return {key: manifest.get(key) for key in keys}
