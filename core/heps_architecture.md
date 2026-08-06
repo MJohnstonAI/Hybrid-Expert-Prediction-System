@@ -16,12 +16,28 @@ The active architecture is deliberately separated from experimental research. Ex
 
 - Canonical ledger: `data/draw_history.jsonl`
 - Dataset state: `data/draw_manifest.json`
-- Active regime: post-May/June 2026 mechanical-era South African PowerBall
+- Active game format: `powerball_50_16`
 - Main field: five unique main numbers from 1-50
 - PowerBall field: one number from 1-16
 - Slot1-Slot5 are sorted order statistics, not physical draw order
+- `game_format`, `draw_method`, and `machine_name` are separate metadata axes
+- Never infer a draw mechanism from the game-format label or from a date boundary alone
 
-Older draw history may be used for explicitly labelled discovery, calibration, null, transfer, or robustness analysis. Active mechanical-era claims require validation on the active regime.
+The canonical Sizekhaya-era rows currently verified through 2026-07-14 use the 50/16 game format and reported mechanical machines including PB1, Khaya, and SIZWE. The repository must remain capable of representing `electronic_rng` or `unknown` draw methods without changing the 50/16 game-format definition.
+
+Older draw history may be used for explicitly labelled discovery, calibration, null, transfer, or robustness analysis. Active claims require validation on the relevant current game format and must disclose any draw-method or machine-identity mixing that is material to the hypothesis.
+
+### Stationarity and physical-expert doctrine
+
+A training window can be temporally valid and still be heterogeneous. Therefore:
+
+- physical/mechanical experts must report the draw-method and machine-identity composition of their training window;
+- machine-specific hypotheses should compare pooled evidence with machine-conditioned evidence where sample size permits;
+- electronic RNG rows, if they occur, must not be treated as observations of mechanical stiction/drag without a separately justified mapping;
+- candidate regime boundaries must come from external operator/equipment evidence, not from scanning outcome statistics for the most favorable split;
+- `scripts/check_stationarity.py` is an advisory diagnostic and never an automatic predictive feature or automatic retraining trigger.
+
+No PowerBall-specific 2026-06-22 mechanism boundary is accepted by the architecture. Any future boundary must be independently sourced and promoted through the normal evidence process.
 
 ## Scientific governance
 
@@ -72,6 +88,10 @@ Shadow/experimental candidate experts may contribute diagnostic scores without p
 ### Authority principle
 
 Candidate experts should prefer soft scoring and exposure adjustment over hard elimination unless a separate promotion decision grants veto authority.
+
+### Machine-aware physical evidence
+
+Experts whose rationale depends on mechanical persistence, stiction, drag, machine memory, or related physical effects must consume `draw_method` and `machine_name` as **provenance/conditioning metadata**, not as automatic predictors. If a training window mixes machines, the expert must state whether the score is pooled, machine-conditioned, or machine-agnostic and provide an appropriate control.
 
 ## Stage 3 — Coalition Assembly
 
@@ -140,7 +160,7 @@ Current production research components include:
 - stiction and +/-1 or +/-2 support;
 - low-collapse hedge.
 
-PowerBall evidence must be evaluated independently rather than inferred from main-field success.
+PowerBall evidence must be evaluated independently rather than inferred from main-field success. Physical PowerBall hypotheses are subject to the same draw-method/machine stationarity rules as Matrix A.
 
 ---
 
@@ -174,17 +194,18 @@ After every validated draw, frozen formulas may update deterministic state such 
 - HLR history if the experimental module is enabled;
 - VVD history;
 - expert sufficient statistics;
-- score ledgers.
+- score ledgers;
+- draw-method and machine provenance state.
 
 ## Medium learning — parameters
 
 Weights, transition probabilities, shrinkage coefficients, and ranking parameters may update only through a predeclared learning algorithm or reviewed accumulated evidence.
 
-A single post-draw miss must not trigger ad-hoc weight changes.
+A single post-draw miss must not trigger ad-hoc weight changes. A machine or method label change must not automatically trigger weight changes unless a predeclared rule or reviewed proposal authorizes it.
 
 ## Slow learning — architecture
 
-New experts, removed experts, changed semantics, or changed authority require:
+New experts, removed experts, changed semantics, changed authority, or changes to how draw-method/machine provenance affects modelling require:
 
 `proposal -> experiment -> reproduction -> red-team -> synthesis -> promotion decision`
 
@@ -200,7 +221,7 @@ Each target draw should have `cycles/YYYY-MM-DD/`.
 
 Freeze:
 
-1. dataset state;
+1. dataset state including draw-method and machine metadata;
 2. architecture version;
 3. expert versions/authority/weights;
 4. expert outputs;
@@ -238,6 +259,8 @@ For every target, identify the first failure stage:
 - winner-float ranker buried the line;
 - portfolio optimizer excluded a highly ranked line.
 
+For physical experts, also ask whether the failure coincided with a different draw method or machine identity than the expert's supporting evidence. Treat that as a diagnostic hypothesis, not causal proof.
+
 Where possible record leave-one-expert-out counterfactual rank changes. Weight changes require repeated evidence, not one target.
 
 ---
@@ -257,7 +280,8 @@ Core metrics include:
 - exact 3/4/5 main outcomes per submitted line and per game;
 - same-line PowerBall outcomes;
 - random/simple/current baseline comparisons;
-- portfolio diversity.
+- portfolio diversity;
+- for physical experts, pooled versus method/machine-conditioned performance where sample size permits.
 
 A single jackpot outcome is a project milestone but does not by itself prove a durable predictive edge.
 
@@ -274,6 +298,8 @@ As of 2026-08-06, high-value unresolved research includes:
 - Slot Constraint Funnel efficiency versus matched controls;
 - Winner-Float ranking failure attribution;
 - morphology residual value including SLDV;
-- prospective GPR-8 falsification.
+- prospective GPR-8 falsification;
+- whether machine-conditioned evidence differs materially from pooled mechanical evidence;
+- whether/when any future PowerBall draw uses electronic RNG as primary or backup in the canonical ledger.
 
 These are research priorities, not automatically active production rules.
