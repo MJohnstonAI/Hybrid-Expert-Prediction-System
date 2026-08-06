@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "target_draw_date": "2026-08-07",
+  "training_cutoff": "2026-08-04",
+  "training_rows": 19,
+  "paper_trading_only": true,
+  "experiment": "CANDIDATE_LATTICE_V01",
+  "previous_main": [16,24,29,34,38],
+  "previous_powerball": 15,
+  "mechanical_histogram_authority": "diagnostic_only_no_pruning",
+  "pre_june_empirical_parameter_authority": false,
+  "committed_hlr": {
+    "vector": "HLHHL",
+    "slots": [
+      {"slot":1,"call":"HIGH","model_probability":0.6051},
+      {"slot":2,"call":"LOW","model_probability":0.7366},
+      {"slot":3,"call":"HIGH","model_probability":0.6773},
+      {"slot":4,"call":"HIGH","model_probability":0.6472},
+      {"slot":5,"call":"LOW","model_probability":0.5807}
+    ],
+    "note": "Committed HLR forecast is not overwritten by the joint flow scenario ranking."
+  },
+  "joint_flow_scenarios": [
+    {"rank":1,"vector":"LLHHH","joint_score":18.2992},
+    {"rank":2,"vector":"LLLHH","joint_score":7.0675},
+    {"rank":3,"vector":"LHHHH","joint_score":3.0733},
+    {"rank":4,"vector":"HLHHH","joint_score":2.8446},
+    {"rank":5,"vector":"LLLLH","joint_score":2.7488},
+    {"rank":6,"vector":"HHHHH","joint_score":2.4778},
+    {"rank":7,"vector":"LLLLL","joint_score":1.7167},
+    {"rank":8,"vector":"HLLHH","joint_score":0.6020},
+    {"rank":12,"vector":"LLHLH","joint_score":0.1580}
+  ],
+  "candidate_exposure_union": [3,4,5,6,7,8,9,10,11,12,13,17,18,19,20,21,22,23,25,26,27,30,31,33,34,35,36,37,38,40,43,44,45,46,47,48,49,50],
+  "candidate_exposure_union_size": 38,
+  "why_union_is_not_smaller": "Current active-era evidence does not justify aggressive 20-25-number compression without unacceptable exclusion risk. Slot and scenario constraints provide most of the compression rather than a flat base-field veto.",
+  "powerball_shadow_model": {
+    "committed_direction_from_15": "LOW",
+    "direction_probabilities": {"HIGH":0.2028,"LOW":0.6152,"REPEAT":0.1821},
+    "top_candidates": [11,12,10,9,13,1,8,7,14,6,2,16,15,5,3,4]
+  },
+  "evidence_status": "INSUFFICIENT_EVIDENCE",
+  "warning": "Retrospective direct Top-20 line ranking from Candidate Lattice v0.1 did not produce a 3+ main hit on the last three pseudo-future targets. Friday is a prospective shadow test, not a validated edge."
+}
