@@ -116,7 +116,19 @@ Strict walk-forward order is mandatory:
 
 Random/null and simple baseline comparisons are mandatory for claims of improvement.
 
-## 7. Mixture-of-Experts architecture stages
+## 7. Draw-method and stationarity integrity
+
+The **game format**, **draw method**, and **machine identity** are separate data concepts:
+
+- `game_format` describes the fixed game rules/pools, currently `powerball_50_16`;
+- `draw_method` describes how the winning numbers were selected: `mechanical_machine`, `electronic_rng`, or `unknown`;
+- `machine_name` identifies the reported machine/RNG when known.
+
+Never infer draw method from a date, operator-era label, or game-format label alone. A candidate mechanism boundary must be externally pre-specified and sourced; agents must not scan outcome statistics for a split point and then present the best split as evidence.
+
+Any expert making a physical or machine-specific claim must disclose whether its training window mixes draw methods or machine identities and, where feasible, compare pooled evidence with method/machine-conditioned evidence. `scripts/check_stationarity.py` is an advisory diagnostic for this purpose; it is not itself a predictive feature.
+
+## 8. Mixture-of-Experts architecture stages
 
 HEPS is a staged mixture of experts, not a flat voting system.
 
@@ -132,7 +144,7 @@ Canonical stages are:
 
 An expert's **forecast** and its **authority** are separate. An expert may be required to make a forecast while having no authority to hard-eliminate conflicting candidates.
 
-## 8. Self-improvement operates at three speeds
+## 9. Self-improvement operates at three speeds
 
 ### Fast: state updates
 After each draw, deterministic frozen formulas may update state: HLR history, VVD history, gaps, recurrence intervals, sufficient statistics, and score ledgers.
@@ -143,7 +155,7 @@ Weights, shrinkage coefficients, transition probabilities, and ranking coefficie
 ### Slow: architecture evolution
 Adding/removing experts or changing expert meaning requires evidence, reproduction, adversarial review, and a promotion decision.
 
-## 9. Experiment package workflow
+## 10. Experiment package workflow
 
 New research belongs under `experiments/<experiment_id>/` using the format described in `experiments/README.md`.
 
@@ -159,7 +171,7 @@ Minimum package:
 
 Legacy research in `workspace/contributions/` and `workspace/reviews/` remains valid historical evidence and must not be deleted. New work should prefer experiment packages.
 
-## 10. Promotion path
+## 11. Promotion path
 
 `core/heps_architecture.md` is the **end of the research pipeline**, not a scratchpad.
 
@@ -171,7 +183,7 @@ A single model may contribute at several stages, but it may not use its own unre
 
 Use `governance/promotion_policy.md`.
 
-## 11. Per-draw cycle integrity
+## 12. Per-draw cycle integrity
 
 Each target draw should have a directory under `cycles/YYYY-MM-DD/`.
 
@@ -179,7 +191,7 @@ Pre-draw artifacts are immutable once frozen. After the result, write post-draw 
 
 Use `cycles/README.md`.
 
-## 12. Physics of Failure
+## 13. Physics of Failure
 
 After each target, diagnose where the actual winning coordinates or line were lost:
 
@@ -194,7 +206,7 @@ After each target, diagnose where the actual winning coordinates or line were lo
 
 Where possible, compute leave-one-expert-out counterfactual ranks. Do not infer causality from one miss; accumulate evidence across targets.
 
-## 13. Nomenclature is binding
+## 14. Nomenclature is binding
 
 Read `governance/nomenclature.md` before using legacy names.
 
@@ -207,19 +219,20 @@ In particular:
 
 Do not conflate similarly named concepts.
 
-## 14. Engineering and validation
+## 15. Engineering and validation
 
 Before prediction, backtest, or ledger changes, run the repository's validation tools when available:
 
 ```bash
 python scripts/validate_draws.py data/draw_history.jsonl
 python scripts/sync_manifest.py --check
+python scripts/check_stationarity.py
 python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 ```
 
 Main numbers are sorted order statistics, not physical draw order. Never convert order-statistic movement into unsupported physical ball-trajectory claims.
 
-## 15. Final agent obligation
+## 16. Final agent obligation
 
 Leave HEPS more auditable than you found it.
 
