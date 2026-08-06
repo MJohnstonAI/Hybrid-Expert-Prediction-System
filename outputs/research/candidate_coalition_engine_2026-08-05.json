@@ -1,0 +1,1740 @@
+{
+  "generated_at": "2026-08-05T10:21:16Z",
+  "status": "paper_trading_research_only",
+  "model_version": "candidate_coalition_v0.1_provisional",
+  "ledger_window": {
+    "first_draw_date": "2026-06-02",
+    "latest_draw_date": "2026-07-14",
+    "row_count": 13,
+    "min_train_rows": 3,
+    "submitted_targets": 10
+  },
+  "score_semantics": "All expert, candidate, line, and threshold values are relative utilities, not calibrated probabilities.",
+  "candidate_engine": {
+    "experts": [
+      "bayesian_hot",
+      "recency_bayesian",
+      "cold_void",
+      "stiction_shadow",
+      "pair_bridge",
+      "midfield",
+      "high_register",
+      "sorted_slot_ewma",
+      "gap_echo"
+    ],
+    "composite_experts_excluded": "Existing synergy composites are excluded to avoid counting their base signals twice.",
+    "fixed_pool_policy": {
+      "production_research_pool_size": 15,
+      "rationale": "Pre-registered compromise: 70% compression with 3003 possible lines; not selected from the historical winner.",
+      "assembly_diagnostic_pool_size": 20,
+      "assembly_diagnostic_reason": "K=20 is retained separately because K=15 yielded no historical target with three winners available to assemble.",
+      "sensitivity_pool_sizes": [
+        10,
+        12,
+        15,
+        20
+      ],
+      "dynamic_selection": "disabled until enough prospective targets exist"
+    },
+    "results": {
+      "candidate_engine": {
+        "targets": 10,
+        "winning_coordinates": 50,
+        "mean_winning_number_rank": 25.54,
+        "mean_rank_95pct_target_bootstrap": [
+          23.2,
+          28.28
+        ],
+        "normalized_rank_gain_vs_uniform": -0.001633,
+        "pool_metrics": {
+          "10": {
+            "total_winner_hits": 8,
+            "winner_recall": 0.16,
+            "precision": 0.08,
+            "mean_winners_per_target": 0.8,
+            "mean_winners_95pct_target_bootstrap": [
+              0.4,
+              1.3
+            ],
+            "null_expected_winners_per_target": 1.0,
+            "lift_winners_per_target": -0.2,
+            "draws_with_2_plus_in_pool": 2,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.82090486,
+            "compression_fraction": 0.8,
+            "line_search_space": 252,
+            "retrospective_compression_objective": -0.16
+          },
+          "12": {
+            "total_winner_hits": 10,
+            "winner_recall": 0.2,
+            "precision": 0.083333,
+            "mean_winners_per_target": 1.0,
+            "mean_winners_95pct_target_bootstrap": [
+              0.6,
+              1.4
+            ],
+            "null_expected_winners_per_target": 1.2,
+            "lift_winners_per_target": -0.2,
+            "draws_with_2_plus_in_pool": 2,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.80455259,
+            "compression_fraction": 0.76,
+            "line_search_space": 792,
+            "retrospective_compression_objective": -0.152
+          },
+          "15": {
+            "total_winner_hits": 13,
+            "winner_recall": 0.26,
+            "precision": 0.086667,
+            "mean_winners_per_target": 1.3,
+            "mean_winners_95pct_target_bootstrap": [
+              0.9,
+              1.7
+            ],
+            "null_expected_winners_per_target": 1.5,
+            "lift_winners_per_target": -0.2,
+            "draws_with_2_plus_in_pool": 4,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.78784336,
+            "compression_fraction": 0.7,
+            "line_search_space": 3003,
+            "retrospective_compression_objective": -0.14
+          },
+          "20": {
+            "total_winner_hits": 22,
+            "winner_recall": 0.44,
+            "precision": 0.11,
+            "mean_winners_per_target": 2.2,
+            "mean_winners_95pct_target_bootstrap": [
+              1.8,
+              2.5
+            ],
+            "null_expected_winners_per_target": 2.0,
+            "lift_winners_per_target": 0.2,
+            "draws_with_2_plus_in_pool": 9,
+            "draws_with_3_plus_in_pool": 3,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.32332998,
+            "compression_fraction": 0.6,
+            "line_search_space": 15504,
+            "retrospective_compression_objective": 0.12
+          }
+        }
+      },
+      "frequency_only": {
+        "targets": 10,
+        "winning_coordinates": 50,
+        "mean_winning_number_rank": 25.68,
+        "mean_rank_95pct_target_bootstrap": [
+          22.74,
+          28.82
+        ],
+        "normalized_rank_gain_vs_uniform": -0.007347,
+        "pool_metrics": {
+          "10": {
+            "total_winner_hits": 10,
+            "winner_recall": 0.2,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.0,
+            "mean_winners_95pct_target_bootstrap": [
+              0.6,
+              1.4
+            ],
+            "null_expected_winners_per_target": 1.0,
+            "lift_winners_per_target": 0.0,
+            "draws_with_2_plus_in_pool": 2,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.56120476,
+            "compression_fraction": 0.8,
+            "line_search_space": 252,
+            "retrospective_compression_objective": 0.0
+          },
+          "12": {
+            "total_winner_hits": 12,
+            "winner_recall": 0.24,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.2,
+            "mean_winners_95pct_target_bootstrap": [
+              0.8,
+              1.7
+            ],
+            "null_expected_winners_per_target": 1.2,
+            "lift_winners_per_target": 0.0,
+            "draws_with_2_plus_in_pool": 2,
+            "draws_with_3_plus_in_pool": 1,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.55884476,
+            "compression_fraction": 0.76,
+            "line_search_space": 792,
+            "retrospective_compression_objective": 0.0
+          },
+          "15": {
+            "total_winner_hits": 13,
+            "winner_recall": 0.26,
+            "precision": 0.086667,
+            "mean_winners_per_target": 1.3,
+            "mean_winners_95pct_target_bootstrap": [
+              0.9,
+              1.8
+            ],
+            "null_expected_winners_per_target": 1.5,
+            "lift_winners_per_target": -0.2,
+            "draws_with_2_plus_in_pool": 3,
+            "draws_with_3_plus_in_pool": 1,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.78784336,
+            "compression_fraction": 0.7,
+            "line_search_space": 3003,
+            "retrospective_compression_objective": -0.14
+          },
+          "20": {
+            "total_winner_hits": 19,
+            "winner_recall": 0.38,
+            "precision": 0.095,
+            "mean_winners_per_target": 1.9,
+            "mean_winners_95pct_target_bootstrap": [
+              1.4,
+              2.4
+            ],
+            "null_expected_winners_per_target": 2.0,
+            "lift_winners_per_target": -0.1,
+            "draws_with_2_plus_in_pool": 6,
+            "draws_with_3_plus_in_pool": 3,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.6718228,
+            "compression_fraction": 0.6,
+            "line_search_space": 15504,
+            "retrospective_compression_objective": -0.06
+          }
+        }
+      },
+      "recency_only": {
+        "targets": 10,
+        "winning_coordinates": 50,
+        "mean_winning_number_rank": 25.5,
+        "mean_rank_95pct_target_bootstrap": [
+          22.02,
+          28.88
+        ],
+        "normalized_rank_gain_vs_uniform": 0.0,
+        "pool_metrics": {
+          "10": {
+            "total_winner_hits": 10,
+            "winner_recall": 0.2,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.0,
+            "mean_winners_95pct_target_bootstrap": [
+              0.4,
+              1.6
+            ],
+            "null_expected_winners_per_target": 1.0,
+            "lift_winners_per_target": 0.0,
+            "draws_with_2_plus_in_pool": 3,
+            "draws_with_3_plus_in_pool": 1,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.56120476,
+            "compression_fraction": 0.8,
+            "line_search_space": 252,
+            "retrospective_compression_objective": 0.0
+          },
+          "12": {
+            "total_winner_hits": 11,
+            "winner_recall": 0.22,
+            "precision": 0.091667,
+            "mean_winners_per_target": 1.1,
+            "mean_winners_95pct_target_bootstrap": [
+              0.5,
+              1.7
+            ],
+            "null_expected_winners_per_target": 1.2,
+            "lift_winners_per_target": -0.1,
+            "draws_with_2_plus_in_pool": 3,
+            "draws_with_3_plus_in_pool": 1,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.69124777,
+            "compression_fraction": 0.76,
+            "line_search_space": 792,
+            "retrospective_compression_objective": -0.076
+          },
+          "15": {
+            "total_winner_hits": 16,
+            "winner_recall": 0.32,
+            "precision": 0.106667,
+            "mean_winners_per_target": 1.6,
+            "mean_winners_95pct_target_bootstrap": [
+              0.8,
+              2.4
+            ],
+            "null_expected_winners_per_target": 1.5,
+            "lift_winners_per_target": 0.1,
+            "draws_with_2_plus_in_pool": 6,
+            "draws_with_3_plus_in_pool": 2,
+            "draws_with_4_plus_in_pool": 1,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.42919097,
+            "compression_fraction": 0.7,
+            "line_search_space": 3003,
+            "retrospective_compression_objective": 0.07
+          },
+          "20": {
+            "total_winner_hits": 24,
+            "winner_recall": 0.48,
+            "precision": 0.12,
+            "mean_winners_per_target": 2.4,
+            "mean_winners_95pct_target_bootstrap": [
+              1.7,
+              3.0
+            ],
+            "null_expected_winners_per_target": 2.0,
+            "lift_winners_per_target": 0.4,
+            "draws_with_2_plus_in_pool": 8,
+            "draws_with_3_plus_in_pool": 6,
+            "draws_with_4_plus_in_pool": 1,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.14581715,
+            "compression_fraction": 0.6,
+            "line_search_space": 15504,
+            "retrospective_compression_objective": 0.24
+          }
+        }
+      },
+      "sorted_slot_ewma": {
+        "targets": 10,
+        "winning_coordinates": 50,
+        "mean_winning_number_rank": 24.54,
+        "mean_rank_95pct_target_bootstrap": [
+          21.86,
+          27.18
+        ],
+        "normalized_rank_gain_vs_uniform": 0.039184,
+        "pool_metrics": {
+          "10": {
+            "total_winner_hits": 8,
+            "winner_recall": 0.16,
+            "precision": 0.08,
+            "mean_winners_per_target": 0.8,
+            "mean_winners_95pct_target_bootstrap": [
+              0.4,
+              1.3
+            ],
+            "null_expected_winners_per_target": 1.0,
+            "lift_winners_per_target": -0.2,
+            "draws_with_2_plus_in_pool": 2,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.82090486,
+            "compression_fraction": 0.8,
+            "line_search_space": 252,
+            "retrospective_compression_objective": -0.16
+          },
+          "12": {
+            "total_winner_hits": 10,
+            "winner_recall": 0.2,
+            "precision": 0.083333,
+            "mean_winners_per_target": 1.0,
+            "mean_winners_95pct_target_bootstrap": [
+              0.5,
+              1.5
+            ],
+            "null_expected_winners_per_target": 1.2,
+            "lift_winners_per_target": -0.2,
+            "draws_with_2_plus_in_pool": 3,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.80455259,
+            "compression_fraction": 0.76,
+            "line_search_space": 792,
+            "retrospective_compression_objective": -0.152
+          },
+          "15": {
+            "total_winner_hits": 15,
+            "winner_recall": 0.3,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.5,
+            "mean_winners_95pct_target_bootstrap": [
+              1.1,
+              1.9
+            ],
+            "null_expected_winners_per_target": 1.5,
+            "lift_winners_per_target": 0.0,
+            "draws_with_2_plus_in_pool": 6,
+            "draws_with_3_plus_in_pool": 0,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.55696065,
+            "compression_fraction": 0.7,
+            "line_search_space": 3003,
+            "retrospective_compression_objective": 0.0
+          },
+          "20": {
+            "total_winner_hits": 20,
+            "winner_recall": 0.4,
+            "precision": 0.1,
+            "mean_winners_per_target": 2.0,
+            "mean_winners_95pct_target_bootstrap": [
+              1.5,
+              2.5
+            ],
+            "null_expected_winners_per_target": 2.0,
+            "lift_winners_per_target": 0.0,
+            "draws_with_2_plus_in_pool": 7,
+            "draws_with_3_plus_in_pool": 3,
+            "draws_with_4_plus_in_pool": 0,
+            "draws_with_5_in_pool": 0,
+            "uniform_null_total_hit_tail": 0.55656997,
+            "compression_fraction": 0.6,
+            "line_search_space": 15504,
+            "retrospective_compression_objective": 0.0
+          }
+        }
+      },
+      "uniform_random_analytic": {
+        "targets": 10,
+        "winning_coordinates": 50,
+        "mean_winning_number_rank": 25.5,
+        "normalized_rank_gain_vs_uniform": 0.0,
+        "pool_metrics": {
+          "10": {
+            "winner_recall": 0.2,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.0,
+            "null_probability_pool_contains_3_plus": 0.0482603
+          },
+          "12": {
+            "winner_recall": 0.24,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.2,
+            "null_probability_pool_contains_3_plus": 0.08224716
+          },
+          "15": {
+            "winner_recall": 0.3,
+            "precision": 0.1,
+            "mean_winners_per_target": 1.5,
+            "null_probability_pool_contains_3_plus": 0.15174111
+          },
+          "20": {
+            "winner_recall": 0.4,
+            "precision": 0.1,
+            "mean_winners_per_target": 2.0,
+            "null_probability_pool_contains_3_plus": 0.30997093
+          }
+        }
+      }
+    }
+  },
+  "interaction_audit": {
+    "status": "INSUFFICIENT EVIDENCE",
+    "draws": 13,
+    "pair_incidents": 130,
+    "unique_pairs_observed": 124,
+    "pairs_observed_twice_or_more": 6,
+    "maximum_pair_count": 2,
+    "maximum_pair_unadjusted_binomial_tail": 0.00489601,
+    "maximum_pair_bonferroni_1225": 1.0,
+    "triple_incidents": 130,
+    "repeated_triples": 0,
+    "decision": "No empirical pair or triple term is enabled; use shrunk expert-factor coherence as the safer proxy."
+  },
+  "coalition_engine": {
+    "objective": "3/4/5 elementary-threshold utility plus line-level specialist mixture minus disagreement and near-duplicate penalties",
+    "candidate_pool_sizes": [
+      15,
+      20
+    ],
+    "budgets": [
+      10,
+      20,
+      100
+    ],
+    "randomized_assembly_trials_per_target": 1000,
+    "results": {
+      "15": {
+        "10": {
+          "targets": 10,
+          "submitted_lines": 100,
+          "eligible_targets_with_3_plus_winners_in_pool": 0,
+          "draws_with_3_plus": 0,
+          "draws_with_4_plus": 0,
+          "draws_with_5": 0,
+          "all_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "all_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          }
+        },
+        "20": {
+          "targets": 10,
+          "submitted_lines": 200,
+          "eligible_targets_with_3_plus_winners_in_pool": 0,
+          "draws_with_3_plus": 0,
+          "draws_with_4_plus": 0,
+          "draws_with_5": 0,
+          "all_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "all_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          }
+        },
+        "100": {
+          "targets": 10,
+          "submitted_lines": 1000,
+          "eligible_targets_with_3_plus_winners_in_pool": 0,
+          "draws_with_3_plus": 0,
+          "draws_with_4_plus": 0,
+          "draws_with_5": 0,
+          "all_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "all_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          }
+        }
+      },
+      "20": {
+        "10": {
+          "targets": 10,
+          "submitted_lines": 100,
+          "eligible_targets_with_3_plus_winners_in_pool": 3,
+          "draws_with_3_plus": 0,
+          "draws_with_4_plus": 0,
+          "draws_with_5": 0,
+          "all_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.276,
+            "lift_over_null_mean": -0.276,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "all_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.276,
+            "lift_over_null_mean": -0.276,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          }
+        },
+        "20": {
+          "targets": 10,
+          "submitted_lines": 200,
+          "eligible_targets_with_3_plus_winners_in_pool": 3,
+          "draws_with_3_plus": 0,
+          "draws_with_4_plus": 0,
+          "draws_with_5": 0,
+          "all_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.499,
+            "lift_over_null_mean": -0.499,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "all_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.499,
+            "lift_over_null_mean": -0.499,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.0,
+            "lift_over_null_mean": 0.0,
+            "monte_carlo_upper_tail": 1.0
+          }
+        },
+        "100": {
+          "targets": 10,
+          "submitted_lines": 1000,
+          "eligible_targets_with_3_plus_winners_in_pool": 3,
+          "draws_with_3_plus": 0,
+          "draws_with_4_plus": 0,
+          "draws_with_5": 0,
+          "all_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 1.784,
+            "lift_over_null_mean": -1.784,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "all_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.201,
+            "lift_over_null_mean": -0.201,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_uniform_pool_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 1.784,
+            "lift_over_null_mean": -1.784,
+            "monte_carlo_upper_tail": 1.0
+          },
+          "eligible_targets_exposure_matched_null": {
+            "observed_threshold_reward": 0,
+            "null_mean_threshold_reward": 0.201,
+            "lift_over_null_mean": -0.201,
+            "monte_carlo_upper_tail": 1.0
+          }
+        }
+      }
+    },
+    "per_target": [
+      {
+        "target_draw_date": "2026-06-12",
+        "training_rows": 3,
+        "expert_weights": {
+          "bayesian_hot": 0.098482,
+          "cold_void": 0.127142,
+          "gap_echo": 0.107064,
+          "high_register": 0.129461,
+          "midfield": 0.123,
+          "pair_bridge": 0.098061,
+          "recency_bayesian": 0.097469,
+          "sorted_slot_ewma": 0.116706,
+          "stiction_shadow": 0.102616
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 1,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 1,
+            "budgets": {
+              "10": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 0.984,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 1,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 1,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.956,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.95604396,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.997,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.997003,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-06-16",
+        "training_rows": 4,
+        "expert_weights": {
+          "bayesian_hot": 0.099886,
+          "cold_void": 0.139092,
+          "gap_echo": 0.108291,
+          "high_register": 0.125923,
+          "midfield": 0.12706,
+          "pair_bridge": 0.096739,
+          "recency_bayesian": 0.096814,
+          "sorted_slot_ewma": 0.112499,
+          "stiction_shadow": 0.093696
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.648,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.859,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 2.0,
+                "exposure_matched_best_hits_mean": 1.959,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 0.95904096
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 3,
+            "assembly_eligible_for_3_plus": true,
+            "oracle_best_main_hits_from_pool": 3,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 1.872,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 2.126,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 2.604,
+                "exposure_matched_best_hits_mean": 1.846,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-06-19",
+        "training_rows": 5,
+        "expert_weights": {
+          "bayesian_hot": 0.102647,
+          "cold_void": 0.132996,
+          "gap_echo": 0.11242,
+          "high_register": 0.126617,
+          "midfield": 0.122484,
+          "pair_bridge": 0.094948,
+          "recency_bayesian": 0.09996,
+          "sorted_slot_ewma": 0.114011,
+          "stiction_shadow": 0.093918
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 1,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 1,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.981,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.98101898,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.461,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.998002,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.645,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.996,
+                "exposure_matched_best_hits_mean": 1.077,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-06-23",
+        "training_rows": 6,
+        "expert_weights": {
+          "bayesian_hot": 0.102753,
+          "cold_void": 0.129279,
+          "gap_echo": 0.116865,
+          "high_register": 0.126436,
+          "midfield": 0.119412,
+          "pair_bridge": 0.097334,
+          "recency_bayesian": 0.100013,
+          "sorted_slot_ewma": 0.114447,
+          "stiction_shadow": 0.093461
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 1,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 1,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.985,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.98501499,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.416,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.999001,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.662,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.996,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-06-26",
+        "training_rows": 7,
+        "expert_weights": {
+          "bayesian_hot": 0.106863,
+          "cold_void": 0.137688,
+          "gap_echo": 0.113626,
+          "high_register": 0.130951,
+          "midfield": 0.119444,
+          "pair_bridge": 0.10021,
+          "recency_bayesian": 0.101022,
+          "sorted_slot_ewma": 0.107,
+          "stiction_shadow": 0.083196
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.638,
+                "exposure_matched_best_hits_mean": 1.613,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.867,
+                "exposure_matched_best_hits_mean": 1.835,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 2.0,
+                "exposure_matched_best_hits_mean": 2.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 3,
+            "assembly_eligible_for_3_plus": true,
+            "oracle_best_main_hits_from_pool": 3,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 1.846,
+                "exposure_matched_best_hits_mean": 1.636,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 2.107,
+                "exposure_matched_best_hits_mean": 1.804,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 2.568,
+                "exposure_matched_best_hits_mean": 2.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-06-30",
+        "training_rows": 8,
+        "expert_weights": {
+          "bayesian_hot": 0.110889,
+          "cold_void": 0.137228,
+          "gap_echo": 0.108585,
+          "high_register": 0.133568,
+          "midfield": 0.115013,
+          "pair_bridge": 0.100978,
+          "recency_bayesian": 0.103058,
+          "sorted_slot_ewma": 0.104911,
+          "stiction_shadow": 0.085771
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.632,
+                "exposure_matched_best_hits_mean": 1.992,
+                "uniform_pool_upper_tail_best_hits": 0.63236763,
+                "exposure_matched_upper_tail_best_hits": 0.99200799
+              },
+              "20": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.874,
+                "exposure_matched_best_hits_mean": 2.0,
+                "uniform_pool_upper_tail_best_hits": 0.87412587,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 2.0,
+                "exposure_matched_best_hits_mean": 2.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.447,
+                "exposure_matched_best_hits_mean": 1.932,
+                "uniform_pool_upper_tail_best_hits": 0.44855145,
+                "exposure_matched_upper_tail_best_hits": 0.93206793
+              },
+              "20": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.661,
+                "exposure_matched_best_hits_mean": 2.0,
+                "uniform_pool_upper_tail_best_hits": 0.66133866,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.993,
+                "exposure_matched_best_hits_mean": 2.0,
+                "uniform_pool_upper_tail_best_hits": 0.99300699,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-07-03",
+        "training_rows": 9,
+        "expert_weights": {
+          "bayesian_hot": 0.10839,
+          "cold_void": 0.129852,
+          "gap_echo": 0.105466,
+          "high_register": 0.133572,
+          "midfield": 0.116436,
+          "pair_bridge": 0.104508,
+          "recency_bayesian": 0.105546,
+          "sorted_slot_ewma": 0.10507,
+          "stiction_shadow": 0.091159
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.644,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.856,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 2.0,
+                "exposure_matched_best_hits_mean": 1.192,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.395,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.995005,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.63,
+                "exposure_matched_best_hits_mean": 1.094,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.996,
+                "exposure_matched_best_hits_mean": 1.381,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-07-07",
+        "training_rows": 10,
+        "expert_weights": {
+          "bayesian_hot": 0.108076,
+          "cold_void": 0.131268,
+          "gap_echo": 0.109333,
+          "high_register": 0.13704,
+          "midfield": 0.119509,
+          "pair_bridge": 0.10154,
+          "recency_bayesian": 0.103882,
+          "sorted_slot_ewma": 0.107126,
+          "stiction_shadow": 0.082226
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 1,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 1,
+            "budgets": {
+              "10": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 0.978,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 1.414,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 1.662,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.996,
+                "exposure_matched_best_hits_mean": 1.018,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-07-10",
+        "training_rows": 11,
+        "expert_weights": {
+          "bayesian_hot": 0.106711,
+          "cold_void": 0.135402,
+          "gap_echo": 0.110019,
+          "high_register": 0.138359,
+          "midfield": 0.118726,
+          "pair_bridge": 0.102742,
+          "recency_bayesian": 0.101703,
+          "sorted_slot_ewma": 0.104516,
+          "stiction_shadow": 0.081822
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 0,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 0,
+            "budgets": {
+              "10": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.0,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.0,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.0,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 2,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 2,
+            "budgets": {
+              "10": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 1.41,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 0,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 2,
+                "uniform_pool_best_hits_mean": 1.679,
+                "exposure_matched_best_hits_mean": 0.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.996,
+                "exposure_matched_best_hits_mean": 1.003,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "target_draw_date": "2026-07-14",
+        "training_rows": 12,
+        "expert_weights": {
+          "bayesian_hot": 0.106105,
+          "cold_void": 0.135346,
+          "gap_echo": 0.109006,
+          "high_register": 0.129676,
+          "midfield": 0.11889,
+          "pair_bridge": 0.102315,
+          "recency_bayesian": 0.100793,
+          "sorted_slot_ewma": 0.106016,
+          "stiction_shadow": 0.091853
+        },
+        "assembly_pools": {
+          "15": {
+            "candidate_pool_winner_recall": 1,
+            "assembly_eligible_for_3_plus": false,
+            "oracle_best_main_hits_from_pool": 1,
+            "budgets": {
+              "10": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.976,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.97602398,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "20": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 0.999,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 0.999001,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              },
+              "100": {
+                "best_main_hits": 1,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 0,
+                "uniform_pool_best_hits_mean": 1.0,
+                "exposure_matched_best_hits_mean": 1.0,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          },
+          "20": {
+            "candidate_pool_winner_recall": 3,
+            "assembly_eligible_for_3_plus": true,
+            "oracle_best_main_hits_from_pool": 3,
+            "budgets": {
+              "10": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 1.851,
+                "exposure_matched_best_hits_mean": 1.948,
+                "uniform_pool_upper_tail_best_hits": 0.75524476,
+                "exposure_matched_upper_tail_best_hits": 0.94805195
+              },
+              "20": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 2.114,
+                "exposure_matched_best_hits_mean": 1.998,
+                "uniform_pool_upper_tail_best_hits": 0.93606394,
+                "exposure_matched_upper_tail_best_hits": 0.998002
+              },
+              "100": {
+                "best_main_hits": 2,
+                "lines_with_3_plus": 0,
+                "lines_with_4_plus": 0,
+                "lines_with_5": 0,
+                "game_threshold_reward": 0,
+                "oracle_gap": 1,
+                "uniform_pool_best_hits_mean": 2.612,
+                "exposure_matched_best_hits_mean": 2.201,
+                "uniform_pool_upper_tail_best_hits": 1.0,
+                "exposure_matched_upper_tail_best_hits": 1.0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "powerball": {
+    "architecture": "independent 1-16 shrunk rank aggregation; no cross-chamber coupling",
+    "results": {
+      "pb_candidate_engine": {
+        "targets": 10,
+        "top_1_hits": 0,
+        "top_3_hits": 5,
+        "mean_rank": 6.2
+      },
+      "pb_bayesian_hot": {
+        "targets": 10,
+        "top_1_hits": 0,
+        "top_3_hits": 2,
+        "mean_rank": 8.2
+      },
+      "pb_recency": {
+        "targets": 10,
+        "top_1_hits": 0,
+        "top_3_hits": 5,
+        "mean_rank": 7.5
+      },
+      "pb_repeat_shadow": {
+        "targets": 10,
+        "top_1_hits": 1,
+        "top_3_hits": 2,
+        "mean_rank": 6.4
+      },
+      "pb_ewma": {
+        "targets": 10,
+        "top_1_hits": 1,
+        "top_3_hits": 2,
+        "mean_rank": 7.8
+      },
+      "pb_cold": {
+        "targets": 10,
+        "top_1_hits": 0,
+        "top_3_hits": 1,
+        "mean_rank": 10.8
+      }
+    },
+    "coupling_gate": "Require a preregistered conditional test with out-of-sample lift over the independent PB ranker before coupling."
+  }
+}

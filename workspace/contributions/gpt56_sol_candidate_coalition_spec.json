@@ -1,0 +1,86 @@
+{
+  "model_version": "candidate_coalition_v0.1_provisional",
+  "status": "experimental_not_merged",
+  "score_semantics": "relative evidence and utility; not calibrated probability",
+  "feature_definitions": {
+    "expert_rank_percentile": "Average-tie rank percentile in [0,1] computed from information strictly before the target.",
+    "expert_rank_skill": "Mean over target winners of 2*q-1; updated only after target scoring.",
+    "candidate_disagreement": "Reliability-weighted standard deviation of expert rank percentiles.",
+    "threshold_utility": "Weighted normalized elementary symmetric products at same-line thresholds 3,4,5."
+  },
+  "expert_identifiers": [
+    "bayesian_hot",
+    "recency_bayesian",
+    "cold_void",
+    "stiction_shadow",
+    "pair_bridge",
+    "midfield",
+    "high_register",
+    "sorted_slot_ewma",
+    "gap_echo"
+  ],
+  "candidate_scoring_formula": {
+    "shrunk_skill": "sum(previous_rank_skill)/(8+previous_target_count)",
+    "raw_reliability": "max(0.25,1+2*shrunk_skill)",
+    "redundancy": "positive current-rank correlation haircut",
+    "relative_evidence": "weighted_mean(rank_percentile)-0.15*weighted_sd(rank_percentile)",
+    "composite_experts": "excluded to prevent double counting"
+  },
+  "parameter_defaults": {
+    "neutral_prior_targets": 8,
+    "reliability_scale": 2.0,
+    "minimum_expert_multiplier": 0.25,
+    "candidate_disagreement_penalty": 0.15,
+    "specialist_temperature": 6.0,
+    "aggregate_line_weight": 0.55,
+    "specialist_line_weight": 0.45,
+    "line_disagreement_penalty": 0.10,
+    "near_duplicate_penalty": 0.08
+  },
+  "candidate_pool_policy": {
+    "compression_tier": 15,
+    "assembly_diagnostic_tier": 20,
+    "reported_sensitivity": [10, 12, 15, 20],
+    "dynamic_selection": false,
+    "change_gate": "new model version plus prospective review"
+  },
+  "coalition_scoring_formula": {
+    "threshold_weights": {"3": 1.0, "4": 4.0, "5": 16.0},
+    "threshold_utility": "[e3/C(5,3)+4*e4/C(5,4)+16*e5]/21",
+    "specialist_mixture": "reliability-weighted log-sum-exp of expert line utilities",
+    "empirical_pair_term": 0.0,
+    "empirical_triple_term": 0.0,
+    "interaction_status": "INSUFFICIENT EVIDENCE"
+  },
+  "portfolio_objective": {
+    "budgets": [10, 20, 100],
+    "primary_reward": "same-line game threshold reward I(3+)+4*I(4+)+16*I(5)",
+    "selection": "greedy marginal line utility",
+    "diversification": "soft penalty only when two lines share more than two coordinates",
+    "coverage_metrics": "secondary diagnostics only"
+  },
+  "null_tests": {
+    "candidate_uniform": "exact rank and hypergeometric Top-K null",
+    "frequency_baseline": "bayesian_hot",
+    "recency_baseline": "recency_bayesian",
+    "structural_baseline": "sorted_slot_ewma",
+    "assembly_uniform_pool": "unique random lines from identical frozen pool and line count",
+    "assembly_exposure_matched": "approximate MCMC degree-preserving swaps holding each coordinate exposure fixed",
+    "assembly_exposure_matched_caveat": "finite-chain mixing is not proven; positive claims require convergence checks or an exact sampler",
+    "assembly_trials_per_target": 1000
+  },
+  "powerball": {
+    "field": "independent_1_16",
+    "cross_chamber_coupling": false,
+    "coupling_gate": "preregistered out-of-sample lift over independent PB ranker"
+  },
+  "evidence_status": {
+    "dataset_rows": 13,
+    "retrospective_walk_forward_targets": 10,
+    "candidate_predictive_improvement": false,
+    "assembly_predictive_improvement": false,
+    "genuinely_frozen_prospective_targets": 0,
+    "implementation_value": "accepted_for_review",
+    "predictive_value": "hold_for_prospective_evidence"
+  }
+}
