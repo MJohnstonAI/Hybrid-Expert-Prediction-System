@@ -1,0 +1,69 @@
+{
+  "status": "paper_trading_research_only",
+  "research_date": "2026-08-01",
+  "problem": "coalition_assembly_given_candidate_recall",
+  "active_model_change": "none",
+  "legacy_benchmark": {
+    "source": "Train on Main.xlsx supplied by user; 811 pre-2026 main-field draws; used offline only as legacy structural/algorithm stress-test data, not as an active HEPS dependency.",
+    "structural_prior_rows": 519,
+    "holdout_sampling": "98 targets, every third draw from 2023-01-01 through 2025-10-17",
+    "oracle_condition": "Each 18-number test pool contains the true five-number target plus 13 highest-ranked target-blind distractors. Winner identities are used only to guarantee recall; their pre-draw scores are not changed.",
+    "matched_random_10_line_3plus_rate": 0.6466107742763219,
+    "algorithms_top10": {
+      "individual": {"n": 98, "mean_best": 0.806, "ge3_rate": 0.01, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": 8550.5, "p90_true_rank": 8568},
+      "structural": {"n": 98, "mean_best": 2.337, "ge3_rate": 0.408, "ge4_rate": 0.02, "exact5_rate": 0.0, "median_true_rank": 4685.5, "p90_true_rank": 7574},
+      "hybrid": {"n": 98, "mean_best": 1.051, "ge3_rate": 0.031, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": 6741.5, "p90_true_rank": 7943},
+      "role_coalition": {"n": 98, "mean_best": 1.408, "ge3_rate": 0.051, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": 6979.5, "p90_true_rank": 8099},
+      "graph": {"n": 98, "mean_best": 1.531, "ge3_rate": 0.092, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": 6358.0, "p90_true_rank": 8053},
+      "dual_cluster": {"n": 98, "mean_best": 1.327, "ge3_rate": 0.041, "ge4_rate": 0.01, "exact5_rate": 0.0, "median_true_rank": 6047.0, "p90_true_rank": 7991},
+      "scenario": {"n": 98, "mean_best": 1.224, "ge3_rate": 0.041, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": 6573.5, "p90_true_rank": 7957}
+    },
+    "algorithms_coverage_variant": {
+      "individual": {"n": 98, "mean_best": 0.949, "ge3_rate": 0.031, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null},
+      "structural": {"n": 98, "mean_best": 2.551, "ge3_rate": 0.531, "ge4_rate": 0.041, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null},
+      "hybrid": {"n": 98, "mean_best": 1.367, "ge3_rate": 0.041, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null},
+      "role_coalition": {"n": 98, "mean_best": 1.776, "ge3_rate": 0.082, "ge4_rate": 0.01, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null},
+      "graph": {"n": 98, "mean_best": 1.939, "ge3_rate": 0.153, "ge4_rate": 0.01, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null},
+      "dual_cluster": {"n": 98, "mean_best": 1.735, "ge3_rate": 0.102, "ge4_rate": 0.01, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null},
+      "scenario": {"n": 98, "mean_best": 1.571, "ge3_rate": 0.061, "ge4_rate": 0.0, "exact5_rate": 0.0, "median_true_rank": null, "p90_true_rank": null}
+    },
+    "interpretation": "Most score-ranked assemblers underperformed the matched-random 10-line conditional 3+ rate. This rejects the idea that more elaborate scoring alone solves assembly when candidate-level evidence is weak."
+  },
+  "combinatorial_coverage": {
+    "n18": {"possible_5sets": 8568, "random_3plus": 0.6466107742763219, "optimized_3plus": 0.7899159663865546, "random_4plus": 0.07445250843781326, "optimized_4plus": 0.07703081232492998, "exact_5of5": 0.0011671335200746965},
+    "n17": {"possible_5sets": 6188, "random_3plus": 0.7105518909456392, "optimized_3plus": 0.8626373626373627, "random_4plus": 0.09438360272214485, "optimized_4plus": 0.09857789269553975, "exact_5of5": 0.0016160310277957336},
+    "n14": {"possible_5sets": 2002, "random_3plus": 0.8969148833469415, "optimized_3plus": 0.9955044955044955, "random_4plus": 0.2078316949168073, "optimized_4plus": 0.22977022977022976, "exact_5of5": 0.004995004995004995},
+    "theorem": "With a uniform posterior over all 5-subsets of a frozen candidate pool, choosing any 10 distinct exact lines gives the same exact-5 probability 10/C(n,5). Coverage optimization can improve 3+/4+ overlap, not exact 5/5, unless coalition probabilities are genuinely non-uniform."
+  },
+  "jul31_frozen_pool_diagnostic": {
+    "actual_main": [10, 11, 37, 45, 46],
+    "actual_powerball": 11,
+    "frozen_published_candidate_pool": [2, 10, 37, 40, 13, 9, 43, 48, 7, 11, 16, 19, 21, 39, 45, 46, 49],
+    "candidate_recall": "5/5 in the conversational frozen hierarchy; this hierarchy is not currently reproduced by the repository's executable candidate generator.",
+    "graph_top10_best_main_hits": 4,
+    "graph_best_line": [2, 10, 11, 37, 46],
+    "graph_best_line_hits": [10, 11, 37, 46],
+    "dual_cluster_top10_best_main_hits": 3,
+    "coulomb_pair_pair_anchor": {
+      "true_line_rank": 19,
+      "generated_candidate_lines": 417,
+      "notable_4hit_lines": [[10, 11, 40, 45, 46], [2, 10, 11, 45, 46]],
+      "interpretation": "Pair-of-pairs plus anchor logic narrowed the true coalition sharply versus all C(17,5)=6188 combinations, but still did not place the exact line in the top 10."
+    },
+    "role_compression_14": {
+      "preserved_all_five_on_jul31": true,
+      "warning": "The same 14-number compression degraded historical holdout recall and is therefore a prospective challenger only, not an accepted rule."
+    }
+  },
+  "recommendation": {
+    "name": "posterior_hypergraph_plus_maximum_coverage",
+    "stages": [
+      "Preserve expert-specific node evidence rather than averaging experts into one score.",
+      "Score pair/hyperedge interactions with separately validated factors such as stale-hot/void coupling, expert complementarity and structural compatibility.",
+      "Construct a posterior over five-number coalitions with a non-zero uniform floor so minority scenarios survive.",
+      "Select the final 10-line portfolio by maximum posterior mass coverage of 3+ overlaps, with secondary 4+ and exact-line terms.",
+      "Run prospective ablations against matched random and the current lane allocator before any core merge."
+    ],
+    "promotion_decision": "hold_as_challenger_only"
+  }
+}

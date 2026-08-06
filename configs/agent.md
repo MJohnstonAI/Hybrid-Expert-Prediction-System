@@ -60,16 +60,28 @@ Use this merge discipline:
 4. Merge decision goes to `workspace/reviews/merge_decision_<date>.md`.
 5. Only accepted changes may be incorporated into `core/heps_architecture.md`.
 
+The 2026-08-01 Coulomb Pair-of-Pairs + Anchor Coalition Assembler has completed this review path and is accepted as an **experimental core assembly module** in HEPS v33.3.
+
 ## 6. Prediction portfolio rules
 
-Use portfolio lanes rather than one monolithic expert.
+Use diversified expert evidence, but do not publish expert-lane seed lines independently without coalition synthesis.
 
-Recommended top-10 allocation:
+### Required synthesis order
 
-- 3 tri-cluster / high-register continuation lines;
-- 3 void-bridge / canyon-fill lines;
-- 2 stiction-shadow continuation lines;
-- 1 sorted-position momentum line;
+1. Generate candidate evidence from tri-cluster/high-register, void-bridge, stiction-shadow, sorted-position, stale-hot/return-horizon, and other accepted experts.
+2. Preserve candidate provenance; do not flatten all expert identities into a single score too early.
+3. Build supported pair edges and pair-of-pairs + anchor challenger lines.
+4. Permit dual-cluster topology when supported, including one low pair plus one high pair joined by an anchor.
+5. Select the nine model-driven final lines jointly using coalition rank plus maximum-coverage/redundancy control.
+6. Keep one chaos/random-control line outside the optimized selector.
+
+### Required top-10 allocation
+
+- 3 pair-of-pairs + anchor coalition champion lines;
+- 2 void-led coalition lines;
+- 2 tri-cluster/high-register coalition lines;
+- 1 stiction-shadow or sorted-structure coalition line;
+- 1 cross-expert maximum-coverage coalition line;
 - 1 chaos / random-baseline hedge line.
 
 Every prediction slate must include:
@@ -79,16 +91,53 @@ Every prediction slate must include:
 - dataset manifest reference;
 - generation timestamp;
 - prediction status: `paper_trading_only`;
+- candidate hierarchy and expert provenance;
+- supported-pair summary;
+- pair-of-pairs + anchor challenger summary;
 - main-number slates;
-- PowerBall candidates;
-- lane rationale;
+- PowerBall candidates/ranking;
+- coalition/lane rationale;
+- portfolio coverage and redundancy diagnostics;
 - uncertainty notes.
 
-## 7. Evaluation rules
+## 7. Coalition assembly rules
+
+The preferred synthesis topology is:
+
+`pair_A + anchor + pair_B`
+
+where the two pairs are disjoint and the anchor is distinct from both.
+
+Pair support may come from:
+
+- Coulomb void / temporal starvation;
+- stiction and ±1/±2 shadow;
+- adjacency / short-span geometry;
+- stale-hot return horizon;
+- pair-bridge evidence;
+- sorted-position compatibility;
+- cross-expert consensus;
+- complementary expert roles.
+
+Each coalition line must retain:
+
+- pair A and its supporting experts;
+- pair B and its supporting experts;
+- anchor and its supporting experts;
+- candidate scores before assembly;
+- coalition score / interaction rationale;
+- portfolio marginal-coverage contribution.
+
+Do not reject a line solely because it contains two separated adjacent/compact pairs. The 2026-07-31 diagnostic showed that the actual winning topology `10,11,37,45,46` can be represented as `(10,11) + 37 + (45,46)`.
+
+## 8. Evaluation rules
 
 Primary KPIs:
 
+- candidate-pool recall of the five winning mains;
+- pair-edge recall of winning pairs;
 - per-line and per-game exact 3, 4, and 5 main-number outcomes;
+- best assembled overlap conditional on candidate recall;
 - same-line 3+ main numbers plus PowerBall;
 - same-line 4+ main numbers plus PowerBall;
 - same-line 5 main numbers plus PowerBall (ultimate outcome);
@@ -96,22 +145,24 @@ Primary KPIs:
 - Top-100 3+ main-number overlap;
 - Top-100 4+ main-number overlap;
 - PowerBall exact hit rate;
+- anchor hit rate;
+- unique-pair / unique-triple portfolio coverage;
 - ±1 drift support;
 - macro-sum pass/fail;
 - diversity / coordinate-overlap score;
-- comparison against a random-filtered baseline.
+- comparison against the previous selector and a matched random-filtered baseline.
 
-Always report submitted line volume with hit counts. An eventual isolated win
-must be evaluated against cumulative exposure and the corresponding random/null
-probability; it is the ultimate game outcome but does not alone prove a durable
-predictive edge.
+Always report submitted line volume with hit counts. Candidate discovery and assembly must be scored separately.
 
-Do not claim a strategy is proven without walk-forward validation and a random-filtered baseline.
+The accepted 2026-08-01 breakthrough is an **assembly-architecture improvement**: the previous 31 July portfolio assembled at most 2/5 from a candidate hierarchy that contained all five winners, while the retrospective coalition diagnostic assembled 4/5 and generated the exact winning line among its challenger set. This does not by itself prove a durable predictive edge.
 
-## 8. Mechanical-era caution rules
+Do not claim a strategy is proven without walk-forward/prospective validation and a random-filtered baseline.
+
+## 9. Mechanical-era caution rules
 
 - Sorted Slot1–Slot5 values are order statistics, not physical draw order.
 - Do not claim physical laminar path tracking unless drawn-order data exists.
 - Treat cross-chamber coupling as unproven unless strong empirical or machine-design evidence is added.
-- Use tri-cluster as a portfolio lane, not a universal forced rule.
+- Use tri-cluster as a portfolio component, not a universal forced rule.
 - Treat all mechanical hypotheses as provisional until enough post-transition draws exist.
+- Do not describe retrospective 4/5 assembly as a guaranteed or proven exact-win method.
