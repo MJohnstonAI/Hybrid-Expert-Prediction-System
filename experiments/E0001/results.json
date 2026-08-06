@@ -1,0 +1,109 @@
+{
+  "experiment_id": "E0001",
+  "generated_from": "exact combinatorics and branch-frozen Candidate Lattice artifact",
+  "evidence_scope": "post_hoc_diagnostic_plus_pre_draw_baseline; not confirmatory predictive evidence",
+  "friday_2026_08_07": {
+    "previous_main": [16, 24, 29, 34, 38],
+    "previous_gap_vector": [15, 7, 4, 4, 3, 12],
+    "gap_null": {
+      "distribution": "Dirichlet-Multinomial",
+      "N": 45,
+      "alpha": [1, 1, 1, 1, 1, 1],
+      "expected_component": 7.5,
+      "legal_gap_vectors": 2118760,
+      "probability_per_gap_vector": 4.719741735732221e-07
+    },
+    "hlr_comparison": [
+      {
+        "slot": 1,
+        "call": "HIGH",
+        "model_p_call": 0.6051,
+        "null_probs": {"LOW": 0.8467820800845778, "REPEAT": 0.02188827427363175, "HIGH": 0.13132964564179048},
+        "null_p_call": 0.13132964564179048,
+        "delta_model_minus_null_on_call": 0.47377035435820947
+      },
+      {
+        "slot": 2,
+        "call": "LOW",
+        "model_p_call": 0.7366,
+        "null_probs": {"LOW": 0.7713851498046027, "REPEAT": 0.02822405557967868, "HIGH": 0.20039079461571863},
+        "null_p_call": 0.7713851498046027,
+        "delta_model_minus_null_on_call": -0.03478514980460268
+      },
+      {
+        "slot": 3,
+        "call": "HIGH",
+        "model_p_call": 0.6773,
+        "null_probs": {"LOW": 0.6161556759614114, "REPEAT": 0.03746530989824237, "HIGH": 0.3463790141403462},
+        "null_p_call": 0.3463790141403462,
+        "delta_model_minus_null_on_call": 0.3309209858596538
+      },
+      {
+        "slot": 4,
+        "call": "HIGH",
+        "model_p_call": 0.6472,
+        "null_probs": {"LOW": 0.44034057656365044, "REPEAT": 0.041201457456247995, "HIGH": 0.5184579659801015},
+        "null_p_call": 0.5184579659801015,
+        "delta_model_minus_null_on_call": 0.12874203401989848
+      },
+      {
+        "slot": 5,
+        "call": "LOW",
+        "model_p_call": 0.5807,
+        "null_probs": {"LOW": 0.20573212633804677, "REPEAT": 0.03117153429364345, "HIGH": 0.7630963393683098},
+        "null_p_call": 0.20573212633804677,
+        "delta_model_minus_null_on_call": 0.3749678736619532
+      }
+    ],
+    "joint_hlr_null_top": [
+      {"rank": 1, "vector": "LLLLH", "count": 405720, "probability": 0.19148936170212766},
+      {"rank": 2, "vector": "LLLLL", "count": 358608, "probability": 0.16925371443674603},
+      {"rank": 3, "vector": "LLLHH", "count": 323760, "probability": 0.15280635843606638},
+      {"rank": 4, "vector": "LLHHH", "count": 253350, "probability": 0.11957465687477581},
+      {"rank": 5, "vector": "LHHHH", "count": 170535, "probability": 0.08048811569030942},
+      {"rank": 6, "vector": "HHHHH", "count": 151070, "probability": 0.07130113840170665},
+      {"rank": 7, "vector": "LLLRH", "count": 34080, "probability": 0.016084879835375408},
+      {"rank": 8, "vector": "LLLLR", "count": 33810, "probability": 0.015957446808510637},
+      {"rank": 9, "vector": "LLRHH", "count": 25650, "probability": 0.012106137552153146},
+      {"rank": 10, "vector": "HLHHH", "count": 23646, "probability": 0.01116030130831241},
+      {"rank": 11, "vector": "LRHHH", "count": 16890, "probability": 0.00797164379165172},
+      {"rank": 12, "vector": "LLHLH", "count": 16200, "probability": 0.007645981611886198},
+      {"rank": 13, "vector": "HLLHH", "count": 15960, "probability": 0.007532707810228624}
+    ],
+    "committed_vector": {
+      "vector": "HLHHL",
+      "count": 336,
+      "probability": 0.00015858332232060262,
+      "structural_null_rank": 109
+    },
+    "candidate_union": {
+      "size": 38,
+      "five_of_five_null": 0.23690366063169024,
+      "four_plus_null": 0.6549689440993789,
+      "excluded": [1, 2, 14, 15, 16, 24, 28, 29, 32, 39, 41, 42],
+      "previous_draw_excluded": [16, 24, 29],
+      "probability_at_least_one_of_previous_draw_excluded_repeats": 0.27602040816326534
+    }
+  },
+  "retrospective_joint_flow": [
+    {"target": "2026-07-28", "actual_vector": "LHHHH", "candidate_lattice_rank": 3, "structural_null_rank": 2, "structural_null_probability": 0.10984302138986955},
+    {"target": "2026-07-31", "actual_vector": "HLHHL", "candidate_lattice_rank": 8, "structural_null_rank": 26, "structural_null_probability": 0.006938020351526364},
+    {"target": "2026-08-04", "actual_vector": "HHLLL", "candidate_lattice_rank": 8, "structural_null_rank": 3, "structural_null_probability": 0.13872736883837716}
+  ],
+  "flat_basket_null_frontier": [
+    {"K": 13, "five_of_five": 0.0006074307613887368, "four_plus": 0.013093507523268327},
+    {"K": 16, "five_of_five": 0.002061583190167834, "four_plus": 0.03126734505087882},
+    {"K": 18, "five_of_five": 0.004043874719175367, "four_plus": 0.05025958579546527},
+    {"K": 20, "five_of_five": 0.007317487587079235, "four_plus": 0.07591893371594706},
+    {"K": 22, "five_of_five": 0.01242896788687723, "four_plus": 0.10909871811814459},
+    {"K": 25, "five_of_five": 0.02507598784194529, "four_plus": 0.17433782023447678},
+    {"K": 30, "five_of_five": 0.06725915157922559, "four_plus": 0.3259481961147086},
+    {"K": 38, "five_of_five": 0.23690366063169024, "four_plus": 0.6549689440993789}
+  ],
+  "interpretation": {
+    "candidate_lattice_predictive_value": "INSUFFICIENT_EVIDENCE",
+    "hlr_incremental_value": "INSUFFICIENT_EVIDENCE",
+    "vvd_incremental_value": "INSUFFICIENT_EVIDENCE",
+    "gap_predictive_value": "INSUFFICIENT_EVIDENCE"
+  }
+}
