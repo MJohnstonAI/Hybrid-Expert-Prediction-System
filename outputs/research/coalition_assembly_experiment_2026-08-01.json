@@ -1,0 +1,213 @@
+{
+  "status": "paper_trading_research_only_challenger_not_promoted",
+  "generated_at": "2026-08-01T04:00:00+02:00",
+  "objective": "Diagnose and improve coalition assembly conditional on all five winning main numbers being present in the candidate pool.",
+  "input_files": {
+    "uploaded_main_xlsx": {
+      "name": "Train on Main.xlsx",
+      "rows": 811,
+      "date_start": "2018-01-09",
+      "date_end": "2025-10-17",
+      "sha256": "22d0d8380ac7a10f587e3b577afe7ee7e170dae808b9a269beadb101d1095f8f"
+    },
+    "uploaded_plus_xlsx": {
+      "name": "Train on Plus.xlsx",
+      "rows": 810,
+      "date_start": "2018-01-12",
+      "date_end": "2025-10-17",
+      "sha256": "4bc91ebc74e6f97dda3bffd14c223289c415f1c936c07e8edc6114549ab661d4"
+    },
+    "normalized_history_csv": {
+      "source_csv_path": "data/research/coalition_assembly_training_2018_2025.csv",
+      "committed_snapshot_path": "data/research/coalition_assembly_training_2018_2025.csv.gz.b64",
+      "rows": 1621,
+      "sha256": "e7120a50f8ae02ed83a5075554f8396033a56de436910417d14fed060abfb92f"
+    },
+    "mechanical_era_csv": {
+      "path": "data/research/mechanical_era_main_2026-06-02_to_2026-07-31.csv",
+      "rows": 18,
+      "sha256": "ecb63d574c9666b520a1de5892df0909567ce5a59871ef1385adf83c4a58e47f"
+    }
+  },
+  "protocol": {
+    "development_window": "2018-01 through 2023-12, both Main and Plus sequences",
+    "historical_validation": "25 evenly spaced targets per source from 2024-01-02 through 2025-10-17 (50 total)",
+    "mechanical_validation": "14 walk-forward targets from 2026-06-16 through 2026-07-31",
+    "oracle_condition": "For the assembly benchmark only, the pool contains the five target numbers plus 13 target-blind distractors. Target numbers are used only to guarantee complete recall, never as features.",
+    "portfolio_size": 10,
+    "candidate_pool_size": 18,
+    "random_control": "10 combinations sampled without replacement from the same 18-number pool"
+  },
+  "algorithms": [
+    "baseline_node_ranked",
+    "existing_triple_coverage",
+    "pair_graph_ranked",
+    "scenario_stratified",
+    "role_posterior_cover",
+    "logistic_ranked",
+    "boosted_ranked",
+    "stacked_posterior_cover",
+    "dual_cluster_ranked",
+    "pair_of_pairs_specialist",
+    "coalition_committee_v2",
+    "motif_mixture_8boost_2pair_cover"
+  ],
+  "random_baseline": {
+    "pool_size": 18,
+    "portfolio_lines": 10,
+    "probability_any_3plus": 0.6466107742763221,
+    "probability_any_4plus": 0.07445250843781359,
+    "probability_exact5": 0.0011671335200746924,
+    "expected_3plus_in_50": 32.330538713816104,
+    "expected_4plus_in_50": 3.7226254218906796,
+    "expected_exact5_in_50": 0.05835667600373462
+  },
+  "historical_validation_summary": [
+    {
+      "algorithm": "baseline_node",
+      "targets": 50,
+      "mean_best": 1.42,
+      "draws_3plus": 5,
+      "draws_4plus": 0,
+      "exact5": 0
+    },
+    {
+      "algorithm": "boosted_ranker",
+      "targets": 50,
+      "mean_best": 3.62,
+      "draws_3plus": 49,
+      "draws_4plus": 29,
+      "exact5": 3
+    },
+    {
+      "algorithm": "dual_cluster",
+      "targets": 50,
+      "mean_best": 2.04,
+      "draws_3plus": 9,
+      "draws_4plus": 0,
+      "exact5": 0
+    },
+    {
+      "algorithm": "logistic_ranker",
+      "targets": 50,
+      "mean_best": 3.68,
+      "draws_3plus": 50,
+      "draws_4plus": 33,
+      "exact5": 1
+    },
+    {
+      "algorithm": "motif_mixture_8boost_2pair_cover",
+      "targets": 50,
+      "mean_best": 3.58,
+      "draws_3plus": 48,
+      "draws_4plus": 28,
+      "exact5": 3
+    }
+  ],
+  "mechanical_2026_summary": [
+    {
+      "algorithm": "baseline_node",
+      "targets": 14,
+      "mean_best": 1.6428571428571428,
+      "draws_3plus": 1,
+      "draws_4plus": 0,
+      "exact5": 0
+    },
+    {
+      "algorithm": "boosted_ranker",
+      "targets": 14,
+      "mean_best": 3.2857142857142856,
+      "draws_3plus": 11,
+      "draws_4plus": 5,
+      "exact5": 2
+    },
+    {
+      "algorithm": "dual_cluster",
+      "targets": 14,
+      "mean_best": 2.357142857142857,
+      "draws_3plus": 5,
+      "draws_4plus": 1,
+      "exact5": 0
+    },
+    {
+      "algorithm": "logistic_ranker",
+      "targets": 14,
+      "mean_best": 2.7857142857142856,
+      "draws_3plus": 9,
+      "draws_4plus": 2,
+      "exact5": 0
+    },
+    {
+      "algorithm": "motif_mixture_8boost_2pair_cover",
+      "targets": 14,
+      "mean_best": 3.2142857142857144,
+      "draws_3plus": 12,
+      "draws_4plus": 4,
+      "exact5": 1
+    }
+  ],
+  "motif_mixture_summary": {
+    "historical_validation": {
+      "algorithm": "motif_mixture_8boost_2pair_cover",
+      "targets": 50,
+      "mean_best": 3.58,
+      "draws_3plus": 48,
+      "draws_4plus": 28,
+      "exact5": 3
+    },
+    "mechanical_2026": {
+      "algorithm": "motif_mixture_8boost_2pair_cover",
+      "targets": 14,
+      "mean_best": 3.2142857142857144,
+      "draws_3plus": 12,
+      "draws_4plus": 4,
+      "exact5": 1
+    }
+  },
+  "jul31_2026": {
+    "winning_main": [10, 11, 37, 45, 46],
+    "winning_powerball": 11,
+    "result_source": "User-supplied result; Powerball.net identified by user as result source.",
+    "oracle_pool": [1, 2, 3, 9, 10, 11, 16, 19, 24, 27, 33, 35, 37, 39, 40, 43, 45, 46],
+    "results": {
+      "baseline_node": {"best": 2, "exact": 0},
+      "logistic_ranker": {"best": 2, "exact": 0},
+      "boosted_ranker": {"best": 2, "exact": 0},
+      "dual_cluster": {"best": 4, "exact": 0, "true_line_rank": 52},
+      "pair_of_pairs_specialist": {"best": 4, "exact": 0, "true_line_rank_within_pair_topology": 25},
+      "motif_mixture_8boost_2pair_cover": {"best": 4, "exact": 0}
+    },
+    "diagnosis": "Learned rankers treated the dual-adjacent-pair topology as out-of-distribution. The dual-cluster and pair-of-pairs lanes recovered 4/5 but did not rank the exact line inside the final ten.",
+    "best_reconstructed_topology": "(10,11) + 37 + (45,46)"
+  },
+  "recommended_challenger": {
+    "name": "Bimodal Coalition Assembler v2",
+    "allocation": "8 learned gradient-boosted structural lines + 2 dual-pair motif-coverage lines",
+    "historical_validation": {
+      "algorithm": "motif_mixture_8boost_2pair_cover",
+      "targets": 50,
+      "mean_best": 3.58,
+      "draws_3plus": 48,
+      "draws_4plus": 28,
+      "exact5": 3
+    },
+    "mechanical_2026": {
+      "algorithm": "motif_mixture_8boost_2pair_cover",
+      "targets": 14,
+      "mean_best": 3.2142857142857144,
+      "draws_3plus": 12,
+      "draws_4plus": 4,
+      "exact5": 1
+    },
+    "jul31_best_main_hits": 4,
+    "promotion": "Do not promote until prospective frozen evaluation materially exceeds matched random and the existing champion over at least 30 new draws."
+  },
+  "red_team_warnings": [
+    "The oracle-conditioned benchmark is an assembly diagnostic, not an end-to-end prediction result.",
+    "The five winners are forced into the oracle pool; exact and 4+ performance cannot be interpreted as candidate-discovery performance.",
+    "Machine-learning algorithms were selected after comparing several challengers, creating multiple-comparison risk.",
+    "The 2026 mechanical-era validation contains only 14 targets.",
+    "The historical Main/Plus data may not transfer to the new mechanical regime.",
+    "A fair lottery gives every legal combination equal ex-ante probability; pattern scores are heuristic rankings only."
+  ]
+}

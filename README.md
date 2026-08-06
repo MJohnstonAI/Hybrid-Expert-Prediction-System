@@ -73,6 +73,22 @@ pre-draw slate without automatically changing expert weights:
 python scripts/score_prediction.py --prediction outputs/predictions/<stored-slate>.json
 ```
 
+## Current research handovers
+
+### 2026-08-01 — Coalition assembly challenger
+
+- Proposal: `workspace/contributions/contributor_chatgpt_sol_2026-08-01_coalition_assembly.md`
+- Red-team review: `workspace/reviews/red_team_chatgpt_sol_2026-08-01_coalition_assembly.md`
+- Experiment summary: `outputs/research/coalition_assembly_experiment_2026-08-01.json`
+- Reproducible runner: `scripts/evaluate_coalition_assembly.py`
+- Target-blind features: `scripts/coalition_assembly_features.py`
+- Rankers and selectors: `scripts/coalition_assembly_models.py`
+- Frozen historical input: `data/research/coalition_assembly_training_2018_2025.csv.gz.b64`
+- Frozen mechanical snapshot: `data/research/mechanical_era_main_2026-06-02_to_2026-07-31.csv`
+- Compressed per-target output: `outputs/research/coalition_assembly_benchmark_2026-08-01.json.gz.b64`
+
+The recommended **Bimodal Coalition Assembler v2** remains a challenger: eight learned structural lines plus two dual-pair motif-coverage lines. No `core/` architecture change has been made.
+
 ## Important correction
 
 For the draw `21, 26, 40, 42, 44`, the macro-sum is `173`, not `193`.
