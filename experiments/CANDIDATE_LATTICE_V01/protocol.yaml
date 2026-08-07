@@ -1,0 +1,34 @@
+experiment_id: CANDIDATE_LATTICE_V01
+status: prospective_shadow
+training_cutoff: 2026-08-04
+target_date: 2026-08-07
+data_scope: active_mechanical_era_only
+pre_june_parameter_authority: false
+components:
+  hard_slot_bounds: true
+  committed_hlr: first_order_recency_weighted
+  vvd: recency_weighted_displacement_support
+  mechanical_histogram_pruning: false
+  structural_order_statistic_prior: null_geometry_only
+  cross_slot_constraint_propagation: true
+  joint_flow_scenario_ranking: true
+  morphology_authority: low_or_zero
+  machine_conditioning: false
+validation:
+  retrospective_targets:
+    - 2026-07-28
+    - 2026-07-31
+    - 2026-08-04
+  note: retrospective replay is non-confirmatory because architecture development saw these outcomes
+primary_metrics:
+  - committed_hlr_direction_accuracy
+  - actual_flow_vector_rank_among_243
+  - five_of_five_candidate_survival
+  - exact_line_generated
+  - exact_line_rank
+  - final_top20_best_overlap
+  - matched_random_baseline
+falsification:
+  - candidate compression fails to beat matched random/simple slot baselines over prospective accumulation
+  - winner exclusion remains frequent at useful basket sizes
+  - flow scenario ranking fails to improve candidate survival prospectively

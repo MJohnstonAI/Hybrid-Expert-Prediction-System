@@ -1,37 +1,114 @@
-# HEPS ARCHITECTURE EVOLUTION & LEGACY EXPERT RECORD
-**Status:** ARCHIVED / DEPRECATED (Do Not Re-Implement)  
-**Last Review Date:** July 4, 2026  
+# HEPS Architecture Evolution & Legacy Expert Record
 
-## 1. Executive Summary
-This document logs the experimental mathematical and physical hypotheses tested in earlier iterations of the Hybrid Expert Prediction System (HEPS v1.0 through v4.2). These modules have been permanently decommissioned, refactored, or absorbed into the core architecture. 
+**Status:** Historical evidence and failure memory  
+**Updated:** 2026-08-06
 
-Autonomous agents are strictly forbidden from spinning up new active expert branches based on these concepts, as past validation cycles proved they introduce statistical redundancy, severe confirmation bias, or unverifiable physical assumptions.
+This document records deprecated or absorbed HEPS concepts so future AI agents do not repeatedly rediscover known failure modes.
 
----
+It is **not** a blanket prohibition on mathematically different concepts that happen to share historical names. Binding current definitions live in `governance/nomenclature.md` and `core/expert_registry.yaml`.
 
-## 2. Comprehensive Decommissioned Module Log
+## 1. Legacy Variance Volume Density
 
-### 2.1 Variance Volume Density (VVD Engine)
-* **Original Hypothesis:** Postulated that the physical balls within the chamber clustered into localized "mass pockets" during the draw sequence, which could be predicted by calculating a volumetric clustering density coefficient across the 1–50 matrix grid.
-* **Observed Failure Mode:** Red-teaming and statistical back-testing revealed that the VVD calculations were perfectly correlated with standard **order statistics**. The model was not tracking "fluid volume density"; it was simply tracking the normal statistical variance of the distance between sorted numbers. Treating it as an independent expert artificially inflated the confidence scores of clustered numbers.
-* **Evolutionary Fate:** Stripped of speculative physical framing and completely absorbed into `/core/heps_strategy.md` under **Lane 3: Sorted-Position Momentum (`expert_sorted_momentum`)** to serve as a pure mathematical boundary filter.
+Canonical legacy ID: `LEGACY_VVD_VOLUME`
 
-### 2.2 The High-Low Flow Metric
-* **Original Hypothesis:** Modeled a macro-environmental "breathing effect" inside the machine, predicting that kinetic energy would rhythmically oscillate between the lower deciles (1–25) and upper deciles (26–50) from draw to draw.
-* **Observed Failure Mode:** Operating as a primary generation expert, the High-Low Flow metric forced extreme, systemic over-corrections. It frequently caused the consensus layer to output high-entropy combinations consisting of either all-low or all-high lines, missing mid-field distribution patterns and destroying portfolio diversification.
-* **Evolutionary Fate:** Demoted from an active number generator to a secondary system gate. It now acts as a silent **Sum/Spread Governor** within the synthesizer framework, preventing lines from being published if their calculated Macro-Sum breaks outside the strict historical boundary constraints ($110 \le \sum \le 160$).
+### Historical hypothesis
 
-### 2.3 Ink-Mass Weighting Mechanics
-* **Original Hypothesis:** Proposed that differences in the physical weight of printed text digits on the balls (e.g., a two-digit number like "48" carrying slightly more ink mass than a single-digit number like "08") would impact the terminal velocity and drop rate of the ball within the pneumatic suction chamber.
-* **Observed Failure Mode:** **Methodological Error / Hallucinated Edge.** Because the canonical ledger records data sequentially based on *sorted ascending order* rather than the *actual physical order of selection*, it was impossible to correlate ink mass with drop sequence. Without drawn-order data, the model was completely unfalsifiable and introduced dangerous noise into the dataset.
-* **Evolutionary Fate:** **Permanently Terminated.** Extracted entirely from the codebase. No agent may re-introduce weight or ink-mass variables.
+The earlier "Variance Volume Density" model treated clustering in the 1-50 field as a physical volumetric/mass-pocket phenomenon.
 
-### 2.4 Pneumatic Drag Vector
-* **Original Hypothesis:** Attempted to track continuous physical resistance along the chamber walls by charting lines that repeated exactly or moved to immediately adjacent slots on the physical selection grid.
-* **Observed Failure Mode:** While the physical phenomenon of mechanical stiction was validated, maintaining a separate module created massive logic loops and code sprawl when calculating spatial vectors alongside the tracking matrices.
-* **Evolutionary Fate:** Streamlined and merged directly into **Lane 2: The Kinetic Inertia & Step Drift Tracker (`expert_stiction_shadow`)**, focusing strictly on the clean $\pm 1$ and $\pm 2$ spatial tracking metrics.
+### Failure mode
 
----
+Red-team analysis found the implementation substantially duplicated normal order-statistic spacing/variance behavior and its physical interpretation was unsupported.
 
-## 3. Mandatory Agent Onboarding Rules
-When designing automated optimization scripts or executing walk-forward back-tests in this repository, you must verify that your code does not inadvertently introduce proxy variables that mimic the decommissioned metrics listed above. All mathematical proposals must explicitly cross-reference this document to verify structural alignment with historical development conclusions.
+### Status
+
+`REJECT / archived`
+
+### Critical nomenclature warning
+
+This legacy concept is **not** `MAIN_VVD_DELTA`.
+
+`MAIN_VVD_DELTA` means **Vertical Variance Delta**:
+
+`abs(sorted_slot_t - sorted_slot_t_minus_1)`
+
+It is a distinct mathematical slot-movement feature currently under experimental review. Do not reject or promote Vertical Variance Delta merely because the historical acronym VVD was reused.
+
+## 2. Legacy Whole-Field High/Low Flow
+
+Canonical legacy ID: `LEGACY_HIGH_LOW_MACRO`
+
+### Historical hypothesis
+
+A macro "breathing" model attempted to forecast broad oscillation between lower and upper regions of the entire 1-50 field.
+
+### Failure mode
+
+Used as a primary generator, it produced brittle over-corrections and poor diversification.
+
+### Status
+
+`REJECT / archived as a standalone generator`
+
+### Critical nomenclature warning
+
+This is **not** `MAIN_HLR_SLOT`.
+
+`MAIN_HLR_SLOT` is the per-sorted-slot forecast:
+
+- LOW: next Slot j < previous Slot j
+- REPEAT: next Slot j = previous Slot j
+- HIGH: next Slot j > previous Slot j
+
+The per-slot concept must be evaluated on its own walk-forward evidence.
+
+## 3. Ink-Mass Weighting
+
+Canonical ID: `LEGACY_INK_MASS`
+
+### Historical hypothesis
+
+Printed-digit ink mass was proposed as a physical weight difference affecting pneumatic behavior.
+
+### Failure mode
+
+The available ledger uses sorted ascending main numbers rather than physical draw order, so the proposed physical mechanism could not be tested from those records. No reliable measured ball-mass evidence was available.
+
+### Status
+
+`REJECT / archived`
+
+Do not reintroduce without genuinely new physical measurements and appropriate draw-order evidence.
+
+## 4. Pneumatic Drag / Adjacent Drift
+
+Earlier implementations mixed speculative physical trajectory language with exact repeats and +/-1 or +/-2 coordinate behavior.
+
+### Evolution
+
+The measurable coordinate behavior was retained in the cleaner `MAIN_STICTION_SHADOW` expert. Physical path claims remain unsupported without true drawn-order and machine evidence.
+
+## 5. Tri-Cluster forcing
+
+Tri-cluster structures were at times over-applied as universal rules.
+
+### Evolution
+
+Tri-cluster remains a low-authority morphology/portfolio hypothesis. It must not hard-force every line.
+
+## 6. Macro-sum hard boundaries
+
+Historical HEPS sometimes treated central macro-sum ranges as if they made individual lines intrinsically more likely.
+
+### Caution
+
+Every exact legal 5-number combination has equal probability under a fair draw. Sum/spread may be used as morphology/compression features only when their combination-space base rates and winner-retention effects are measured.
+
+## 7. General rule for future AI agents
+
+Before rejecting or reviving an old idea:
+
+1. identify its canonical ID in `governance/nomenclature.md`;
+2. determine whether the new proposal is mathematically the same feature or merely shares a name;
+3. inspect `knowledge/failure_registry.jsonl`;
+4. create a new experiment if genuinely new information or a distinct formulation exists;
+5. preserve the old failure record even when a new formulation is allowed to proceed.

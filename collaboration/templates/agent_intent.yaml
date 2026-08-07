@@ -1,0 +1,31 @@
+schema_version: 1
+agent_session:
+  model: ""
+  session_id: ""
+  started_at: ""
+
+self_selected_role:
+  name: ""
+  reason: ""
+
+research_target:
+  question_id: ""
+  experiment_id: ""
+  architecture_stage: ""
+
+thesis: ""
+
+intended_actions: []
+
+dependencies: []
+
+known_conflicts_or_overlap: []
+
+may_modify_core: false
+
+expected_outputs: []
+
+self_assessment:
+  confidence: null
+  strongest_counterargument: ""
+  likely_failure_mode: ""

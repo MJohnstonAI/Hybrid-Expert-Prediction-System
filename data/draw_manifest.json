@@ -1,34 +1,44 @@
 {
   "project": "Hybrid Expert Prediction System",
   "canonical_file": "data/draw_history.jsonl",
-  "active_regime": "mechanical_50_16",
-  "latest_draw_id": 13,
-  "latest_draw_date": "2026-07-14",
-  "latest_main_numbers": [
-    9,
-    13,
-    21,
-    36,
-    40
+  "active_game_format": "powerball_50_16",
+  "observed_draw_methods": [
+    "mechanical_machine",
+    "unknown"
   ],
-  "latest_powerball": 4,
-  "latest_macro_sum": 119,
-  "row_count": 13,
-  "last_synced": "2026-07-15",
+  "observed_machine_names": [
+    "Khaya",
+    "PB1",
+    "SIZWE",
+    "unknown"
+  ],
+  "latest_draw_id": 19,
+  "latest_draw_date": "2026-08-04",
+  "latest_main_numbers": [16,24,29,34,38],
+  "latest_powerball": 15,
+  "latest_macro_sum": 141,
+  "latest_draw_method": "unknown",
+  "latest_machine_name": "unknown",
+  "row_count": 19,
+  "last_synced": "2026-08-06",
   "known_data_rules": [
-    "Use post-May/June 2026 mechanical-era draws for active modelling",
-    "No Excel required for active HEPS processing",
+    "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
+    "Game format, draw method, and machine identity are distinct metadata axes",
+    "Do not infer draw mechanism from game-format labels or from draw date alone",
     "Sort draws chronologically before modelling",
     "Do not treat sorted Slot1-Slot5 as physical draw order unless drawn order is available",
-    "South African PowerBall bounds: main numbers 1-50 unique ascending, PowerBall 1-16"
+    "Physical/mechanical experts must report whether training data mix draw methods or machine identities",
+    "Pre-June PRNG history may not set active mechanical-era slot-range, HLR, VVD, frequency, gap, or morphology parameters",
+    "Mechanical-era slot histograms remain diagnostic-only at the current small sample size",
+    "No Excel required for active HEPS processing"
   ],
   "primary_kpis": [
-    "Top-10 3+ main-number overlap",
-    "Top-100 3+ main-number overlap",
-    "Top-100 4+ main-number overlap",
+    "per-slot HLR flow-vector accuracy",
+    "candidate-lattice 5/5 coordinate survival at declared basket size",
+    "exact winning-line generation rate",
+    "exact winning-line rank percentile",
+    "Top-20 3+ main-number overlap",
     "PowerBall exact hit rate",
-    "+/-1 drift support",
-    "macro-sum pass/fail",
-    "randomized null-model baseline comparison"
+    "randomized and simple matched-exposure baseline comparison"
   ]
 }
