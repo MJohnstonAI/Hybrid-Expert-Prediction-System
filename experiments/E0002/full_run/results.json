@@ -1,0 +1,113 @@
+{
+  "experiment_id": "E0002",
+  "run_type": "default_v0_1_tournament",
+  "status": "evolutionary_survivor_only",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "dataset": {
+    "snapshot": "experiments/E0002/data/train_main_2018_2025.csv.gz.b64",
+    "raw_csv_sha256": "efbdf115da2d742dd2db590271cc06d47c6b54a8bb477dbf31f872079dfdd7a7",
+    "draws": 811,
+    "warmup": 30,
+    "discovery_targets": 470,
+    "validation_targets": 311,
+    "validation_first_date": "2022-10-28"
+  },
+  "search": {
+    "seed": 20260807,
+    "population": 100,
+    "generations": 20,
+    "max_features": 5,
+    "finalists": 10,
+    "variants_evaluated": 1793,
+    "random_validation_trials": 1000,
+    "inner_loop_llm_calls": 0
+  },
+  "champion": {
+    "hash": "ed0230fd5c1d5094",
+    "genome": {
+      "features": [
+        {"kind": "frequency", "weight": 0.6886, "params": {"window": 92}},
+        {"kind": "gap_target", "weight": -1.55, "params": {"target": 11.3153, "scale": 3.5744}},
+        {"kind": "residue", "weight": -0.534, "params": {"modulus": 7}},
+        {"kind": "transition", "weight": 0.3307, "params": {"lookback": 76, "predecessor_distance": 3, "smoothing": 9.4999}}
+      ]
+    },
+    "discovery_fitness": 0.12844925333685742,
+    "discovery": {
+      "targets": 470,
+      "winners": 2350,
+      "mean_rank": 24.791063829787234,
+      "median_rank": 24.0,
+      "top10_recall": 0.22085106382978723,
+      "top15_recall": 0.3353191489361702,
+      "top20_recall": 0.43617021276595747,
+      "top20_3plus_rate": 0.4
+    },
+    "historical_validation": {
+      "targets": 311,
+      "winners": 1555,
+      "mean_rank": 25.35112540192926,
+      "median_rank": 26,
+      "top10_recall": 0.21157556270096464,
+      "top15_recall": 0.307395498392283,
+      "top20_recall": 0.4115755627009646,
+      "top20_3plus_rate": 0.3022508038585209
+    }
+  },
+  "validation_baselines": {
+    "random_expectation": {
+      "mean_rank": 25.5,
+      "top10_recall": 0.2,
+      "top15_recall": 0.3,
+      "top20_recall": 0.4,
+      "top20_3plus_rate": 0.3099709263909079
+    },
+    "recency": {
+      "mean_rank": 25.388424437299037,
+      "top10_recall": 0.20192926045016077,
+      "top15_recall": 0.29517684887459805,
+      "top20_recall": 0.4045016077170418,
+      "top20_3plus_rate": 0.3247588424437299
+    },
+    "cumulative_frequency": {
+      "mean_rank": 25.539549839228297,
+      "top10_recall": 0.20192926045016077,
+      "top15_recall": 0.29517684887459805,
+      "top20_recall": 0.4006430868167203,
+      "top20_3plus_rate": 0.31189710610932475
+    },
+    "recency_frequency": {
+      "mean_rank": 25.47459807073955,
+      "top10_recall": 0.19421221864951768,
+      "top15_recall": 0.2964630225080386,
+      "top20_recall": 0.4122186495176849,
+      "top20_3plus_rate": 0.3440514469453376
+    }
+  },
+  "random_validation_null": {
+    "trials": 1000,
+    "mean_rank_mean": 25.493985209003213,
+    "top10_recall_mean": 0.2004861736334405,
+    "top15_recall_mean": 0.3005646302250804,
+    "top20_recall_mean": 0.3997569131832797,
+    "top20_3plus_rate_mean": 0.3098778135048232,
+    "champion_empirical_tails": {
+      "mean_rank_lower_tail_p": 0.3256743256743257,
+      "top10_upper_tail_p": 0.13886113886113885,
+      "top15_upper_tail_p": 0.27972027972027974,
+      "top20_upper_tail_p": 0.17682317682317683,
+      "top20_3plus_upper_tail_p": 0.6323676323676324
+    }
+  },
+  "assessment": {
+    "beats_recency_mean_rank": true,
+    "beats_recency_top10": true,
+    "beats_recency_top15": true,
+    "beats_recency_top20": true,
+    "beats_recency_top20_3plus": false,
+    "beats_recency_frequency_top20": false,
+    "random_tail_unusual_at_0_05": false,
+    "promotion": false
+  },
+  "next_gate": "Run matched whole-search randomized-history evolution and robustness tests before adding LLM structural mutation or prospective authority."
+}
