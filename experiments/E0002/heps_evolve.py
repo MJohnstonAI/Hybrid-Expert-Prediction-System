@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import gzip
+from pathlib import Path
 
 from core import *
 from evolution import *
@@ -10,7 +13,7 @@ from evolution import *
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--data", required=True, help="CSV (draw_date,n1..n5) or canonical JSONL")
+    p.add_argument("--data", required=True, help="CSV, canonical JSONL, or base64(gzip(CSV)) .gz.b64 snapshot")
     p.add_argument("--seed-file", default=None, help="Optional JSON seed genome list")
     p.add_argument("--out-dir", default="outputs/research/heps_evolve_e0002")
     p.add_argument("--cache", default=None)
@@ -28,5 +31,18 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
+def materialize_compressed_snapshot(args: argparse.Namespace) -> argparse.Namespace:
+    source = Path(args.data)
+    if not source.name.endswith(".gz.b64"):
+        return args
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    target = out_dir / "_materialized_training_snapshot.csv"
+    compressed = base64.b64decode(source.read_bytes())
+    target.write_bytes(gzip.decompress(compressed))
+    args.data = str(target)
+    return args
+
+
 if __name__ == "__main__":
-    evolve(parse_args())
+    evolve(materialize_compressed_snapshot(parse_args()))
