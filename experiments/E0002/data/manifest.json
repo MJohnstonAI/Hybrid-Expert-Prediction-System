@@ -1,0 +1,16 @@
+{
+  "artifact": "train_main_2018_2025.csv.gz.b64",
+  "source_workbook": "Train on Main.xlsx",
+  "conversion_date": "2026-08-07",
+  "rows": 811,
+  "first_draw_date": "2018-01-09",
+  "last_draw_date": "2025-10-17",
+  "fields": ["draw_date", "n1", "n2", "n3", "n4", "n5", "powerball"],
+  "main_field_use": true,
+  "powerball_use_in_E0002_v0_1": false,
+  "ordering": "chronological_ascending",
+  "raw_csv_sha256": "efbdf115da2d742dd2db590271cc06d47c6b54a8bb477dbf31f872079dfdd7a7",
+  "encoding": "base64(gzip(csv))",
+  "evidence_role": "discovery_training_and_anti_overfit_diagnostic_only",
+  "warning": "This history has been inspected by prior HEPS research and is not project-wide untouched confirmatory evidence."
+}
