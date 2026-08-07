@@ -1,0 +1,186 @@
+experiment_id: E0002
+title: HEPS-Evolve v0.1 — Evolutionary Candidate-Discovery Engine
+status: active_experiment
+architecture_status: experimental
+evidence_classification: INSUFFICIENT_EVIDENCE
+self_selected_role: evolutionary_research_engineer_and_red_team_quant
+target_stages:
+  - candidate_funnel
+
+scope:
+  main_field_only: true
+  candidate_ranking_only: true
+  excluded:
+    - coalition_assembly
+    - morphology
+    - winner_float_ranking
+    - portfolio_optimization
+    - powerball_matrix
+  may_modify_core: false
+  branch: research/heps-evolve-v0.1
+
+data:
+  historical_discovery_snapshot: experiments/E0002/data/train_main_2018_2025.csv
+  historical_rows: 811
+  historical_first_date: 2018-01-09
+  historical_last_date: 2025-10-17
+  historical_role: discovery_training_and_anti_overfit_diagnostic_only
+  canonical_current_ledger: data/draw_history.jsonl
+  current_ledger_role: mechanical_sensitivity_and_future_prospective_stream
+  current_game_format: powerball_50_16
+  warning: >-
+    The 2018-2025 block has been inspected by earlier HEPS/GPR-8 research. Its later rows are
+    out-of-search for a single frozen E0002 run but are not project-wide untouched confirmatory evidence.
+
+walk_forward:
+  historical_warmup_draws: 30
+  discovery_targets: 470
+  historical_validation_targets: 311
+  target_rule: use_only_draws_strictly_before_target
+  validation_rule: freeze champion by discovery score before reading validation metrics
+  post_hoc_label: exploratory_historical_validation
+
+screening_funnel:
+  rationale: reject weak algorithms cheaply before full-history scoring
+  tier1_small:
+    generations: first_50_percent
+    target_count: min(80, discovery_targets)
+    selection: deterministic_evenly_spaced_targets
+  tier2_medium:
+    generations: next_30_percent
+    target_count: min(200, discovery_targets)
+    selection: deterministic_evenly_spaced_targets
+  tier3_full:
+    generations: final_20_percent
+    target_count: all_discovery_targets
+  rule: final_champion_must_be_selected_on_tier3_full
+
+algorithm_genome:
+  representation: weighted_sum_of_cross_candidate_zscored_features
+  max_features_default: 5
+  duplicate_feature_kinds: forbidden
+  direct_fixed_number_constants: not_supported_v0_1
+  feature_families:
+    recency:
+      parameters: [scale]
+      note: positive or negative evolved weight permits attraction or repulsion
+    frequency:
+      parameters: [window]
+    gap_target:
+      parameters: [target, scale]
+    shadow:
+      parameters: [scale]
+    residue:
+      parameters: [modulus]
+    transition:
+      parameters: [lookback, predecessor_distance, smoothing]
+
+search:
+  default_population: 100
+  default_generations: 20
+  default_seed: 20260807
+  deterministic_mutation: seeded_PRNG
+  mutation_types:
+    - weight
+    - parameter
+    - add_feature
+    - remove_feature
+    - replace_feature
+  crossover: enabled
+  novelty_retention: enabled
+  elite_fraction: 0.12
+  novelty_fraction: 0.08
+  crossover_rate: 0.30
+  genome_hashing: canonical_SHA256_prefix
+  evaluation_cache: persistent_genome_metric_cache
+  feature_cache: in_memory_inherited_feature_cache
+  llm_calls_in_inner_loop: 0
+
+baselines:
+  - random_exchangeable_ranking
+  - simple_recency
+  - cumulative_frequency
+  - recency_frequency_blend
+
+metrics:
+  primary:
+    - mean_winner_rank
+    - top10_recall
+    - top15_recall
+    - top20_recall
+  secondary:
+    - top20_three_plus_draw_rate
+    - median_winner_rank
+    - feature_count
+  exact_random_expectations:
+    mean_winner_rank: 25.5
+    top10_recall: 0.20
+    top15_recall: 0.30
+    top20_recall: 0.40
+    top20_three_plus_draw_rate: 0.3099709263909079
+
+selection_fitness:
+  formula: >-
+    1.20*((25.5-mean_rank)/25.5) + 1.00*(top10-0.20) +
+    0.85*(top15-0.30) + 0.60*(top20-0.40) +
+    0.45*(top20_3plus-0.3099709263909079) - 0.006*(feature_count-1)
+  role: evolutionary_selection_only
+  warning: no single scalar fitness is itself confirmatory evidence
+
+multiple_testing:
+  exposure: potentially_thousands_of_genomes_per_run
+  required_record:
+    - population
+    - generations
+    - variants_evaluated
+    - random_seed
+    - seed_genomes
+    - screening_schedule
+  rule: >-
+    Historical p-values after evolutionary search are exploratory. Do not label a survivor a BREAKTHROUGH
+    from historical search/validation alone regardless of nominal significance.
+
+null_testing:
+  method: randomized_full_1_to_50_rankings_on_same_validation_targets
+  default_trials: 1000
+  empirical_tails:
+    - mean_rank_lower_tail
+    - top10_upper_tail
+    - top15_upper_tail
+    - top20_upper_tail
+    - top20_3plus_upper_tail
+
+promotion_gate:
+  engineering_gate:
+    - tests_pass
+    - deterministic_seed_reproduction
+    - no_target_leakage
+    - final_discovery_champion_frozen_before_validation
+  predictive_gate:
+    - outperform_simple_recency_on_predeclared_prospective_window
+    - outperform_random_matched_exposure_on_predeclared_prospective_window
+    - improvement_not_driven_by_single_draw
+    - survive_independent_reproduction
+    - survive_red_team_review
+  minimum_prospective_targets_before_breakthrough_review: 20
+  note: >-
+    A smaller prospective sequence may justify PROVISIONAL_SIGNAL but not BREAKTHROUGH if effect size is unusually strong and preregistered.
+
+falsification:
+  - evolved champions repeatedly regress to random/recency on out-of-search blocks
+  - apparent gains require large fragile genomes or narrow parameter settings
+  - changing one or two discovery targets reverses the champion ordering
+  - randomized histories produce champions comparable to real-history champions after matched search exposure
+  - no prospectively frozen evolved lineage beats recency/random after the declared window
+
+reproducibility:
+  engine: experiments/E0002/heps_evolve.py
+  tests: experiments/E0002/tests/test_heps_evolve.py
+  seeds: experiments/E0002/seeds.json
+  bootstrap_result: experiments/E0002/bootstrap/results.json
+  standard_command: >-
+    python experiments/E0002/heps_evolve.py
+    --data experiments/E0002/data/train_main_2018_2025.csv
+    --seed-file experiments/E0002/seeds.json
+    --out-dir outputs/research/heps_evolve_e0002
+  test_command: python -m unittest experiments/E0002/tests/test_heps_evolve.py
