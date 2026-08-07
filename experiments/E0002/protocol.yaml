@@ -4,23 +4,19 @@ status: active_experiment
 architecture_status: experimental
 evidence_classification: INSUFFICIENT_EVIDENCE
 self_selected_role: evolutionary_research_engineer_and_red_team_quant
-target_stages:
-  - candidate_funnel
+target_stages: [candidate_funnel]
 
 scope:
   main_field_only: true
   candidate_ranking_only: true
-  excluded:
-    - coalition_assembly
-    - morphology
-    - winner_float_ranking
-    - portfolio_optimization
-    - powerball_matrix
+  excluded: [coalition_assembly, morphology, winner_float_ranking, portfolio_optimization, powerball_matrix]
   may_modify_core: false
   branch: research/heps-evolve-v0.1
 
 data:
-  historical_discovery_snapshot: experiments/E0002/data/train_main_2018_2025.csv
+  historical_discovery_snapshot: experiments/E0002/data/train_main_2018_2025.csv.gz.b64
+  encoding: base64_gzip_csv
+  manifest: experiments/E0002/data/manifest.json
   historical_rows: 811
   historical_first_date: 2018-01-09
   historical_last_date: 2025-10-17
@@ -61,31 +57,19 @@ algorithm_genome:
   duplicate_feature_kinds: forbidden
   direct_fixed_number_constants: not_supported_v0_1
   feature_families:
-    recency:
-      parameters: [scale]
-      note: positive or negative evolved weight permits attraction or repulsion
-    frequency:
-      parameters: [window]
-    gap_target:
-      parameters: [target, scale]
-    shadow:
-      parameters: [scale]
-    residue:
-      parameters: [modulus]
-    transition:
-      parameters: [lookback, predecessor_distance, smoothing]
+    recency: {parameters: [scale]}
+    frequency: {parameters: [window]}
+    gap_target: {parameters: [target, scale]}
+    shadow: {parameters: [scale]}
+    residue: {parameters: [modulus]}
+    transition: {parameters: [lookback, predecessor_distance, smoothing]}
 
 search:
   default_population: 100
   default_generations: 20
   default_seed: 20260807
   deterministic_mutation: seeded_PRNG
-  mutation_types:
-    - weight
-    - parameter
-    - add_feature
-    - remove_feature
-    - replace_feature
+  mutation_types: [weight, parameter, add_feature, remove_feature, replace_feature]
   crossover: enabled
   novelty_retention: enabled
   elite_fraction: 0.12
@@ -103,15 +87,8 @@ baselines:
   - recency_frequency_blend
 
 metrics:
-  primary:
-    - mean_winner_rank
-    - top10_recall
-    - top15_recall
-    - top20_recall
-  secondary:
-    - top20_three_plus_draw_rate
-    - median_winner_rank
-    - feature_count
+  primary: [mean_winner_rank, top10_recall, top15_recall, top20_recall]
+  secondary: [top20_three_plus_draw_rate, median_winner_rank, feature_count]
   exact_random_expectations:
     mean_winner_rank: 25.5
     top10_recall: 0.20
@@ -129,26 +106,16 @@ selection_fitness:
 
 multiple_testing:
   exposure: potentially_thousands_of_genomes_per_run
-  required_record:
-    - population
-    - generations
-    - variants_evaluated
-    - random_seed
-    - seed_genomes
-    - screening_schedule
+  required_record: [population, generations, variants_evaluated, random_seed, seed_genomes, screening_schedule]
   rule: >-
     Historical p-values after evolutionary search are exploratory. Do not label a survivor a BREAKTHROUGH
     from historical search/validation alone regardless of nominal significance.
 
 null_testing:
-  method: randomized_full_1_to_50_rankings_on_same_validation_targets
-  default_trials: 1000
-  empirical_tails:
-    - mean_rank_lower_tail
-    - top10_upper_tail
-    - top15_upper_tail
-    - top20_upper_tail
-    - top20_3plus_upper_tail
+  validation_method: randomized_full_1_to_50_rankings_on_same_validation_targets
+  default_validation_trials: 1000
+  next_required_method: matched_whole_search_randomized_history_evolution
+  empirical_tails: [mean_rank_lower_tail, top10_upper_tail, top15_upper_tail, top20_upper_tail, top20_3plus_upper_tail]
 
 promotion_gate:
   engineering_gate:
@@ -160,11 +127,10 @@ promotion_gate:
     - outperform_simple_recency_on_predeclared_prospective_window
     - outperform_random_matched_exposure_on_predeclared_prospective_window
     - improvement_not_driven_by_single_draw
+    - survive_matched_whole_search_null
     - survive_independent_reproduction
     - survive_red_team_review
   minimum_prospective_targets_before_breakthrough_review: 20
-  note: >-
-    A smaller prospective sequence may justify PROVISIONAL_SIGNAL but not BREAKTHROUGH if effect size is unusually strong and preregistered.
 
 falsification:
   - evolved champions repeatedly regress to random/recency on out-of-search blocks
@@ -180,7 +146,7 @@ reproducibility:
   bootstrap_result: experiments/E0002/bootstrap/results.json
   standard_command: >-
     python experiments/E0002/heps_evolve.py
-    --data experiments/E0002/data/train_main_2018_2025.csv
+    --data experiments/E0002/data/train_main_2018_2025.csv.gz.b64
     --seed-file experiments/E0002/seeds.json
     --out-dir outputs/research/heps_evolve_e0002
   test_command: python -m unittest experiments/E0002/tests/test_heps_evolve.py
