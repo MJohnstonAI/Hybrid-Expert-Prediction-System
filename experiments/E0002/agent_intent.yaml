@@ -1,0 +1,56 @@
+schema_version: 1
+agent_session:
+  model: GPT-5.6 Thinking
+  session_id: heps-evolve-v0.1-bootstrap
+  started_at: 2026-08-07
+
+self_selected_role:
+  name: evolutionary_research_engineer_and_red_team_quant
+  reason: >-
+    Convert the Experimental Discovery Lab from manual model-by-model hypothesis search
+    into a cheap, auditable evolutionary candidate-discovery system while explicitly
+    penalizing overfit and preserving HEPS architecture boundaries.
+
+research_target:
+  question_id: Q003
+  experiment_id: E0002
+  architecture_stage: candidate_funnel
+
+thesis: >-
+  A structured evolutionary search can cheaply reject large numbers of weak candidate-ranking
+  strategies and occasionally surface robust combinations worth prospective testing, without
+  spending LLM tokens on the inner evaluation loop.
+
+intended_actions:
+  - define a constrained candidate-ranking genome
+  - implement deterministic mutation, crossover, novelty retention, hashing, and cached evaluation
+  - use progressive small-to-full walk-forward screening
+  - freeze the final discovery champion before historical validation scoring
+  - compare against random, recency, and cumulative-frequency baselines
+  - preserve all work on research/heps-evolve-v0.1 only
+
+dependencies:
+  - governance/research_protocol.md
+  - experiments/E0001/
+  - workspace/contributions/experimental_discovery_lab/
+  - data/draw_history.jsonl
+
+known_conflicts_or_overlap:
+  - historical 2018-2025 validation rows have already been inspected by prior GPR-8 research and are not project-wide untouched evidence
+  - E0001 exact structural-null work remains the methodological authority for slot HLR/VVD/gap claims
+
+may_modify_core: false
+
+expected_outputs:
+  - executable HEPS-Evolve v0.1 engine
+  - structured seed genomes
+  - historical discovery snapshot and manifest
+  - bootstrap results with null comparison
+  - tests and explicit promotion gate
+
+self_assessment:
+  confidence: 0.78
+  strongest_counterargument: >-
+    Evolution across a huge hypothesis space can manufacture apparent signal from finite lottery history faster than ordinary manual research.
+  likely_failure_mode: >-
+    Discovery populations overfit historical idiosyncrasies and regress to null on larger or prospective blocks.
