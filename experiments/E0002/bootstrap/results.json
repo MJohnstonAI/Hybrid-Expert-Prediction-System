@@ -1,0 +1,97 @@
+{
+  "experiment_id": "E0002",
+  "run_type": "bootstrap_engineering_search",
+  "status": "exploratory_survivor_search_only",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "dataset": {
+    "snapshot": "experiments/E0002/data/train_main_2018_2025.csv.gz.b64",
+    "raw_csv_sha256": "efbdf115da2d742dd2db590271cc06d47c6b54a8bb477dbf31f872079dfdd7a7",
+    "draws": 811,
+    "first_date": "2018-01-09",
+    "last_date": "2025-10-17",
+    "warmup": 30,
+    "discovery_targets": 470,
+    "validation_targets": 311,
+    "validation_first_date": "2022-10-28"
+  },
+  "search": {
+    "seed": 20260807,
+    "population": 40,
+    "generations": 5,
+    "max_features": 5,
+    "finalists": 5,
+    "variants_evaluated": 212,
+    "null_validation_trials": 100
+  },
+  "champion": {
+    "hash": "e8fbc3b4c9459875",
+    "genome": {
+      "features": [{
+        "kind": "transition",
+        "weight": 0.947,
+        "params": {"lookback": 41, "predecessor_distance": 1, "smoothing": 23.9539}
+      }]
+    },
+    "discovery_fitness": 0.10011884032058711,
+    "discovery": {
+      "targets": 470,
+      "winners": 2350,
+      "mean_rank": 24.63531914893617,
+      "median_rank": 24.0,
+      "top10_recall": 0.2153191489361702,
+      "top15_recall": 0.32638297872340427,
+      "top20_recall": 0.4148936170212766,
+      "top20_3plus_rate": 0.3382978723404255
+    },
+    "historical_validation": {
+      "targets": 311,
+      "winners": 1555,
+      "mean_rank": 25.533118971061093,
+      "median_rank": 26,
+      "top10_recall": 0.20192926045016077,
+      "top15_recall": 0.2906752411575563,
+      "top20_recall": 0.3935691318327974,
+      "top20_3plus_rate": 0.27009646302250806
+    }
+  },
+  "validation_baselines": {
+    "recency": {
+      "mean_rank": 25.388424437299037,
+      "top10_recall": 0.20192926045016077,
+      "top15_recall": 0.29517684887459805,
+      "top20_recall": 0.4045016077170418,
+      "top20_3plus_rate": 0.3247588424437299
+    },
+    "cumulative_frequency": {
+      "mean_rank": 25.539549839228297,
+      "top10_recall": 0.20192926045016077,
+      "top15_recall": 0.29517684887459805,
+      "top20_recall": 0.4006430868167203,
+      "top20_3plus_rate": 0.31189710610932475
+    },
+    "recency_frequency": {
+      "mean_rank": 25.47459807073955,
+      "top10_recall": 0.19421221864951768,
+      "top15_recall": 0.2964630225080386,
+      "top20_recall": 0.4122186495176849,
+      "top20_3plus_rate": 0.3440514469453376
+    }
+  },
+  "random_validation_null": {
+    "trials": 100,
+    "mean_rank_mean": 25.418636655948553,
+    "top10_recall_mean": 0.20192926045016077,
+    "top15_recall_mean": 0.30289389067524114,
+    "top20_recall_mean": 0.40140192926045015,
+    "top20_3plus_rate_mean": 0.3116720257234727,
+    "champion_empirical_tails": {
+      "mean_rank_lower_tail_p": 0.5643564356435643,
+      "top10_upper_tail_p": 0.5247524752475248,
+      "top15_upper_tail_p": 0.8415841584158416,
+      "top20_upper_tail_p": 0.801980198019802,
+      "top20_3plus_upper_tail_p": 0.9702970297029703
+    }
+  },
+  "decision": "REJECT bootstrap champion as predictive signal; retain engine for larger evolutionary and whole-search-null experiments.",
+  "interpretation_rule": "Small-data evolution may reject or qualify candidates but cannot establish a HEPS breakthrough; prospective frozen evidence is mandatory."
+}
