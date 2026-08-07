@@ -1,65 +1,109 @@
-# E0002 Findings — Bootstrap Implementation Run
+# E0002 Findings — HEPS-Evolve v0.1
 
 ## Status
 
 **Engine implementation: PASS**  
-**Predictive signal: REJECT for the bootstrap champion**  
+**Bootstrap champion: REJECT**  
+**Default-tournament champion: EVOLUTIONARY SURVIVOR ONLY**  
 **Experiment evidence classification: INSUFFICIENT_EVIDENCE**
 
-## Bootstrap scope
+## Bootstrap
 
-The committed bootstrap deliberately used only 40 organisms and 5 generations to validate the research loop cheaply. Across the run, 212 unique genomes were evaluated. This is an engineering/bootstrap run, not the planned larger search.
+A cheap 40-organism × 5-generation bootstrap evaluated 212 unique genomes. Its frozen discovery champion `e8fbc3b4c9459875` looked mildly positive on 470 discovery targets but regressed to mean rank 25.533 and Top-20 recall 39.36% on the later 311-target diagnostic block. This demonstrated the intended rejection behavior rather than predictive success.
+
+## Default v0.1 tournament
+
+The preregistered default tournament used:
+
+- population: 100;
+- generations: 20;
+- unique genomes evaluated: 1,793;
+- Tier 1: 80 discovery targets;
+- Tier 2: 200 discovery targets;
+- Tier 3: all 470 discovery targets;
+- final historical diagnostic: 311 later targets;
+- randomized validation rankings: 1,000 trials;
+- inner-loop LLM calls: 0.
+
+The run resumed successfully from its persistent evaluation cache after an execution interruption, providing an additional engineering check on resumability.
 
 ## Frozen discovery champion
 
-Genome `e8fbc3b4c9459875` contained one `transition` feature:
+Genome `ed0230fd5c1d5094` contains four feature families:
 
-- lookback: 41
-- predecessor distance: 1
-- smoothing: 23.9539
-- weight: 0.947
+1. cumulative/rolling frequency: window 92, weight +0.6886;
+2. gap-target feature: target 11.3153, scale 3.5744, weight -1.55;
+3. modulo residue: modulus 7, weight -0.534;
+4. transition feature: lookback 76, predecessor distance 3, smoothing 9.4999, weight +0.3307.
 
-On the 470-target discovery block it achieved:
+Because all feature vectors are standardized across 1-50 before combination, the negative gap/residue weights represent evolved **repulsion** from those feature scores rather than hard exclusion.
 
-- mean winner rank: **24.635** versus random expectation 25.5;
-- Top-10 recall: **21.53%**;
-- Top-15 recall: **32.64%**;
-- Top-20 recall: **41.49%**;
-- Top-20 3+/5 draw rate: **33.83%**.
+### Discovery — 470 targets / 2,350 winners
 
-The champion was frozen from full Tier-3 discovery scoring before historical validation was opened.
+- mean winner rank: **24.791**;
+- Top-10 recall: **22.09%**;
+- Top-15 recall: **33.53%**;
+- Top-20 recall: **43.62%**;
+- Top-20 3+/5 draw rate: **40.00%**.
 
-## Historical validation result
+The champion was selected on the full Tier-3 discovery block before its validation metrics were computed.
 
-On the later 311 historical targets, the same frozen genome regressed to:
+## Later historical diagnostic — 311 targets / 1,555 winners
 
-- mean winner rank: **25.533**;
+Frozen champion:
+
+- mean winner rank: **25.351**;
+- Top-10 recall: **21.16%**;
+- Top-15 recall: **30.74%**;
+- Top-20 recall: **41.16%**;
+- Top-20 3+/5 draw rate: **30.23%**.
+
+Simple recency on exactly the same block:
+
+- mean winner rank: **25.388**;
 - Top-10 recall: **20.19%**;
-- Top-15 recall: **29.07%**;
-- Top-20 recall: **39.36%**;
-- Top-20 3+/5 draw rate: **27.01%**.
+- Top-15 recall: **29.52%**;
+- Top-20 recall: **40.45%**;
+- Top-20 3+/5 draw rate: **32.48%**.
 
-It did not beat simple recency on the core validation metrics and was fully compatible with the randomized ranking null. With 100 random validation trials, empirical tails were approximately 0.56 for mean-rank improvement and 0.80 for Top-20 recall.
+Thus the evolved champion has a **small positive differential** versus recency on mean rank and Top-10/15/20 coordinate recall, but loses on the 3+/5-per-draw endpoint. The recency+frequency baseline also slightly exceeds the champion at Top-20 recall (41.22% versus 41.16%).
 
-## Why this is a useful failure
+## Randomized-ranking null
 
-The progressive funnel initially found much stronger-looking organisms on only 80 targets. Their apparent edge shrank sharply when evaluation expanded to 200 and then all 470 discovery targets. The final discovery champion then failed the 311-target diagnostic block.
+Across 1,000 randomized full 1-50 rankings on the same 311 validation targets, empirical tails for the champion were:
 
-That is the intended behavior of HEPS-Evolve: **cheaply manufacture hypotheses, then aggressively kill them as exposure expands**.
+- mean-rank lower-tail p ≈ **0.326**;
+- Top-10 upper-tail p ≈ **0.139**;
+- Top-15 upper-tail p ≈ **0.280**;
+- Top-20 upper-tail p ≈ **0.177**;
+- Top-20 3+/5 upper-tail p ≈ **0.632**.
+
+None is unusual enough to support a predictive claim, and these are not search-adjusted p-values in any event.
+
+## Interpretation
+
+The default run is more interesting than the bootstrap because evolution found a multi-feature descendant that retained a modest edge over recency on several coordinate-ranking metrics after the search block. It is **not** a breakthrough because:
+
+1. effects are small;
+2. no endpoint is unusual under the simple randomized validation null;
+3. the 311-row block was already inspected by earlier HEPS research and is not project-wide untouched evidence;
+4. the current null test randomizes only final rankings and does not reproduce the full 1,793-genome evolutionary search exposure;
+5. no prospective current-era evidence exists for this lineage.
 
 ## Strongest supporting evidence for the engine
 
-- deterministic end-to-end evolution executed successfully;
-- final champion was selected on the full discovery block, not on validation;
-- no LLM calls occur in the inner loop;
-- equivalent feature-order genomes hash identically;
-- progressive screening and validation separation operate as declared;
-- the bootstrap did not falsely promote its own attractive discovery result.
+- deterministic search and exact compressed-data reproduction work;
+- no target draw enters its own feature history;
+- final champion is discovery-selected, not validation-selected;
+- cache persistence survives interruption and resume;
+- progressive screens visibly reduce attractive small-sample effects;
+- zero LLM tokens are spent on numeric evolution/evaluation;
+- the larger run produced a qualitatively different multi-feature survivor instead of simply preserving the bootstrap winner.
 
 ## Strongest counterargument
 
-The current genome language is intentionally narrow. Failure of these six feature families does not test the larger AlphaEvolve thesis; it only demonstrates that the infrastructure can reject weak descendants. Richer structural genes and LLM-generated novel operators are still absent.
+Evolution is explicitly optimized to exploit finite historical irregularities. Without a **matched whole-search null**—rerunning the same evolutionary process on randomized histories—the current survivor could simply be the expected best false positive produced by searching 1,793 genomes.
 
 ## Recommended next step
 
-Run the larger default evolutionary tournament, then add matched **evolutionary-null searches** in which the entire search procedure—not merely the final champion—is rerun on randomized histories. Only after that should LLM structural mutation be introduced.
+Do **not** add LLM-generated genes yet. First implement and run a computationally economical whole-search null/robustness tournament. Only if the real-history evolutionary frontier looks unusual relative to equally searched null histories should GPT/Claude/Gemini be used for novel structural mutations.
