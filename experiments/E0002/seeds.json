@@ -1,0 +1,10 @@
+[
+  {"name":"RECENCY_SEED","genome":{"features":[{"kind":"recency","weight":1.0,"params":{"scale":6.0}}]}},
+  {"name":"CUMULATIVE_FREQUENCY_SEED","genome":{"features":[{"kind":"frequency","weight":1.0,"params":{"window":10000}}]}},
+  {"name":"GAP_CYCLE_SEED","genome":{"features":[{"kind":"gap_target","weight":1.0,"params":{"target":7.0,"scale":3.0}}]}},
+  {"name":"STICTION_SHADOW_SEED","genome":{"features":[{"kind":"shadow","weight":1.0,"params":{"scale":1.5}}]}},
+  {"name":"RESIDUE8_SEED","genome":{"features":[{"kind":"residue","weight":1.0,"params":{"modulus":8}}]}},
+  {"name":"TRANSITION_SEED","genome":{"features":[{"kind":"transition","weight":1.0,"params":{"lookback":80,"predecessor_distance":0,"smoothing":10.0}}]}},
+  {"name":"GPR8_INSPIRED_COMPONENT_SEED","genome":{"features":[{"kind":"recency","weight":0.5,"params":{"scale":6.0}},{"kind":"gap_target","weight":0.25,"params":{"target":7.0,"scale":3.0}},{"kind":"residue","weight":0.25,"params":{"modulus":8}}]}},
+  {"name":"RECENCY_FREQUENCY_SEED","genome":{"features":[{"kind":"recency","weight":0.5,"params":{"scale":6.0}},{"kind":"frequency","weight":0.5,"params":{"window":10000}}]}}
+]
