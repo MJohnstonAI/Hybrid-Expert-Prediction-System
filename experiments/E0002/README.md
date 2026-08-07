@@ -18,11 +18,15 @@ The engine deliberately does not score every organism against all 470 discovery 
 
 This makes small data a cheap **rejection filter**, not proof of signal.
 
+## Reproducible data
+
+`data/train_main_2018_2025.csv.gz.b64` is a base64-encoded gzip of the chronological 811-draw CSV derived from `Train on Main.xlsx`. The raw CSV SHA-256 and provenance are recorded in `data/manifest.json`. The CLI materializes it automatically into the ignored output directory.
+
 ## Run
 
 ```bash
 python experiments/E0002/heps_evolve.py \
-  --data experiments/E0002/data/train_main_2018_2025.csv \
+  --data experiments/E0002/data/train_main_2018_2025.csv.gz.b64 \
   --seed-file experiments/E0002/seeds.json \
   --out-dir outputs/research/heps_evolve_e0002
 ```
@@ -33,7 +37,7 @@ Small engineering smoke run:
 
 ```bash
 python experiments/E0002/heps_evolve.py \
-  --data experiments/E0002/data/train_main_2018_2025.csv \
+  --data experiments/E0002/data/train_main_2018_2025.csv.gz.b64 \
   --seed-file experiments/E0002/seeds.json \
   --out-dir outputs/research/heps_evolve_e0002_smoke \
   --population 40 --generations 5 --finalists 5 --null-trials 100 \
