@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-08-06
+updated: 2026-08-10
 purpose: >-
   Machine-readable registry of HEPS experts, their architectural stage,
   scientific status, and allowed authority. Detailed formulas remain in
@@ -104,6 +104,33 @@ experts:
     notes:
       - Breakthrough status refers to its methodological necessity as a control,
         not predictive superiority.
+
+  - expert_id: JOHNSON_COVER_PORTFOLIO
+    name: Johnson Covering Portfolio Optimizer
+    stage: portfolio_optimization
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    dependencies:
+      - frozen_candidate_universe
+    evidence_paths:
+      - core/johnson_portfolio_assembly.md
+      - experiments/E0002/findings.md
+      - experiments/E0002/decision.md
+    notes:
+      - Assembly-only extremal-combinatorics / Johnson-space module.
+      - Zero authority over candidate discovery or Safe Exclusion.
+      - K=13 is the primary acquisition research target but remains falsifiable.
+      - Coverage geometry is never itself predictive evidence.
+    falsification:
+      - Must beat or materially preserve incumbent same-line 3+/4+/5/5 outcomes prospectively on identical frozen candidates and line budgets before primary assembly promotion.
 
   - expert_id: MAIN_GPR8
     name: Gap-Phase Residual Ensemble GPR-8
