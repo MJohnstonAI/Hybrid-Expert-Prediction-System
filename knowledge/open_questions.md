@@ -14,13 +14,24 @@ Does `MAIN_VVD_DELTA` provide useful conditional movement information beyond `NU
 
 Resolution requires a frozen displacement probability distribution and prospective proper-score comparison versus the exact structural displacement null.
 
-## Q003 — Funnel efficiency and safe exclusion
+## Q003 — K=13 candidate acquisition and safe exclusion
 
-Can a slot-first candidate funnel or meta-lattice preserve all five future main coordinates more often than same-exposure exact null, order-statistic, recency, frequency, or randomized candidate baskets?
+Can HEPS compress the main field to a frozen **13-number candidate universe** while retaining future winning coordinates substantially better than same-exposure exact-null, recency, frequency, and randomized candidate baskets?
 
-Primary metrics: 5/5 coordinate survival, 4+/5 survival, exact probability mass retained, basket/lattice exposure, catastrophic exclusions, and matched-control lift.
+`K=13` is now the director-selected primary acquisition research target. It is a target to beat, not a protected optimum or a hard production cap.
 
-Do not assume `K=13` is optimal. When sample size permits, evaluate a preregistered recall/compression frontier such as K=`13,16,18,20,22,25,30` rather than selecting the best K post-hoc.
+Primary metrics:
+
+- 3+/5 coordinate survival;
+- 4+/5 coordinate survival;
+- 5/5 coordinate survival;
+- catastrophic exclusions;
+- matched-control lift;
+- exact candidate exposure.
+
+Control K values such as `7,10,16,18,20,22,25,30` remain necessary so that harmful over-compression can falsify K=13 rather than being hidden by portfolio geometry.
+
+Johnson/extremal combinatorics has **zero authority** over candidate acquisition. Its jurisdiction begins only after K is frozen.
 
 ## Q004 — Winner-float bottleneck
 
@@ -46,11 +57,16 @@ Exact structural-null residualization should be used where applicable before tre
 
 Does GPR-8 outperform the frozen recency comparator across its prospective falsification window?
 
-## Q009 — Final portfolio compression
+## Q009 — Johnson final portfolio compression
 
-Conditional on a good survivor/ranking universe, what portfolio-selection method best compresses to 10/20 lines while retaining evidence and diversity?
+Conditional on an identical frozen candidate universe, does `JOHNSON_COVER_PORTFOLIO` improve same-line 3+/4+/5/5 outcomes versus the incumbent HEPS portfolio selector at the same line budget?
 
-Maximum-coverage/submodular portfolio optimization is a valid engineering candidate, but must be compared against random/diversity-matched portfolios from the identical survivor universe.
+Geometry and prediction must remain separate:
+
+- exact 3+/4+ winner-set coverage is a combinatorial metric;
+- blind future 3+/4+/5/5 hit rates are predictive assembly metrics.
+
+The Johnson module is specified in `core/johnson_portfolio_assembly.md` and tested under `experiments/E0002/`. Better coverage geometry alone cannot promote predictive authority.
 
 ## Q010 — PowerBall architecture independence
 
@@ -71,6 +87,20 @@ After expressing a sorted draw as corrected `MAIN_GAP_VECTOR` and removing the e
 Do not fit six unconstrained Dirichlet parameters at the current sample size. The first allowed descriptive alternative is a preregistered low-complexity model such as one symmetric concentration parameter `c`, with null `c=1`, and no predictive authority until proper prospective scoring exists.
 
 Primary research path: `experiments/E0001/`.
+
+## Q013 — K=7 breakthrough frontier
+
+Can any genuinely blind candidate-discovery algorithm compress to K=7 while retaining all five future winning mains at a rate that survives matched controls and multiple-testing correction?
+
+The mathematical payoff is unusually strong but must not be confused with evidence that such acquisition is achievable:
+
+- conditional on all five winners being inside K=7, any 5-of-7 line guarantees at least 3 matching mains;
+- there are 21 exact 5-of-7 main combinations;
+- 20 lines cover at most 20/21 exact-main possibilities;
+- 21 lines are required for complete exact-main coverage;
+- jackpot still requires the PowerBall separately.
+
+This is a long-horizon breakthrough target, not current production authority.
 
 ## Resolution rule
 
