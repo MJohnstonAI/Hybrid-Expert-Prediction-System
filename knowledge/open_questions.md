@@ -102,6 +102,20 @@ The mathematical payoff is unusually strong but must not be confused with eviden
 
 This is a long-horizon breakthrough target, not current production authority.
 
+## Q014 — Slot-specific VVD temporal pattern challengers
+
+Do the simple slot-specific VVD structures frozen in `experiments/E0003/` provide future predictive information beyond `NULL_VVD_STRUCTURAL`, empirical VVD-frequency, and recency controls?
+
+The first prospective target is 2026-08-14 and was frozen on 2026-08-12:
+
+- Slot1 dual-phase ladder: `VVD=9`, implying `S1=12` from the reported 2026-08-11 state; following Tuesday continuation already frozen at `VVD=4`.
+- Slot3 echo/doublet: `VVD=5`, implying `S3 in {21,31}` before HLR/legal-path conditioning.
+- Slot5 Tuesday-to-Friday complement: `VVD=2`, implying `S5 in {46,50}`.
+- Slot4 algebraic closure: diagnostic grammar only; no exact Friday call.
+- Slot2: `NO_FORECAST`.
+
+These patterns were discovered retrospectively and therefore begin at `INSUFFICIENT_EVIDENCE`. They have no hard-pruning authority. The durable interpretation and anti-overfit grammar are preserved in `knowledge/VVD_PATTERN_RESEARCH_GUIDE_2026-08-12.md`.
+
 ## Resolution rule
 
 When a question is resolved:
