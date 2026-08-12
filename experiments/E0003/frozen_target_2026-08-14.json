@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment_id": "E0003",
+  "frozen_on": "2026-08-12",
+  "target_draw_date": "2026-08-14",
+  "evidence_status": "INSUFFICIENT_EVIDENCE",
+  "architecture_status": "experimental",
+  "paper_trading_only": true,
+  "reported_previous_main": [3, 14, 26, 40, 48],
+  "previous_result_provenance": "user_reported_pending_external_index_verification_on_2026-08-12",
+  "predictions": {
+    "slot1": {
+      "hypothesis": "dual_phase_ladder_pair_sum_13",
+      "vvd": 9,
+      "coordinates": [12],
+      "already_frozen_next_tuesday_vvd": 4
+    },
+    "slot2": {
+      "hypothesis": "none",
+      "vvd": null,
+      "coordinates": [],
+      "status": "NO_FORECAST"
+    },
+    "slot3": {
+      "hypothesis": "echo_doublet",
+      "vvd": 5,
+      "coordinates": [21, 31]
+    },
+    "slot4": {
+      "hypothesis": "algebraic_closure_exploratory",
+      "vvd": null,
+      "coordinates": [],
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    "slot5": {
+      "hypothesis": "tuesday_friday_complement_sum_10",
+      "vvd": 2,
+      "coordinates": [46, 50]
+    }
+  },
+  "rules": [
+    "Do not alter these predictions after the 2026-08-14 result is known.",
+    "Do not count retrospective pattern fit as predictive evidence.",
+    "Score each slot hypothesis separately against NULL_VVD_STRUCTURAL and simple controls.",
+    "No component has hard pruning authority.",
+    "The Slot1 2026-08-18 VVD=4 continuation remains separately scoreable under the already frozen rule."
+  ]
+}
