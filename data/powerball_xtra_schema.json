@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HEPS South African PowerBall XTRA 50/16 Draw Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "draw_id",
+    "draw_date",
+    "game_variant",
+    "main_numbers",
+    "powerball",
+    "macro_sum",
+    "game_format",
+    "draw_method",
+    "machine_name",
+    "source_url",
+    "data_quality_flags"
+  ],
+  "properties": {
+    "draw_id": { "type": "integer", "minimum": 1 },
+    "draw_date": { "type": "string", "format": "date" },
+    "game_variant": { "const": "powerball_xtra" },
+    "main_numbers": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": { "type": "integer", "minimum": 1, "maximum": 50 }
+    },
+    "powerball": { "type": "integer", "minimum": 1, "maximum": 16 },
+    "macro_sum": { "type": "integer", "minimum": 15, "maximum": 240 },
+    "game_format": { "const": "powerball_50_16" },
+    "draw_method": {
+      "type": "string",
+      "enum": ["mechanical_machine", "electronic_rng", "unknown"]
+    },
+    "machine_name": { "type": "string", "minLength": 1, "default": "unknown" },
+    "source_url": { "type": ["string", "null"] },
+    "data_quality_flags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "default": []
+    },
+    "notes": { "type": ["string", "null"] }
+  }
+}
