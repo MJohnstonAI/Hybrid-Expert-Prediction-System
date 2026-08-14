@@ -1,0 +1,11 @@
+draw_date,expert_id,stage,prediction_scope,frozen_output,coverage_size,directional_hit,candidate_hit,exact_hit,null_baseline,precision_weight,score,notes
+2026-08-14,XTRA_HLR_SLOT,slot_forecast,direction,"S1 L; S2 L; S3 L; S4 unresolved; S5 L; PB H",,PENDING,PENDING,PENDING,,1.0,PENDING,"First fully frozen XTRA league-table draw"
+2026-08-14,XTRA_VVD_DELTA,powerball_matrix,exact_or_band,"PB9; central baseline PB8-9",2,PENDING,PENDING,PENDING,0.125,1.5,PENDING,"Score exact PB9 separately from 8-9 band"
+2026-08-14,XTRA_STICTION_SHADOW,candidate_funnel,candidate_set,"13,14,19,20,29,30,40,41,43,44,48,49",12,PENDING,PENDING,PENDING,0.24,1.0,PENDING,"HLR-conditioned Coulomb shadow corridor"
+2026-08-14,XTRA_VOID_BRIDGE,candidate_funnel,line,"13,20,30,41,48",5,PENDING,PENDING,PENDING,,2.0,PENDING,"Frozen aggressive Coulomb Void/Bridge challenger"
+2026-08-14,XTRA_SORTED_SLOT_DENSITY,candidate_funnel,candidate_set,"3,5,10,14,16,20,21,23,29,36,44,46,47",13,PENDING,PENDING,PENDING,0.26,1.0,PENDING,"Bootstrap XTRA K=13 basket uses density plus other soft experts"
+2026-08-14,XTRA_COALITION_PAIR_OF_PAIRS_ANCHOR,coalition_assembly,portfolio,"20-line frozen slate",20,PENDING,PENDING,PENDING,,1.0,PENDING,"Score assembly only after candidate availability is known"
+2026-08-14,XTRA_PB_TIER_OSCILLATOR,powerball_matrix,band,"PB11-16",6,PENDING,PENDING,PENDING,0.375,1.0,PENDING,"Prospective >10 tier hypothesis"
+2026-08-14,XTRA_PB_ARITHMETIC_RESOLVER,powerball_matrix,exact,"PB11",1,PENDING,PENDING,PENDING,0.0625,2.0,PENDING,"Piecewise arithmetic resolver; no post-draw rule changes"
+2026-08-14,XTRA_PB2_SUCCESSOR_RESONANCE,powerball_matrix,candidate_set,"PB12,PB16",2,PENDING,PENDING,PENDING,0.125,1.5,PENDING,"Two prior PB2 successors in active XTRA sample"
+2026-08-14,XTRA_PB_FREQUENCY_RECENCY,powerball_matrix,exact,"PB15",1,PENDING,PENDING,PENDING,0.0625,1.0,PENDING,"Descriptive frequency/recency hedge"
