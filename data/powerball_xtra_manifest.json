@@ -1,0 +1,23 @@
+{
+  "game_variant": "powerball_xtra",
+  "game_format": "powerball_50_16",
+  "active_series_start": "2026-06-02",
+  "pre_start_history_policy": "exclude_from_active_xtra_state",
+  "predecessor_label": "PowerBall Plus",
+  "canonical_ledger": "data/powerball_xtra_history.jsonl",
+  "schema": "data/powerball_xtra_schema.json",
+  "verified_row_count": 20,
+  "first_verified_draw_date": "2026-06-02",
+  "latest_verified_draw_date": "2026-08-07",
+  "latest_verified_draw_id": 1744,
+  "missing_expected_draw_dates": [
+    "2026-08-11"
+  ],
+  "state_is_complete_through_latest_expected_draw": false,
+  "notes": [
+    "The active HEPS XTRA lane begins with the South African PowerBall XTRA series in June 2026.",
+    "No pre-June 2026 PowerBall Plus/XTRA history may enter active XTRA state, priors, recency, HLR/VVD, candidate scores, or validation denominators.",
+    "Main PowerBall learned state and parameters are not transferred into XTRA.",
+    "The 2026-08-11 row is intentionally absent until independently verified."
+  ]
+}
