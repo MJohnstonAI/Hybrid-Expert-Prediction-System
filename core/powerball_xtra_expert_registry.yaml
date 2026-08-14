@@ -1,0 +1,129 @@
+schema_version: 1
+updated: 2026-08-14
+purpose: >-
+  Independent expert-state registry for the South African PowerBall XTRA HEPS lane.
+  Architecture families may mirror Main, but all fitted state, evidence, and outputs
+  are XTRA-only and use data from 2026-06-02 onward.
+
+architecture_stages:
+  - slot_forecast
+  - candidate_funnel
+  - coalition_assembly
+  - morphology
+  - winner_float_ranking
+  - portfolio_optimization
+  - powerball_matrix
+
+experts:
+  - expert_id: XTRA_HLR_SLOT
+    stage: slot_forecast
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_VVD_DELTA
+    stage: candidate_funnel
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    dependencies: [XTRA_HLR_SLOT]
+    authority:
+      diagnostic: true
+      may_score: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_STICTION_SHADOW
+    stage: candidate_funnel
+    architecture_status: shadow
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_VOID_BRIDGE
+    stage: candidate_funnel
+    architecture_status: shadow
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_SORTED_SLOT_DENSITY
+    stage: candidate_funnel
+    architecture_status: shadow
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_GPR8
+    stage: candidate_funnel
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_COALITION_PAIR_OF_PAIRS_ANCHOR
+    stage: coalition_assembly
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_MORPH_SLDV
+    stage: morphology
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_RANK_WINNER_FLOAT
+    stage: winner_float_ranking
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_hard_eliminate: false
+
+  - expert_id: XTRA_PORTFOLIO_CHAOS_BASELINE
+    stage: portfolio_optimization
+    architecture_status: production
+    evidence: BREAKTHROUGH
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - Breakthrough status is methodological necessity as a control, not predictive superiority.
+
+  - expert_id: XTRA_PB_ACTIVE_MATRIX
+    stage: powerball_matrix
+    architecture_status: experimental
+    evidence: INSUFFICIENT_EVIDENCE
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+
+data_boundary:
+  active_series_start: 2026-06-02
+  canonical_ledger: data/powerball_xtra_history.jsonl
+  allow_pre_start_history: false
+  allow_main_state_transfer: false
