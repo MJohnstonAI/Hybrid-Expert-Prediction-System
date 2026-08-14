@@ -15,16 +15,18 @@
   "latest_draw_update_policy": {
     "read_local_ledger_first": true,
     "historical_web_rescan": false,
-    "single_external_source": "https://www.lottery.co.za/powerball-xtra/results",
-    "source_name": "Lottery.co.za PowerBall XTRA Results",
+    "single_external_source": "https://www.nationallottery.co.za/results/powerball-plus",
+    "source_name": "Official South African National Lottery results",
+    "operator_context": "Sizekhaya",
     "append_only_after_date_and_numbers_match_source": true,
-    "do_not_import_pre_june_2026_rows": true
+    "do_not_import_pre_june_2026_rows": true,
+    "fallback_sources_allowed": false
   },
   "notes": [
     "The active HEPS XTRA lane begins with the South African PowerBall XTRA series in June 2026.",
     "No pre-June 2026 PowerBall Plus/XTRA history may enter active XTRA state, priors, recency, HLR/VVD, candidate scores, or validation denominators.",
     "Main PowerBall learned state and parameters are not transferred into XTRA.",
     "The canonical seed through 2026-08-11 was supplied directly by the project director.",
-    "Future updates should consult only the configured XTRA results page for the newest missing draw rather than rescanning historical sites."
+    "Future updates read the local ledger first and consult only the official SA National Lottery result page for the newest missing XTRA draw. Historical web rescans are disabled."
   ]
 }
