@@ -1,0 +1,50 @@
+{
+  "target_draw_date": "2026-08-14",
+  "actual_main_numbers": [14,15,19,39,44],
+  "attribution": [
+    {
+      "winner": 14,
+      "pre_draw_support": [
+        "MAIN_STICTION_SHADOW exact repeat from prior coordinate 14",
+        "coordinate-mobility insight: prior Slot2 coordinate migrated to Slot1"
+      ],
+      "lost_by": "slot-concentrated consensus did not preserve global repeat support",
+      "credit": "candidate-level diagnostic only"
+    },
+    {
+      "winner": 15,
+      "pre_draw_support": [
+        "MAIN_STICTION_SHADOW +1 shadow from prior 14",
+        "structural Slot2 HIGH modal direction",
+        "conversation-stage BARP/run-persistence HIGH challenger"
+      ],
+      "lost_by": "not lost in the later conversation synthesis; absent from frozen E0004 because E0004 had already frozen S2=13",
+      "credit": "structural/Coulomb support is auditable; BARP remains non-canonical pre-draw conversation research"
+    },
+    {
+      "winner": 19,
+      "pre_draw_support": [],
+      "lost_by": "no strong documented candidate expert support in frozen E0003/E0004",
+      "credit": "none"
+    },
+    {
+      "winner": 39,
+      "pre_draw_support": [
+        "MAIN_STICTION_SHADOW -1 shadow from prior coordinate 40"
+      ],
+      "lost_by": "slot-lattice concentration suppressed an independently supported coordinate",
+      "credit": "candidate-level diagnostic only"
+    },
+    {
+      "winner": 44,
+      "pre_draw_support": [
+        "MAIN_VOID_BRIDGE plausible starvation/void support",
+        "E0004 Slot4 closure translated VVD4 to coordinate44"
+      ],
+      "lost_by": "E0004 retained 44 but the rest of the candidate lattice failed",
+      "credit": "one frozen candidate-coordinate hit; not an exact-slot VVD success because actual 44 occupied Slot5"
+    }
+  ],
+  "key_architecture_observation": "Friday demonstrates that global candidate support and exact slot assignment must be scored separately. Exact repeats and local shadows may migrate across sorted slots.",
+  "no_hindsight_rule": "The post-draw +2 VVD residual and cross-slot migration interpretations cannot receive retrospective predictive credit."
+}
