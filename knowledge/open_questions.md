@@ -86,7 +86,7 @@ After expressing a sorted draw as corrected `MAIN_GAP_VECTOR` and removing the e
 
 Do not fit six unconstrained Dirichlet parameters at the current sample size. The first allowed descriptive alternative is a preregistered low-complexity model such as one symmetric concentration parameter `c`, with null `c=1`, and no predictive authority until proper prospective scoring exists.
 
-Primary research path: `experiments/E0001/`.
+Primary research paths: `experiments/E0001/` and the repaired joint-state design in `experiments/E0006/`.
 
 ## Q013 — K=7 breakthrough frontier
 
@@ -106,15 +106,63 @@ This is a long-horizon breakthrough target, not current production authority.
 
 Do the simple slot-specific VVD structures frozen in `experiments/E0003/` provide future predictive information beyond `NULL_VVD_STRUCTURAL`, empirical VVD-frequency, and recency controls?
 
-The first prospective target is 2026-08-14 and was frozen on 2026-08-12:
+The first prospective target was 2026-08-14 and was frozen on 2026-08-12:
 
-- Slot1 dual-phase ladder: `VVD=9`, implying `S1=12` from the reported 2026-08-11 state; following Tuesday continuation already frozen at `VVD=4`.
-- Slot3 echo/doublet: `VVD=5`, implying `S3 in {21,31}` before HLR/legal-path conditioning.
-- Slot5 Tuesday-to-Friday complement: `VVD=2`, implying `S5 in {46,50}`.
-- Slot4 algebraic closure: diagnostic grammar only; no exact Friday call.
-- Slot2: `NO_FORECAST`.
+- Slot1 dual-phase ladder: `VVD=9`, implying `S1=12` from the reported 2026-08-11 state; actual VVD11 / S1=14.
+- Slot3 echo/doublet: `VVD=5`, implying `S3 in {21,31}`; actual VVD7 / S3=19.
+- Slot5 Tuesday-to-Friday complement: `VVD=2`, implying `S5 in {46,50}`; actual VVD4 / S5=44.
+- Slot4 algebraic closure was diagnostic in E0003; E0004's later frozen closure set missed actual VVD1.
+- Slot2 was `NO_FORECAST` in E0003.
 
-These patterns were discovered retrospectively and therefore begin at `INSUFFICIENT_EVIDENCE`. They have no hard-pruning authority. The durable interpretation and anti-overfit grammar are preserved in `knowledge/VVD_PATTERN_RESEARCH_GUIDE_2026-08-12.md`.
+The first prospective exact point hypotheses therefore missed. The common post-draw `+2` residual across Slots1/3/5 receives zero retrospective credit and may only be tested as a new frozen challenger.
+
+## Q015 — BARP state-duration residual
+
+Does HLR persistence-versus-flip probability depend on current directional run length after conditioning on `NULL_HLR_STRUCTURAL`?
+
+Primary research path: `experiments/E0005/`.
+
+Resolution requires fresh full LOW/REPEAT/HIGH probability vectors, deterministic run and REPEAT rules, and paired Brier/log-loss improvement versus the exact structural null and plain empirical HLR.
+
+## Q016 — VVD-R distributional displacement residual
+
+Can a heavily shrunk full displacement distribution outperform brittle exact VVD point-pattern forecasts and `NULL_VVD_STRUCTURAL`?
+
+Primary research path: `experiments/E0005/`.
+
+The 2026-08-14 `forecast+2` residual is discovery context only and has no historical predictive credit.
+
+## Q017 — Global candidate survival and slot migration
+
+Can HEPS improve candidate survival by explicitly separating `P(number appears anywhere)` from `P(number occupies exact sorted slot)`?
+
+Motivating examples include 2026-08-14 winner14 migrating from prior Slot2 to actual Slot1 and prior wrong-slot candidate hits. Any mobility model must remain a sorted-coordinate statistical model, not a physical trajectory claim.
+
+Primary research path: `experiments/E0007/`.
+
+## Q018 — Expert-preservation rescue at fixed K
+
+Does `Core9 + Rescue4 = K13`, or another preregistered fixed-K rescue structure, improve blind 3+/4+/5/5 winner-coordinate survival versus consensus-only K13 at identical exposure?
+
+Rescue families under test include structural/order-statistic, Coulomb repeat/shadow, cross-slot/global candidate preservation, and adversarial diversity. Johnson begins only after K is frozen.
+
+Primary research path: `experiments/E0007/`.
+
+## Q019 — Main/XTRA orthogonal rescue
+
+Do independently frozen Main and XTRA candidate universes rescue each other's future winners above matched random exposure, or was the reported 2026-08-14 overlap `{14,39,44}` ordinary diversification chance?
+
+Cross-game information may not influence the target game until prospective matched-exposure evidence exists.
+
+Primary research path: `experiments/E0007/`.
+
+## Q020 — Joint VVD-gap feature-class residual
+
+After rejecting exact-line JOS-HDR under the uniform gap null, do preregistered joint feature classes such as span movement, boundary-gap mass, gap entropy/imbalance, signed slot movement, and joint VVD structure contain forecastable temporal residual information beyond exact combinatorial baselines?
+
+Primary research path: `experiments/E0006/`.
+
+No hard pruning is allowed in E0006 v1.
 
 ## Resolution rule
 
