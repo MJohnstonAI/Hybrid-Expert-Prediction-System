@@ -1,0 +1,15 @@
+{
+  "experiment_id": "E0007",
+  "status": "initialized_no_fresh_targets",
+  "discovery_context": {
+    "2026-08-14_frozen_E0004_winners_in_candidate_union": [44],
+    "2026-08-14_frozen_E0004_winner_survival": "1/5",
+    "post_draw_coulomb_supported_actual_coordinates": [14,15,39],
+    "coordinate_migration_example": {"coordinate":14,"previous_slot":2,"actual_slot":1},
+    "director_reported_xtra_overlap_with_main_winners": [14,39,44],
+    "xtra_exposure_denominator_known": false
+  },
+  "fresh_main_targets_scored": 0,
+  "fresh_cross_game_targets_scored": 0,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE"
+}
