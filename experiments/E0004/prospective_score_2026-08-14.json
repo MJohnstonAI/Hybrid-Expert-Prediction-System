@@ -1,0 +1,18 @@
+{
+  "experiment_id": "E0004",
+  "target_draw_date": "2026-08-14",
+  "actual_main_numbers": [14,15,19,39,44],
+  "slot2_challenger": {"frozen_coordinate": 13, "actual_coordinate": 15, "hit": false},
+  "slot4_closure_challenger": {"frozen_vvd_set": [4,6,10,14,16], "actual_vvd": 1, "hit": false},
+  "frozen_candidate_union": [12,13,21,24,26,30,31,34,36,44,46,50],
+  "actual_winners_in_candidate_union": [44],
+  "winner_coordinate_survival": {"count": 1, "total": 5, "rate": 0.2},
+  "twenty_line_overlap_distribution": {"0": 16, "1": 4, "2": 0, "3": 0, "4": 0, "5": 0},
+  "best_main_overlap": 1,
+  "first_failure_stage": "candidate_acquisition",
+  "evidence_status": "INSUFFICIENT_EVIDENCE",
+  "notes": [
+    "Coordinate44 was retained by the Slot4 closure branch but actual44 occupied Slot5; count candidate-coordinate credit only, not exact-slot VVD success.",
+    "No frozen pre-draw E0004 artifact is modified by this score file."
+  ]
+}
