@@ -1,0 +1,85 @@
+experiment_id: E0005
+title: Structural-Residual Direction and VVD Championship
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  current_cutoff: 2026-08-14
+  exclude_legacy_prng_state: true
+  provenance_rule: user-reported rows may be used only with their quality flags preserved
+
+arms:
+  BARP:
+    target: next-state HLR probability by sorted slot
+    repeat_handling: REPEAT breaks the current directional run and sets directional run length to 0 for the next target
+    run_definition: consecutive identical non-REPEAT H or L states immediately preceding the target
+    sparse_pooling_rule: if fewer than 3 prior transitions exist for the exact run length, use pooled prior transitions across all positive run lengths for that slot; no discretionary adjacent-bin pooling
+    alpha_laplace: 1.0
+    structural_log_odds_weight: 0.6
+    formula: >-
+      For r>0, odds_emp(H/L)=(c_H(r)+1)/(c_L(r)+1). If sparse, use pooled c_H,c_L.
+      odds_final(H/L)=odds_emp(H/L)*(P0(H)/P0(L))^0.6.
+      Freeze P(R)=P0(R), then split 1-P(R) between H and L using odds_final.
+      For r=0 use the exact structural H/L odds with no empirical run adjustment.
+  VVD_R:
+    target: full legal displacement probability distribution by slot
+    prior: NULL_VVD_STRUCTURAL conditional on previous same-slot coordinate
+    shrinkage_strength_kappa: 10.0
+    estimator: >-
+      For each legal displacement d, posterior_weight(d)=count_prior_slot(d)+kappa*P0(d).
+      Normalize posterior_weight across legal d. Counts use only draws strictly before the target.
+    plus2_residual_rule: >-
+      The 2026-08-14 +2 residual observation is not included in the primary estimator and receives zero historical credit.
+      Any explicit +2 challenger must be frozen separately before a target.
+
+walk_forward:
+  discovery_window: 2026-06-02 through 2026-08-14
+  replay_label: post_hoc_replay
+  first_fresh_prospective_target: 2026-08-18
+  order:
+    - use only information before target
+    - compute full probability vectors
+    - freeze
+    - reveal target
+    - score
+    - update for next target only
+
+baselines:
+  BARP:
+    - NULL_HLR_STRUCTURAL
+    - plain empirical HLR transition probability with Laplace smoothing
+    - unconditional per-slot HLR frequency
+  VVD_R:
+    - NULL_VVD_STRUCTURAL
+    - empirical per-slot VVD frequency with the same shrinkage denominator
+    - previous VVD persistence heuristic
+
+metrics:
+  primary:
+    - multiclass_Brier_score_for_HLR
+    - HLR_log_loss
+    - VVD_log_loss
+    - VVD_ranked_probability_score
+  secondary:
+    - chosen_direction_accuracy
+    - exact_VVD_hit_rate
+    - top3_VVD_mass_hit_rate
+    - resulting_candidate_coordinate_recall_at_fixed_exposure
+
+multiple_testing:
+  variants: 2 primary arms
+  note: no tuning of alpha, structural weight, kappa, run rule, or repeat handling on prospective targets
+
+falsification:
+  BARP: >-
+    After 12 fresh prospective draws, reject or simplify BARP if cumulative paired Brier score is not better than NULL_HLR_STRUCTURAL on a majority of slots and aggregate draw-level score is not better.
+  VVD_R: >-
+    After 12 fresh prospective draws, reject or simplify VVD-R if cumulative log loss does not beat NULL_VVD_STRUCTURAL and the simple empirical-VVD baseline at matched legal support.
+
+reproducibility:
+  - Use exact formulas in governance/nomenclature.md for structural nulls.
+  - Use only canonical ledger rows strictly before each target.
+  - Preserve all probability vectors, not only chosen states.
