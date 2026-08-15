@@ -1,0 +1,26 @@
+{
+  "target_draw_date": "2026-08-14",
+  "previous_main_numbers": [3,14,26,40,48],
+  "slot_marginals": {
+    "S1": {"previous":3,"LOW":0.19183673469387758,"REPEAT":0.08418367346938775,"HIGH":0.7239795918367347,"modal":"HIGH"},
+    "S2": {"previous":14,"LOW":0.38903792784458835,"REPEAT":0.04380864279106647,"HIGH":0.5671534293643452,"modal":"HIGH"},
+    "S3": {"previous":26,"LOW":0.5,"REPEAT":0.03907946157186279,"HIGH":0.46092053842813724,"modal":"LOW"},
+    "S4": {"previous":40,"LOW":0.6987662595102796,"REPEAT":0.04313371972285677,"HIGH":0.2581000207668636,"modal":"LOW"},
+    "S5": {"previous":48,"LOW":0.7239795918367347,"REPEAT":0.08418367346938775,"HIGH":0.19183673469387758,"modal":"LOW"}
+  },
+  "modal_vector": "HHLLL",
+  "actual_vector": "HHLLL",
+  "modal_direction_hits": 5,
+  "joint_exact_enumeration": {
+    "total_legal_next_lines": 2118760,
+    "top_vectors": [
+      {"vector":"HHHLL","count":256256,"probability":0.12094621382317959},
+      {"vector":"HLLLL","count":256212,"probability":0.12092544695954237},
+      {"vector":"HHLLL","count":207592,"probability":0.09797806264041231},
+      {"vector":"LLLLL","count":172892,"probability":0.08160055881742151},
+      {"vector":"HHHHH","count":133373,"probability":0.06294861145198134}
+    ],
+    "actual_vector_rank": 3
+  },
+  "interpretation": "Exact structural baseline only; its success is not evidence of temporal predictive edge."
+}
