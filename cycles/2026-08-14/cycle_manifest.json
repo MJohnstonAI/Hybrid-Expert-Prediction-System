@@ -10,6 +10,7 @@
   "important_integrity_note": "No new pre_draw artifact is reconstructed after the result. Conversation-only synthesis that was not durably frozen in the repository is excluded from canonical slate scoring.",
   "post_draw_paths": [
     "cycles/2026-08-14/post_draw/actual_result.json",
+    "cycles/2026-08-14/post_draw/structural_null_audit.json",
     "cycles/2026-08-14/post_draw/scorecard.json",
     "cycles/2026-08-14/post_draw/expert_attribution.json",
     "cycles/2026-08-14/post_draw/physics_of_failure.md",
