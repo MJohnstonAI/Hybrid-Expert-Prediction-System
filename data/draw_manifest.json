@@ -12,15 +12,21 @@
     "SIZWE",
     "unknown"
   ],
-  "latest_draw_id": 20,
-  "latest_draw_date": "2026-08-07",
-  "latest_main_numbers": [8,22,31,39,40],
-  "latest_powerball": 5,
-  "latest_macro_sum": 140,
+  "latest_draw_id": 22,
+  "latest_draw_date": "2026-08-14",
+  "latest_main_numbers": [14,15,19,39,44],
+  "latest_powerball": 3,
+  "latest_macro_sum": 131,
   "latest_draw_method": "unknown",
   "latest_machine_name": "unknown",
-  "row_count": 20,
-  "last_synced": "2026-08-11",
+  "row_count": 22,
+  "last_synced": "2026-08-15",
+  "latest_data_quality_flags": [
+    "source_url_missing",
+    "draw_method_unknown",
+    "machine_name_unknown",
+    "user_reported_pending_external_verification"
+  ],
   "known_data_rules": [
     "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
     "Game format, draw method, and machine identity are distinct metadata axes",
@@ -32,6 +38,7 @@
     "Mechanical-era slot histograms remain diagnostic-only at the current small sample size",
     "Train on Main.xlsx and Train on Plus.xlsx are legacy PRNG-era artifacts and have no active-era prediction authority",
     "For result verification, current director-approved public sources are powerball.net/southafrica/results, lottery.co.za/powerball/results, and nationallottery.co.za/results/powerball/",
+    "Rows flagged user_reported_pending_external_verification may update active state but must remain provenance-qualified until one director-approved public source verifies them",
     "No Excel required for active HEPS processing"
   ],
   "primary_kpis": [
