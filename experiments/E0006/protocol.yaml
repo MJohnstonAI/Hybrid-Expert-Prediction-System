@@ -1,0 +1,75 @@
+experiment_id: E0006
+title: Joint VVD-Gap Residual and JOS-HDR Repair
+status: active_method_design
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  current_cutoff: 2026-08-14
+  exclude_legacy_prng_state: true
+
+nulls:
+  exact_gap: NULL_GAP_DM
+  exact_joint_hlr: NULL_HLR_JOINT_243
+  exact_slot_vvd: NULL_VVD_STRUCTURAL
+  exact_line_probability: 1 / C(50,5)
+
+stage_A_methodological_audit:
+  claim_to_test: exact legal six-gap vectors are equiprobable under the IID 5/50 null
+  method: exhaustive/combinatorial proof using one-to-one line-to-gap mapping
+  expected_result: no exact-line HDR exists under P0
+
+stage_B_feature_map:
+  fixed_features:
+    - span: S5-S1
+    - boundary_gap_mass: g1+g6
+    - max_internal_gap: max(g2,g3,g4,g5)
+    - min_internal_gap: min(g2,g3,g4,g5)
+    - gap_entropy: entropy of six gap proportions with zero terms contributing zero
+    - gap_l1_change: sum_i abs(g_i_t-g_i_t_minus_1)
+    - signed_slot_l1_change: sum_j abs(S_j_t-S_j_t_minus_1)
+    - signed_slot_pattern: five-state sign vector LOW/REPEAT/HIGH
+    - vvd_vector: five absolute same-slot displacements
+  no_additional_features_without_new_protocol_version: true
+
+stage_C_residual_test:
+  rule: >-
+    For each target, compute the exact null distribution of each feature or feature vector by enumerating all C(50,5) legal next draws relative to the frozen previous draw where conditioning is required.
+    Compare the realized feature rank/residual with prior-only empirical transition models.
+  first_model_family: diagnostic_only
+  hard_pruning: false
+  candidate_authority: none
+
+future_predictive_model_gate:
+  requirement: >-
+    A separate version must predeclare any multivariate density, regression, distance, or weighting model before it is allowed to rank a fresh target.
+    E0006 v1 may not search model families and then report the best one as predictive evidence.
+
+baselines:
+  - exact uniform line null
+  - NULL_GAP_DM
+  - independent morphology marginals at matched retained mass
+  - random line ranking within the same candidate universe
+
+metrics:
+  - exact feature-class null percentile
+  - temporal residual autocorrelation with confidence intervals
+  - winner_retention_over_space_retention if used as soft filter
+  - candidate/winner survival at matched exposure
+  - proper score for any later preregistered probabilistic model
+
+multiple_testing:
+  fixed_feature_count: 9
+  note: all nine features are exploratory in v1; no nominal p-value is confirmatory without correction or fresh validation
+
+falsification:
+  - Reject any exact-line HDR interpretation under the IID null.
+  - Reject predictive use if no preregistered residual model beats exact/null and matched random controls prospectively.
+  - Reject hard-pruning authority unless winner retention materially exceeds retained probability mass across a substantial fresh window.
+
+reproducibility:
+  - Use governance/nomenclature.md definitions exactly.
+  - Verify each draw against the canonical ledger and preserve provenance flags.
+  - Never substitute an ordinary multinomial for NULL_GAP_DM.
