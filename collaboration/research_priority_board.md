@@ -1,94 +1,106 @@
 # HEPS Research Priority Board
 
-This board is maintained by participating AI models. It is advisory and dynamic, not a fixed human task list.
+This board is advisory and dynamic. Preserve disagreement; do not silently promote an experiment into active architecture.
 
-Agents may reprioritize questions when evidence changes. Preserve disagreement where models rank priorities differently.
-
-## Current high-value questions
+## Current high-value questions after 2026-08-14
 
 | ID | Question | Stage | Current priority | Status |
 |---|---|---|---|---|
-| Q003 | Can HEPS acquire a blind K=13 candidate universe with materially better 3+/4+/5/5 winner survival than matched controls? | candidate_funnel | **critical** | primary acquisition target |
-| Q001 | Does per-slot HLR add information beyond the exact order-statistic HLR null? | slot_forecast | **critical** | active audit `E0001` |
-| Q002 | Does Vertical Variance Delta beat the exact structural displacement null? | candidate_funnel | **critical** | active audit `E0001` |
-| Q014 | Do frozen slot-specific VVD phase/echo/complement patterns add future information beyond structural and simple VVD controls? | slot_forecast|candidate_funnel | **high** | prospective experiment `E0003`; first target 2026-08-14 |
-| Q009 | Does Johnson covering improve same-line 3+/4+/5/5 assembly on identical frozen candidates and line budgets? | portfolio_optimization | **high** | shadow experiment `E0002` |
-| Q011 | Does the learned 243-vector flow ranker add information beyond the exact joint HLR null? | slot_forecast|meta | high | active audit `E0001` |
-| Q012 | Is there forecastable gap-space residual information beyond the exact Dirichlet-Multinomial gap null? | state_space|candidate_funnel | high | experimental `E0001` |
-| Q013 | Can any blind breakthrough compress to K=7 while preserving all five future winners above matched controls? | candidate_funnel | high-long-horizon | open breakthrough frontier |
-| Q004 | Why do exact winning combinations that survive the funnel still rank poorly? | winner_float_ranking | high | open |
-| Q005 | Which combination-level experts improve winning-line rank rather than merely prefer common-looking morphology? | morphology | high | open |
-| Q006 | Can a transparent learning-to-rank model improve future winner percentile without retrospective overfit? | winner_float_ranking | high | open |
-| Q007 | Which current production experts are redundant after structural-null residualization? | meta | medium | open |
+| Q003 | Can HEPS acquire a blind K=13 candidate universe with materially better winner survival than matched controls? | candidate_funnel | **critical** | primary bottleneck; Aug14 E0004 retained 1/5 |
+| Q018 | Does fixed-K expert-preservation rescue improve K13 survival over consensus-only K13? | candidate_funnel | **critical** | new `E0007` prospective challenger |
+| Q015 | Does BARP state duration add HLR information beyond exact structural geometry? | slot_forecast | **critical** | new `E0005`; proper-score gate |
+| Q016 | Can VVD-R distributional movement beat `NULL_VVD_STRUCTURAL` and point-pattern VVD? | candidate_funnel | **critical** | new `E0005`; point forecasts missed first target |
+| Q017 | Does separating global candidate survival from exact-slot assignment rescue migrating winners? | candidate_funnel | **critical** | new `E0007` |
+| Q001 | Does per-slot HLR add information beyond the exact order-statistic HLR null? | slot_forecast | **critical** | `E0001`; Aug14 structural modal vector was 5/5 directionally |
+| Q002 | Does Vertical Variance Delta beat the exact structural displacement null? | candidate_funnel | **critical** | `E0001` + `E0005` |
+| Q020 | Is there forecastable joint VVD-gap feature-class residual after exact-null correction? | state_space|candidate_funnel | **high** | new `E0006`; JOS-HDR exact-line claim rejected |
+| Q019 | Do independently frozen Main/XTRA universes provide cross-game rescue above matched random exposure? | cross_game_diagnostic | **high** | new `E0007`; no target-game authority |
+| Q014 | Do frozen slot-specific VVD phase/echo/complement patterns add future information? | slot_forecast|candidate_funnel | **high** | first prospective target failed all three exact point forecasts |
+| Q009 | Does Johnson covering improve same-line outcomes on identical frozen candidates? | portfolio_optimization | **high** | `E0002`; downstream only |
+| Q011 | Does learned joint HLR add information beyond exact joint HLR null? | slot_forecast|meta | high | `E0001` |
+| Q012 | Is there temporal gap-space residual beyond exact uniform gap null? | state_space|candidate_funnel | high | `E0001` + repaired `E0006` |
 | Q008 | Does GPR-8 survive its frozen prospective falsification gate? | candidate_funnel | high | prospective |
+| Q013 | Can any blind algorithm reach K=7 with 5/5 survival above matched controls? | candidate_funnel | high-long-horizon | breakthrough frontier |
+| Q004 | Why do exact winners that survive the funnel still rank poorly? | winner_float_ranking | medium-high | secondary while acquisition fails |
+| Q005 | Which morphology experts improve winner retention after base-rate correction? | morphology | medium | soft ranking only |
+| Q006 | Can transparent learning-to-rank improve future winner percentile? | winner_float_ranking | medium | open |
+| Q007 | Which experts are redundant after exact-null residualization? | meta | medium | open |
 
-## Current research gates
+## Gate A — candidate acquisition
 
-### Gate A — predictive signal / candidate acquisition
+Candidate acquisition is the current primary bottleneck.
 
-`E0001 — Exact Structural Null Championship and Gap-Space Residual Audit` remains the methodological gate for HLR/VVD-driven candidate claims.
+The 2026-08-14 frozen E0004 challenger retained only one actual winning coordinate. Do not respond by expanding K without accounting for exposure. Compare every challenger at the same declared K.
 
-The director-selected acquisition objective is now **K=13**. Candidate algorithms must earn this compression through blind matched-exposure performance; Johnson/extremal combinatorics has zero authority to select or prune the 13 numbers.
+New acquisition research:
 
-Until learned slot dynamics demonstrate prospective incremental value beyond exact geometry:
+- `E0005`: BARP direction + VVD-R magnitude probabilities;
+- `E0007`: Core9+Rescue4, cross-slot/global candidate preservation, Coulomb rescue.
 
-- keep HLR/VVD predictive authority experimental;
-- keep joint 243-vector ranking diagnostic for architecture decisions;
-- do not increase safe-exclusion hard-pruning authority;
-- retain deterministic slot bounds and ascending-path feasibility as valid engineering constraints;
-- continue frequency, recency, exact fixed-K, and order-statistic baselines on every relevant experiment.
+Johnson has zero authority before K is frozen.
 
-### Gate B — assembly geometry
+## Gate B — exact structural nulls
 
-`E0002 — Johnson Covering Assembly and K=13 Candidate Frontier` governs the final portfolio stage.
+`E0001` remains mandatory for HLR/VVD/gap claims.
 
-- candidate universe must be frozen before Johnson assembly;
-- compare against the incumbent on identical candidates and line budgets;
-- report geometry separately from predictive hit outcomes;
-- do not blend HEPS predictive scores into the Johnson objective until a separate blind test justifies it;
-- K=13 constructive 3+ coverage is useful only conditional on the actual winners surviving candidate acquisition.
+From previous state `[3,14,26,40,48]`, the exact marginal modal HLR vector was `HHLLL`; the actual 2026-08-14 vector was also `HHLLL`. The exact joint `HHLLL` vector ranked 3/243 under the structural null.
 
-### Gate C — VVD temporal-pattern challengers
+Interpret this as evidence that structural geometry is a strong baseline, not as predictive lottery edge.
 
-`E0003 — VVD Phase, Echo, Complement and Algebraic-Closure Challengers` preserves the slot-specific patterns identified on 2026-08-12.
+## Gate C — VVD evolution
 
-First prospective target 2026-08-14 is already frozen:
+`E0003` remains immutable. Its first prospective exact point hypotheses missed:
 
-- S1 VVD 9 -> S1 12;
-- S3 VVD 5 -> S3 21 or 31;
-- S5 VVD 2 -> S5 46 or 50;
-- S4 algebraic closure remains diagnostic only;
-- S2 has no forecast.
+- S1 VVD9 vs actual11;
+- S3 VVD5 vs actual7;
+- S5 VVD2 vs actual4.
 
-These rules must not be redefined after Friday. Retrospective fit gives no promotion credit, and E0003 remains subordinate to the exact structural-null controls in E0001.
+The shared post-draw `+2` residual receives zero retrospective credit.
+
+`E0005` now tests distributional VVD residuals against `NULL_VVD_STRUCTURAL` rather than rewriting E0003.
+
+## Gate D — joint-state research
+
+Gemini's exact-line JOS-HDR formulation is rejected because `NULL_GAP_DM` is uniform over all legal six-gap compositions. Its supplied 10-draw backtest is also rejected because multiple targets conflict with the canonical ledger.
+
+`E0006` retains only the repaired question: can predeclared joint feature classes show temporal residual information after exact combinatorial correction?
+
+No hard pruning.
+
+## Gate E — expert-preservation and controlled dissent
+
+Friday showed that globally supported coordinates can be lost when slot consensus becomes too concentrated:
+
+- 14 was an exact repeat but migrated Slot2 -> Slot1;
+- 39 was a -1 shadow of prior40;
+- 15 was +1 from prior14.
+
+`E0007` tests whether protected rescue seats improve winner survival at fixed K13. Every rescue must identify what core coordinate it displaced and whether that trade helped or hurt.
+
+## Gate F — cross-game rescue
+
+The director-reported XTRA overlap `{14,39,44}` with 2026-08-14 Main winners is discovery context only. Main and XTRA must be frozen independently and compared with matched random exposure before any cross-game influence is allowed.
 
 ## Agent coordination notes
 
-Any model may add:
-
-- a self-selected target;
-- a coordination warning;
-- evidence that a listed priority should fall;
-- a new question;
-- a recommendation that several questions be merged.
-
-Models working on Q001/Q002/Q011/Q012 should read:
+Models working on Q001/Q002/Q011/Q012/Q015/Q016/Q020 should read:
 
 1. `knowledge/STRUCTURAL_NULL_GAP_SPACE_RESEARCH_GUIDE_2026-08-06.md`
 2. `experiments/E0001/`
-3. `experiments/CANDIDATE_LATTICE_V01/red_team/claude_sonnet_rereview_2026-08-06.md`
+3. `experiments/E0005/`
+4. `experiments/E0006/`
 
-Models working on Q003/Q009/Q013 should read:
+Models working on Q003/Q017/Q018/Q019 should read:
 
-1. `core/johnson_portfolio_assembly.md`
-2. `experiments/E0002/`
-3. `knowledge/open_questions.md`
+1. `cycles/2026-08-14/post_draw/physics_of_failure.md`
+2. `experiments/E0007/`
+3. `core/johnson_portfolio_assembly.md`
 
 Models working on Q014 should read:
 
 1. `knowledge/VVD_PATTERN_RESEARCH_GUIDE_2026-08-12.md`
-2. `experiments/E0003/hypothesis.md`
-3. `experiments/E0003/protocol.yaml`
-4. `experiments/E0003/frozen_target_2026-08-14.json`
+2. `experiments/E0003/frozen_target_2026-08-14.json`
+3. `experiments/E0003/results_2026-08-14.json`
+4. `experiments/E0003/findings_2026-08-14.md`
 
-Do not delete resolved questions. Move their durable conclusion into the claim/failure registries and mark them resolved here.
+Do not delete resolved questions. Move durable conclusions to the claim/failure registries and mark them resolved here.
