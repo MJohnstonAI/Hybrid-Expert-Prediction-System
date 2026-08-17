@@ -1,0 +1,76 @@
+{
+  "experiment_id": "E0008",
+  "target_date": "2026-08-18",
+  "frozen_on": "2026-08-17",
+  "dataset_cutoff": "2026-08-14",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "previous_state": {
+    "main": [14, 15, 19, 39, 44],
+    "powerball": 3
+  },
+  "primary_director_motif_hypotheses": {
+    "S1": {
+      "family": "cross_lane_motif_reflection",
+      "source": "earlier S4 VVD triple 9,11,5; current S1 suffix 5,11",
+      "forecast_vvd": 9,
+      "direction": "LOW",
+      "forecast_coordinate": 5
+    },
+    "S4": {
+      "family": "direct_cross_lane_transition_transfer",
+      "source": "1<->4 motif observed previously in S1, S2 and PB; current S4 VVD=1",
+      "forecast_vvd": 4,
+      "direction": "HIGH",
+      "forecast_coordinate": 43
+    }
+  },
+  "multipath_challengers": {
+    "S1_local": {
+      "forecast_vvd": 2,
+      "support_families": 3,
+      "coordinate_branches": [12, 16],
+      "note": "local closure hedge; separate from primary reflected VVD9"
+    },
+    "S2": {
+      "forecast_vvd": 3,
+      "support_families": 2,
+      "coordinate_branches": [12, 18],
+      "direction": "UNFROZEN_IN_E0008"
+    },
+    "S3": {
+      "forecast_vvd": 6,
+      "support_families": 3,
+      "coordinate_branches": [13, 25],
+      "preferred_branch_if_HIGH_is_separately_frozen": 25
+    },
+    "S4_algebraic_hedge": {
+      "forecast_vvd": 6,
+      "support_families": 2,
+      "coordinate_branches": [33, 45],
+      "preferred_branch_under_primary_HIGH_direction": 45
+    },
+    "S5": {
+      "forecast_vvd": 6,
+      "support_families": 4,
+      "coordinate_branches": [38, 50],
+      "preferred_branch_if_HIGH_is_separately_frozen": 50
+    },
+    "PB": {
+      "forecast_vvd": 6,
+      "support_families": 3,
+      "forecast_ball": 9
+    }
+  },
+  "matrix_wide_observation": {
+    "candidate_vvd": 6,
+    "supported_lanes": ["S1", "S2", "S3", "S4", "S5", "PB"],
+    "recorded_formula_family_derivations": 15,
+    "credit_rule": "descriptive convergence receives no historical predictive credit; score only after target reveal"
+  },
+  "scoring_rule": {
+    "vvd_magnitude": "score independently from direction",
+    "exact_coordinate": "credit only when both frozen magnitude and separately frozen direction produce the actual coordinate",
+    "no_hindsight": "do not add operations, formulas, branches or motif families after target result"
+  }
+}
