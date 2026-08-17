@@ -1,0 +1,94 @@
+{
+  "experiment_id": "E0008",
+  "result_status": "discovery_only_pre_prospective",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "cutoff": "2026-08-14",
+  "prospective_result_known": false,
+  "current_vvd_last4": {
+    "S1": [6, 8, 5, 11],
+    "S2": [13, 2, 8, 1],
+    "S3": [8, 2, 5, 7],
+    "S4": [11, 5, 1, 1],
+    "S5": [8, 2, 8, 4],
+    "PB": [4, 10, 5, 7]
+  },
+  "direct_1_4_observations": [
+    {"lane": "S1", "transition": [1, 4]},
+    {"lane": "S2", "transition": [1, 4]},
+    {"lane": "S2", "transition": [4, 1]},
+    {"lane": "PB", "transition": [4, 1]}
+  ],
+  "reflection_discovery": {
+    "source_lane": "S4",
+    "source_triple": [9, 11, 5],
+    "target_lane": "S1",
+    "current_target_suffix": [5, 11],
+    "nominated_next_vvd": 9,
+    "current_coordinate": 14,
+    "separate_direction_assumption": "LOW",
+    "translated_coordinate": 5,
+    "credit": "prospective_only_for_2026-08-18"
+  },
+  "retrospective_algebraic_transfer": {
+    "source_lane": "S3",
+    "source_motif": [13, 6, 8, 8],
+    "later_lane": "S1",
+    "later_sequence": [7, 6, 8, 5, 11],
+    "derivations": [
+      "13-6=7",
+      "6+8-13=1; 7-1=6",
+      "retain pivot 8",
+      "8+8-13=3; 8-3=5",
+      "8+8-13=3; 8+3=11",
+      "6+5=11"
+    ],
+    "predictive_credit": 0
+  },
+  "vvd6_matrix_closure": {
+    "candidate_vvd": 6,
+    "lanes_supporting": 6,
+    "formula_family_derivations_recorded": 15,
+    "derivations": {
+      "S1": ["abs(11-5)=6"],
+      "S2": ["abs(8-2)=6", "13+1-8=6"],
+      "S3": ["abs(8-2)=6", "2*7-8=6", "8+5-7=6"],
+      "S4": ["abs(11-5)=6", "5+1=6"],
+      "S5": ["abs(8-2)=6", "2+4=6", "2*4-2=6", "8+2-4=6"],
+      "PB": ["abs(10-4)=6", "2*5-4=6", "4+7-5=6"]
+    },
+    "interpretation": "descriptive matrix-wide convergence only; no predictive credit before prospective test"
+  },
+  "other_current_multipath_candidates": {
+    "S1": {
+      "vvd": 2,
+      "derivations": ["abs(8-6)=2", "2*5-8=2", "8+5-11=2"],
+      "coordinate_branches_from_14": [12, 16]
+    },
+    "S2": {
+      "vvd": 3,
+      "derivations": ["2+1=3", "2*8-13=3"],
+      "coordinate_branches_from_15": [12, 18]
+    },
+    "S3": {
+      "vvd": 6,
+      "derivations": ["abs(8-2)=6", "2*7-8=6", "8+5-7=6"],
+      "coordinate_branches_from_19": [13, 25]
+    },
+    "S4": {
+      "vvd": 6,
+      "derivations": ["abs(11-5)=6", "5+1=6"],
+      "coordinate_branches_from_39": [33, 45]
+    },
+    "S5": {
+      "vvd": 6,
+      "derivations": ["abs(8-2)=6", "2+4=6", "2*4-2=6", "8+2-4=6"],
+      "coordinate_branches_from_44": [38, 50]
+    },
+    "PB": {
+      "vvd": 6,
+      "derivations": ["abs(10-4)=6", "2*5-4=6", "4+7-5=6"],
+      "legal_ball_from_3": 9
+    }
+  },
+  "scientific_warning": "Generic arithmetic closure has high multiplicity and can create accidental fits. No predictive edge is claimed until the frozen grammar beats structural, empirical and matched-size controls prospectively."
+}
