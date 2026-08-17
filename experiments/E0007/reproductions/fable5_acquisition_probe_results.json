@@ -1,0 +1,1941 @@
+{
+  "artifact": "E0007 reproduction - FABLE-5 candidate-acquisition proxy census",
+  "authority": "diagnostic_only",
+  "paper_trading_only": true,
+  "ledger": "draw_history.jsonl",
+  "seed": 20260817,
+  "draws_in_ledger": 22,
+  "targets_scored": 19,
+  "target_draw_ids": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "verified_targets": 12,
+  "user_reported_unverified_targets": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "exchangeable_reference": {
+    "mean": 1.3,
+    "variance": 0.883469387755102,
+    "sd": 0.9399305228340561
+  },
+  "proper_score_vs_flat": {
+    "frequency": {
+      "log_loss": {
+        "n": 19,
+        "mean": 0.028265010139411916,
+        "sd": 0.022926131029927594,
+        "t": 5.373969235150016,
+        "p_two_sided": 4.162721754217971e-05,
+        "bootstrap_ci_95": [
+          0.018130235984167527,
+          0.03837390462600301
+        ],
+        "better_than_flat": false
+      },
+      "brier": {
+        "n": 19,
+        "mean": 0.004270851451704265,
+        "sd": 0.004138618696297171,
+        "t": 4.498169859791342,
+        "p_two_sided": 0.00027811979688371034,
+        "bootstrap_ci_95": [
+          0.002468454349374159,
+          0.0060349458037078346
+        ],
+        "better_than_flat": false
+      }
+    },
+    "recency": {
+      "log_loss": {
+        "n": 19,
+        "mean": 0.05174724976193248,
+        "sd": 0.03808665530109603,
+        "t": 5.922311385319568,
+        "p_two_sided": 1.3218786355338375e-05,
+        "bootstrap_ci_95": [
+          0.035206923026425974,
+          0.06834648798507674
+        ],
+        "better_than_flat": false
+      },
+      "brier": {
+        "n": 19,
+        "mean": 0.012010143676168247,
+        "sd": 0.008008978815722176,
+        "t": 6.536539025306555,
+        "p_two_sided": 3.827564363006606e-06,
+        "bootstrap_ci_95": [
+          0.00845308342767396,
+          0.015363150997654793
+        ],
+        "better_than_flat": false
+      }
+    },
+    "starvation": {
+      "log_loss": {
+        "n": 19,
+        "mean": 0.018597975637983502,
+        "sd": 0.03338804689893357,
+        "t": 2.4280155292039796,
+        "p_two_sided": 0.025891502461285514,
+        "bootstrap_ci_95": [
+          0.004141656508912982,
+          0.03339654981417678
+        ],
+        "better_than_flat": false
+      },
+      "brier": {
+        "n": 19,
+        "mean": 0.0024970867887352307,
+        "sd": 0.0044737319653348545,
+        "t": 2.432990856333672,
+        "p_two_sided": 0.025627398284450438,
+        "bootstrap_ci_95": [
+          0.0004847840260976129,
+          0.004443820917447985
+        ],
+        "better_than_flat": false
+      }
+    },
+    "shadow": {
+      "log_loss": {
+        "n": 19,
+        "mean": 0.04290781473585522,
+        "sd": 0.04140477252413987,
+        "t": 4.517132130425672,
+        "p_two_sided": 0.0002667304867049567,
+        "bootstrap_ci_95": [
+          0.02380813180681493,
+          0.060220981440960664
+        ],
+        "better_than_flat": false
+      },
+      "brier": {
+        "n": 19,
+        "mean": 0.007910596731313536,
+        "sd": 0.007281150279704631,
+        "t": 4.7357203752561015,
+        "p_two_sided": 0.00016502534517456093,
+        "bootstrap_ci_95": [
+          0.004569729460142713,
+          0.010974873727420354
+        ],
+        "better_than_flat": false
+      }
+    },
+    "linear_pool": {
+      "log_loss": {
+        "n": 19,
+        "mean": 0.009838889571182391,
+        "sd": 0.014735158007261285,
+        "t": 2.910503255975015,
+        "p_two_sided": 0.009331217859063035,
+        "bootstrap_ci_95": [
+          0.0033096430590885875,
+          0.016173381922542546
+        ],
+        "better_than_flat": false
+      },
+      "brier": {
+        "n": 19,
+        "mean": 0.002222387641967118,
+        "sd": 0.002990464523684175,
+        "t": 3.2393506319794043,
+        "p_two_sided": 0.004550913892340818,
+        "bootstrap_ci_95": [
+          0.0008704334923730153,
+          0.003481351271975809
+        ],
+        "better_than_flat": false
+      }
+    },
+    "log_pool": {
+      "log_loss": {
+        "n": 19,
+        "mean": 0.006703404676402095,
+        "sd": 0.011743359644559519,
+        "t": 2.4881690118067317,
+        "p_two_sided": 0.02286302610456526,
+        "bootstrap_ci_95": [
+          0.0014870993337392823,
+          0.011753364826590817
+        ],
+        "better_than_flat": false
+      },
+      "brier": {
+        "n": 19,
+        "mean": 0.0012658291042613786,
+        "sd": 0.0021957330131857373,
+        "t": 2.51288344809398,
+        "p_two_sided": 0.021718093880330372,
+        "bootstrap_ci_95": [
+          0.00027958351469002955,
+          0.0022020405335273626
+        ],
+        "better_than_flat": false
+      }
+    }
+  },
+  "k13_census": {
+    "frequency": {
+      "mean_winners": 1.3157894736842106,
+      "sd_winners": 0.7492686492653552,
+      "lift_vs_exchangeable": 0.015789473684210575,
+      "catastrophic_0or1_rate": 0.631578947368421,
+      "three_plus_rate": 0.05263157894736842
+    },
+    "recency": {
+      "mean_winners": 0.9473684210526315,
+      "sd_winners": 0.8481145238787242,
+      "lift_vs_exchangeable": -0.3526315789473685,
+      "catastrophic_0or1_rate": 0.7894736842105263,
+      "three_plus_rate": 0.05263157894736842
+    },
+    "starvation": {
+      "mean_winners": 1.4736842105263157,
+      "sd_winners": 0.611775290321498,
+      "lift_vs_exchangeable": 0.17368421052631566,
+      "catastrophic_0or1_rate": 0.5789473684210527,
+      "three_plus_rate": 0.05263157894736842
+    },
+    "shadow": {
+      "mean_winners": 1.1578947368421053,
+      "sd_winners": 0.898341551894183,
+      "lift_vs_exchangeable": -0.14210526315789473,
+      "catastrophic_0or1_rate": 0.631578947368421,
+      "three_plus_rate": 0.05263157894736842
+    },
+    "linear_pool": {
+      "mean_winners": 1.3157894736842106,
+      "sd_winners": 0.8200698871944031,
+      "lift_vs_exchangeable": 0.015789473684210575,
+      "catastrophic_0or1_rate": 0.5789473684210527,
+      "three_plus_rate": 0.05263157894736842
+    },
+    "log_pool": {
+      "mean_winners": 1.2105263157894737,
+      "sd_winners": 0.8549819600709617,
+      "lift_vs_exchangeable": -0.08947368421052637,
+      "catastrophic_0or1_rate": 0.7368421052631579,
+      "three_plus_rate": 0.10526315789473684
+    },
+    "flat": {
+      "mean_winners": 1.105263157894737,
+      "sd_winners": 1.0485300208760657,
+      "lift_vs_exchangeable": -0.1947368421052631,
+      "catastrophic_0or1_rate": 0.631578947368421,
+      "three_plus_rate": 0.10526315789473684
+    }
+  },
+  "basket_overlap": {
+    "frequency|recency": {
+      "mean_overlap": 7.578947368421052,
+      "exchangeable_expectation": 3.38
+    },
+    "frequency|starvation": {
+      "mean_overlap": 0.05263157894736842,
+      "exchangeable_expectation": 3.38
+    },
+    "frequency|shadow": {
+      "mean_overlap": 4.947368421052632,
+      "exchangeable_expectation": 3.38
+    },
+    "recency|starvation": {
+      "mean_overlap": 0.0,
+      "exchangeable_expectation": 3.38
+    },
+    "recency|shadow": {
+      "mean_overlap": 6.315789473684211,
+      "exchangeable_expectation": 3.38
+    },
+    "starvation|shadow": {
+      "mean_overlap": 2.473684210526316,
+      "exchangeable_expectation": 3.38
+    }
+  },
+  "rescue_by_family": {
+    "recency": {
+      "seats": 19,
+      "hits": 1,
+      "hit_rate": 0.05263157894736842
+    },
+    "starvation": {
+      "seats": 19,
+      "hits": 0,
+      "hit_rate": 0.0
+    },
+    "shadow": {
+      "seats": 19,
+      "hits": 3,
+      "hit_rate": 0.15789473684210525
+    },
+    "frequency": {
+      "seats": 19,
+      "hits": 2,
+      "hit_rate": 0.10526315789473684
+    }
+  },
+  "rescue_vs_displaced_trade": {
+    "rescue_seat_hit_rate": 0.07894736842105263,
+    "displaced_seat_hit_rate": 0.17105263157894737,
+    "exchangeable_seat_hit_rate": 0.1,
+    "paired_trade": {
+      "n": 19,
+      "mean": -0.3684210526315789,
+      "sd": 0.5972647203701474,
+      "t": -2.6887744785908154,
+      "p_two_sided": 0.015004964345062584,
+      "bootstrap_ci_95": [
+        -0.631578947368421,
+        -0.10526315789473684
+      ]
+    }
+  },
+  "arm_b_minus_arm_a": {
+    "n": 19,
+    "mean": -0.3684210526315789,
+    "sd": 0.5972647203701474,
+    "t": -2.6887744785908154,
+    "p_two_sided": 0.015004964345062584
+  },
+  "power_analysis": {
+    "k13_exchangeable_mean_winners": 1.3,
+    "k13_exchangeable_sd_winners": 0.9399305228340561,
+    "detectable_delta_12_targets_two_sided": 0.7601669210042411,
+    "detectable_delta_12_targets_one_sided": 0.6746665875658745,
+    "relative_lift_required_12_targets_two_sided": 0.5847437853878777,
+    "targets_needed_for_delta_0p2_two_sided": 173.35612433672043,
+    "targets_needed_for_delta_0p2_one_sided": 136.55250131333455,
+    "targets_needed_for_delta_0p5_one_sided": 21.848400210133526,
+    "paired_logloss_diff_sd_observed": 0.014735158007261285,
+    "note": "K13 winner counts are integer and near-degenerate; the paired proper-score statistic is continuous, so its power advantage comes from the far lower per-draw variance of the paired statistic, not from 50 independent Bernoulli trials (the 50 coordinates are constrained by sum p = 5 and are negatively correlated)."
+  },
+  "per_target": [
+    {
+      "draw_id": 4,
+      "draw_date": "2026-06-12",
+      "history_len": 3,
+      "winners": [
+        7,
+        23,
+        27,
+        30,
+        45
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.37875285916044404,
+        "recency": 0.3667045148551177,
+        "starvation": 0.30804913440794396,
+        "shadow": 0.41112125858545234,
+        "linear_pool": 0.3543225967262408,
+        "log_pool": 0.3492885077775878,
+        "flat": 0.32508297339144826
+      },
+      "brier": {
+        "frequency": 0.10140625,
+        "recency": 0.10004367193641368,
+        "starvation": 0.08750042748196027,
+        "shadow": 0.10402695595003288,
+        "linear_pool": 0.09556118007617051,
+        "log_pool": 0.09443558850749337,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 0,
+        "recency": 0,
+        "starvation": 1,
+        "shadow": 1,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 1
+      },
+      "overlap_k13": {
+        "frequency|recency": 13,
+        "frequency|starvation": 0,
+        "frequency|shadow": 5,
+        "recency|starvation": 0,
+        "recency|shadow": 5,
+        "starvation|shadow": 8
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          6,
+          7,
+          9,
+          11
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 16,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 6,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 22,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 0,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 5,
+      "draw_date": "2026-06-16",
+      "history_len": 4,
+      "winners": [
+        2,
+        19,
+        20,
+        40,
+        43
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.30439870419544574,
+        "recency": 0.33984930246164724,
+        "starvation": 0.3438775449474101,
+        "shadow": 0.4207580203233072,
+        "linear_pool": 0.33441999366187225,
+        "log_pool": 0.33381477570734747,
+        "flat": 0.32508297339144837
+      },
+      "brier": {
+        "frequency": 0.0845679012345679,
+        "recency": 0.09633981939680025,
+        "starvation": 0.09333927378035196,
+        "shadow": 0.10659105851413543,
+        "linear_pool": 0.09223841007697142,
+        "log_pool": 0.09179072756932107,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 2,
+        "recency": 2,
+        "starvation": 1,
+        "shadow": 0,
+        "linear_pool": 2,
+        "log_pool": 1,
+        "flat": 1
+      },
+      "overlap_k13": {
+        "frequency|recency": 10,
+        "frequency|starvation": 0,
+        "frequency|shadow": 7,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          2,
+          43,
+          6,
+          24
+        ],
+        "displaced_hits": 2,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 12,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 6,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": true
+          }
+        ],
+        "rescue_hits": 1,
+        "arm_b_hits": 1,
+        "arm_a_hits": 2
+      }
+    },
+    {
+      "draw_id": 6,
+      "draw_date": "2026-06-19",
+      "history_len": 5,
+      "winners": [
+        9,
+        10,
+        27,
+        37,
+        44
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.33023348907384253,
+        "recency": 0.3581397460667117,
+        "starvation": 0.33454358474248763,
+        "shadow": 0.4005761219678604,
+        "linear_pool": 0.3379253674155676,
+        "log_pool": 0.3332447360690802,
+        "flat": 0.3250829733914482
+      },
+      "brier": {
+        "frequency": 0.0925,
+        "recency": 0.10007833784605713,
+        "starvation": 0.09179760172410617,
+        "shadow": 0.10408163265306122,
+        "linear_pool": 0.09361737293232572,
+        "log_pool": 0.09211217117013527,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 2,
+        "recency": 1,
+        "starvation": 1,
+        "shadow": 1,
+        "linear_pool": 0,
+        "log_pool": 0,
+        "flat": 2
+      },
+      "overlap_k13": {
+        "frequency|recency": 10,
+        "frequency|starvation": 0,
+        "frequency|shadow": 4,
+        "recency|starvation": 0,
+        "recency|shadow": 5,
+        "starvation|shadow": 4
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          18,
+          21,
+          39,
+          41
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 7,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 4,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 18,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 5,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 0,
+        "arm_a_hits": 0
+      }
+    },
+    {
+      "draw_id": 7,
+      "draw_date": "2026-06-23",
+      "history_len": 6,
+      "winners": [
+        16,
+        25,
+        32,
+        33,
+        50
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.3649131595267507,
+        "recency": 0.39347132222523085,
+        "starvation": 0.30776854572491663,
+        "shadow": 0.4162016939602578,
+        "linear_pool": 0.35453524707008177,
+        "log_pool": 0.3463893077547863,
+        "flat": 0.32508297339144826
+      },
+      "brier": {
+        "frequency": 0.09826446280991737,
+        "recency": 0.1066306629161014,
+        "starvation": 0.08803254437869823,
+        "shadow": 0.1064906986171794,
+        "linear_pool": 0.09615740798543404,
+        "log_pool": 0.09426939380140974,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 0,
+        "starvation": 1,
+        "shadow": 0,
+        "linear_pool": 0,
+        "log_pool": 0,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 9,
+        "frequency|starvation": 0,
+        "frequency|shadow": 6,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          8,
+          19,
+          7,
+          12
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 19,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 8,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 5,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 0,
+        "arm_a_hits": 0
+      }
+    },
+    {
+      "draw_id": 8,
+      "draw_date": "2026-06-26",
+      "history_len": 7,
+      "winners": [
+        17,
+        26,
+        37,
+        40,
+        45
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.33805900109112075,
+        "recency": 0.35405311223162,
+        "starvation": 0.3526931216142317,
+        "shadow": 0.36118323615454395,
+        "linear_pool": 0.32810691587386864,
+        "log_pool": 0.3252549096054141,
+        "flat": 0.3250829733914481
+      },
+      "brier": {
+        "frequency": 0.09256944444444444,
+        "recency": 0.09993803707358154,
+        "starvation": 0.09439241530812811,
+        "shadow": 0.09670539711282128,
+        "linear_pool": 0.0916982243875024,
+        "log_pool": 0.09071555118836656,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 1,
+        "starvation": 2,
+        "shadow": 2,
+        "linear_pool": 2,
+        "log_pool": 1,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 8,
+        "frequency|starvation": 0,
+        "frequency|shadow": 2,
+        "recency|starvation": 0,
+        "recency|shadow": 5,
+        "starvation|shadow": 5
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          37,
+          15,
+          17,
+          24
+        ],
+        "displaced_hits": 2,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 9,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 15,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 19,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 0,
+        "arm_a_hits": 2
+      }
+    },
+    {
+      "draw_id": 9,
+      "draw_date": "2026-06-30",
+      "history_len": 8,
+      "winners": [
+        21,
+        26,
+        40,
+        42,
+        44
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.3470441087335305,
+        "recency": 0.30238641012238926,
+        "starvation": 0.39972342353012735,
+        "shadow": 0.28966632643749235,
+        "linear_pool": 0.3035057248842122,
+        "log_pool": 0.3097696238665369,
+        "flat": 0.3250829733914481
+      },
+      "brier": {
+        "frequency": 0.0942603550295858,
+        "recency": 0.08262013552224619,
+        "starvation": 0.0974095394736842,
+        "shadow": 0.08255211423598752,
+        "linear_pool": 0.08512156907924862,
+        "log_pool": 0.08679492501408459,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 2,
+        "starvation": 1,
+        "shadow": 2,
+        "linear_pool": 3,
+        "log_pool": 3,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 7,
+        "frequency|starvation": 0,
+        "frequency|shadow": 5,
+        "recency|starvation": 0,
+        "recency|shadow": 8,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 2,
+        "displaced_seats": [
+          43,
+          44,
+          2,
+          33
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 32,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 18,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 2,
+        "arm_a_hits": 3
+      }
+    },
+    {
+      "draw_id": 10,
+      "draw_date": "2026-07-03",
+      "history_len": 9,
+      "winners": [
+        9,
+        14,
+        27,
+        32,
+        34
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.3551793038483453,
+        "recency": 0.37087285594335967,
+        "starvation": 0.3467063493443363,
+        "shadow": 0.4025793435596642,
+        "linear_pool": 0.3498670033369396,
+        "log_pool": 0.3402287868511182,
+        "flat": 0.3250829733914482
+      },
+      "brier": {
+        "frequency": 0.09556122448979591,
+        "recency": 0.10473809862555507,
+        "starvation": 0.09385091410264602,
+        "shadow": 0.10398552496454594,
+        "linear_pool": 0.09511731824197935,
+        "log_pool": 0.09269228410030234,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 1,
+        "starvation": 2,
+        "shadow": 1,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 1
+      },
+      "overlap_k13": {
+        "frequency|recency": 7,
+        "frequency|starvation": 0,
+        "frequency|shadow": 6,
+        "recency|starvation": 0,
+        "recency|shadow": 7,
+        "starvation|shadow": 0
+      },
+      "core_rescue": {
+        "core_hits": 1,
+        "displaced_seats": [
+          22,
+          25,
+          19,
+          20
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 17,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 20,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 11,
+      "draw_date": "2026-07-07",
+      "history_len": 10,
+      "winners": [
+        16,
+        18,
+        21,
+        29,
+        47
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.386025908452089,
+        "recency": 0.3878023191680415,
+        "starvation": 0.33452145293017443,
+        "shadow": 0.389572581110228,
+        "linear_pool": 0.34835481453561046,
+        "log_pool": 0.3446133592739031,
+        "flat": 0.32508297339144837
+      },
+      "brier": {
+        "frequency": 0.09924444444444445,
+        "recency": 0.10535198697607621,
+        "starvation": 0.09063673469387755,
+        "shadow": 0.1025805363467701,
+        "linear_pool": 0.09487806764352316,
+        "log_pool": 0.09345195371871753,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 1,
+        "starvation": 2,
+        "shadow": 0,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 7,
+        "frequency|starvation": 0,
+        "frequency|shadow": 6,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 3
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          28,
+          8,
+          16,
+          37
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 21,
+            "hit": true
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 8,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 1,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 12,
+      "draw_date": "2026-07-10",
+      "history_len": 11,
+      "winners": [
+        2,
+        12,
+        13,
+        20,
+        23
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.33782652385696976,
+        "recency": 0.4192524818414197,
+        "starvation": 0.3095134693305134,
+        "shadow": 0.3760456165545061,
+        "linear_pool": 0.3400027448184549,
+        "log_pool": 0.3293085085214673,
+        "flat": 0.3250829733914485
+      },
+      "brier": {
+        "frequency": 0.0922265625,
+        "recency": 0.11172654249618037,
+        "starvation": 0.0894330154004343,
+        "shadow": 0.10000913075237401,
+        "linear_pool": 0.09354830261833014,
+        "log_pool": 0.09098268304670752,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 0,
+        "starvation": 1,
+        "shadow": 1,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 3
+      },
+      "overlap_k13": {
+        "frequency|recency": 7,
+        "frequency|starvation": 0,
+        "frequency|shadow": 3,
+        "recency|starvation": 0,
+        "recency|shadow": 5,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          48,
+          30,
+          20,
+          17
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 9,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 15,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": true
+          }
+        ],
+        "rescue_hits": 1,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 13,
+      "draw_date": "2026-07-14",
+      "history_len": 12,
+      "winners": [
+        9,
+        13,
+        21,
+        36,
+        40
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.32151213280344637,
+        "recency": 0.3087102089045965,
+        "starvation": 0.4160989571744755,
+        "shadow": 0.3529851992852569,
+        "linear_pool": 0.31543745131057743,
+        "log_pool": 0.3187934763393384,
+        "flat": 0.3250829733914483
+      },
+      "brier": {
+        "frequency": 0.08875432525951556,
+        "recency": 0.08848129045855158,
+        "starvation": 0.10136017249527411,
+        "shadow": 0.09408163265306121,
+        "linear_pool": 0.08827872835729518,
+        "log_pool": 0.0887485784077175,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 3,
+        "recency": 3,
+        "starvation": 1,
+        "shadow": 2,
+        "linear_pool": 2,
+        "log_pool": 2,
+        "flat": 2
+      },
+      "overlap_k13": {
+        "frequency|recency": 8,
+        "frequency|starvation": 0,
+        "frequency|shadow": 6,
+        "recency|starvation": 0,
+        "recency|shadow": 7,
+        "starvation|shadow": 4
+      },
+      "core_rescue": {
+        "core_hits": 2,
+        "displaced_seats": [
+          16,
+          1,
+          3,
+          11
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 16,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 3,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 27,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 2,
+        "arm_a_hits": 2
+      }
+    },
+    {
+      "draw_id": 14,
+      "draw_date": "2026-07-17",
+      "history_len": 13,
+      "winners": [
+        6,
+        9,
+        31,
+        37,
+        42
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.3546929887784642,
+        "recency": 0.36791486419628927,
+        "starvation": 0.3601091933289458,
+        "shadow": 0.3364117394571312,
+        "linear_pool": 0.3233913720793599,
+        "log_pool": 0.3239103204834242,
+        "flat": 0.3250829733914481
+      },
+      "brier": {
+        "frequency": 0.0925,
+        "recency": 0.09810351774617572,
+        "starvation": 0.0935106553436949,
+        "shadow": 0.09135714568252838,
+        "linear_pool": 0.08918416174973494,
+        "log_pool": 0.08891212422974182,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 2,
+        "recency": 1,
+        "starvation": 2,
+        "shadow": 2,
+        "linear_pool": 2,
+        "log_pool": 2,
+        "flat": 2
+      },
+      "overlap_k13": {
+        "frequency|recency": 9,
+        "frequency|starvation": 0,
+        "frequency|shadow": 8,
+        "recency|starvation": 0,
+        "recency|shadow": 7,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 2,
+        "displaced_seats": [
+          23,
+          10,
+          22,
+          8
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 23,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 8,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 16,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 2,
+        "arm_a_hits": 2
+      }
+    },
+    {
+      "draw_id": 15,
+      "draw_date": "2026-07-21",
+      "history_len": 14,
+      "winners": [
+        15,
+        40,
+        41,
+        47,
+        50
+      ],
+      "quality_flags": [],
+      "log_loss": {
+        "frequency": 0.37374466340099377,
+        "recency": 0.39122379600538865,
+        "starvation": 0.3440296176128996,
+        "shadow": 0.3831571524767697,
+        "linear_pool": 0.34393359625508935,
+        "log_pool": 0.34051879954516623,
+        "flat": 0.3250829733914481
+      },
+      "brier": {
+        "frequency": 0.09565096952908587,
+        "recency": 0.10596988542272409,
+        "starvation": 0.0922969059594574,
+        "shadow": 0.10016217712906927,
+        "linear_pool": 0.09362305542766963,
+        "log_pool": 0.09261442023425046,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 1,
+        "starvation": 2,
+        "shadow": 0,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 9,
+        "frequency|starvation": 0,
+        "frequency|shadow": 3,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 1,
+        "displaced_seats": [
+          32,
+          5,
+          8,
+          7
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 13,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 5,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 16,
+      "draw_date": "2026-07-24",
+      "history_len": 15,
+      "winners": [
+        4,
+        8,
+        13,
+        22,
+        38
+      ],
+      "quality_flags": [
+        "draw_method_unknown",
+        "machine_name_unknown"
+      ],
+      "log_loss": {
+        "frequency": 0.3934624237874803,
+        "recency": 0.44267914038141215,
+        "starvation": 0.29377302443178427,
+        "shadow": 0.376720476592972,
+        "linear_pool": 0.34354958375273914,
+        "log_pool": 0.34266921585758325,
+        "flat": 0.32508297339144837
+      },
+      "brier": {
+        "frequency": 0.10032500000000001,
+        "recency": 0.11232989179666991,
+        "starvation": 0.08366632923082389,
+        "shadow": 0.10249657064471879,
+        "linear_pool": 0.09440069630593541,
+        "log_pool": 0.09321552872967445,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 1,
+        "starvation": 3,
+        "shadow": 1,
+        "linear_pool": 0,
+        "log_pool": 1,
+        "flat": 3
+      },
+      "overlap_k13": {
+        "frequency|recency": 5,
+        "frequency|starvation": 0,
+        "frequency|shadow": 3,
+        "recency|starvation": 0,
+        "recency|shadow": 7,
+        "starvation|shadow": 3
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          9,
+          37,
+          39,
+          46
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 6,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 14,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 0,
+        "arm_a_hits": 0
+      }
+    },
+    {
+      "draw_id": 17,
+      "draw_date": "2026-07-28",
+      "history_len": 16,
+      "winners": [
+        3,
+        12,
+        27,
+        36,
+        47
+      ],
+      "quality_flags": [
+        "draw_method_unknown",
+        "machine_name_unknown"
+      ],
+      "log_loss": {
+        "frequency": 0.345042715412907,
+        "recency": 0.37127669070897795,
+        "starvation": 0.36722426458703067,
+        "shadow": 0.3456755501269194,
+        "linear_pool": 0.3307024977053101,
+        "log_pool": 0.3251822635476101,
+        "flat": 0.3250829733914482
+      },
+      "brier": {
+        "frequency": 0.09290249433106576,
+        "recency": 0.10361766736207327,
+        "starvation": 0.09715284967551324,
+        "shadow": 0.09397195549458924,
+        "linear_pool": 0.09198255389523016,
+        "log_pool": 0.0904825629962278,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 2,
+        "recency": 1,
+        "starvation": 1,
+        "shadow": 2,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 2
+      },
+      "overlap_k13": {
+        "frequency|recency": 4,
+        "frequency|starvation": 0,
+        "frequency|shadow": 5,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 3
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          2,
+          5,
+          7,
+          3
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 15,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 3,
+            "hit": true
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 1,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 18,
+      "draw_date": "2026-07-31",
+      "history_len": 17,
+      "winners": [
+        10,
+        11,
+        37,
+        45,
+        46
+      ],
+      "quality_flags": [
+        "draw_method_unknown",
+        "machine_name_unknown"
+      ],
+      "log_loss": {
+        "frequency": 0.3669453770942258,
+        "recency": 0.4451576350133121,
+        "starvation": 0.2941967664990507,
+        "shadow": 0.278610190942876,
+        "linear_pool": 0.3146828998185586,
+        "log_pool": 0.3135422122812961,
+        "flat": 0.32508297339144804
+      },
+      "brier": {
+        "frequency": 0.0937396694214876,
+        "recency": 0.11299529182087492,
+        "starvation": 0.08481728801833861,
+        "shadow": 0.08437098255280073,
+        "linear_pool": 0.08914495752260335,
+        "log_pool": 0.08801252359061476,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 2,
+        "recency": 0,
+        "starvation": 2,
+        "shadow": 2,
+        "linear_pool": 2,
+        "log_pool": 3,
+        "flat": 2
+      },
+      "overlap_k13": {
+        "frequency|recency": 6,
+        "frequency|starvation": 1,
+        "frequency|shadow": 6,
+        "recency|starvation": 0,
+        "recency|shadow": 7,
+        "starvation|shadow": 3
+      },
+      "core_rescue": {
+        "core_hits": 1,
+        "displaced_seats": [
+          4,
+          48,
+          26,
+          11
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 4,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 11,
+            "hit": true
+          },
+          {
+            "family": "frequency",
+            "coordinate": 40,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 1,
+        "arm_b_hits": 2,
+        "arm_a_hits": 2
+      }
+    },
+    {
+      "draw_id": 19,
+      "draw_date": "2026-08-04",
+      "history_len": 18,
+      "winners": [
+        16,
+        24,
+        29,
+        34,
+        38
+      ],
+      "quality_flags": [
+        "draw_method_unknown",
+        "machine_name_unknown"
+      ],
+      "log_loss": {
+        "frequency": 0.37734953305509306,
+        "recency": 0.41424390913381987,
+        "starvation": 0.32644675834268855,
+        "shadow": 0.3953732081366347,
+        "linear_pool": 0.3525113499990863,
+        "log_pool": 0.3451581109497554,
+        "flat": 0.32508297339144826
+      },
+      "brier": {
+        "frequency": 0.09793950850661626,
+        "recency": 0.10954931899823238,
+        "starvation": 0.09181659318039066,
+        "shadow": 0.10375939849624059,
+        "linear_pool": 0.0956860453670711,
+        "log_pool": 0.09367676736209546,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 0,
+        "starvation": 1,
+        "shadow": 1,
+        "linear_pool": 1,
+        "log_pool": 0,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 8,
+        "frequency|starvation": 0,
+        "frequency|shadow": 8,
+        "recency|starvation": 0,
+        "recency|shadow": 10,
+        "starvation|shadow": 0
+      },
+      "core_rescue": {
+        "core_hits": 0,
+        "displaced_seats": [
+          44,
+          13,
+          43,
+          38
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 3,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 38,
+            "hit": true
+          },
+          {
+            "family": "frequency",
+            "coordinate": 40,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 1,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 20,
+      "draw_date": "2026-08-07",
+      "history_len": 19,
+      "winners": [
+        8,
+        22,
+        31,
+        39,
+        40
+      ],
+      "quality_flags": [
+        "draw_method_unknown",
+        "machine_name_unknown"
+      ],
+      "log_loss": {
+        "frequency": 0.3484209724535092,
+        "recency": 0.3887282645117762,
+        "starvation": 0.35422467246389544,
+        "shadow": 0.3255110928120418,
+        "linear_pool": 0.3321816673933373,
+        "log_pool": 0.3208185897032188,
+        "flat": 0.3250829733914482
+      },
+      "brier": {
+        "frequency": 0.09161458333333333,
+        "recency": 0.10696555855959433,
+        "starvation": 0.09627364964219193,
+        "shadow": 0.09273738759335468,
+        "linear_pool": 0.09191068144152327,
+        "log_pool": 0.08939954615653152,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 2,
+        "recency": 0,
+        "starvation": 1,
+        "shadow": 0,
+        "linear_pool": 2,
+        "log_pool": 2,
+        "flat": 1
+      },
+      "overlap_k13": {
+        "frequency|recency": 6,
+        "frequency|starvation": 0,
+        "frequency|shadow": 1,
+        "recency|starvation": 0,
+        "recency|shadow": 5,
+        "starvation|shadow": 5
+      },
+      "core_rescue": {
+        "core_hits": 1,
+        "displaced_seats": [
+          35,
+          39,
+          27,
+          30
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 10,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 15,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 1,
+        "arm_a_hits": 2
+      }
+    },
+    {
+      "draw_id": 21,
+      "draw_date": "2026-08-11",
+      "history_len": 20,
+      "winners": [
+        3,
+        14,
+        26,
+        40,
+        48
+      ],
+      "quality_flags": [
+        "source_url_missing",
+        "draw_method_unknown",
+        "machine_name_unknown",
+        "user_reported_pending_external_verification"
+      ],
+      "log_loss": {
+        "frequency": 0.33688396433290585,
+        "recency": 0.3820794071060156,
+        "starvation": 0.35557327531138816,
+        "shadow": 0.3989694599064083,
+        "linear_pool": 0.3371978742214917,
+        "log_pool": 0.3371901002289897,
+        "flat": 0.32508297339144826
+      },
+      "brier": {
+        "frequency": 0.090832,
+        "recency": 0.09871808708302895,
+        "starvation": 0.0934301059660328,
+        "shadow": 0.10112157110040089,
+        "linear_pool": 0.09100093738975494,
+        "log_pool": 0.09165771999809308,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 1,
+        "recency": 1,
+        "starvation": 1,
+        "shadow": 1,
+        "linear_pool": 1,
+        "log_pool": 1,
+        "flat": 1
+      },
+      "overlap_k13": {
+        "frequency|recency": 6,
+        "frequency|starvation": 0,
+        "frequency|shadow": 5,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 2
+      },
+      "core_rescue": {
+        "core_hits": 1,
+        "displaced_seats": [
+          30,
+          21,
+          32,
+          23
+        ],
+        "displaced_hits": 0,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 16,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 21,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 2,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 1,
+        "arm_a_hits": 1
+      }
+    },
+    {
+      "draw_id": 22,
+      "draw_date": "2026-08-14",
+      "history_len": 21,
+      "winners": [
+        14,
+        15,
+        19,
+        39,
+        44
+      ],
+      "quality_flags": [
+        "source_url_missing",
+        "draw_method_unknown",
+        "machine_name_unknown",
+        "user_reported_pending_external_verification"
+      ],
+      "log_loss": {
+        "frequency": 0.353123858028779,
+        "recency": 0.3552282590371077,
+        "starvation": 0.380864875234903,
+        "shadow": 0.3307067060284433,
+        "linear_pool": 0.31888669543158393,
+        "log_pool": 0.3242455789255328,
+        "flat": 0.32508297339144837
+      },
+      "brier": {
+        "frequency": 0.09628698224852071,
+        "recency": 0.0939949278102596,
+        "starvation": 0.09672763313036495,
+        "shadow": 0.08921946740128557,
+        "linear_pool": 0.08907569469907185,
+        "log_pool": 0.0900857031594813,
+        "flat": 0.09
+      },
+      "winners_in_k13": {
+        "frequency": 0,
+        "recency": 2,
+        "starvation": 2,
+        "shadow": 3,
+        "linear_pool": 2,
+        "log_pool": 1,
+        "flat": 0
+      },
+      "overlap_k13": {
+        "frequency|recency": 5,
+        "frequency|starvation": 0,
+        "frequency|shadow": 5,
+        "recency|starvation": 0,
+        "recency|shadow": 6,
+        "starvation|shadow": 1
+      },
+      "core_rescue": {
+        "core_hits": 1,
+        "displaced_seats": [
+          39,
+          47,
+          13,
+          28
+        ],
+        "displaced_hits": 1,
+        "rescue_seats": [
+          {
+            "family": "recency",
+            "coordinate": 8,
+            "hit": false
+          },
+          {
+            "family": "starvation",
+            "coordinate": 1,
+            "hit": false
+          },
+          {
+            "family": "shadow",
+            "coordinate": 4,
+            "hit": false
+          },
+          {
+            "family": "frequency",
+            "coordinate": 37,
+            "hit": false
+          }
+        ],
+        "rescue_hits": 0,
+        "arm_b_hits": 1,
+        "arm_a_hits": 2
+      }
+    }
+  ]
+}
