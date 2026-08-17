@@ -1,0 +1,81 @@
+experiment_id: E0008
+title: Cross-Lane VVD Motif Transfer and Algebraic Closure
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  cutoff_for_first_target: 2026-08-14
+  exclude_legacy_prng_state: true
+  lanes: [S1, S2, S3, S4, S5, PB]
+  vvd_definition: absolute coordinate change between consecutive draws within the same lane
+
+families:
+  direct_transition_transfer:
+    rule: >-
+      A directed pair a->b observed in one or more historical lanes may nominate b when another lane currently ends at a.
+      Reverse b->a is a separate directed observation. Do not merge directions when scoring.
+  motif_reflection:
+    rule: >-
+      If an exact earlier VVD triple (A,B,C) exists in a source lane and a different target lane currently ends (C,B),
+      nominate A as the reflected completion of (C,B,A). The source triple must predate the target.
+  algebraic_closure:
+    tail_length: 4
+    allowed_formula_families:
+      - pair_sum: x_i + x_j
+      - absolute_difference: abs(x_i - x_j)
+      - reflection: 2*x_i - x_j
+      - three_term_balance: x_i + x_j - x_k
+    operand_rule: >-
+      Operands must be values present in the frozen ordered tail. Negative outputs are illegal. For main slots,
+      translated coordinates must remain legal for that sorted slot; for PB, translated balls must remain in 1..16.
+    multipath_definition: >-
+      A value is multi-path only when at least two different formula families produce it. Multiple algebraically equivalent
+      expressions from the same family count once for multiplicity.
+
+structural_controls:
+  - NULL_VVD_STRUCTURAL for S1..S5 conditional on the previous same-slot coordinate
+  - empirical per-lane VVD frequency using only history before target
+  - E0005 VVD-R when available
+  - matched-size random VVD candidate sets drawn from the legal displacement support
+
+scoring:
+  primary:
+    - exact_VVD_hit_by_prespecified_motif
+    - candidate_set_size
+    - hit_rate_at_matched_candidate_set_size
+    - log_or_rank_score_when_probabilities_can_be_normalized
+  secondary:
+    - exact_coordinate_hit_after_separately_frozen_direction
+    - number_of_distinct_formula_families_supporting_realized_VVD
+    - number_of_lanes_supporting_same_candidate_VVD
+  separation_rule: >-
+    VVD magnitude credit and HLR direction credit are scored separately. A magnitude hit with wrong direction is not an exact-coordinate hit.
+
+multiple_testing:
+  warning: high
+  rule: >-
+    Do not add formula families, motif types, pivot rules, or target-specific exceptions after the first prospective freeze.
+    Every candidate value exposed by the grammar counts toward multiplicity/exposure.
+
+first_fresh_target: 2026-08-18
+
+falsification:
+  - Generic algebraic closure is rejected as predictive if it does not outperform matched-size random/empirical VVD controls prospectively.
+  - Cross-lane transfer is rejected or simplified if candidate-set expansion explains its apparent hit rate.
+  - Multi-path multiplicity receives no extra authority unless higher multiplicity predicts realized VVDs better than single-path candidates at matched exposure.
+  - No promotion from one successful target.
+
+authority:
+  diagnostic: true
+  may_score: true
+  may_adjust_exposure: false
+  may_hard_eliminate: false
+
+reproducibility:
+  - Use only rows before each target.
+  - Preserve the frozen operation grammar.
+  - Record all generated legal VVD candidates, not only the winner after the result.
+  - Record exact source lanes and formulas for each nomination.
