@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "draw_date": "2026-08-07",
+  "draw_number": 1744,
+  "main_numbers": [8, 22, 31, 39, 40],
+  "powerball": 5,
+  "macro_sum": 140,
+  "verified_sources": [
+    "https://www.powerball.net/southafrica/results",
+    "https://www.lottery.co.za/powerball/results"
+  ],
+  "previous_main": [16, 24, 29, 34, 38],
+  "previous_powerball": 15,
+  "realized_hlr": "LLHHH",
+  "realized_powerball_direction": "LOW",
+  "slot_deltas": [-8, -2, 2, 5, 2],
+  "powerball_delta": -10,
+  "paper_trading_only": true
+}

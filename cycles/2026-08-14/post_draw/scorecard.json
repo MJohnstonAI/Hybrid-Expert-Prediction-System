@@ -1,0 +1,48 @@
+{
+  "target_draw_date": "2026-08-14",
+  "actual_main_numbers": [14,15,19,39,44],
+  "actual_powerball": 3,
+  "structural_null": {
+    "previous_main_numbers": [3,14,26,40,48],
+    "marginal_modal_directions": ["HIGH","HIGH","LOW","LOW","LOW"],
+    "actual_hlr": "HHLLL",
+    "directional_modal_hits": 5,
+    "directional_modal_total": 5,
+    "actual_joint_hlr_count": 207592,
+    "total_legal_next_lines": 2118760,
+    "actual_joint_hlr_probability": 0.09797806264041231,
+    "actual_joint_hlr_rank": 3,
+    "interpretation": "Methodological baseline success only; no predictive-edge credit."
+  },
+  "E0003": {
+    "slot1": {"forecast_vvd": 9, "forecast_coordinates": [12], "actual_vvd": 11, "actual_coordinate": 14, "status": "MISS"},
+    "slot2": {"status": "NO_FORECAST_IN_E0003", "actual_vvd": 1, "actual_coordinate": 15},
+    "slot3": {"forecast_vvd": 5, "forecast_coordinates": [21,31], "actual_vvd": 7, "actual_coordinate": 19, "status": "MISS"},
+    "slot4": {"status": "DIAGNOSTIC_ONLY_IN_E0003", "actual_vvd": 1, "actual_coordinate": 39},
+    "slot5": {"forecast_vvd": 2, "forecast_coordinates": [46,50], "actual_vvd": 4, "actual_coordinate": 44, "status": "MISS"},
+    "post_draw_residual_observation": "Slots 1,3,5 each had actual VVD exactly forecast+2. This was not predicted and receives zero retrospective credit."
+  },
+  "E0004": {
+    "slot2_challenger": {"forecast_coordinate": 13, "actual_coordinate": 15, "status": "MISS"},
+    "slot4_closure": {"forecast_vvd_set": [4,6,10,14,16], "actual_vvd": 1, "status": "MISS"},
+    "candidate_union_actual_winners_retained": [44],
+    "candidate_union_hit_count": 1,
+    "candidate_union_total_winners": 5,
+    "twenty_line_match_distribution": {"0_main_matches": 16, "1_main_match": 4, "2plus_main_matches": 0},
+    "best_submitted_main_overlap": 1,
+    "first_failure_stage": "candidate_acquisition"
+  },
+  "later_conversation_only_synthesis": {
+    "canonical_scoring_status": "EXCLUDED_FROM_FROZEN_REPOSITORY_SCORING",
+    "note": "A later pre-result conversation synthesis favored Slot2 HIGH/15 and PowerBall LOW, but no repository pre_draw artifact was frozen for that synthesis. Its conceptual observations may motivate new experiments but are not backfilled as an official slate."
+  },
+  "powerball_research_observation": {
+    "working_direction_before_result": "LOW",
+    "actual_direction": "LOW",
+    "working_exact_shortlist": [5,8,9],
+    "actual_powerball": 3,
+    "direction_status": "SUCCESS_AS_CONVERSATION_RESEARCH_ONLY",
+    "exact_status": "MISS",
+    "canonical_scoring_note": "Not a repository-frozen E0003/E0004 PowerBall artifact."
+  }
+}

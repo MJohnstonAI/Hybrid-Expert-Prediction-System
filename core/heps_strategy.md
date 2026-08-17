@@ -1,72 +1,111 @@
-# HEPS STRATEGIC COMPENDIUM & COGNITIVE SPECIFICATION
+# HEPS Strategy Compendium — Mathematical Reference
 
-This document serves as the authoritative mathematical and semantic reference for all autonomous agents. It defines the explicit internal mechanics of the five core "Expert" lanes and the exact protocol for synthesizing their outputs into production prediction slates.
+This file is a supporting mathematical reference. It is **not** a second architecture authority.
 
----
+Authoritative sources are:
 
-## 1. The Expert Roster & Strategy Specifications
+1. `core/heps_architecture.md` — active staged architecture;
+2. `core/expert_registry.yaml` — expert status and allowed authority;
+3. `governance/nomenclature.md` — binding concept definitions.
 
-### Lane 1: The Coulomb Void Starvation Engine (`expert_void_bridge`)
-* **Core Principle:** Models spatial field deprivation under the hypothesis that prolonged absence of hits in a specific numerical sector creates a geometric vacuum dynamic.
-* **Mathematical Mechanics:** The sector tension $C(x)$ for any number $x$ in the 1–50 matrix is calculated based on its starvation interval $t_x$ (draws elapsed since last hit):
+If this compendium conflicts with those files, the architecture/registry/nomenclature governs.
 
-$$C(x) = 1 - e^{-\lambda t_x}$$
+## MAIN_VOID_BRIDGE — Void / Starvation Support
 
-* **Behavioral Constraints:** When $C(x) > 0.85$, the engine triggers a "Void Breach" protocol, forcing the selection of clusters within that starved sector.
+A candidate may receive support from the elapsed draw interval since last appearance or from under-filled numeric regions.
 
-### Lane 2: The Kinetic Inertia & Step Drift Tracker (`expert_stiction_shadow`)
-* **Core Principle:** Models short-term mechanical stiction and drag. It assumes the pneumatic machine state changes gradually, causing numbers to repeat (stiction) or shift by small spatial increments ($\pm 1$ or $\pm 2$ grid slots).
-* **Mathematical Mechanics:** Evaluates velocity vectors across consecutive draws:
+A historical saturating form was:
 
-$$V_t = X_t - X_{t-1}$$
+`C(x) = 1 - exp(-lambda * t_x)`
 
-* **Behavioral Constraints:** If $V_t \in \{-1, 0, 1\}$ over a 3-draw window, it projects a "shadow line" over the active coordinates, highly weighting the immediate physical neighbors of the last drawn numbers.
+where `t_x` is the number of draws since coordinate `x` last appeared.
 
-### Lane 3: Sorted-Position Momentum (`expert_sorted_momentum`)
-* **Core Principle:** Evaluates the historical behavior of the draw pool strictly as **order statistics**. It tracks the specific mathematical distribution of numbers when sorted from lowest (Slot 1) to highest (Slot 5).
-* **Mathematical Mechanics:** Maps the probability density function (PDF) for each sorted slot. For example, it restricts Slot 1 to its historical boundary ($1 \le X_{(1)} \le 15$) and Slot 5 to its boundary ($35 \le X_{(5)} \le 50$).
-* **Behavioral Constraints:** Rejects any candidate combination where the numbers cross their respective slot-bound statistical distributions, preventing structurally impossible combinations.
+The physical language historically attached to this feature is a hypothesis, not established mechanism. Current use should be described as a coordinate-starvation or void-support statistic unless independent machine evidence exists.
 
-### Lane 4: The Tri-Cluster High-Register Engine (`expert_tri_cluster_high`)
-* **Core Principle:** Captures extreme upper-quadrant fluid clumping behaviors where heavy-ink ball dynamics restrict high-velocity air currents, trapping multiple balls in a narrow spatial band at the end of the field.
-* **Mathematical Mechanics:** Tracks the occurrence of three numbers falling within an isolated 5-unit register (e.g., `41, 43, 44`).
-* **Behavioral Constraints:** Activated only when the rolling Macro-Sum exceeds its 10-draw moving average by 15%, shifting allocation weights heavily toward the 40–50 decile.
+Hard forcing is not currently authorized by the expert registry.
 
-### Lane 5: The Randomized Control Baseline (`expert_chaos_hedge`)
-* **Core Principle:** Serves as the system's control group and mathematical anchor. It represents pure, filtered lottery entropy.
-* **Mathematical Mechanics:** Generates combinations using uniform pseudo-random number generation across the 5/50 + 1/16 fields.
-* **Behavioral Constraints:** Bypasses all advanced stiction and void filters. It exists entirely to protect the portfolio against systemic confirmation bias and over-tuning.
+## MAIN_STICTION_SHADOW — Repeat and Near-Coordinate Support
 
----
+Tracks exact repeats and nearby numeric coordinates such as +/-1 and +/-2 relative to recent winners.
 
-## 2. Synthesis Protocol: Generating the Prediction Slates
+These are measurable numeric relationships. Do not describe them as proven physical stiction or pneumatic paths without direct physical evidence.
 
-To translate these independent expert outputs into the final 10-line production portfolio, the Synthesizer Agent (`agent_synthesizer`) must execute the following structured pooling matrix:
+Hard forcing is not currently authorized.
 
-### The Portfolio Allocation Blueprint
-Every production slate deployment file generated in `/outputs/predictions/` must allocate its 10 slots strictly according to this diversified lane portfolio:
+## MAIN_SORTED_SLOT_DENSITY — Order-Statistic Support
 
-| Rank | Dedicated Research Lane | Primary Mathematical Target |
-| :--- | :--- | :--- |
-| **1–3** | `tri_cluster_high` | Captures high-register momentum and pneumatic clumping. |
-| **4–6** | `void_bridge` | Targets localized collapse within high-tension starvation sectors. |
-| **7–8** | `stiction_shadow` | Plays the $\pm 1$ spatial drift lines and immediate repeat patterns. |
-| **9** | `sorted_momentum` | Leverages order statistics median slot distribution curves. |
-| **10** | `chaos_hedge` | The pure random-filtered control line to anchor the portfolio. |
+Models Slot1-Slot5 strictly as sorted order statistics.
 
-### The Dynamic Consensus Layer
-For overlapping lines, the final confidence score ($HEPS_{score}$) for any candidate combination is synthesized using dynamic expert weighting:
+Candidate support may be based on empirical slot distributions, theoretical order-statistic expectations, rolling estimates, or other explicitly tested density estimators.
 
-$$HEPS_{score} = w_1 E_1 + w_2 E_2 + w_3 E_3 + w_4 E_4$$
+Historical hard examples such as `Slot1 <= 15` or `Slot5 >= 35` are not constitutional boundaries. Any hard boundary must be separately validated and promoted.
 
-`scripts/score_prediction.py` records portfolio and lane-level evidence after
-each draw cycle. It does **not** automatically change the weights ($w_i$) from a
-single result. Preserve weights across independently generated pre-draw slates;
-after at least 20 scored targets, compare each lane against chaos/random-null
-baselines and submit any proposed weight change through the contribution,
-red-team, and merge-decision workflow. The 20-target threshold is a minimum
-review gate, not evidence that a predictive edge exists.
+## MAIN_HARMONIC_BOUNDARY — Boundary / Register Governor
 
-The current research scorer does not yet implement a distinct
-`sorted_position_momentum` feature. Do not treat the generic `midfield` score as
-an equivalent implementation; retain this as an explicit calibration TODO.
+Maintains exposure against extreme collapse into a narrow region of the field. Historical implementations tracked high-register continuation and correction.
+
+The feature remains low-authority unless stronger validation supports more aggressive use.
+
+## MAIN_TRI_CLUSTER — Cluster Morphology
+
+Tracks structures such as three coordinates falling inside a short numeric span.
+
+Tri-cluster is a morphology/portfolio hypothesis, not a universal rule and not proof of a physical clumping mechanism.
+
+## MORPH_SUM_SPREAD — Sum and Spread
+
+Measures completed-line macro-sum and range/span.
+
+Central values are naturally more common as **classes** under combinatorics. This does not make a specific exact line intrinsically more likely under a fair draw.
+
+Use sum/spread for morphology, compression, or diagnostic scoring only when its combination-space base rate and winner-retention effect are measured.
+
+## PORTFOLIO_CHAOS_BASELINE — Control Lane
+
+Uniform or appropriately matched randomized controls are methodological infrastructure.
+
+The control exists to estimate how much apparent performance can arise from exposure, selection, or chance. It should be preserved even when other experts change.
+
+## Experimental interfaces
+
+The following are defined elsewhere and remain experimental/shadow until promoted:
+
+- `MAIN_HLR_SLOT` — per-slot Low/Repeat/High forecast;
+- `MAIN_VVD_DELTA` — Vertical Variance Delta movement magnitude;
+- `MAIN_GPR8` — Gap-Phase Residual candidate ranker;
+- `MORPH_SLDV` — Sum of Last-Digit Variance morphology;
+- `COALITION_PAIR_OF_PAIRS_ANCHOR` — coalition assembly hypothesis;
+- `RANK_WINNER_FLOAT` — combination learning-to-rank stage.
+
+Refer to `core/expert_registry.yaml` for current authority.
+
+## Combination score interface
+
+A generic combination score may be written as:
+
+`HEPS_score(C) = sum_j w_j * E_j(C)`
+
+but this equation does not authorize arbitrary weights or imply that all experts operate at the same stage.
+
+The staged architecture should preserve the distinction between:
+
+- slot/state forecasting;
+- candidate scoring;
+- coalition assembly;
+- morphology;
+- winner-float ranking;
+- final portfolio optimization.
+
+Weights or model parameters may update only under the three-speed learning rules in `core/heps_architecture.md`.
+
+## Legacy top-10 lane allocation
+
+The former fixed allocation of tri-cluster, void, stiction, sorted-momentum, and chaos lines is retained only as a historical/compatibility baseline.
+
+It is no longer an immutable architecture rule. Each frozen draw cycle should declare its portfolio allocation and the evidence or baseline used to justify it.
+
+## Scoring and post-draw learning
+
+`scripts/score_prediction.py` may record evidence from stored pre-draw slates. A single result must not trigger ad-hoc weight changes.
+
+Post-draw Physics of Failure should identify the first stage that lost or suppressed the actual winning coordinates/line and open research questions or parameter evidence accordingly.

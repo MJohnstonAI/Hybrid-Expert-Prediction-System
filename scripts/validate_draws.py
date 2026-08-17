@@ -10,8 +10,12 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LEDGER = REPO_ROOT / "data" / "draw_history.jsonl"
-REGIME = "mechanical_50_16"
+GAME_FORMAT = "powerball_50_16"
+ALLOWED_DRAW_METHODS = {"mechanical_machine", "electronic_rng", "unknown"}
+LEGACY_REGIME = "mechanical_50_16"
 SOURCE_URL_MISSING = "source_url_missing"
+MACHINE_NAME_UNKNOWN = "machine_name_unknown"
+DRAW_METHOD_UNKNOWN = "draw_method_unknown"
 
 
 def load_jsonl(path: Path) -> list[tuple[int, dict[str, Any]]]:
@@ -58,12 +62,19 @@ def validate_main_numbers(value: Any, line_no: int, errors: list[str]) -> list[i
     return value
 
 
-def validate_flags(row: dict[str, Any], line_no: int, errors: list[str]) -> None:
+def validate_provenance(row: dict[str, Any], line_no: int, errors: list[str]) -> None:
     machine_name = row.get("machine_name", "unknown")
     if machine_name is None:
         machine_name = "unknown"
     if not isinstance(machine_name, str) or not machine_name.strip():
-        errors.append(f"Line {line_no}: machine_name must be a non-empty string or omitted")
+        errors.append(f"Line {line_no}: machine_name must be a non-empty string")
+        machine_name = "unknown"
+
+    draw_method = row.get("draw_method")
+    if draw_method not in ALLOWED_DRAW_METHODS:
+        errors.append(
+            f"Line {line_no}: draw_method must be one of {sorted(ALLOWED_DRAW_METHODS)}; found {draw_method!r}"
+        )
 
     source_url = row.get("source_url")
     source_missing = source_url is None or (isinstance(source_url, str) and not source_url.strip())
@@ -71,10 +82,31 @@ def validate_flags(row: dict[str, Any], line_no: int, errors: list[str]) -> None
     if not isinstance(flags, list) or any(not isinstance(flag, str) for flag in flags):
         errors.append(f"Line {line_no}: data_quality_flags must be an array of strings")
         return
+
     if source_missing and SOURCE_URL_MISSING not in flags:
         errors.append(
             f"Line {line_no}: missing source_url must be flagged with data_quality_flags "
             f'containing "{SOURCE_URL_MISSING}"'
+        )
+    if draw_method == "unknown" and DRAW_METHOD_UNKNOWN not in flags:
+        errors.append(
+            f"Line {line_no}: unknown draw_method must be flagged with data_quality_flags "
+            f'containing "{DRAW_METHOD_UNKNOWN}"'
+        )
+    if machine_name.strip().lower() == "unknown" and MACHINE_NAME_UNKNOWN not in flags:
+        errors.append(
+            f"Line {line_no}: unknown machine_name must be flagged with data_quality_flags "
+            f'containing "{MACHINE_NAME_UNKNOWN}"'
+        )
+
+    if draw_method == "electronic_rng" and machine_name.strip().lower() not in {
+        "rng",
+        "rng 1",
+        "electronic_rng",
+        "unknown",
+    }:
+        errors.append(
+            f"Line {line_no}: electronic_rng draw_method has inconsistent machine_name {machine_name!r}"
         )
 
 
@@ -121,10 +153,17 @@ def validate_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
         if main_numbers is not None and macro_sum != sum(main_numbers):
             errors.append(f"Line {line_no}: macro_sum {macro_sum!r} != sum(main_numbers) {sum(main_numbers)}")
 
-        if row.get("regime") != REGIME:
-            errors.append(f'Line {line_no}: regime must equal "{REGIME}"')
+        if row.get("game_format") != GAME_FORMAT:
+            errors.append(f'Line {line_no}: game_format must equal "{GAME_FORMAT}"')
 
-        validate_flags(row, line_no, errors)
+        legacy_regime = row.get("regime")
+        if legacy_regime is not None and legacy_regime != LEGACY_REGIME:
+            errors.append(
+                f'Line {line_no}: deprecated regime field, if present, must equal "{LEGACY_REGIME}"; '
+                f"use game_format and draw_method for new data"
+            )
+
+        validate_provenance(row, line_no, errors)
 
     return errors
 

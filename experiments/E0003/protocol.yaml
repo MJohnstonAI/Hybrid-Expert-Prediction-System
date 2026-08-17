@@ -1,0 +1,85 @@
+experiment_id: E0003
+title: VVD Phase, Echo, Complement and Algebraic-Closure Challengers
+status: active_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+architecture_status: experimental
+created: 2026-08-12
+first_target: 2026-08-14
+paper_trading_only: true
+
+scope:
+  game_format: powerball_50_16
+  field: main
+  slots: sorted_S1_to_S5
+  data_authority:
+    active_era_start: 2026-06-02
+    pre_june_parameter_authority: false
+  vvd_definition: abs(slot_t - slot_t_minus_1)
+
+first_target_hypotheses:
+  slot1_phase_ladder:
+    slot: 1
+    observed_tail: [7, 6, 8, 5]
+    friday_vvd_prediction: 9
+    friday_coordinate_prediction: [12]
+    next_tuesday_vvd_prediction_already_frozen: 4
+    authority: shadow_rescue_only
+  slot3_echo_doublet:
+    slot: 3
+    historical_doublets:
+      - [7, 7]
+      - [5, 5]
+      - [8, 8]
+      - [10, 10]
+    latest_vvd: 5
+    friday_vvd_prediction: 5
+    friday_coordinate_branches: [21, 31]
+    authority: shadow_rescue_only
+  slot4_algebraic_closure:
+    slot: 4
+    friday_exact_prediction: null
+    allowed_operations: [addition, absolute_subtraction]
+    prohibited_operations: [multiplication, division, arbitrary_coefficients]
+    authority: diagnostic_only
+  slot5_weekday_complement:
+    slot: 5
+    completed_pairs:
+      - [9, 1]
+      - [8, 2]
+    conserved_sum: 10
+    latest_tuesday_vvd: 8
+    friday_vvd_prediction: 2
+    friday_coordinate_branches: [46, 50]
+    authority: shadow_rescue_only
+  slot2:
+    slot: 2
+    friday_exact_prediction: null
+    status: NO_FORECAST
+
+comparators:
+  - NULL_VVD_STRUCTURAL
+  - empirical_slot_vvd_frequency
+  - simple_recency
+  - simple_vvd_mode
+  - matched_low_complexity_recurrence_rules
+
+primary_metrics:
+  - exact_vvd_hit_by_slot
+  - absolute_vvd_error_by_slot
+  - legal_coordinate_branch_survival
+  - correct_slot_coordinate_hit
+  - incremental_candidate_survival_at_fixed_K13
+
+scientific_controls:
+  retrospective_discovery_not_counted_as_evidence: true
+  multiple_pattern_search_exposure_must_be_recorded: true
+  no_post_result_rule_redefinition: true
+  no_hard_pruning_authority: true
+  structural_null_comparison_required: true
+  same_exposure_candidate_comparison_required: true
+
+falsification:
+  - A Friday miss must remain a miss; do not replace the frozen rule post hoc.
+  - Slot1 Tuesday 2026-08-18 continuation remains D1=4 under the frozen phase rule even if Friday fails; score it separately and do not reinterpret the sequence.
+  - No component gains architecture authority from one or two prospective hits.
+  - If walk-forward/prospective results do not beat low-complexity controls after multiplicity accounting, classify the component REJECT or archive it.

@@ -1,0 +1,84 @@
+experiment_id: E0007
+title: Expert-Preservation Rescue and Orthogonal Diversification
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+dataset:
+  main_canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  current_cutoff: 2026-08-14
+  xtra_source_rule: use only independently frozen XTRA artifacts with explicit exposure denominators; do not reconstruct after Main results
+
+candidate_basket_championship:
+  fixed_K: 13
+  variants:
+    A_consensus_only:
+      rule: top 13 from the frozen incumbent consensus candidate score for that target
+    B_core9_rescue4:
+      core: top 9 from the same frozen incumbent consensus score
+      rescue_seats:
+        structural_rescue: highest-ranked excluded coordinate under the frozen sorted-slot/order-statistic support that is not already in core
+        coulomb_rescue: highest-ranked excluded coordinate under frozen MAIN_STICTION_SHADOW support not already selected
+        cross_slot_rescue: highest-ranked excluded coordinate whose global candidate support exceeds its slot-assignment support; if no dedicated mobility score exists, use max frozen per-slot candidate score rather than assigned-slot score
+        adversarial_rescue: highest-ranked excluded coordinate under a predeclared diversity score maximizing distance from the core while respecting legal 1-50 coordinates
+      duplicate_rule: if a rescue selector nominates an already selected coordinate, move to its next ranked eligible coordinate
+  no_Johnson_before_K_freeze: true
+
+cross_slot_scoring:
+  primary_question: distinguish P(number appears anywhere) from P(number occupies exact slot)
+  evaluation:
+    - global_candidate_hit
+    - exact_slot_hit
+    - wrong_slot_candidate_hit
+  no_physical_trajectory_claim: true
+
+cross_game_rescue:
+  mode: diagnostic_only
+  main_and_xtra_must_be_frozen_independently: true
+  exposure_matching: candidate count and submitted line count must be preserved
+  metrics:
+    - Main winner coordinates captured by frozen XTRA candidate universe
+    - XTRA winner coordinates captured by frozen Main candidate universe
+    - 3plus overlap frequency at line level where submitted-line denominator is known
+    - matched random rescue rate at identical exposure
+  no_target_game_influence_until_promotion: true
+
+baselines:
+  - incumbent consensus K13
+  - random K13
+  - recency K13
+  - frequency K13
+  - Coulomb-only K13 where available
+  - same K13 with rescue-seat labels randomly permuted
+
+metrics:
+  primary:
+    - 3plus_of_5_winner_coordinate_survival
+    - 4plus_of_5_winner_coordinate_survival
+    - 5of5_winner_coordinate_survival
+    - catastrophic_0or1_winner_survival_rate
+  secondary:
+    - mean_winners_in_K
+    - wrong_slot_candidate_rescue_count
+    - expert_unique_rescue_attribution
+    - downstream_Johnson_3plus_outcome_conditional_on_identical_K
+
+first_fresh_prospective_target: 2026-08-18
+
+multiple_testing:
+  primary_candidate_variants: 2
+  cross_game_arm: separate exploratory diagnostic
+  note: do not optimize rescue quotas or categories on prospective misses
+
+falsification:
+  core_rescue: >-
+    After 12 fresh prospective Main targets, reject Core9+Rescue4 as the preferred K13 challenger if it does not improve 3+/4+/5/5 survival or reduce catastrophic exclusions versus consensus-only K13 at identical exposure.
+  cross_game: >-
+    Keep cross-game rescue diagnostic-only unless accumulated frozen rescue exceeds matched random exposure after multiplicity correction. If not, treat the 2026-08-14 overlap as coincidence/diversification noise.
+
+reproducibility:
+  - Persist every expert ranked list before basket assembly.
+  - Persist the reason each rescue seat was selected.
+  - Freeze K before Johnson or morphology.
+  - Score candidate inclusion separately from exact-slot assignment.

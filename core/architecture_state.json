@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "architecture_id": "HEPS-v34.1-johnson-assembly",
+  "status": "active_research",
+  "updated": "2026-08-10",
+  "canonical_architecture": "core/heps_architecture.md",
+  "normative_modules": [
+    "core/johnson_portfolio_assembly.md"
+  ],
+  "expert_registry": "core/expert_registry.yaml",
+  "active_data": "data/draw_history.jsonl",
+  "dataset_manifest": "data/draw_manifest.json",
+  "pipeline": [
+    "slot_forecast",
+    "candidate_funnel",
+    "coalition_assembly",
+    "morphology",
+    "winner_float_ranking",
+    "portfolio_optimization",
+    "powerball_matrix"
+  ],
+  "candidate_acquisition": {
+    "primary_research_target_k": 13,
+    "status": "research_target_not_hard_cap",
+    "johnson_candidate_authority": "none",
+    "required_matched_controls": true
+  },
+  "portfolio_optimization": {
+    "johnson_module": "JOHNSON_COVER_PORTFOLIO",
+    "architecture_status": "shadow",
+    "evidence": "PROVISIONAL_SIGNAL",
+    "jurisdiction": "assembly_only_after_candidate_freeze",
+    "experiment": "E0002"
+  },
+  "learning_speeds": {
+    "fast": "deterministic state updates after each draw",
+    "medium": "predeclared parameter-learning algorithms",
+    "slow": "reviewed architecture promotion"
+  },
+  "promotion_policy": "governance/promotion_policy.md",
+  "paper_trading_only": true
+}

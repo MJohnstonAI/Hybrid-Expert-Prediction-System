@@ -1,0 +1,32 @@
+experiment_id: REGIME_STATIONARITY_AUDIT
+kind: methodology_and_data_integrity
+status: active_review
+origin_model: Claude
+review_model: GPT-5.6
+
+questions:
+  - powerball_specific_boundary_2026_06_22
+  - game_format_vs_draw_method_schema_separation
+  - machine_identity_stationarity
+
+external_evidence_priority:
+  - operator_or_regulator
+  - World_Lottery_Association_or_draw_technology_provider
+  - independent_results_service
+
+boundary_rule:
+  may_scan_outcomes_for_boundary: false
+  boundary_must_be_externally_prespecified: true
+
+required_checks:
+  - verify reported machine/method immediately before and after any candidate boundary
+  - distinguish PowerBall from Daily Lotto
+  - distinguish game format from draw method
+  - enumerate machine identities in the training window
+  - keep diagnostic non_predictive unless separately promoted
+
+classification_options:
+  - BREAKTHROUGH
+  - PROVISIONAL_SIGNAL
+  - INSUFFICIENT_EVIDENCE
+  - REJECT

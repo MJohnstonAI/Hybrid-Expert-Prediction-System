@@ -1,0 +1,20 @@
+{
+  "target_draw_date": "2026-08-07",
+  "frozen_on": "2026-08-06",
+  "base_architecture": "HEPS v34.0 Collaborative Staged Mixture-of-Experts",
+  "shadow_overlay": "CANDIDATE_LATTICE_V01",
+  "stages": [
+    "hard_slot_feasibility",
+    "committed_hlr",
+    "vvd_feasibility",
+    "cross_slot_constraint_propagation",
+    "candidate_lattice",
+    "joint_flow_rescue",
+    "portfolio_diversification",
+    "powerball_shadow_model"
+  ],
+  "mechanical_histogram_pruning": false,
+  "pre_june_empirical_parameter_authority": false,
+  "winner_float_status": "unresolved_experimental",
+  "promotion_status": "shadow_only"
+}

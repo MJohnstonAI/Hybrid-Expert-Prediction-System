@@ -1,0 +1,13 @@
+{
+  "experiment_id": "E0005",
+  "status": "initialized_no_fresh_targets",
+  "discovery_context": {
+    "post_2026_08_14_structural_modal_hlr": "HHLLL",
+    "post_2026_08_14_actual_hlr": "HHLLL",
+    "E0003_exact_vvd_point_hits": 0,
+    "E0003_exact_vvd_point_targets": 3,
+    "barp_conversation_stage_slot2_observation": "HIGH/15 matched actual Slot2=15 but was not repository-frozen as E0004"
+  },
+  "fresh_prospective_targets_scored": 0,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE"
+}

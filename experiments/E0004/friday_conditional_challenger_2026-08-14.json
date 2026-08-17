@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment_id": "E0004",
+  "target_draw_date": "2026-08-14",
+  "frozen_on": "2026-08-12",
+  "status": "experimental_conditional_challenger",
+  "evidence_status": "INSUFFICIENT_EVIDENCE",
+  "paper_trading_only": true,
+  "upstream_frozen_E0003": {
+    "slot1": [12],
+    "slot3": [21,31],
+    "slot5": [46,50]
+  },
+  "slot2_challenger": {
+    "coordinate": 13,
+    "reason": "If S1=12 and Friday S2 remains LOW from previous S2=14, ordering forces S2=13; 13 is also the exact unconditional Slot2 order-statistic mode. Friday LOW run is diagnostic only."
+  },
+  "slot4_closure_challenger": {
+    "previous_slot4": 40,
+    "top5_vvd": [4,6,10,14,16],
+    "allowed_coordinates_after_branch_feasibility": [24,26,30,34,36,44,46]
+  },
+  "main_lines": [
+    [12,13,21,24,46],
+    [12,13,21,26,46],
+    [12,13,21,30,46],
+    [12,13,21,34,46],
+    [12,13,21,36,46],
+    [12,13,21,44,46],
+    [12,13,21,24,50],
+    [12,13,21,26,50],
+    [12,13,21,30,50],
+    [12,13,21,34,50],
+    [12,13,21,36,50],
+    [12,13,21,44,50],
+    [12,13,21,46,50],
+    [12,13,31,34,46],
+    [12,13,31,36,46],
+    [12,13,31,44,46],
+    [12,13,31,34,50],
+    [12,13,31,36,50],
+    [12,13,31,44,50],
+    [12,13,31,46,50]
+  ],
+  "conditional_guarantees": [
+    "If S1=12, S3 is one of {21,31}, S5 is one of {46,50}, and S4 VVD is one of {4,6,10,14,16}, then at least one of these 20 lines has the correct S1,S3,S4,S5 and therefore at least 4 main matches regardless of the actual legal Slot2 value.",
+    "If the same conditions hold and S2=13, the exact five-main winning line is contained in the 20-line challenger.",
+    "These are conditional combinatorial statements, not unconditional lottery guarantees. PowerBall is separate."
+  ],
+  "freeze_rule": "Do not alter after the 2026-08-14 result is known. Any replacement or hedge must be stored separately."
+}

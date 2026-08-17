@@ -1,0 +1,175 @@
+experiment_id: E0001
+title: Exact Structural Null Championship and Gap-Space Residual Audit
+status: active_audit
+architecture_status: experimental
+evidence_classification: INSUFFICIENT_EVIDENCE
+originating_contributors:
+  - Claude Sonnet red-team review
+  - Gemini gap-space proposal
+  - ChatGPT synthesis and exact-null reproduction
+self_selected_role: meta_research_auditor_and_state_space_modeller
+target_stages:
+  - methodology
+  - slot_forecast
+  - candidate_funnel
+
+data:
+  canonical_ledger: data/draw_history.jsonl
+  active_game_format: powerball_50_16
+  discovery_cutoff: 2026-08-04
+  discovery_rows: 19
+  pre_june_active_parameter_authority: false
+  draw_method_policy: do_not_infer_from_date
+windows:
+  retrospective_diagnostic:
+    status: post_hoc_replay
+    targets:
+      - 2026-07-28
+      - 2026-07-31
+      - 2026-08-04
+    confirmatory: false
+  first_frozen_target:
+    target: 2026-08-07
+    note: >-
+      Existing Candidate Lattice slate remains immutable. E0001 may score its already-frozen HLR probabilities and exact null after reveal but may not alter the slate.
+  prospective_championship:
+    start_target: first draw after 2026-08-04
+    minimum_targets_before_primary_decision: 20
+    freeze_before_each_target: true
+models:
+  M0_hlr_structural_null:
+    identifier: NULL_HLR_STRUCTURAL
+    fitted_parameters: 0
+    output: full_probability_vector_LOW_REPEAT_HIGH_per_slot
+  M1_hlr_learned:
+    identifier: MAIN_HLR_SLOT
+    output: full_probability_vector_LOW_REPEAT_HIGH_per_slot
+    future_requirement: >-
+      Full 3-state probability vector must be frozen. A chosen direction plus one probability is insufficient for multiclass scoring.
+  M0_vvd_structural_null:
+    identifier: NULL_VVD_STRUCTURAL
+    fitted_parameters: 0
+    output: displacement_probability_distribution_per_slot
+  M2_vvd_learned:
+    identifier: MAIN_VVD_DELTA
+    output: displacement_probability_distribution_per_slot
+  M0_joint_hlr_null:
+    identifier: NULL_HLR_JOINT_243
+    fitted_parameters: 0
+    output: exact_probability_mass_for_all_243_vectors
+  M_joint_flow_learned:
+    identifier: CANDIDATE_LATTICE_V01_joint_flow_ranker
+    role: diagnostic_only_until_prospective_evidence
+  M0_gap_null:
+    identifier: NULL_GAP_DM
+    distribution: Dirichlet-Multinomial
+    N: 45
+    alpha: [1, 1, 1, 1, 1, 1]
+    fitted_parameters: 0
+  M_gap_experimental:
+    identifiers:
+      - MAIN_GAP_VECTOR
+      - MAIN_GAP_RESIDUAL
+    role: diagnostic_only
+    first_allowed_complexity:
+      symmetric_dirichlet_concentration_parameter_c: true
+      unconstrained_six_alpha_fit: false
+features:
+  exact_slot_pmf: >-
+    P0(X_(j)=n) = C(n-1,j-1) * C(50-n,5-j) / C(50,5)
+  corrected_gap_vector: >-
+    [S1-1, S2-S1-1, S3-S2-1, S4-S3-1, S5-S4-1, 50-S5]
+  gap_sum: 45
+  iid_gap_expected_component: 7.5
+  gap_change_conservation: sum(Delta_G_i)=0
+baselines:
+  required:
+    - NULL_HLR_STRUCTURAL
+    - NULL_VVD_STRUCTURAL
+    - NULL_HLR_JOINT_243
+    - NULL_GAP_DM
+    - exact_fixed_K_exchangeable_basket
+    - simple_frequency
+    - simple_recency
+    - simple_order_statistic_slot_rule
+metrics:
+  HLR:
+    primary: draw_level_mean_multiclass_brier_difference_M1_minus_M0
+    secondary:
+      - draw_level_mean_log_loss_difference_M1_minus_M0
+      - per_slot_brier
+      - calibration
+      - exact_whole_vector_accuracy
+  VVD:
+    primary: draw_level_mean_negative_log_likelihood_difference_M2_minus_M0
+    secondary:
+      - per_slot_nll
+      - displacement_calibration
+  joint_flow:
+    diagnostic:
+      - realized_vector_null_rank
+      - realized_vector_model_rank
+      - realized_vector_null_probability
+      - reciprocal_rank_difference
+  gap_space:
+    diagnostic:
+      - gap_vector
+      - gap_dispersion
+      - maximum_gap
+      - boundary_gap_sum
+      - gap_entropy
+    future_primary_if_model_preregistered:
+      - proper_score_difference_vs_NULL_GAP_DM
+  candidate_exposure:
+    - five_of_five_survival
+    - four_plus_survival
+    - exact_null_probability_mass_retained
+    - survival_lift_vs_matched_exposure
+    - catastrophic_exclusion_count
+friday_2026_08_07_special_case:
+  model_artifact_limitation: >-
+    Existing frozen artifact records only each committed HLR call and p(call), not the full 3-state learned distribution.
+  allowed_score: binary_committed_state_brier_per_slot
+  forbidden_action: invent_missing_HLR_probabilities
+  slate_modification: forbidden
+multiple_testing:
+  declared_dimensions:
+    - 5 slots
+    - HLR and VVD families
+    - 243 joint HLR vectors
+    - gap-space alternative models
+    - basket-size frontier if later evaluated
+  rule: >-
+    Retrospective diagnostics are descriptive only. No variant selected after seeing a target may be reported as confirmatory. Prospective primary endpoints above control the promotion decision.
+prospective_decision_rule:
+  minimum_targets: 20
+  aggregation_unit: draw
+  hlr_primary_difference: learned_brier_minus_null_brier
+  required_direction_for_signal: negative
+  inference: >-
+    Use a paired exact/randomization or sign-flip test on draw-level score differences where feasible; report effect size and uncertainty. Do not promote from nominal significance alone if protocol changes occurred.
+  retire_or_demote_HLR_if: >-
+    At N>=20 preregistered prospective targets, learned HLR does not show a stable lower mean Brier score than NULL_HLR_STRUCTURAL.
+  retire_or_demote_VVD_if: >-
+    At N>=20 preregistered prospective targets, learned VVD does not show a stable lower mean NLL than NULL_VVD_STRUCTURAL.
+  gap_model_promotion_gate: >-
+    No gap model receives predictive authority without a separately frozen prospective score improvement versus NULL_GAP_DM.
+reproducibility:
+  script: scripts/structural_null.py
+  friday_command: >-
+    python scripts/structural_null.py --draw-id 19 --basket-size 13 --basket-size 18 --basket-size 38
+  freeze_fields:
+    - branch_commit_sha
+    - algorithm_version
+    - training_cutoff
+    - parameter_file
+    - full_probability_outputs
+    - candidate_lattice_or_basket
+    - prediction_slate_if_any
+    - sha256_hashes
+falsification:
+  - HLR fails prospective proper-score comparison versus exact structural null.
+  - VVD fails prospective proper-score comparison versus exact structural null.
+  - joint flow ranks are no better than exact joint-null ranks over prospective accumulation.
+  - candidate compression does not outperform exact matched-exposure survival.
+  - gap-space alternatives improve only in-sample or only after parameter/search expansion.

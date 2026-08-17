@@ -1,0 +1,18 @@
+{
+  "experiment_id": "E0003",
+  "target_draw_date": "2026-08-14",
+  "actual_main_numbers": [14,15,19,39,44],
+  "previous_main_numbers": [3,14,26,40,48],
+  "actual_vvd": [11,1,7,1,4],
+  "scores": {
+    "slot1": {"frozen_vvd": 9, "frozen_coordinates": [12], "actual_vvd": 11, "actual_coordinate": 14, "exact_vvd_hit": false, "coordinate_hit": false, "residual_actual_minus_forecast": 2},
+    "slot2": {"frozen_status": "NO_FORECAST", "actual_vvd": 1, "actual_coordinate": 15},
+    "slot3": {"frozen_vvd": 5, "frozen_coordinates": [21,31], "actual_vvd": 7, "actual_coordinate": 19, "exact_vvd_hit": false, "coordinate_hit": false, "residual_actual_minus_forecast": 2},
+    "slot4": {"frozen_status": "DIAGNOSTIC_ONLY", "actual_vvd": 1, "actual_coordinate": 39},
+    "slot5": {"frozen_vvd": 2, "frozen_coordinates": [46,50], "actual_vvd": 4, "actual_coordinate": 44, "exact_vvd_hit": false, "coordinate_hit": false, "residual_actual_minus_forecast": 2}
+  },
+  "prospective_exact_point_hits": 0,
+  "prospective_exact_point_targets": 3,
+  "evidence_status": "INSUFFICIENT_EVIDENCE",
+  "anti_hindsight_note": "The common +2 residual was observed only after the target and receives zero predictive credit. Any test of that residual must be a new frozen hypothesis."
+}

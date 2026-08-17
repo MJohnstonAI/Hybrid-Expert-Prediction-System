@@ -1,0 +1,67 @@
+experiment_id: E0002
+title: Johnson Covering Assembly and K=13 Candidate Frontier
+status: active_prospective_shadow
+paper_trading_only: true
+
+architecture_stage:
+  primary: portfolio_optimization
+  upstream_dependency: candidate_funnel
+
+candidate_doctrine:
+  primary_research_target_k: 13
+  johnson_candidate_authority: none
+  candidate_set_must_be_frozen_before_assembly: true
+  control_k_values: [7, 10, 13, 16, 18, 20, 22, 25, 30]
+  note: >-
+    K=13 is the director-selected acquisition target, not a protected optimum.
+    Controls remain necessary to detect harmful over-compression.
+
+assemblers:
+  - incumbent_heps
+  - current_triple_greedy
+  - johnson_pure_geometry
+
+matched_conditions:
+  same_candidate_set: true
+  same_line_budget: true
+  target_blind: true
+  no_postdraw_retuning: true
+
+johnson_objective:
+  priority_1: maximize_3plus_winner_set_coverage
+  priority_2: maximize_4plus_winner_set_coverage
+  prediction_score_blending: prohibited_until_separately_validated
+
+geometry_metrics:
+  - exact_3plus_coverage_fraction
+  - exact_4plus_coverage_fraction
+  - exact_5plus_line_fraction
+  - unique_pairs
+  - unique_triples
+  - redundancy
+
+predictive_metrics:
+  - best_same_line_main_hit
+  - draws_with_3plus
+  - draws_with_4plus
+  - draws_with_5of5
+
+candidate_metrics:
+  - winner_survival_3of5
+  - winner_survival_4of5
+  - winner_survival_5of5
+  - catastrophic_exclusion_rate
+  - matched_control_lift
+
+promotion_rule: >-
+  Johnson may gain primary assembly authority only after blind prospective comparison
+  on identical candidate universes and line budgets demonstrates incremental same-line
+  hit value without relying on candidate-discovery differences.
+
+k7_boundary:
+  conditional_on_all_five_winners_in_k7:
+    any_5subset_minimum_overlap: 3
+    exact_main_combinations: 21
+    exact_main_coverage_with_20_lines: 0.9523809523809523
+    full_exact_main_coverage_requires_lines: 21
+  powerball_is_separate: true

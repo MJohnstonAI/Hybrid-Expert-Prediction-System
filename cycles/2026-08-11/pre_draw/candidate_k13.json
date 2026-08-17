@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "target_draw_date": "2026-08-11",
+  "training_cutoff": "2026-08-07",
+  "active_era_rows_used": 20,
+  "paper_trading_only": true,
+  "architecture": "HEPS-v34.1-johnson-assembly",
+  "legacy_pre_june_parameter_authority": false,
+  "legacy_train_on_main_used": false,
+  "legacy_train_on_plus_used": false,
+  "previous_main": [8,22,31,39,40],
+  "previous_powerball": 5,
+  "candidate_target_k": 13,
+  "frozen_candidates": [9,15,16,23,26,27,29,36,37,38,40,42,47],
+  "director_supplied_hlr_scenarios": ["HHHHH","HHLLL","HHLLH"],
+  "director_supplied_slot1_anchor": 16,
+  "candidate_rationale": {
+    "slot1": "Preserve 9/15/16 as HIGH-from-8 alternatives; 16 is the director VVD anchor and has repeated active-era Slot1 occurrence.",
+    "slot2": "23/26 retain near and +4 HIGH-from-22 movement lanes.",
+    "slot3": "27/29 preserve LOW-from-31 scenarios; 36/37 preserve HIGH-from-31 scenarios and active-era recurrence.",
+    "slot4": "36/37/38 preserve LOW-from-39 lanes; 40/42/47 support HIGH-from-39 paths subject to sorted legality.",
+    "slot5": "37/38 preserve LOW-from-40 endings; 42/47 preserve HIGH-from-40 endings.",
+    "global": "Basket is a deliberately compressed research target, not a proven optimum. Candidate acquisition remains the principal HEPS risk."
+  },
+  "johnson_authority": "none_on_candidate_acquisition",
+  "evidence_status": "INSUFFICIENT_EVIDENCE"
+}

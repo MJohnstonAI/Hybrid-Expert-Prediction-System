@@ -1,0 +1,23 @@
+{
+  "experiment_id": "E0006",
+  "methodological_results": {
+    "line_gap_mapping_one_to_one": true,
+    "legal_line_count": 2118760,
+    "legal_gap_composition_count": 2118760,
+    "NULL_GAP_DM_exact_compositions_equiprobable": true,
+    "exact_line_HDR_under_null": "REJECT",
+    "fixed_K22_null_5of5_probability": 0.012426084875820484,
+    "gemini_claimed_K22_probability_mass": 0.90,
+    "gemini_backtest_evidence_status": "REJECT"
+  },
+  "gemini_backtest_data_conflicts": [
+    {"date":"2026-07-24","gemini":[4,18,25,33,44],"canonical":[4,8,13,22,38]},
+    {"date":"2026-07-28","gemini":[12,19,27,36,45],"canonical":[3,12,27,36,47]},
+    {"date":"2026-08-04","gemini":[3,14,22,35,48],"canonical":[16,24,29,34,38]},
+    {"date":"2026-08-11","gemini":[7,16,24,32,43],"canonical":[3,14,26,40,48]},
+    {"date":"2026-08-14","gemini":[5,20,28,34,49],"canonical":[14,15,19,39,44]}
+  ],
+  "residual_feature_model_status": "NOT_YET_FROZEN_FOR_PREDICTIVE_USE",
+  "fresh_prospective_targets": 0,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE"
+}

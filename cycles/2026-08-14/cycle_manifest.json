@@ -1,0 +1,19 @@
+{
+  "target_draw_date": "2026-08-14",
+  "cycle_status": "post_draw_audit",
+  "paper_trading_only": true,
+  "result_provenance": "director_reported_pending_external_verification",
+  "authoritative_frozen_research_artifacts": [
+    "experiments/E0003/frozen_target_2026-08-14.json",
+    "experiments/E0004/friday_conditional_challenger_2026-08-14.json"
+  ],
+  "important_integrity_note": "No new pre_draw artifact is reconstructed after the result. Conversation-only synthesis that was not durably frozen in the repository is excluded from canonical slate scoring.",
+  "post_draw_paths": [
+    "cycles/2026-08-14/post_draw/actual_result.json",
+    "cycles/2026-08-14/post_draw/structural_null_audit.json",
+    "cycles/2026-08-14/post_draw/scorecard.json",
+    "cycles/2026-08-14/post_draw/expert_attribution.json",
+    "cycles/2026-08-14/post_draw/physics_of_failure.md",
+    "cycles/2026-08-14/post_draw/improvement_proposals.md"
+  ]
+}
