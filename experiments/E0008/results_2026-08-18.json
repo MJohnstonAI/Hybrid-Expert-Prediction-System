@@ -1,0 +1,57 @@
+{
+  "experiment_id": "E0008",
+  "target_date": "2026-08-18",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "actual": {
+    "main_numbers": [3, 7, 20, 31, 39],
+    "powerball": 13,
+    "main_hlr": ["LOW", "LOW", "HIGH", "LOW", "LOW"],
+    "main_vvd": [11, 8, 1, 8, 5],
+    "powerball_direction": "HIGH",
+    "powerball_vvd": 10
+  },
+  "primary_hypotheses": {
+    "S1_reflection": {
+      "forecast_vvd": 9,
+      "actual_vvd": 11,
+      "forecast_direction": "LOW",
+      "actual_direction": "LOW",
+      "forecast_coordinate": 5,
+      "actual_coordinate": 3,
+      "vvd_hit": false,
+      "direction_hit": true,
+      "coordinate_hit": false
+    },
+    "S4_1_to_4_transfer": {
+      "forecast_vvd": 4,
+      "actual_vvd": 8,
+      "forecast_direction": "HIGH",
+      "actual_direction": "LOW",
+      "forecast_coordinate": 43,
+      "actual_coordinate": 31,
+      "vvd_hit": false,
+      "direction_hit": false,
+      "coordinate_hit": false
+    }
+  },
+  "multipath_challengers": {
+    "S1_local_vvd2": {"actual_vvd": 11, "hit": false},
+    "S2_vvd3": {"actual_vvd": 8, "hit": false},
+    "S3_vvd6": {"actual_vvd": 1, "hit": false},
+    "S4_vvd6": {"actual_vvd": 8, "hit": false},
+    "S5_vvd6": {"actual_vvd": 5, "hit": false},
+    "PB_vvd6": {"actual_vvd": 10, "hit": false}
+  },
+  "matrix_wide_vvd6": {
+    "forecast_candidate_vvd": 6,
+    "lanes_scored": 6,
+    "exact_vvd_hits": 0,
+    "verdict": "negative_first_prospective_result"
+  },
+  "integrity": {
+    "frozen_source": "experiments/E0008/frozen_target_2026-08-18.json",
+    "no_retroactive_formula_credit": true,
+    "generic_algebraic_closure_status": "not_promoted"
+  },
+  "conclusion": "The first prospective target does not support increasing E0008 authority. Cross-lane algebraic and reflection motifs remain exploratory residual features only and must not override structural/VVD-R probability mass."
+}
