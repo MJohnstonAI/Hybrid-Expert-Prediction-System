@@ -1,0 +1,78 @@
+{
+  "prepared_on": "2026-08-19",
+  "next_target": "2026-08-21",
+  "dataset_cutoff": "2026-08-18",
+  "paper_trading_only": true,
+  "current_state": {
+    "main": [3, 7, 20, 31, 39],
+    "powerball": 13,
+    "latest_main_hlr": "LLHLL",
+    "latest_main_vvd": [11, 8, 1, 8, 5],
+    "latest_powerball_direction": "HIGH",
+    "latest_powerball_vvd": 10
+  },
+  "exact_structural_hlr_for_friday": {
+    "S1": {"LOW": 0.19183673469387758, "REPEAT": 0.08418367346938775, "HIGH": 0.7239795918367345},
+    "S2": {"LOW": 0.10300647548566141, "REPEAT": 0.0349477996564028, "HIGH": 0.862045724857936},
+    "S3": {"LOW": 0.27486312748966374, "REPEAT": 0.035107798901244124, "HIGH": 0.6900290736090918},
+    "S4": {"LOW": 0.3259481961147086, "REPEAT": 0.03640808774943835, "HIGH": 0.6376437161358529},
+    "S5": {"LOW": 0.23690366063169022, "REPEAT": 0.03483877362230739, "HIGH": 0.7282575657460023},
+    "joint_HHHHH": {"probability": 0.3868139855387113, "rank_of_243": 1},
+    "director_challenger_HHLHH": {"probability": 0.032666276501349845, "rank_of_243": 7}
+  },
+  "barp_diagnostic_reconstruction": {
+    "status": "deterministic_post_draw_state_update_not_a_frozen_friday_prediction",
+    "modal_vector": "HHHLH",
+    "probabilities": {
+      "S1": {"LOW": 0.25903229265573385, "REPEAT": 0.08418367346938775, "HIGH": 0.6567840338748784},
+      "S2": {"LOW": 0.26792590112355136, "REPEAT": 0.0349477996564028, "HIGH": 0.6971262992200459},
+      "S3": {"LOW": 0.2909570237790573, "REPEAT": 0.035107798901244124, "HIGH": 0.6739351773196985},
+      "S4": {"LOW": 0.5512940891347785, "REPEAT": 0.03640808774943835, "HIGH": 0.41229782311578306},
+      "S5": {"LOW": 0.32588313264817315, "REPEAT": 0.03483877362230739, "HIGH": 0.6392780937295195}
+    }
+  },
+  "vvd_r_top_magnitudes": {
+    "S1_from_3": [[7,0.16972928741339274],[1,0.11526745006513245],[11,0.10243801209197832],[2,0.08447555999735695],[3,0.08252217688648077],[5,0.07900877164001585]],
+    "S2_from_7": [[1,0.1466193669882384],[4,0.14326245067869886],[8,0.10726468547641073],[6,0.07625214748248976],[15,0.0726468547641073],[2,0.0521997536294814]],
+    "S3_from_20": [[5,0.11394828224999529],[7,0.11236067912363835],[8,0.11141156855896846],[10,0.10926910079480451],[1,0.05312084072759539],[2,0.052907124922124266]],
+    "S4_from_31": [[1,0.1164622821839189],[9,0.1127218868583511],[10,0.11174106552889426],[3,0.08486656110177651],[11,0.0793657021087806],[2,0.05383337423776171]],
+    "S5_from_39": [[8,0.12186048679416263],[5,0.11798734873227737],[2,0.11591729950537107],[1,0.11562246313881705],[6,0.08782598666200986],[10,0.06296887684305916]]
+  },
+  "cross_lane_direct_vvd_successor_diagnostics": {
+    "current_vvd8_to_2": {"observed": 2, "opportunities": 10, "conditional_rate": 0.2, "unconditional_vvd2_rate": 0.0873015873015873, "enrichment_ratio": 2.290909090909091, "relevant_slots": ["S2","S4"]},
+    "current_vvd1_to_8": {"observed": 4, "opportunities": 14, "conditional_rate": 0.2857142857142857, "unconditional_vvd8_rate": 0.09523809523809523, "enrichment_ratio": 3.0, "relevant_slots": ["S3"]},
+    "current_vvd5_to_7": {"observed": 3, "opportunities": 12, "conditional_rate": 0.25, "unconditional_vvd7_rate": 0.07936507936507936, "enrichment_ratio": 3.15, "relevant_slots": ["S5"]},
+    "current_vvd5_to_5": {"observed": 3, "opportunities": 12, "conditional_rate": 0.25, "unconditional_vvd5_rate": 0.10317460317460317, "enrichment_ratio": 2.4230769230769234, "relevant_slots": ["S5"]},
+    "current_vvd10_to_3": {"observed": 2, "opportunities": 8, "conditional_rate": 0.25, "unconditional_vvd3_rate": 0.047619047619047616, "enrichment_ratio": 5.25, "relevant_slots": ["PB"], "warning": "pooled six-lane statistic; PB has different legal support and only one earlier PB VVD10 successor (5)"}
+  },
+  "historical_cooccurrence_relay": {
+    "current_draw": [3,7,20,31,39],
+    "top_noncurrent_candidate": {"number": 40, "connections_to_current_nodes": 4},
+    "two_connection_candidates": [8,12,14,19,22,23,27],
+    "walk_forward_warning": "Unweighted graph Top13 averaged about 1.35 winners versus exchangeable expectation 1.30; threshold>=2 averaged 0.45 winners at average K3.95 versus matched expectation 0.395. Treat as weak exploratory support only."
+  },
+  "powerball_friday": {
+    "current_ball": 13,
+    "structural_direction": {"LOW": 0.75, "REPEAT": 0.0625, "HIGH": 0.1875},
+    "recent_direction_run": "LHLHLHLH",
+    "direction_challenger": "LOW",
+    "empirical_vvd_counts_through_2026_08_18": {"2":4,"5":4,"4":3,"1":2,"0":2,"10":2,"8":1,"12":1,"15":1,"14":1,"7":1},
+    "working_low_ball_branches": [
+      {"vvd":5,"ball":8,"reason":"most frequent PB VVD tier and the only prior PB VVD10 successor was VVD5"},
+      {"vvd":2,"ball":11,"reason":"joint-most frequent PB VVD and current algebraic challenger"},
+      {"vvd":3,"ball":10,"reason":"strongest pooled six-lane successor after VVD10, but no PB-specific repeat evidence"},
+      {"vvd":8,"ball":5,"reason":"algebraic multipath challenger; historically rare PB VVD"}
+    ]
+  },
+  "working_implications_not_yet_frozen": {
+    "S1_HIGH": [5,10,14,4],
+    "S2_HIGH": [8,11,9,15,13],
+    "S3_LOW_challenger": [19,18,12],
+    "S3_HIGH_structural_control": [21,25,27,28],
+    "S4_HIGH": [33,40,32,41],
+    "S4_LOW_BARP_hedge": [30,29,22],
+    "S5_HIGH": [44,46,47,40],
+    "PB_LOW": [8,11,10,5]
+  },
+  "evidence_classification": "INSUFFICIENT_EVIDENCE"
+}
