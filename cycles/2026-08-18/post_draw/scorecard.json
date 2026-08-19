@@ -1,0 +1,31 @@
+{
+  "target_draw_date": "2026-08-18",
+  "actual_main_numbers": [3, 7, 20, 31, 39],
+  "actual_powerball": 13,
+  "canonical_frozen_artifacts_scored": [
+    "experiments/E0008/frozen_target_2026-08-18.json"
+  ],
+  "not_canonically_scored": [
+    "conversation-only 20-line slate",
+    "conversation-only full HLR synthesis",
+    "E0005 deterministic reconstruction because no per-target probability freeze was found"
+  ],
+  "E0008": {
+    "primary_exact_vvd_hits": 0,
+    "primary_exact_coordinate_hits": 0,
+    "primary_direction_hits": 1,
+    "primary_direction_targets": 2,
+    "matrix_wide_vvd6_hits": 0,
+    "matrix_wide_vvd6_targets": 6,
+    "evidence_after_target": "INSUFFICIENT_EVIDENCE"
+  },
+  "failure_localization": {
+    "dominant": "candidate_information_and_slot_movement",
+    "notes": [
+      "The reflected S1 VVD9 motif displaced probability from the actual VVD11 / coordinate3 outcome.",
+      "The S4 VVD4 HIGH transfer failed on both magnitude and direction; actual was VVD8 LOW.",
+      "Matrix-wide VVD6 convergence produced no exact magnitude hits on the first prospective target.",
+      "The realized LLHLL joint HLR vector ranked 4/243 under the exact structural null, so the outcome was not structurally exotic."
+    ]
+  }
+}
