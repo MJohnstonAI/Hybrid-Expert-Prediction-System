@@ -1,0 +1,20 @@
+{
+  "target_draw_date": "2026-08-18",
+  "result_provenance": "director_reported_pending_external_verification",
+  "main_numbers": [3, 7, 20, 31, 39],
+  "powerball": 13,
+  "macro_sum": 100,
+  "previous_main_numbers": [14, 15, 19, 39, 44],
+  "previous_powerball": 3,
+  "signed_slot_movements": [-11, -8, 1, -8, -5],
+  "main_vvd": [11, 8, 1, 8, 5],
+  "main_hlr": ["LOW", "LOW", "HIGH", "LOW", "LOW"],
+  "powerball_direction": "HIGH",
+  "powerball_vvd": 10,
+  "data_quality_flags": [
+    "source_url_missing",
+    "draw_method_unknown",
+    "machine_name_unknown",
+    "user_reported_pending_external_verification"
+  ]
+}
