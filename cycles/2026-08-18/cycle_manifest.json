@@ -1,0 +1,20 @@
+{
+  "target_draw_date": "2026-08-18",
+  "cycle_status": "post_draw_audit",
+  "paper_trading_only": true,
+  "result_provenance": "director_reported_pending_external_verification",
+  "authoritative_frozen_research_artifacts": [
+    "experiments/E0008/frozen_target_2026-08-18.json"
+  ],
+  "important_integrity_note": "No pre_draw slate or full HLR vector is reconstructed after the result. Conversation-only slates are excluded from canonical frozen-slate scoring. E0005 has a frozen protocol but no per-target probability freeze was found, so it is not credited prospectively for this target.",
+  "post_draw_paths": [
+    "cycles/2026-08-18/post_draw/actual_result.json",
+    "cycles/2026-08-18/post_draw/structural_null_audit.json",
+    "cycles/2026-08-18/post_draw/scorecard.json",
+    "cycles/2026-08-18/post_draw/physics_of_failure.md",
+    "cycles/2026-08-18/post_draw/improvement_proposals.md",
+    "cycles/2026-08-18/post_draw/friday_research_refresh_2026-08-19.json",
+    "experiments/E0008/results_2026-08-18.json",
+    "experiments/E0008/findings_2026-08-18.md"
+  ]
+}
