@@ -1,0 +1,27 @@
+{
+  "target_draw_date": "2026-08-18",
+  "previous_main_numbers": [14, 15, 19, 39, 44],
+  "actual_main_numbers": [3, 7, 20, 31, 39],
+  "actual_hlr_vector": "LLHLL",
+  "per_slot_exact_structural_hlr": {
+    "S1": {"previous": 14, "LOW": 0.7942678736619533, "REPEAT": 0.027801638694330645, "HIGH": 0.17793048764371613},
+    "S2": {"previous": 15, "LOW": 0.4328465706356548, "REPEAT": 0.04324699352451434, "HIGH": 0.5239064358398309},
+    "S3": {"previous": 19, "LOW": 0.24128452491079685, "REPEAT": 0.033578602578866884, "HIGH": 0.7251368725103361},
+    "S4": {"previous": 39, "LOW": 0.6549689440993789, "REPEAT": 0.04379731541090071, "HIGH": 0.3012337404897204},
+    "S5": {"previous": 44, "LOW": 0.45432139553323636, "REPEAT": 0.058246332760671336, "HIGH": 0.48743227170609227}
+  },
+  "joint_exact_null": {
+    "legal_next_draws": 2118760,
+    "actual_vector_count": 165984,
+    "actual_vector_probability": 0.07834016122637769,
+    "actual_vector_rank_of_243": 4,
+    "top_vectors": [
+      {"vector": "LLLLL", "count": 294749},
+      {"vector": "LHHHH", "count": 210535},
+      {"vector": "LHHLL", "count": 208221},
+      {"vector": "LLHLL", "count": 165984},
+      {"vector": "HHHHH", "count": 158136}
+    ]
+  },
+  "interpretation": "The realized LLHLL direction vector was already highly plausible under exact 5/50 order-statistic geometry. This is a structural baseline result, not predictive edge."
+}
