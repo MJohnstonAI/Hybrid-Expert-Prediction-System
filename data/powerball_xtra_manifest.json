@@ -6,11 +6,11 @@
   "predecessor_label": "PowerBall Plus",
   "canonical_ledger": "data/powerball_xtra_history.jsonl",
   "schema": "data/powerball_xtra_schema.json",
-  "canonical_row_count": 23,
+  "canonical_row_count": 24,
   "first_canonical_draw_date": "2026-06-02",
-  "latest_canonical_draw_date": "2026-08-18",
-  "latest_canonical_draw_id": 1747,
-  "latest_data_quality": "user_reported_pending_external_verification",
+  "latest_canonical_draw_date": "2026-08-21",
+  "latest_canonical_draw_id": 1748,
+  "latest_data_quality": "project_director_supplied_externally_corroborated_pending_official_source_verification",
   "missing_expected_draw_dates": [],
   "state_is_complete_through_latest_expected_draw": true,
   "latest_draw_update_policy": {
@@ -29,6 +29,7 @@
     "Main PowerBall learned state and parameters are not transferred into XTRA.",
     "The canonical seed through 2026-08-11 was supplied directly by the project director.",
     "The 2026-08-14 and 2026-08-18 rows were supplied directly by the project director and remain explicitly flagged pending external verification.",
+    "The 2026-08-21 row was supplied directly by the project director and independently corroborated by lottery.co.za and lotto.net; official National Lottery source verification remains pending under the single-source policy.",
     "Future updates read the local ledger first and consult only the official SA National Lottery result page for the newest missing XTRA draw. Historical web rescans are disabled."
   ]
 }
