@@ -1,0 +1,138 @@
+experiment_id: E0009
+title: Distribution-First State Convergence and Tail-Rescue
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+roles:
+  originator: ChatGPT GPT-5.6 Sol
+  intent: >-
+    Test whether probability-preserving state mixtures reduce catastrophic candidate exclusion
+    relative to brittle exact HLR/VVD point routing.
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  discovery_cutoff: 2026-08-21
+  exclude_legacy_prng_state: true
+  main_slots: [S1, S2, S3, S4, S5]
+  powerball_field: 1..16
+
+main_model:
+  s1_anchor_gate:
+    rule: >-
+      Freeze a full LOW/REPEAT/HIGH probability vector for S1 and preserve all states with nonzero
+      model probability. No S1 direction may hard-prune the opposite branch while E0009 is shadow.
+  hlr_scenario_mixture:
+    required_baseline: NULL_HLR_JOINT_243
+    rule: >-
+      Maintain probability mass over joint HLR vectors rather than selecting one vector as a hard gate.
+      Learned residual HLR probabilities, if used, must be scored against the exact structural null.
+  vvd_distribution:
+    required_baseline: NULL_VVD_STRUCTURAL
+    preferred_challenger: E0005 VVD-R
+    rule: >-
+      Freeze complete legal displacement distributions per slot. Point motifs may only reweight mass
+      through a preregistered rule and have no veto authority.
+  coordinate_field:
+    definition: >-
+      Produce marginal inclusion probabilities p_n = P(number n appears anywhere in the five mains),
+      n=1..50, with sum approximately 5 after legal-line normalization/marginalization.
+    slot_mapping: >-
+      Slot probability and global inclusion probability are separate outputs. Global recurrence/mobility
+      support may preserve a number even when its modal exact slot changes.
+  tail_rescue:
+    status: hyperparameter_to_preregister_before_first_scored_target
+    candidate_fractions_to_compare: [0.05, 0.10, 0.15]
+    selection_rule: >-
+      Rescue coordinates must be selected by a frozen target-blind rule from low-model-mass legal regions;
+      never select a rescue coordinate because it resembles a known target outcome.
+    authority: exposure_adjustment_only
+  convergence:
+    independent_sources:
+      - exact structural slot/order-statistic mass
+      - HLR residual model
+      - VVD-R displacement distribution
+      - exact-state successor model
+      - global coordinate mobility/recurrence
+      - simple shadow/stiction support
+    rule: >-
+      Exact-coordinate confidence may increase only when separately defined sources converge.
+      Algebraically equivalent motif formulas count as one source.
+
+powerball_model:
+  order:
+    - full HLR probability vector
+    - full VVD displacement probability distribution
+    - exact current-PB successor distribution with shrinkage
+    - current-VVD successor distribution with shrinkage
+    - legal direction-displacement translation to balls 1..16
+    - convergence score
+  diversification_rule: >-
+    When major components disagree, spread exposure rather than declare an unsupported exact-ball primary.
+  confidence_rule: >-
+    High exact-ball confidence requires at least two non-redundant predictive components plus structural legality
+    to nominate the same ball, with no strongly contradictory calibrated component.
+
+baselines:
+  - NULL_ORDER_STATISTIC_SLOT
+  - NULL_HLR_STRUCTURAL
+  - NULL_HLR_JOINT_243
+  - NULL_VVD_STRUCTURAL
+  - flat 50-coordinate marginal inclusion probability 0.1
+  - simple recency candidate ranking
+  - simple cumulative-frequency candidate ranking
+  - point-HLR/point-VVD routing frozen before comparison
+
+metrics:
+  probability_field:
+    - marginal Bernoulli composite log loss on 50 inclusion coordinates
+    - marginal Brier score
+    - paired score delta versus flat 0.1 and simpler baselines
+  candidate_funnel:
+    - Top-K winner-coordinate recall for K in [7, 10, 13, 16, 20]
+    - 3plus_of_5 survival
+    - 4plus_of_5 survival
+    - 5_of_5 survival
+    - catastrophic_exclusion_count
+    - winner_coordinate_mean_rank
+  slot_state:
+    - per-slot HLR accuracy
+    - HLR Brier/log loss versus exact structural null
+    - VVD probability score versus NULL_VVD_STRUCTURAL
+  powerball:
+    - HLR direction accuracy and proper score
+    - VVD magnitude rank/probability score
+    - exact-ball rank
+    - exact-ball hit rate at declared exposure
+  portfolio:
+    - maximum same-line main overlap
+    - submitted-line denominator
+    - comparison with diversity-matched control
+
+multiple_testing:
+  warning: high
+  rules:
+    - Freeze tail-rescue fraction or comparison grid before scoring a target.
+    - Freeze probability-combination weights before each target.
+    - Report every tested K and rescue fraction.
+    - Do not promote the best retrospective setting without a fresh prospective window.
+
+prospective_evaluation:
+  first_eligible_target: 2026-08-25
+  minimum_review_gate_targets: 20
+  note: >-
+    Twenty targets is an initial review gate, not a universal proof threshold. Power analysis and paired
+    effect size determine whether more observations are required.
+
+falsification:
+  - Reject or simplify tail rescue if it does not improve recall at matched total exposure.
+  - Reject convergence bonus if it worsens proper scores or merely duplicates correlated recurrence signals.
+  - Reject S1 Anchor Gate as an incremental signal claim if it does not beat the structural mixture; retain only as risk-routing infrastructure if useful.
+  - Do not increase E0009 authority from one successful draw.
+
+authority:
+  diagnostic: true
+  may_score: true
+  may_adjust_exposure: false
+  may_hard_eliminate: false
