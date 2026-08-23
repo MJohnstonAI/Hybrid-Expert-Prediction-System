@@ -1,0 +1,41 @@
+{
+  "experiment_id": "E0009",
+  "result_status": "discovery_only_pre_prospective",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "discovery_cutoff": "2026-08-21",
+  "prospective_results_known": false,
+  "forensic_target": {
+    "draw_date": "2026-08-21",
+    "previous_main": [3, 7, 20, 31, 39],
+    "previous_powerball": 13,
+    "actual_main": [2, 4, 5, 24, 49],
+    "actual_powerball": 4,
+    "main_hlr": ["LOW", "LOW", "LOW", "LOW", "HIGH"],
+    "main_vvd": [1, 3, 15, 7, 10],
+    "powerball_direction": "LOW",
+    "powerball_vvd": 9,
+    "macro_sum": 84
+  },
+  "diagnosis": {
+    "primary_failure": "over_concentration_in_wrong_HLR_regime",
+    "secondary_failure": "inadequate_tail_VVD_and_candidate_rescue",
+    "tertiary_failure": "hypothesis_churn_and_point_forecast_overweighting",
+    "first_pipeline_failure": "candidate_acquisition"
+  },
+  "coordinate_lessons": {
+    "S1_2": "simple LOW/VVD1/-1 shadow branch should have retained probability mass",
+    "S2_4": "LOW/VVD3 branch was not intrinsically extreme and should not require a black-swan mechanism",
+    "S3_5": "LOW/VVD15 was the dominant tail event and motivates fixed tail-rescue rather than retrospective central prediction",
+    "S4_24": "supports preserving alternate-direction and global-coordinate mobility mass",
+    "S5_49": "high sorted-slot coordinate with strong structural plausibility; narrow point shortlist crowded it out",
+    "PB4": "LOW direction was correctly supported but exact PB models did not converge on VVD9/ball4"
+  },
+  "architecture_change_status": "proposal_only_not_promoted",
+  "next_required_evidence": [
+    "freeze complete HLR and VVD distributions before next scored target",
+    "produce full 1..50 marginal inclusion field before K compression",
+    "preregister tail-rescue allocation and target-blind selection rule",
+    "score convergence bonus versus proper-score and matched-exposure controls",
+    "audit PowerBall state-direction-displacement-exact-state convergence separately"
+  ]
+}
