@@ -1,0 +1,22 @@
+{
+  "target_draw_date": "2026-08-21",
+  "cycle_status": "post_draw_audit",
+  "paper_trading_only": true,
+  "result_provenance": "director_approved_public_source_verified",
+  "result": {
+    "main_numbers": [2, 4, 5, 24, 49],
+    "powerball": 4
+  },
+  "integrity_note": "No pre-draw prediction artifact is reconstructed or rewritten after the result. Post-draw research is explicitly retrospective and receives zero predictive credit for this target.",
+  "post_draw_paths": [
+    "cycles/2026-08-21/post_draw/actual_result.json",
+    "cycles/2026-08-21/post_draw/distribution_first_failure_audit.md"
+  ],
+  "research_followup": [
+    "experiments/E0009/hypothesis.md",
+    "experiments/E0009/protocol.yaml",
+    "experiments/E0009/results.json",
+    "experiments/E0009/findings.md",
+    "experiments/E0009/decision.md"
+  ]
+}
