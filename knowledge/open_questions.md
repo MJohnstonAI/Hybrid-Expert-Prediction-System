@@ -164,6 +164,32 @@ Primary research path: `experiments/E0006/`.
 
 No hard pruning is allowed in E0006 v1.
 
+## Q021 — Distribution-first candidate field
+
+Does a probability-preserving Main pipeline that keeps full HLR and VVD distributions until a complete 1..50 marginal inclusion field is formed improve prospective proper scores and K13 winner-coordinate survival versus point-HLR/point-VVD routing at matched exposure?
+
+Primary research path: `experiments/E0009/`.
+
+The 2026-08-21 result `2,4,5,24,49 | PB4` is retrospective motivation only. It gives zero predictive credit to E0009.
+
+## Q022 — Target-blind tail rescue
+
+Can a preregistered 5%, 10%, or 15% tail-rescue allocation reduce catastrophic candidate exclusions from low-probability but legal displacement states without merely increasing effective exposure or degrading overall proper probability scores?
+
+The rescue rule must be frozen before each target and evaluated against identical total candidate exposure. The 2026-08-21 Slot3 move `20 -> 5` / VVD15 motivates the question but may not determine the rule.
+
+Primary research path: `experiments/E0009/` with comparison to `E0007/Q018`.
+
+## Q023 — PowerBall state-transition convergence
+
+Does the ordered PowerBall process `HLR state -> VVD distribution -> exact-current-state successor -> current-VVD successor -> exact-ball convergence` improve exact-ball rank or hit rate beyond structural 1/16, simple frequency, and current `PB_ACTIVE_MATRIX` baselines?
+
+High exact-ball confidence should require convergence of non-redundant calibrated components; disagreement should trigger diversification. Exact-state transition counts require shrinkage because the active sample is small.
+
+The method was motivated by successful XTRA reasoning, but Main and XTRA constants remain independent. Only the methodology is under test.
+
+Primary research path: `experiments/E0009/`.
+
 ## Resolution rule
 
 When a question is resolved:
