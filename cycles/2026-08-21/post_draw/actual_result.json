@@ -1,0 +1,17 @@
+{
+  "draw_date": "2026-08-21",
+  "main_numbers": [2, 4, 5, 24, 49],
+  "powerball": 4,
+  "macro_sum": 84,
+  "previous_main": [3, 7, 20, 31, 39],
+  "previous_powerball": 13,
+  "main_hlr": ["LOW", "LOW", "LOW", "LOW", "HIGH"],
+  "main_vvd": [1, 3, 15, 7, 10],
+  "powerball_direction": "LOW",
+  "powerball_vvd": 9,
+  "source_url": "https://www.lottery.co.za/powerball/results/2026",
+  "source_status": "director_approved_public_source_verified",
+  "draw_method": "unknown",
+  "machine_name": "unknown",
+  "paper_trading_only": true
+}
