@@ -10,6 +10,7 @@
   "integrity_note": "No pre-draw prediction artifact is reconstructed or rewritten after the result. Post-draw research is explicitly retrospective and receives zero predictive credit for this target.",
   "post_draw_paths": [
     "cycles/2026-08-21/post_draw/actual_result.json",
+    "cycles/2026-08-21/post_draw/physics_of_failure.md",
     "cycles/2026-08-21/post_draw/distribution_first_failure_audit.md"
   ],
   "research_followup": [
