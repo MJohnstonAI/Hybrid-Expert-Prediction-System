@@ -1,0 +1,31 @@
+{
+  "experiment_id": "E0011",
+  "status": "protocol_only_no_prospective_results",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "source_review": {
+    "external_contributor": "ox-alpha",
+    "review_date": "2026-08-25",
+    "accepted": [
+      "statistical_power_honesty_gate",
+      "expert_residualization_and_redundancy_audit",
+      "null_control_as_comparator",
+      "shrinkage_for_powerball_models"
+    ],
+    "reworked": [
+      "null_first_pipeline_restricted_to_control_role",
+      "powerball_dirichlet_changed_from_unconditional_frequency_to_conditional_state_transition"
+    ],
+    "rejected": [
+      "null_global_mobility_tail_rescue",
+      "pure_null_global_marginal_as_predictive_K13_ranker",
+      "treating_null_like_p_values_as_proof_of_zero_effect",
+      "matrix_wide_algebraic_agreement_as_independent_vote_multiplier"
+    ]
+  },
+  "mathematical_invariant": {
+    "under_iid_5_of_50": "P(number n appears anywhere)=0.1 for every n in 1..50",
+    "implication": "pure structural-null global marginals cannot rank predictive K13 coordinates"
+  },
+  "prospective_result_known": false,
+  "first_eligible_target": "2026-08-28"
+}
