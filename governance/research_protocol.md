@@ -102,6 +102,10 @@ Sorted slots are dependent. Do not estimate a full-vector null by multiplying fi
 
 For a flat fixed basket of size `K`, exact exchangeable 5/5 survival is `C(K,5)/C(50,5)`. For a slot lattice or non-flat survivor universe, compute its exact retained next-draw probability mass whenever feasible. Candidate success must be judged against exposure retained, not raw hit counts alone.
 
+Under the uniform IID 5/50 null, the global marginal inclusion probability is exactly `P0(n appears anywhere)=5/50=0.1` for every coordinate `n=1..50`, because the five exact sorted-slot marginals sum to the same global inclusion probability. Therefore a pure structural-null global field cannot rank one predictive K-coordinate basket above another. Use it as a calibration/control field, not as a learned candidate selector.
+
+HLR, VVD and sorted-slot coordinate structural nulls are different views of the same legal next-draw geometry. Do not multiply or vote them as independent predictive evidence.
+
 ## 6. Metrics by stage
 
 ### Slot Forecast
@@ -186,3 +190,45 @@ Gap-space representations are also sorted-line state representations, not physic
 ## 12. Promotion standard
 
 Research quality is necessary but not sufficient for architecture promotion. Promotion is governed separately by `governance/promotion_policy.md`.
+
+## 13. Statistical-power honesty gate
+
+Before a prospective comparison is treated as capable of resolving an open question, declare:
+
+- the primary paired metric;
+- a minimum effect of interest worth detecting;
+- an approximate target horizon or sample-size calculation;
+- assumptions about serial dependence or independence;
+- multiple-testing exposure.
+
+A fixed review count such as 20 targets is an operational checkpoint, not automatically a proof threshold. If the experiment is underpowered for the declared minimum effect, label the conclusion `INSUFFICIENT_EVIDENCE` even when the observed p-value is large.
+
+Failure to reject a null means **no detected advantage at the current sample and exposure**. It must not be described as proof that the effect is exactly zero unless an appropriate equivalence/non-inferiority design supports that claim.
+
+## 14. Non-redundant convergence rule
+
+Expert agreement is not automatically independent evidence.
+
+Before multiple experts are allowed to increase convergence confidence, where feasible:
+
+1. remove or control for exact structural-null effects;
+2. remove or control for simple recency/frequency effects relevant to the expert;
+3. examine residual dependence, for example rank correlation;
+4. measure incremental proper-score value or leave-one-expert-out contribution.
+
+Experts that remain materially redundant should count as one information family for confidence purposes until prospective evidence demonstrates incremental information.
+
+Structural legality and structural-null HLR/VVD/slot views do not count as separate expert votes.
+
+## 15. Conditional PowerBall transition scoring
+
+For PowerBall transition research, unconditional frequency is a baseline, not a substitute for state-transition modelling.
+
+Experimental transition models should separately score, with shrinkage where needed:
+
+- `P(PB_{t+1}=n | PB_t=s)`;
+- `P(VVD_{t+1}=d | VVD_t=v)`;
+- HLR direction probability;
+- the legal translation of direction plus displacement to exact balls.
+
+High exact-ball confidence requires convergence after redundancy/dependency controls. When calibrated components disagree, diversify rather than manufacture certainty.
