@@ -1,0 +1,148 @@
+experiment_id: E0011
+title: Null-Control, Residual Convergence and Conditional PowerBall Transitions
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+roles:
+  originator: ChatGPT GPT-5.6 Sol
+  source_reviewed: Ox Alpha contribution 2026-08-24
+  intent: >-
+    Retain mathematically valid methodology from the external contribution while rejecting
+    null-derived candidate ranking, undefined null-mobility rescue and overstrong significance claims.
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  discovery_cutoff: 2026-08-21
+  first_eligible_target: 2026-08-28
+  exclude_legacy_prng_state: true
+
+null_control:
+  main_global_inclusion_invariant:
+    iid_probability_per_coordinate: 0.1
+    rule: >-
+      Under uniform 5/50, summing exact slot marginals over S1..S5 yields 0.1 for every coordinate.
+      Therefore the pure structural-null global field is a calibration comparator and cannot rank one
+      predictive K13 above another without additional non-null evidence.
+  required_controls:
+    - NULL_ORDER_STATISTIC_SLOT
+    - NULL_HLR_STRUCTURAL
+    - NULL_HLR_JOINT_243
+    - NULL_VVD_STRUCTURAL
+    - flat_global_inclusion_0.1
+    - simple_recency
+    - simple_frequency
+  double_counting_rule: >-
+    HLR, VVD and slot-coordinate structural nulls are derived views of the same legal next-draw geometry.
+    Do not multiply or vote them as independent predictive evidence.
+
+power_honesty_gate:
+  required_before_scoring:
+    - primary paired metric
+    - minimum_effect_of_interest
+    - approximate_target_horizon
+    - dependence_assumptions
+    - multiple_testing_exposure
+  language_rule: >-
+    Failure to reject a null means no detected advantage at the current sample/exposure; it does not prove
+    the effect is exactly zero. Twenty targets may remain a review gate but is not automatically adequate power.
+
+expert_residualization:
+  experts_initial:
+    - MAIN_STICTION_SHADOW
+    - MAIN_VOID_BRIDGE
+    - MAIN_SORTED_SLOT_DENSITY
+    - MAIN_HARMONIC_BOUNDARY
+  controls:
+    - exact_slot_structural_mass
+    - simple_recency
+  method:
+    - freeze each expert score vector for every eligible target
+    - transform scores to comparable ranks or calibrated probabilities where feasible
+    - model/remove structural-null and recency components without target leakage
+    - retain residual score per coordinate
+    - compute pairwise Spearman residual-rank correlations
+    - compute incremental paired Brier/log-loss when each expert is added after controls
+  convergence_rule: >-
+    Raw agreement count is prohibited as confidence evidence when sources remain materially redundant.
+    Components with high residual correlation or no incremental proper-score value count as one information family
+    until stronger prospective evidence shows independence.
+
+corrected_tail_rescue:
+  relationship: E0009_Q022_and_E0007_Q018
+  rejected_rule: highest_null_global_mobility
+  reason: null global inclusion probability is exactly 0.1 for every main coordinate
+  allowed_comparison_at_fixed_K13:
+    - Core13_Rescue0
+    - Core12_Rescue1
+    - Core11_Rescue2
+  rescue_signal_requirement: >-
+    Rescue seats must be selected by a non-flat, target-blind residual signal such as validated global recurrence/
+    mobility residual, shadow residual or another preregistered challenger. Structural-null mass alone cannot choose them.
+  matched_exposure_rule: total unique candidate count remains 13
+  promotion_rule: no rescue architecture wins by expanding effective K or by hindsight selection
+
+powerball_transition_model:
+  field: 1..16
+  layers:
+    - HLR_direction_distribution
+    - VVD_distribution
+    - exact_current_state_successor_distribution
+    - current_VVD_successor_distribution
+    - legal_direction_displacement_translation
+    - residual_convergence
+  exact_state_model:
+    formula: P(next=n | current=s) = (N_s_to_n + kappa*pi_n) / (N_s + kappa)
+    baseline_pi: >-
+      pi_n is a preregistered simple PB baseline, initially uniform 1/16 or a separately scored
+      unconditional shrunk frequency model. Choice must be frozen before target scoring.
+    kappa: hyperparameter_to_preregister
+  vvd_state_model:
+    formula: P(next_vvd=d | current_vvd=v) = (N_v_to_d + eta*q_d) / (N_v + eta)
+    baseline_q: empirical_or_structural_PB_VVD_baseline_frozen_without_target
+    eta: hyperparameter_to_preregister
+  confidence_rule: >-
+    High exact-ball confidence requires convergence after residual/dependency checks. Structural legality is not
+    counted as an independent vote. If conditional-state, VVD-state and HLR paths disagree, diversify.
+
+algebraic_motifs:
+  status: diagnostic_only
+  rules:
+    - algebraically equivalent formulas count once
+    - matrix-wide lane agreement is correlated and may not be multiplied as independent evidence
+    - generated-set hits require matched generated-set or random-rescue controls
+    - no authority increase from retrospective generatability
+
+metrics:
+  calibration:
+    - paired_Brier_delta_vs_null
+    - paired_logloss_delta_vs_null
+    - calibration_error
+  redundancy:
+    - residual_Spearman_matrix
+    - leave_one_expert_out_score_delta
+    - incremental_proper_score_by_expert
+  candidate_funnel:
+    - K13_coordinate_recall
+    - 3plus_4plus_5of5_survival
+    - catastrophic_exclusion_count
+    - rescue_trade_ledger
+  powerball:
+    - exact_ball_rank
+    - exact_ball_hit_rate_at_declared_exposure
+    - HLR_Brier
+    - VVD_probability_score
+    - convergence_calibration
+
+falsification:
+  - If residualized convergence does not improve calibration or merely reproduces controls, retain it only as diagnostics.
+  - If Core12+Rescue1 or Core11+Rescue2 fails to improve matched-exposure recall prospectively, reject the corresponding rescue allocation.
+  - If conditional PB transition models do not beat uniform/simple-frequency baselines on proper scores, reject added transition authority.
+  - No component may be promoted from one target.
+
+authority:
+  diagnostic: true
+  may_score: true
+  may_adjust_exposure: false
+  may_hard_eliminate: false
