@@ -12,15 +12,15 @@
     "SIZWE",
     "unknown"
   ],
-  "latest_draw_id": 24,
-  "latest_draw_date": "2026-08-21",
-  "latest_main_numbers": [2,4,5,24,49],
-  "latest_powerball": 4,
-  "latest_macro_sum": 84,
+  "latest_draw_id": 25,
+  "latest_draw_date": "2026-08-25",
+  "latest_main_numbers": [5,34,39,43,45],
+  "latest_powerball": 1,
+  "latest_macro_sum": 166,
   "latest_draw_method": "unknown",
   "latest_machine_name": "unknown",
-  "row_count": 24,
-  "last_synced": "2026-08-23",
+  "row_count": 25,
+  "last_synced": "2026-08-27",
   "latest_data_quality_flags": [
     "draw_method_unknown",
     "machine_name_unknown"
