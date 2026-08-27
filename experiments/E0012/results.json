@@ -2,6 +2,12 @@
   "experiment_id": "E0012",
   "evidence_classification": "INSUFFICIENT_EVIDENCE",
   "audit_cutoff": "2026-08-25",
+  "strict_W50_eligibility": {
+    "required_prior_active_draws": 50,
+    "available_active_draws": 25,
+    "eligible_main_targets": 0,
+    "interpretation": "The frozen W=50 specification cannot yet receive canonical HEPS prospective or walk-forward evidence on the active-era ledger."
+  },
   "sgce_raw_pair_persistence_diagnostic": {
     "walk_forward_targets": 17,
     "minimum_prior_draws": 8,
@@ -16,7 +22,38 @@
       "matched_random_mean": 1.9579,
       "empirical_percentile": 0.1421
     },
-    "interpretation": "No detected persistence edge in raw historical pair co-occurrence; this does not test unspecified spectral hyperparameters."
+    "interpretation": "No detected persistence edge in raw historical pair co-occurrence; this does not test a valid strict-W50 spectral model."
+  },
+  "supplied_python_row_norm_exploratory_replay": {
+    "status": "post_hoc_exploratory_partial_window",
+    "targets": 17,
+    "minimum_prior_draws": 8,
+    "K10_total_winner_coordinates": 16,
+    "K10_mean_winner_coordinates_per_target": 0.9411764706,
+    "K10_exact_null_expectation_per_target": 1.0,
+    "K10_upper_tail_probability_for_at_least_16_hits": 0.6571141258,
+    "K13_total_winner_coordinates": 18,
+    "K13_mean_winner_coordinates_per_target": 1.0588235294,
+    "K13_exact_null_expectation_per_target": 1.3,
+    "K18_total_winner_coordinates": 25,
+    "K18_mean_winner_coordinates_per_target": 1.4705882353,
+    "K18_exact_null_expectation_per_target": 1.8,
+    "simple_frequency_K10_total": 16,
+    "simple_recency_K10_total": 15,
+    "current_next_target_K10_from_code": [11,46,50,25,49,10,4,33,24,16],
+    "interpretation": "The code-as-written does not show detected acquisition lift and does not implement the written k-means/centroid model."
+  },
+  "written_kmeans_variant_exploratory_replay": {
+    "status": "post_hoc_exploratory_partial_window",
+    "unfrozen_parameter": "kmeans_random_state_and_initialization",
+    "tested_random_states": [0,1,2,3,4],
+    "K10_total_winner_coordinates_by_seed": [18,17,17,16,17],
+    "random_exact_null_expected_total": 17.0,
+    "best_tested_seed_upper_tail_probability": 0.4346280699,
+    "current_next_target_distinct_top10_sets_across_20_tested_seeds": 3,
+    "most_common_current_top10": [2,27,40,39,36,32,5,22,31,44],
+    "most_common_set_frequency_out_of_20": 16,
+    "interpretation": "Results are seed-sensitive because k-means initialization is not frozen; observed hit counts are compatible with matched random exposure."
   },
   "adaptive_k_exact_null_exposure": {
     "K13": {
@@ -55,14 +92,33 @@
     },
     "interpretation": "Exploratory only; no detected basis for macro-sum-volatility-controlled K expansion at the present sample."
   },
+  "line_filter_geometry": {
+    "using_current_25_draw_population_sum_mean": 128.68,
+    "using_current_25_draw_population_sum_sd": 28.5793211956,
+    "exploratory_sum_band": [85.8110182066,171.5489817934],
+    "exact_legal_line_retention_sum_only": 0.8302507127,
+    "exact_legal_line_retention_parity_only": 0.6513243595,
+    "exact_legal_line_retention_decadal_only_supplied_floor_mapping": 0.9352923408,
+    "exact_legal_line_retention_max_gap_25_only": 0.8996960486,
+    "exact_legal_line_retention_all_current_filters": 0.4643952123,
+    "historical_static_filter_passes_without_dynamic_sum": 15,
+    "historical_draw_count": 25,
+    "historical_static_filter_pass_rate": 0.6,
+    "exact_null_static_filter_retention": 0.5487964659,
+    "one_sided_binomial_p_for_historical_excess": 0.3796119314,
+    "frozen_2026_08_28_portfolio_lines_passing_exploratory_current_filter": 9,
+    "frozen_2026_08_28_portfolio_line_count": 20,
+    "interpretation": "The filters compress line space substantially but no winner-retention lift is detected. Applying them now would also delete 11 of 20 already-frozen Friday lines and is therefore prohibited."
+  },
   "gap_null_filtering": {
     "classification": "REJECT",
-    "reason": "NULL_GAP_DM is uniform over all legal six-gap compositions and therefore cannot rank or reject one legal line as less structurally null-probable than another."
+    "reason": "NULL_GAP_DM is uniform over all legal six-gap compositions and therefore cannot rank or reject one legal line as less structurally null-probable than another. The max-gap<=25 rule is a separate morphology constraint, not a NULL_GAP_DM implication."
   },
   "in_wheel_pruning": {
     "classification": "INSUFFICIENT_EVIDENCE",
     "predictive_edge": false,
     "engineering_value_possible": true,
-    "reason": "Moving an unchanged filter earlier can reduce compute but does not create predictive information. Gemini supplied no reproducible polarity or elastic-sum filter formula."
-  }
+    "reason": "Moving an unchanged filter earlier can reduce compute but does not create predictive information. The newly supplied filters are reproducible enough for future benchmarking but have not demonstrated prospective winner-retention lift."
+  },
+  "overall_conclusion": "No detected predictive edge sufficient for HEPS architecture promotion. Retain as experimental challenger; do not alter the frozen 2026-08-28 Main slate."
 }
