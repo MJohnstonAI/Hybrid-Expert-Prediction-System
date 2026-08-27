@@ -1,0 +1,63 @@
+schema_version: 1
+agent_session:
+  model: "GPT-5.6 Sol"
+  session_id: "xtra-transfer-2026-08-27"
+  started_at: "2026-08-27"
+
+self_selected_role:
+  name: "XTRA algorithm-extraction auditor and architecture challenger"
+  reason: "The current XTRA bottleneck is candidate acquisition, while recent Main research contains stage-specific mathematical operators that can be reconstructed without transferring fitted state."
+
+research_target:
+  question_id: "XTRA_TRANSFER_CHAMPIONSHIP"
+  experiment_id: "E0014"
+  architecture_stage: "methodology|slot_forecast|candidate_funnel|coalition_assembly|morphology|powerball_matrix"
+
+thesis: "Main-derived mathematical methodology may improve XTRA only if reconstructed from the canonical XTRA ledger, tested at stage-appropriate controls, and shown to add incremental information beyond structural nulls and simple baselines."
+
+intended_actions:
+  - "Reconstruct canonical XTRA state and preserve provenance-qualified working state separately."
+  - "Run expanding-history XTRA-only algorithm-extraction championship."
+  - "Separate spectral coordinate acquisition from spectral coalition ranking."
+  - "Compare VVD distributions and draw-level magnitude regimes against exact structural nulls."
+  - "Test residual PCA/KMeans regime routing against unconditional baselines."
+  - "Score morphology by winner-retention/legal-space-retention lift."
+  - "Test fixed-K Core+Rescue at identical K13 exposure."
+  - "Test shrinkage-weighted conditional XTRA PowerBall transition convergence."
+  - "Create separate prospective derivative experiment for any discovery survivor."
+
+dependencies:
+  - "AGENTS.md"
+  - "governance/external_contribution_protocol.md"
+  - "governance/research_protocol.md"
+  - "experiments/E0001/"
+  - "experiments/E0005/"
+  - "experiments/E0007/"
+  - "experiments/E0009/"
+  - "experiments/E0010/protocol.md"
+  - "experiments/E0011/"
+  - "experiments/E0012/"
+  - "experiments/E0013/"
+  - "data/powerball_xtra_history.jsonl"
+  - "data/powerball_xtra_manifest.json"
+
+known_conflicts_or_overlap:
+  - "E0010 already tests XTRA preservation/mobility/fusion and must not be overwritten."
+  - "experiments/E0011 contains both Main formal-package material and an XTRA-specific protocol.md; preserve both."
+  - "The frozen 2026-08-28 XTRA forecast must remain immutable."
+  - "The canonical XTRA ledger ends 2026-08-21 while later XTRA cycle artifacts use a provenance-qualified 2026-08-25 working state."
+
+may_modify_core: false
+
+expected_outputs:
+  - "experiments/E0014/hypothesis.md"
+  - "experiments/E0014/protocol.yaml"
+  - "experiments/E0014/results.json"
+  - "experiments/E0014/findings.md"
+  - "experiments/E0014/decision.md"
+  - "A separate derivative package if a promising operator survives discovery testing"
+
+self_assessment:
+  confidence: 0.8
+  strongest_counterargument: "Only 24 canonical XTRA draws are available, making all learned residuals and graph structures highly unstable and underpowered."
+  likely_failure_mode: "Exploratory model search finds apparent lift that disappears under matched controls or prospective testing."
