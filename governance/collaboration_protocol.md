@@ -95,7 +95,31 @@ A synthesizer should:
 
 If synthesis creates a novel hypothesis, route it back through an experiment package.
 
-## 8. Promotion recommendations
+## 8. External contribution decomposition
+
+Outside AI contributions must not be treated as all-or-nothing architecture proposals.
+
+When an outside model, paper, human contributor, or code agent proposes a new strategy, follow `governance/external_contribution_protocol.md`.
+
+The required default is:
+
+1. preserve the original contribution;
+2. separate claimed performance/provenance from the underlying mathematics;
+3. decompose the proposal into testable operators;
+4. map each operator to the HEPS stage where its information naturally belongs;
+5. reconstruct and test it on canonical HEPS data;
+6. compare against stage-appropriate exact/null, simple, and incumbent controls;
+7. test plausible alternative stage placement when the mathematics may be useful despite the contributor's original role assignment;
+8. record every variant searched and treat any discovered survivor as exploratory until prospectively frozen;
+9. create a derivative experiment for promising components rather than promoting the original proposal wholesale.
+
+A contribution may therefore be partly rejected and partly retained. For example, bad source data or an invalid mechanism story does not automatically invalidate an otherwise testable mathematical operator.
+
+Reviewers should actively guard against the **right-mathematics / wrong-role** failure mode: an operator may fail as a candidate selector yet add value to coalition assembly, morphology, ranking, or risk control.
+
+Semantic wording differences between agents are low priority when the underlying mathematics is equivalent. Mathematical equivalence, provenance, stage fit, evidence, and incremental information are what matter.
+
+## 9. Promotion recommendations
 
 Agents may recommend architecture changes, but recommendations are evidence inputs, not votes.
 
@@ -108,7 +132,9 @@ A promotion review should prioritize:
 5. integration risk;
 6. whether the feature adds non-redundant information.
 
-## 9. Activity transparency
+For decomposed outside contributions, promotion applies to the independently tested component, not automatically to the contributor's full architecture or requested authority.
+
+## 10. Activity transparency
 
 When practical, collaboration artifacts should identify:
 
@@ -119,9 +145,17 @@ When practical, collaboration artifacts should identify:
 - output path;
 - recommended evidence classification.
 
+For external-contribution work, also identify:
+
+- original source artifact;
+- extracted operator(s);
+- stage placement(s) tested;
+- search/variant count;
+- whether the surviving hypothesis was specified before or after seeing replay results.
+
 Do not require a permanent identity. Session-level identity is sufficient.
 
-## 10. Human role
+## 11. Human role
 
 The repository is designed to be AI-driven. Human intervention is not required to assign research roles or choose day-to-day investigations.
 
