@@ -148,9 +148,11 @@ HLR, VVD and sorted-slot coordinate structural nulls are different views of the 
 
 ## 7. Multiple testing
 
-Every experiment must record how many variants, features, thresholds, weights, windows, basket sizes, flow vectors, or families were inspected before the reported result.
+Every experiment must record how many variants, features, thresholds, weights, windows, basket sizes, flow vectors, families, stage placements, graph constructions, cluster settings, random seeds, or related researcher choices were inspected before the reported result.
 
 Do not report a nominal p-value as confirmatory evidence if it arose after broad exploratory search without correction or fresh validation.
+
+When a useful derivative is discovered during an algorithm championship or external-contribution decomposition, freeze it prospectively before treating its nominal significance as confirmatory.
 
 ## 8. Falsification
 
@@ -232,3 +234,69 @@ Experimental transition models should separately score, with shrinkage where nee
 - the legal translation of direction plus displacement to exact balls.
 
 High exact-ball confidence requires convergence after redundancy/dependency controls. When calibrated components disagree, diversify rather than manufacture certainty.
+
+## 16. External contribution reconstruction
+
+When research originates from an outside AI agent, report, paper, notebook, or human contributor, follow `governance/external_contribution_protocol.md`.
+
+External claimed performance is not HEPS evidence until the relevant algorithm is reconstructed against the canonical ledger and data rules. Provenance failures and algorithmic value must be evaluated separately.
+
+Do not accept or reject a substantial external proposal only at the document/architecture level when its components can be meaningfully isolated.
+
+Required research questions include:
+
+1. What is the smallest testable information operator?
+2. What stage did the contributor assign it to?
+3. What stage does the mathematics naturally support?
+4. Does the operator add incremental information at either stage?
+5. Does the result survive exact/null, simple, incumbent, and matched-exposure controls?
+6. How many formulations and stage placements were searched?
+
+If prose and code define different algorithms, test them as separate variants unless reconciled before evaluation.
+
+## 17. Stage-remapping and isolation protocol
+
+An algorithm may fail because it is assigned to the wrong architectural stage rather than because it contains no information.
+
+Where mathematically plausible, a material external or new operator should be tested both in its proposed role and in the nearest alternative HEPS role suggested by its information structure.
+
+Examples:
+
+- coordinate-frequency or transition evidence -> Candidate Funnel;
+- pair/co-occurrence/community evidence -> Coalition Assembly;
+- completed-line parity/gap/sum structure -> Morphology;
+- survivor-line discrimination -> Winner-Float Ranking;
+- coverage/diversity objectives -> Portfolio Optimization;
+- state/regime features -> Slot Forecast, routing/gating, or methodology depending on the output.
+
+Use stage-isolation tests to prevent upstream and downstream attribution errors.
+
+### Oracle candidate-universe diagnostic
+
+For post-hoc research only, an oracle candidate universe containing the known five target winners plus random or matched decoys may be used to isolate coalition/ranking ability from candidate acquisition.
+
+This diagnostic must be labelled `post_hoc_replay` or `oracle_stage_isolation`. It provides **zero** candidate-acquisition evidence and may not be used to reconstruct a frozen historical slate.
+
+### Morphology-matched controls
+
+When a line ranker may be exploiting ordinary morphology, compare against random lines matched on relevant coarse features such as sum band, parity, decade count, span, or other preregistered morphology. The purpose is to test information beyond common line shape.
+
+### Temporal permutation controls
+
+For temporal/co-occurrence/state models, preserve the observed draw set while permuting chronological order where appropriate. A signal that disappears under draw-order permutation is stronger evidence of temporal information than a static in-sample fit, though discovery-search correction and prospective validation are still required.
+
+## 18. Derivative hypothesis rule
+
+A useful algorithm discovered by modifying an external proposal becomes a **derivative HEPS hypothesis** when its mathematics, stage, or authority differs materially from the original contribution.
+
+The derivative must:
+
+- cite the originating contribution;
+- state what was changed;
+- record the variant/search path that led to it;
+- receive its own experiment ID when material;
+- preserve retrospective results as discovery evidence only;
+- freeze its first eligible prospective output before result reveal;
+- pass reproduction and promotion gates independently of the source proposal.
+
+This rule exists to preserve valuable ideas without laundering exploratory search into confirmatory evidence.
