@@ -1,0 +1,62 @@
+experiment_id: E0012
+title: Gemini SGCE, In-Wheel Pruning and Adaptive-K Audit
+status: active_audit
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+source:
+  contribution: collaboration/gemini-code-1787815167938.md
+  reviewed_on: 2026-08-27
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  audit_cutoff: 2026-08-25
+
+sgce_audit:
+  contribution_problem: >-
+    The Gemini note does not freeze rolling window, edge weighting, spectral dimension,
+    cluster count, cluster-to-coordinate mapping, or candidate-ranking rule.
+  minimal_diagnostic:
+    - For each target beginning after 8 prior active draws, build historical pair counts from all prior draws.
+    - Score the realized target by the sum of its ten historical pair counts.
+    - Compare with 20,000 uniformly sampled legal 5/50 lines under the same historical pair matrix.
+    - Report target-minus-random mean and empirical percentile.
+  interpretation_rule: >-
+    This diagnostic tests whether raw historical co-occurrence persists into future lines. It is not
+    a complete SGCE reproduction and cannot validate unspecified spectral hyperparameters.
+  future_requirement: >-
+    Any SGCE implementation must residualize against simple coordinate frequency/recency because
+    graph weighted degree is mechanically coupled to marginal occurrence frequency.
+
+adaptive_k_audit:
+  baseline: exact hypergeometric matched-exposure null
+  compare_k: [13, 16, 18]
+  volatility_diagnostics:
+    - lagged absolute macro-sum change versus next total slot VVD
+    - rolling 3-draw macro-sum standard deviation versus next total slot VVD
+    - rolling 5-draw macro-sum standard deviation versus next total slot VVD
+  rule: >-
+    Increasing K receives no predictive credit unless performance exceeds the exact exposure-driven
+    improvement and the K-selection variable is frozen prospectively.
+
+in_wheel_pruning_audit:
+  rule: >-
+    Moving an identical deterministic filter earlier in generation is an engineering optimization,
+    not a predictive improvement. Predictive credit belongs only to a validated filter rule.
+  gap_null_rule: >-
+    NULL_GAP_DM cannot reject one legal gap composition as less null-probable than another because
+    the exact IID 5/50 gap null is uniform over legal weak compositions.
+
+freeze_integrity:
+  target_2026_08_28_existing_main_prediction: immutable
+  rule: >-
+    No E0012 finding may alter cycles/2026-08-28/pre_draw/main_prediction.json after its existing freeze.
+
+promotion_gate:
+  - fully specified reproducible implementation
+  - walk-forward target freezes
+  - matched-exposure random and simple baselines
+  - residualization against simple frequency/recency where applicable
+  - proper-score or rank/recall improvement with uncertainty
+  - independent reproduction
