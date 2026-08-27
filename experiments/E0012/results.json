@@ -1,0 +1,68 @@
+{
+  "experiment_id": "E0012",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "audit_cutoff": "2026-08-25",
+  "sgce_raw_pair_persistence_diagnostic": {
+    "walk_forward_targets": 17,
+    "minimum_prior_draws": 8,
+    "random_lines_per_target": 20000,
+    "mean_target_minus_matched_random_pair_score": -0.5434117647,
+    "targets_above_random_mean": 6,
+    "targets_below_random_mean": 11,
+    "two_sided_sign_test_p_approx": 0.3323059082,
+    "mean_empirical_percentile": 0.5602617647,
+    "latest_target_2026_08_25": {
+      "historical_pair_score": 0,
+      "matched_random_mean": 1.9579,
+      "empirical_percentile": 0.1421
+    },
+    "interpretation": "No detected persistence edge in raw historical pair co-occurrence; this does not test unspecified spectral hyperparameters."
+  },
+  "adaptive_k_exact_null_exposure": {
+    "K13": {
+      "expected_winner_coordinates": 1.3,
+      "p_3plus": 0.1029932602,
+      "p_4plus": 0.0130935075,
+      "p_5of5": 0.0006074308
+    },
+    "K16": {
+      "expected_winner_coordinates": 1.6,
+      "p_3plus": 0.1795427514,
+      "p_4plus": 0.0312673451,
+      "p_5of5": 0.0020615832
+    },
+    "K18": {
+      "expected_winner_coordinates": 1.8,
+      "p_3plus": 0.2412845249,
+      "p_4plus": 0.0502595858,
+      "p_5of5": 0.0040438747
+    },
+    "K18_over_K13_p5_ratio": 6.6573426573,
+    "interpretation": "Raw recall improvement from K expansion has a large exact-null exposure component and cannot be credited as predictive lift."
+  },
+  "macro_sum_volatility_diagnostics": {
+    "lagged_absolute_macro_sum_change_vs_next_total_vvd": {
+      "pearson_r": 0.1805028503,
+      "p_value": 0.4098324750
+    },
+    "rolling_3_draw_macro_sum_sd_vs_next_total_vvd": {
+      "pearson_r": 0.2857964723,
+      "p_value": 0.1972766113
+    },
+    "rolling_5_draw_macro_sum_sd_vs_next_total_vvd": {
+      "pearson_r": 0.2558534260,
+      "p_value": 0.2762479545
+    },
+    "interpretation": "Exploratory only; no detected basis for macro-sum-volatility-controlled K expansion at the present sample."
+  },
+  "gap_null_filtering": {
+    "classification": "REJECT",
+    "reason": "NULL_GAP_DM is uniform over all legal six-gap compositions and therefore cannot rank or reject one legal line as less structurally null-probable than another."
+  },
+  "in_wheel_pruning": {
+    "classification": "INSUFFICIENT_EVIDENCE",
+    "predictive_edge": false,
+    "engineering_value_possible": true,
+    "reason": "Moving an unchanged filter earlier can reduce compute but does not create predictive information. Gemini supplied no reproducible polarity or elastic-sum filter formula."
+  }
+}
