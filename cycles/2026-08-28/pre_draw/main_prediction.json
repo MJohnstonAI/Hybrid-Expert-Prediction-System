@@ -1,0 +1,83 @@
+{
+  "target_draw_date": "2026-08-28",
+  "frozen_on": "2026-08-27",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "dataset_cutoff": "2026-08-25",
+  "previous_state": {
+    "main": [5, 34, 39, 43, 45],
+    "powerball": 1,
+    "source": "https://www.powerball.net/southafrica/results/history/2026"
+  },
+  "latest_transition": {
+    "from_main": [2, 4, 5, 24, 49],
+    "to_main": [5, 34, 39, 43, 45],
+    "main_hlr": "HHHHL",
+    "main_vvd": [3, 30, 34, 19, 4],
+    "powerball_direction": "LOW",
+    "powerball_vvd": 3
+  },
+  "hlr": {
+    "primary": "HLLLL",
+    "exact_joint_structural_top": [
+      {"vector": "HLLLL", "probability": 0.2611569974890974, "rank": 1},
+      {"vector": "LLLLL", "probability": 0.1990919216900451, "rank": 2},
+      {"vector": "HLLLH", "probability": 0.1446577243293247, "rank": 3},
+      {"vector": "LLLLH", "probability": 0.08742613604183579, "rank": 4}
+    ],
+    "barp_probabilities": {
+      "S1": {"LOW": 0.3969089425779426, "REPEAT": 0.07032179199154222, "HIGH": 0.5327692654305152},
+      "S2": {"LOW": 0.913260360932377, "REPEAT": 0.008722082727633144, "HIGH": 0.0780175563399898},
+      "S3": {"LOW": 0.7790799226875779, "REPEAT": 0.018248881421208632, "HIGH": 0.20267119589121352},
+      "S4": {"LOW": 0.5953734038450439, "REPEAT": 0.037927844588344126, "HIGH": 0.36669875156661197},
+      "S5": {"LOW": 0.5526674139756823, "REPEAT": 0.06407096603673847, "HIGH": 0.38326161998757935}
+    },
+    "interpretation": "Exact structural joint geometry and BARP independently have modal HLLLL. S1 remains weak enough that LOW must retain material hedge exposure; S5 HIGH is the secondary expansion hedge. No HLR state has hard-pruning authority."
+  },
+  "candidate_acquisition": {
+    "k": 13,
+    "candidates": [2, 6, 8, 15, 19, 24, 29, 33, 34, 40, 43, 44, 46],
+    "construction_note": "Core candidates combine the HLLLL joint conditional field with shrunk VVD-R residual support. Candidate 2 preserves the S1 LOW/global-recurrence branch; 46 preserves the S5 HIGH branch. Total unique K remains 13.",
+    "no_hard_veto": true
+  },
+  "powerball": {
+    "primary_direction": "HIGH",
+    "structural_direction": {"LOW": 0.0, "REPEAT": 0.0625, "HIGH": 0.9375},
+    "current_ball": 1,
+    "current_vvd": 3,
+    "exact_state_prior_successors": {"6": 1, "15": 1},
+    "historical_vvd_frequency_leaders": {"5": 4, "2": 4, "4": 3},
+    "ranking": [6, 15, 3, 5],
+    "primary": 6,
+    "reason": "PB6 has the cleanest convergence: HIGH direction, prior exact-state successor from PB1, and VVD5 is tied for the most frequent historical PB displacement. PB15 has exact-state support but requires rare VVD14; PB3 is the strong VVD2 alternative."
+  },
+  "portfolio": [
+    {"line": 1, "main": [6,19,24,34,43], "powerball": 6, "scenario": "HLLLL_PRIMARY"},
+    {"line": 2, "main": [6,19,29,34,44], "powerball": 15, "scenario": "HLLLL_PRIMARY"},
+    {"line": 3, "main": [6,19,24,33,44], "powerball": 6, "scenario": "HLLLL_PRIMARY"},
+    {"line": 4, "main": [6,19,29,33,43], "powerball": 3, "scenario": "HLLLL_PRIMARY"},
+    {"line": 5, "main": [8,19,24,34,44], "powerball": 6, "scenario": "HLLLL_PRIMARY"},
+    {"line": 6, "main": [8,19,29,34,43], "powerball": 15, "scenario": "HLLLL_PRIMARY"},
+    {"line": 7, "main": [8,19,24,33,43], "powerball": 6, "scenario": "HLLLL_PRIMARY"},
+    {"line": 8, "main": [8,19,29,33,44], "powerball": 3, "scenario": "HLLLL_PRIMARY"},
+    {"line": 9, "main": [6,15,24,34,44], "powerball": 6, "scenario": "HLLLL_PRIMARY"},
+    {"line": 10, "main": [2,6,24,33,43], "powerball": 6, "scenario": "LLLLL_S1_LOW_HEDGE"},
+    {"line": 11, "main": [2,8,24,33,44], "powerball": 15, "scenario": "LLLLL_S1_LOW_HEDGE"},
+    {"line": 12, "main": [2,8,24,34,43], "powerball": 3, "scenario": "LLLLL_S1_LOW_HEDGE"},
+    {"line": 13, "main": [2,6,24,29,44], "powerball": 6, "scenario": "LLLLL_S1_LOW_HEDGE"},
+    {"line": 14, "main": [2,6,24,34,40], "powerball": 5, "scenario": "LLLLL_S1_LOW_HEDGE"},
+    {"line": 15, "main": [6,19,29,40,46], "powerball": 6, "scenario": "HLLLH_S5_HIGH_HEDGE"},
+    {"line": 16, "main": [8,19,34,40,46], "powerball": 15, "scenario": "HLLLH_S5_HIGH_HEDGE"},
+    {"line": 17, "main": [6,15,34,40,46], "powerball": 6, "scenario": "HLLLH_S5_HIGH_HEDGE"},
+    {"line": 18, "main": [2,8,24,40,46], "powerball": 3, "scenario": "LLLLH_DUAL_TAIL_HEDGE"},
+    {"line": 19, "main": [2,6,29,34,46], "powerball": 5, "scenario": "LLLLH_DUAL_TAIL_HEDGE"},
+    {"line": 20, "main": [2,15,19,33,46], "powerball": 6, "scenario": "LLLLH_DUAL_TAIL_HEDGE"}
+  ],
+  "flagship": {"main": [6,19,24,34,43], "powerball": 6},
+  "integrity": {
+    "freeze_rule": "Do not alter this artifact after the 2026-08-28 result is known.",
+    "structural_nulls_are_controls_not_votes": true,
+    "algebraic_vvd_motifs": "diagnostic_only",
+    "assessment": "No durable predictive edge is claimed. This slate is a prospective HEPS experiment emphasizing distribution preservation, joint HLR-conditioned magnitude structure, and PB state-transition convergence."
+  }
+}
