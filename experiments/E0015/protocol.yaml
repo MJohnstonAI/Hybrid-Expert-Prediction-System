@@ -1,0 +1,91 @@
+experiment_id: E0015
+title: XTRA Conditional PowerBall Residual Convergence
+status: proposed_prospective_shadow
+evidence_classification: PROVISIONAL_SIGNAL
+paper_trading_only: true
+
+stage: powerball_matrix
+candidate_authority: none
+main_number_authority: none
+
+training:
+  canonical: data/powerball_xtra_history.jsonl
+  active_start: 2026-06-02
+  expanding_history: true
+  target_excluded: true
+  require_canonical_through_immediately_previous_draw: true
+  allow_main_state_transfer: false
+
+hyperparameters:
+  shrinkage_tau: 4.0
+  exact_ball_global_dirichlet_pseudocount: 1.0
+  vvd_global_pseudocount: 0.5
+  pooling: normalized_geometric_mean
+  selected_on: 2026-08-27
+  selection_note: "tau=4 survived E0014 discovery comparison against tau=8; historical evidence is discovery-only."
+
+component_A_exact_state:
+  global_frequency: "p_global(n)=(count(n)+1)/(N+16)"
+  current_state_counts: "C_s(n)=count of historical transitions PB=s -> n"
+  probability: "p_state(n)=(C_s(n)+tau*p_global(n))/(sum(C_s)+tau)"
+
+component_B_vvd_hlr:
+  current_vvd: "abs(PB_t-PB_t-1)"
+  current_hlr: "LOW/REPEAT/HIGH from PB_t-1 to PB_t"
+  global_successor_vvd: "empirical successor-VVD distribution with 0.5 pseudocount over d=0..15"
+  conditional_vvd: "P(d_next|d_current) shrunk with tau toward global successor-VVD distribution"
+  structural_hlr_at_current_ball: "[(PB_t-1)/16, 1/16, (16-PB_t)/16]"
+  conditional_hlr: "empirical P(HLR_next|HLR_current) shrunk with tau toward exact structural HLR probabilities at PB_t"
+  legal_ball_weight: "w(n)=P(d=abs(n-PB_t)|d_current)*P(HLR(PB_t->n)|HLR_current)"
+  exact_ball_probability: "normalize w(n) over n=1..16"
+
+convergence:
+  unnormalized: "g(n)=sqrt(p_state(n)*p_vvd_hlr(n))"
+  probability: "p_conv(n)=g(n)/sum_m g(m)"
+
+baselines:
+  - uniform_1_over_16
+  - simple_global_frequency_dirichlet
+  - exact_state_component_alone
+  - vvd_hlr_component_alone
+  - incumbent_frozen_XTRA_PB_matrix_when_comparable
+
+metrics:
+  primary:
+    - mean_logloss
+    - mean_brier_when_full_comparator_fields_are_available
+  secondary:
+    - exact_rank
+    - top1_hit
+    - top3_hit
+    - direction_hit
+    - vvd_rank
+
+residualization:
+  note: >-
+    Geometric pooling is a probability pool, not a claim that exact-state and VVD/HLR
+    components are independent. Prospectively track component score correlation and
+    leave-one-component-out performance before any promotion.
+
+prospective:
+  first_eligible_target: "2026-09-01 or later, unless the canonical XTRA ledger is verified through 2026-08-25 early enough to freeze a separate target field before 2026-08-28 without modifying the existing forecast"
+  existing_2026_08_28_credit: zero
+  initial_review_gate_targets: 20
+  note: "20 is an operational review gate, not an automatic power threshold."
+
+falsification:
+  - "Prospective log loss does not improve uniform/simple-frequency/incumbent comparators."
+  - "Top-rank gains disappear after enough targets or are driven by one exact-state recurrence."
+  - "Component dependence removes the apparent convergence gain."
+  - "Independent reproduction fails."
+
+integrity:
+  - no_retroactive_change_to_cycles_2026_08_28_powerball_xtra_pre_draw
+  - no_main_state_or_parameters
+  - no_post_target_tuning
+  - full_probability_field_frozen_before_each_eligible_draw
+
+reproducibility:
+  discovery_runner: scripts/xtra_algorithm_championship.py
+  discovery_experiment: E0014
+  random_seed: 20260827
