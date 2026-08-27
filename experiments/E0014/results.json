@@ -1,0 +1,140 @@
+{
+  "experiment_id": "E0014",
+  "analysis_date": "2026-08-27",
+  "paper_trading_only": true,
+  "canonical_dataset": {
+    "rows": 24,
+    "cutoff": "2026-08-21",
+    "minimum_prior_draws": 8,
+    "retrospective_targets": 16
+  },
+  "execution": {
+    "runner": "scripts/xtra_algorithm_championship.py",
+    "ci_test": "tests/test_xtra_algorithm_championship.py",
+    "workflow_run_id": 33066763655,
+    "job_id": 98498634513,
+    "random_seed": 20260827,
+    "random_line_samples_per_target": 1000,
+    "oracle_k13_decoy_replicates_per_target": 20,
+    "ci_conclusion": "success"
+  },
+  "spectral_candidate_acquisition_K13": {
+    "random_expected_total_winner_coordinates": 20.8,
+    "simple_frequency": {"total_winner_coordinates": 19, "targets_3plus": 2, "targets_4plus": 0, "targets_5of5": 0},
+    "simple_recency": {"total_winner_coordinates": 19, "targets_3plus": 1, "targets_4plus": 0, "targets_5of5": 0},
+    "ppmi_weighted_degree": {"total_winner_coordinates": 21, "targets_3plus": 1, "targets_4plus": 0, "targets_5of5": 0},
+    "spectral_row_norm": {"total_winner_coordinates": 20, "targets_3plus": 2, "targets_4plus": 0, "targets_5of5": 0},
+    "classification": "INSUFFICIENT_EVIDENCE",
+    "interpretation": "No coordinate-acquisition lift beyond matched random exposure; no 4/5 or 5/5 target."
+  },
+  "ppmi_spectral_coalition": {
+    "future_winner_percentile": {
+      "spectral": 0.482,
+      "raw_pair_count": 0.6109375,
+      "simple_ppmi": 0.52925,
+      "additive_frequency": 0.5401875
+    },
+    "targets_above_random_median": {
+      "spectral": 10,
+      "raw_pair_count": 10,
+      "simple_ppmi": 11,
+      "additive_frequency": 9
+    },
+    "spectral_morphology_matched": {
+      "mean_percentile": 0.4838737530099759,
+      "targets_above_median": 10
+    },
+    "oracle_k13_stage_isolation": {
+      "mean_winner_percentile": {
+        "spectral": 0.4733354393468118,
+        "raw_pair_count": 0.6452347395023328,
+        "simple_ppmi": 0.5207256026438569,
+        "additive_frequency": 0.5724509136858476
+      },
+      "top20_rate": {
+        "spectral": 0.025,
+        "raw_pair_count": 0.009375,
+        "simple_ppmi": 0.021875,
+        "additive_frequency": 0.028125
+      },
+      "top100_rate": {
+        "spectral": 0.071875,
+        "raw_pair_count": 0.1125,
+        "simple_ppmi": 0.065625,
+        "additive_frequency": 0.14375
+      }
+    },
+    "classification": "REJECT",
+    "claim_scope": "The exact Main E0013 PPMI spectral coalition formulation reproduces as a positive XTRA coalition-ranking signal on the current canonical XTRA replay.",
+    "interpretation": "It does not reproduce: spectral mean percentile is below 0.5 in unrestricted, morphology-matched and oracle-K13 diagnostics. This does not prove all future XTRA spectral formulations are useless."
+  },
+  "vvd_distribution": {
+    "events": 80,
+    "structural_null": {"mean_logloss": 2.939225390883524, "mean_brier": 0.9412715401879778, "exact_mode_hits": 4},
+    "best_logloss_challenger": {"name": "direction_conditioned_beta_0.1", "mean_logloss": 2.953075470593723, "mean_brier": 0.9406934176387021},
+    "beta_0.2_mode_hits": {"empirical": 6, "direction_conditioned": 6},
+    "classification": "INSUFFICIENT_EVIDENCE",
+    "interpretation": "No challenger beats the exact structural null on both proper scores; modest Brier/mode improvements coexist with worse log loss."
+  },
+  "draw_level_total_vvd_regime": {
+    "structural_null": {"mean_logloss": 0.9824228143357653, "mean_brier": 0.5979277739982151},
+    "best_markov_challenger": {"beta": 0.1, "mean_logloss": 0.997985575568414, "mean_brier": 0.6058678132999614},
+    "classification": "REJECT",
+    "claim_scope": "A first-order q25/q75 stiction-central-tail Markov regime improves the exact structural total-VVD regime distribution.",
+    "interpretation": "Every tested shrinkage is worse than the structural baseline on both log loss and Brier."
+  },
+  "residual_pca_kmeans": {
+    "targets": 14,
+    "k2": {"next_total_vvd_mae": 19.961150159364447, "baseline_total_vvd_mae": 18.8323964164245, "next_sum_mae": 26.444440083725798, "baseline_sum_mae": 23.11591966868946},
+    "k3": {"next_total_vvd_mae": 19.342517006802723, "baseline_total_vvd_mae": 18.8323964164245, "next_sum_mae": 26.31173469387755, "baseline_sum_mae": 23.11591966868946},
+    "classification": "REJECT",
+    "claim_scope": "The tested residual PCA/KMeans regime router improves next total-VVD or next-sum forecasts.",
+    "interpretation": "Both k=2 and k=3 are worse than the expanding unconditional baselines on both targets."
+  },
+  "morphology": {
+    "dynamic_sum": {
+      "alpha_1.0": {"winner_retention": 0.375, "legal_space_retention": 0.5113544596839661, "compression_lift": 0.7333464936079024},
+      "alpha_1.5": {"winner_retention": 0.625, "legal_space_retention": 0.6996822433876418, "compression_lift": 0.8932626287240707},
+      "alpha_2.0": {"winner_retention": 0.875, "legal_space_retention": 0.8284632874889086, "compression_lift": 1.056172329195353}
+    },
+    "static": {
+      "parity": {"winner_retention": 0.6875, "legal_space_retention": 0.6513243595310465, "compression_lift": 1.0555416666666666},
+      "decades": {"winner_retention": 0.875, "legal_space_retention": 0.9286091865053144, "compression_lift": 0.9422693773824651},
+      "max_adjacent_gap_le_25": {"winner_retention": 1.0, "legal_space_retention": 0.8996960486322189, "compression_lift": 1.1114864864864864},
+      "combined": {"winner_retention": 0.5625, "legal_space_retention": 0.546036360890332, "compression_lift": 1.0301511772637695}
+    },
+    "classification": "INSUFFICIENT_EVIDENCE",
+    "interpretation": "No hard-pruning case. The max-gap rule retained all 16 replay winners but also about 90% of legal space; dynamic alpha=2 and parity lifts are small and exploratory."
+  },
+  "fixed_k_rescue_K13": {
+    "random_expected_total_winner_coordinates": 20.8,
+    "core13_frequency": 19,
+    "core12_plus_recency1": {"total_winner_coordinates": 21, "uniquely_rescued": 3, "displaced_baseline_winners": 1},
+    "core12_plus_shadow1": {"total_winner_coordinates": 21, "uniquely_rescued": 3, "displaced_baseline_winners": 1},
+    "core12_plus_spectral1": {"total_winner_coordinates": 19, "uniquely_rescued": 1, "displaced_baseline_winners": 1},
+    "core12_plus_algebraic1": {"total_winner_coordinates": 19, "uniquely_rescued": 1, "displaced_baseline_winners": 1},
+    "core11_plus_recency2": {"total_winner_coordinates": 19, "uniquely_rescued": 4, "displaced_baseline_winners": 4},
+    "core11_plus_shadow2": {"total_winner_coordinates": 19, "uniquely_rescued": 4, "displaced_baseline_winners": 4},
+    "core11_plus_spectral2": {"total_winner_coordinates": 18, "uniquely_rescued": 2, "displaced_baseline_winners": 3},
+    "core11_plus_algebraic2": {"total_winner_coordinates": 17, "uniquely_rescued": 1, "displaced_baseline_winners": 3},
+    "classification": "INSUFFICIENT_EVIDENCE",
+    "interpretation": "One rescue seat from recency or stiction/shadow improves the frequency core by +2 net winners at identical K, but 21 total is essentially the random K13 expectation of 20.8. Two-seat rescue loses the gain."
+  },
+  "conditional_powerball": {
+    "targets": 16,
+    "uniform": {"mean_logloss": 2.772588722239781, "top1_hits": 0, "mean_exact_rank": 8.25},
+    "global_frequency": {"mean_logloss": 2.8725579269425614, "top1_hits": 2, "mean_exact_rank": 8.375},
+    "state_tau4": {"mean_logloss": 2.756817699441546, "top1_hits": 2, "mean_exact_rank": 8.125},
+    "vvd_hlr_tau4": {"mean_logloss": 2.843664806541125, "top1_hits": 3, "mean_exact_rank": 7.5625},
+    "convergence_tau4": {"mean_logloss": 2.660017861032129, "top1_hits": 4, "mean_exact_rank": 7.5},
+    "convergence_tau8": {"mean_logloss": 2.677008977625074, "top1_hits": 3, "mean_exact_rank": 7.6875},
+    "classification": "PROVISIONAL_SIGNAL",
+    "interpretation": "The geometric pooled exact-state plus VVD/HLR convergence at tau=4 is the strongest extracted XTRA result. It improves mean log loss by about 0.113 nats versus uniform and about 0.213 versus simple frequency, with 4/16 Top-1 hits. Tau=4 was selected after a small variant search, so all historical evidence is discovery-only and requires a fresh prospective freeze."
+  },
+  "overall": {
+    "new_provisional_signal": "conditional XTRA PowerBall residual convergence, tau=4",
+    "falsified_transfer": "Main E0013 exact PPMI spectral coalition formulation does not reproduce as a positive XTRA signal on current canonical replay",
+    "no_main_number_breakthrough": true,
+    "candidate_acquisition_bottleneck_remains": true
+  }
+}
