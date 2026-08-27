@@ -1,0 +1,39 @@
+{
+  "experiment_id": "E0013",
+  "evidence_classification": "PROVISIONAL_SIGNAL",
+  "discovery_only": true,
+  "cutoff": "2026-08-25",
+  "all_line_random_control": {
+    "targets": 17,
+    "minimum_prior_draws": 8,
+    "mean_future_winner_percentile": 0.657,
+    "targets_above_random_median": 14,
+    "one_sided_sign_p_uncorrected": 0.0064
+  },
+  "morphology_matched_control": {
+    "matching": "same odd count, same standard-decade count, sum within +/-10 of target",
+    "mean_future_winner_percentile": 0.648,
+    "targets_above_median": 13,
+    "one_sided_sign_p_uncorrected": 0.0245
+  },
+  "draw_order_permutation": {
+    "permutations": 300,
+    "observed_mean_percentile": 0.657,
+    "permuted_mean_percentile": 0.564,
+    "empirical_p": 0.0133
+  },
+  "oracle_k13_isolation": {
+    "design": "actual five target winners plus eight random decoys; rank all 1287 5-of-13 lines using prior data only",
+    "mean_winner_percentile": 0.620,
+    "targets_with_mean_percentile_above_half": 13,
+    "one_sided_sign_p_uncorrected": 0.0245,
+    "top20_rate_across_decoy_replicates": 0.0392,
+    "top100_rate_across_decoy_replicates": 0.1745
+  },
+  "controls_in_oracle_k13": {
+    "simple_frequency_mean_percentile": 0.424,
+    "raw_pair_count_mean_percentile": 0.422,
+    "pair_pmi_without_spectral_mean_percentile": 0.566
+  },
+  "warning": "The PPMI spectral variant was identified after exploratory comparison of multiple graph formulations. These p-values are discovery diagnostics, not confirmatory evidence and must not be interpreted without multiple-testing/search correction and prospective validation."
+}
