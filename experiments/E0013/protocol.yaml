@@ -1,0 +1,51 @@
+experiment_id: E0013
+title: Positive-PMI Spectral Coalition Ranking
+status: proposed_prospective_shadow
+evidence_classification: PROVISIONAL_SIGNAL
+paper_trading_only: true
+
+stage: coalition_assembly
+candidate_authority: none
+
+training:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  expanding_history: true
+  target_excluded: true
+
+graph:
+  pair_score: "max(0, log(((C_ij + 0.5) * N) / ((C_i + 1) * (C_j + 1))))"
+  laplacian: normalized
+  eigenvectors: 3_smallest_strictly_positive
+  line_score: negative_mean_pairwise_euclidean_distance_in_embedding
+
+baselines:
+  - random_ordering_same_candidate_universe
+  - raw_pair_count
+  - smoothed_pair_pmi_without_spectral_projection
+  - additive_simple_frequency
+  - incumbent_frozen_heps_order_when_available
+
+metrics:
+  - exact_winner_rank_conditional_on_5of5_candidate_survival
+  - winner_percentile
+  - top_100_survival
+  - top_20_survival
+  - paired_rank_delta_vs_baselines
+
+integrity:
+  - no_candidate_addition
+  - no_candidate_removal
+  - no_candidate_pruning
+  - no_retroactive_change_to_frozen_portfolio
+  - score_acquisition_failure_separately
+
+prospective:
+  first_target: 2026-08-28
+  initial_review_gate_targets: 20
+  note: 20 is an operational review gate and not automatically adequate statistical power
+
+falsification:
+  - no_persistent_rank_or_percentile_gain_vs_matched_controls
+  - signal_explained_by_frequency_or_other_redundant_expert_after_residualization
+  - prospective deterioration_vs_incumbent_line_ordering
