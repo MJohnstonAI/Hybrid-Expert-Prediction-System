@@ -32,6 +32,8 @@ Use `data/draw_history.jsonl` as the canonical active draw ledger.
 
 For work involving `MAIN_HLR_SLOT`, `MAIN_VVD_DELTA`, joint HLR vectors, slot gaps, Candidate Lattice compression, or safe exclusion, `experiments/E0001/` and `knowledge/STRUCTURAL_NULL_GAP_SPACE_RESEARCH_GUIDE_2026-08-06.md` are currently relevant mandatory context. Do not treat learned slot dynamics as incremental signal until compared with the exact structural nulls defined there.
 
+For work reviewing or importing an outside AI/human/paper/code contribution, `governance/external_contribution_protocol.md` is mandatory context. External proposals must be decomposed and tested component-by-component rather than accepted or rejected only as complete architectures.
+
 ## 3. Autonomous role selection
 
 Agents are **not assigned fixed research roles**.
@@ -74,6 +76,23 @@ Agents must not overwrite another model's experiment package. Add a reproduction
 
 Disagreement is preserved as evidence. Do not force consensus before the evidence justifies it.
 
+### External contribution decomposition obligation
+
+When an outside AI agent, human researcher, paper, report, notebook, or code contribution proposes a strategy, do not judge only whether the complete proposal is correct.
+
+Follow `governance/external_contribution_protocol.md` and ask separately:
+
+1. what mathematical/information operators are present;
+2. whether the external performance claim is reproducible on canonical HEPS data;
+3. which canonical HEPS stage each operator naturally belongs to;
+4. whether an operator that fails in the proposed stage could add information at another plausible stage;
+5. whether the operator adds value beyond exact structural geometry, simple frequency/recency, incumbent experts, and matched exposure;
+6. how many formulations/stage placements were searched before a survivor was found.
+
+A flawed external architecture may contain a valuable component. A valuable component must still pass the normal evidence pipeline before receiving authority.
+
+If a useful derivative is discovered only after exploring alternatives, preserve its retrospective result as discovery evidence and freeze the derivative as a new prospective experiment. Do not convert exploratory search into retrospective confirmation.
+
 ## 5. Evidence classifications
 
 Every material hypothesis or expert claim must use exactly one evidence classification:
@@ -91,6 +110,8 @@ Every expert also has one architecture status:
 - `archived`
 
 Evidence classification and architecture status are different concepts. An expert may be `PROVISIONAL_SIGNAL` and still remain `shadow` or `experimental`.
+
+Evidence classification should be component-specific when an external contribution contains multiple distinct claims. Do not assign one blanket label when one component is invalid and another survives as a research signal.
 
 ## 6. Experimental protocol
 
@@ -148,6 +169,8 @@ An expert's **forecast** and its **authority** are separate. An expert may be re
 
 Exact structural nulls are methodological baselines, not predictive experts. Do not count them as ensemble votes.
 
+For external or newly derived operators, stage assignment is itself a testable architectural hypothesis. A method should be evaluated where its information content naturally belongs rather than automatically inheriting the contributor's proposed stage.
+
 ## 9. Self-improvement operates at three speeds
 
 ### Fast: state updates
@@ -175,6 +198,8 @@ Minimum package:
 
 Legacy research in `workspace/contributions/` and `workspace/reviews/` remains valid historical evidence and must not be deleted. New work should prefer experiment packages.
 
+A derivative hypothesis extracted from an outside contribution should receive its own experiment package when it differs materially from the original contributor's architecture or requested authority.
+
 ## 11. Promotion path
 
 `core/heps_architecture.md` is the **end of the research pipeline**, not a scratchpad.
@@ -182,6 +207,10 @@ Legacy research in `workspace/contributions/` and `workspace/reviews/` remains v
 Architecture evolution follows:
 
 `proposal -> experiment -> reproduction -> red-team -> synthesis -> promotion decision -> core architecture`
+
+For outside contributions, the preferred path is:
+
+`external contribution -> decomposition -> exploratory championship -> derivative hypothesis -> prospective shadow -> reproduction -> promotion decision`.
 
 A single model may contribute at several stages, but it may not use its own unreviewed result as sole authority for promotion.
 
@@ -226,6 +255,8 @@ In particular:
 
 Do not conflate similarly named concepts.
 
+When an outside contributor uses different terminology for mathematically equivalent concepts, translate to the canonical identifier without treating the wording difference as evidence against the algorithm. When the mathematics differs, register the distinction explicitly.
+
 ## 15. Engineering and validation
 
 Before prediction, backtest, or ledger changes, run the repository's validation tools when available:
@@ -249,4 +280,4 @@ Main numbers are sorted order statistics, not physical draw order. Never convert
 
 Leave HEPS more auditable than you found it.
 
-A useful contribution is not merely a new prediction. It may be a falsification, reproduction, nomenclature repair, stronger baseline, failure diagnosis, implementation test, open question, or evidence that an attractive strategy should be removed.
+A useful contribution is not merely a new prediction. It may be a falsification, reproduction, nomenclature repair, stronger baseline, failure diagnosis, implementation test, open question, evidence that an attractive strategy should be removed, or extraction of a valid mathematical signal from an otherwise flawed outside proposal.
