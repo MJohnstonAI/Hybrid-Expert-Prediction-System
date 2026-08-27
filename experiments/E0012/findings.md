@@ -2,63 +2,98 @@
 
 Evidence classification: `INSUFFICIENT_EVIDENCE`.
 
-## 1. SGCE is an interesting hypothesis, not yet a predictive expert
+## 1. The revised SGCE is now a testable hypothesis, but strict W=50 has no eligible Main evidence yet
 
-Gemini does not specify the rolling window, weighted-edge transform, spectral dimension, cluster count, clustering algorithm, or rule that converts spectral clusters into a 1..50 probability field or K basket. The phrase “unweighted graph” also conflicts with the statement that edge weights reflect rolling co-occurrence frequency.
+The director/Gemini supplied a concrete challenger specification on 2026-08-27: Jaccard pair weights, normalized spectral Laplacian, three-dimensional eigenspace, four k-means clusters, temperature `tau=0.5`, `K_core=10`, dynamic sum bounds and explicit static morphology constraints.
 
-A minimal walk-forward diagnostic of raw historical pair persistence was run on the canonical active Main ledger through 2026-08-25. Across 17 targets, realized future lines had a mean historical-pair score 0.543 below matched random-line expectation. Only 6/17 targets were above the random mean. This is not evidence of a co-occurrence persistence edge.
+That is a major improvement in reproducibility over the original contribution.
 
-This diagnostic does not reject every possible spectral construction. It rejects any claim that the current note has already established predictive value.
+However, the canonical Main ledger contains only 25 active-era draws through 2026-08-25. The challenger explicitly freezes `W=50` consecutive active-era draws. Therefore the strict frozen SGCE currently has **zero eligible Main targets**. Any use of fewer than 50 prior draws is a different partial-window model and receives zero confirmatory credit.
 
-A further caution is structural: graph weighted degree constructed from pair co-occurrence is strongly coupled to marginal number frequency because every occurrence contributes four pair edges. Any future SGCE must demonstrate residual information after frequency and recency controls.
+## 2. The written SGCE and supplied Python are two different algorithms
 
-## 2. SGCE belongs primarily at coalition assembly until proven otherwise
+The written model specifies k-means clustering and node-to-assigned-centroid distance. The supplied Python does not run k-means, does not calculate centroid distance, and does not use `sigma_W`; it ranks nodes by standardized row norm of the three spectral eigenvectors.
 
-Pair and clique evidence naturally asks which already-acquired coordinates belong together. That is Stage 3 coalition information. It should not receive candidate-acquisition authority merely because it is represented as a graph.
+The written model also leaves k-means initialization / `random_state` / `n_init` unfrozen. In exploratory replication, different seeds produced different Top-10 sets.
 
-A future SGCE may earn candidate scoring authority only if it produces a prospectively frozen coordinate-level residual probability field that beats simple controls.
+Until one implementation is selected and all stochastic settings are frozen, the two variants must be treated as distinct challengers.
 
-## 3. `NULL_GAP_DM` cannot be used as Gemini proposes
+## 3. Exploratory partial-window replay does not show a predictive acquisition edge
 
-The exact IID gap null is uniform over all legal six-component gap compositions. Therefore “null filtering” cannot reject one legal line as less null-valid than another. Illegal 5/50 lines should already be prevented by the legal combination generator.
+Because strict W50 testing is impossible at the current ledger size, an explicitly post-hoc exploratory replay was run using available prior history only.
 
-Classification of the proposed null-gap filtering rationale: `REJECT`.
+For the supplied Python row-norm implementation across 17 targets:
 
-## 4. In-wheel pruning may be useful engineering, but it is not an edge
+- K10 captured 16 winner coordinates in total, mean `0.941` per target;
+- exact-null expectation at K10 is `1.0` winner per target;
+- simple frequency also captured 16 and simple recency 15;
+- no 3+/5 K10 target occurred.
 
-Moving an identical deterministic morphology filter from post-generation into the wheel generator can reduce computation and memory. That is an implementation optimization, not new predictive information.
+At K13 the row-norm SGCE captured 18 coordinates versus exact-null expectation `22.1` across the same 17 targets. At K18 it captured 25 versus exact-null expectation `30.6`.
 
-Gemini's claimed >60% reduction is not reproducible from the contribution because the Polar Flip-Flop Enforcer and Dynamic Elastic Sum Bounds are not formally defined.
+For the written k-means/centroid interpretation, five tested random states produced K10 totals of `18,17,17,16,17`; the random exact-null expectation is 17. The best tested total is not statistically unusual at matched exposure.
 
-Predictive classification: `INSUFFICIENT_EVIDENCE`.
+These results do not reject every future W50 spectral model. They do reject any present claim that the revised SGCE has already demonstrated a predictive edge.
 
-## 5. Adaptive K creates a major exposure confound
+## 4. SGCE remains more natural as coalition evidence than candidate authority
 
-Under exact matched-exposure null geometry:
+Pair/co-occurrence topology directly concerns which coordinates associate with one another. That is naturally Stage 3 coalition information.
 
-- K13: expected winner coordinates 1.3; P(3+) = 10.30%; P(5/5) = 0.0607%.
-- K18: expected winner coordinates 1.8; P(3+) = 24.13%; P(5/5) = 0.4044%.
+A graph expert may eventually earn candidate-funnel weight only if its coordinate-level residual score beats simple frequency/recency and exact matched-exposure controls prospectively. Spectral representation alone does not create predictive information.
 
-K18 therefore has about 6.66 times the null 5/5 survival probability of K13 before any predictive intelligence is added. An apparent recall improvement from 13 to 18 cannot be credited as an edge without explicit exposure correction.
+A further structural caution remains: pair-graph degree and related spectral structure are coupled to marginal occurrence frequency. Any future SGCE must be residualized against frequency/recency before being counted as a separate information family under E0011.
 
-Exploratory tests also found no detected relationship between simple macro-sum volatility measures and next-draw total VVD at the current sample. The contribution does not define the volatility statistic or K-selection thresholds.
+## 5. The in-line filters are now reproducible, but no winner-retention edge is detected
 
-Adaptive-K predictive classification: `INSUFFICIENT_EVIDENCE`.
+Using the supplied current-window formulas as an exploratory geometry diagnostic, the combined sum/parity/decadal/max-gap filter retains about `46.44%` of all legal 5/50 lines.
 
-## 6. Core + Rescue is not a new architectural breakthrough
+The static parity/decadal/max-gap portion was satisfied by 15 of the 25 canonical active-era winners (`60%`) versus an exact-null legal-line retention rate of about `54.88%`; one-sided binomial `p≈0.380`. This is no detected winner-retention lift.
 
-The useful conceptual part of Gemini's proposal—protect dissent/tail coordinates—is already being tested more cleanly in E0007/E0009/E0011. Those experiments preserve fixed total K and compare `Core13`, `Core12+Rescue1`, and `Core11+Rescue2` so rescue cannot win by silently increasing exposure.
+The individual static constraints are themselves broad:
 
-Gemini's `Core10 + Rescue6..8` creates K16..18 and therefore does not answer the existing fixed-K prediction question.
+- parity 2:3 or 3:2 retains about `65.13%` of legal lines;
+- the supplied `floor(x/10)` three-bin rule retains about `93.53%`;
+- max adjacent gap <=25 retains about `89.97%`.
+
+Thus most compression currently comes from combining broad common-morphology rules, not from demonstrated predictive discrimination.
+
+Applied only as an audit to the already-frozen 2026-08-28 HEPS portfolio using the current 25-draw sum band, the Gemini filter would retain 9 of 20 lines and delete 11. The frozen slate must not be changed after the fact.
+
+## 6. `NULL_GAP_DM` still does not justify the max-gap filter
+
+The rule `max adjacent gap <=25` is a legitimate morphology constraint to test, but it is **not** implied by `NULL_GAP_DM`.
+
+Under the exact IID gap null, every legal six-component gap composition is equally probable. Therefore `NULL_GAP_DM` cannot label one legal composition invalid or intrinsically less null-valid than another.
+
+Classification of the claimed `NULL_GAP_DM` filtering rationale: `REJECT`.
+
+## 7. Dynamic K13..18 remains confounded by exposure
+
+Exact matched-exposure geometry gives:
+
+- K13: expected winners `1.3`, `P(3+)≈10.30%`, `P(5/5)≈0.0607%`;
+- K18: expected winners `1.8`, `P(3+)≈24.13%`, `P(5/5)≈0.4044%`.
+
+K18 therefore has about `6.66x` the exact-null 5/5 survival probability of K13 before predictive intelligence is added.
+
+Exploratory macro-sum-volatility diagnostics still show no detected relationship strong enough to justify a volatility-controlled K expansion at this sample. Dynamic K may be researched, but it cannot be credited from raw recall.
+
+## 8. Core + Rescue remains better posed at fixed total K
+
+Gemini's motive—protecting tail/dissent coordinates—is valid as a research question, but E0007/E0009/E0011 already test it with cleaner exposure control: `Core13`, `Core12+Rescue1`, `Core11+Rescue2`.
+
+`Core10 + Rescue6..8` changes total K to 16..18 and therefore mixes rescue quality with exposure expansion.
 
 ## Strongest counterargument
 
-A spectral graph method can in principle detect residual community structure that raw pair-count persistence misses. The current audit therefore should not permanently reject spectral research. A fully specified residual SGCE could be tested prospectively as a coalition challenger.
+A true 50-draw spectral graph may behave differently from these short-window exploratory replays. Spectral clustering could detect residual community structure that raw pair persistence and expanding-window approximations cannot. For that reason SGCE should remain a live challenger rather than be permanently rejected.
 
 ## Recommendation
 
-Do not promote any Gemini component into `core/heps_architecture.md` or `core/expert_registry.yaml` from this contribution.
-
-Retain SGCE as a future experimental coalition hypothesis only after a reproducible protocol is written. Treat in-wheel pruning as engineering research. Continue fixed-K rescue through E0007/E0009/E0011 rather than adopting uncontrolled K16..18 expansion.
-
-The frozen 2026-08-28 Main slate must remain unchanged.
+- Do **not** promote SGCE, adaptive K, or the morphology filters into production HEPS yet.
+- Preserve the revised SGCE specification under E0012.
+- Reconcile the written k-means model with the supplied row-norm Python implementation and freeze stochastic settings.
+- Begin strict W50 scoring only once 50 prior active-era draws exist.
+- If an earlier test is desired, preregister a separate `W=20` or expanding-window challenger rather than silently changing W50.
+- Keep SGCE initially at coalition/shadow authority and require residualized incremental evidence before candidate-funnel promotion.
+- Keep the frozen 2026-08-28 Main prediction unchanged.
