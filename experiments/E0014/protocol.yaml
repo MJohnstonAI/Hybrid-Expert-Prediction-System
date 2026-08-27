@@ -1,0 +1,168 @@
+experiment_id: E0014
+title: XTRA Research Transfer and Algorithm-Extraction Championship
+status: active_exploratory_championship
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+research_date: 2026-08-27
+canonical_dataset:
+  file: data/powerball_xtra_history.jsonl
+  manifest: data/powerball_xtra_manifest.json
+  active_start: 2026-06-02
+  canonical_cutoff_at_freeze: 2026-08-21
+  canonical_rows_at_freeze: 24
+  exclude_pre_june: true
+  allow_main_state_transfer: false
+  target_excluded: true
+  expanding_history: true
+
+provenance_boundary:
+  note: >-
+    Later XTRA cycle artifacts contain a provenance-qualified 2026-08-25 working result,
+    but the canonical manifest/ledger remain through 2026-08-21. E0014 retrospective
+    championship fitting therefore uses canonical rows only. Existing 2026-08-28 XTRA
+    prediction artifacts are immutable.
+
+minimum_prior_draws: 8
+eligible_retrospective_targets: 16
+
+operators:
+  spectral_candidate_acquisition:
+    stage: candidate_funnel
+    variants:
+      - ppmi_weighted_degree
+      - normalized_laplacian_three_vector_row_norm
+    K: 13
+    baselines: [matched_random_K13, simple_frequency_K13, simple_recency_K13]
+    metrics: [total_winner_coordinates, mean_hits, targets_3plus, targets_4plus, targets_5of5]
+
+  ppmi_spectral_coalition:
+    stage: coalition_assembly
+    adjacency: "max(0, log(((C_ij + 0.5) * N) / ((C_i + 1) * (C_j + 1))))"
+    laplacian: normalized
+    eigenvectors: 3_smallest_strictly_positive
+    score: negative_mean_pairwise_euclidean_embedding_distance
+    baselines: [random_line_ranking, raw_pair_count, simple_ppmi, additive_frequency]
+    controls:
+      random_line_samples_per_target: 1000
+      morphology_match: "same odd count, same decade count, target sum +/-10"
+      oracle_K13:
+        design: "actual five winners + eight random decoys"
+        decoy_replicates_per_target: 20
+        credit: stage_isolation_only_zero_acquisition_credit
+    metrics: [winner_percentile, above_random_median_count, top20_rate, top100_rate]
+
+  vvd_distributions:
+    stage: candidate_funnel
+    challengers:
+      - empirical_full_vvd_shrunk_to_NULL_VVD_STRUCTURAL
+      - direction_conditioned_empirical_vvd_shrunk_to_NULL_VVD_STRUCTURAL
+    shrinkage_beta: [0.1, 0.2, 0.3, 0.5]
+    empirical_pseudocount: 0.5
+    baseline: NULL_VVD_STRUCTURAL
+    metrics: [mean_logloss, mean_brier, exact_mode_hits]
+
+  total_vvd_regime:
+    stage: routing_methodology
+    regime_definition: "expanding historical total-VVD q25/q75 -> stiction/central/tail"
+    transition: "first-order empirical Markov row with 0.5 pseudocount, shrunk to exact structural current-state total-VVD regime probabilities"
+    shrinkage_beta: [0.1, 0.2, 0.3, 0.5]
+    baseline: exact_structural_total_vvd_distribution
+    metrics: [mean_logloss, mean_brier]
+
+  residual_pca_kmeans:
+    stage: routing_methodology
+    features:
+      - HLR_residual_vs_exact_structural
+      - VVD_residual_vs_exact_structural_expected_displacement
+      - gap_residual_vs_7p5
+      - sum_residual
+      - span_residual
+    pca_components: 2
+    clusters: [2, 3]
+    baselines: [expanding_unconditional_next_total_vvd_mean, expanding_unconditional_next_sum_mean]
+    metrics: [next_total_vvd_mae, next_sum_mae]
+
+  morphology:
+    stage: morphology
+    dynamic_sum:
+      window: 5
+      alpha: [1.0, 1.5, 2.0]
+    static_filters:
+      - odd_count_in_2_or_3
+      - at_least_3_decades
+      - max_adjacent_gap_le_25
+      - combined
+    metric: compression_lift
+    definition: future_winner_retention_divided_by_exact_legal_space_retention
+
+  fixed_k_rescue:
+    stage: candidate_funnel
+    K: 13
+    core: expanding_simple_frequency
+    variants:
+      - Core13
+      - Core12_plus_Shadow1
+      - Core11_plus_Shadow2
+      - Core12_plus_Recency1
+      - Core11_plus_Recency2
+      - Core12_plus_Spectral1
+      - Core11_plus_Spectral2
+      - Core12_plus_Algebraic1
+      - Core11_plus_Algebraic2
+    required_attribution: [uniquely_rescued_winners, displaced_baseline_winners]
+    baseline: Core13_and_matched_random_K13
+
+  conditional_powerball:
+    stage: powerball_matrix
+    models:
+      - uniform_1_over_16
+      - global_frequency_dirichlet_baseline
+      - exact_current_state_successor
+      - current_VVD_plus_HLR_successor
+      - geometric_mean_residual_convergence
+    shrinkage_tau: [4.0, 8.0]
+    metrics: [mean_logloss, top1_hits, mean_exact_rank]
+
+multiple_testing_exposure:
+  spectral_candidate_variants: 2
+  spectral_coalition_transforms: 1 transferred frozen formulation plus 3 named controls
+  vvd_variants: 8
+  total_vvd_regime_variants: 4
+  pca_cluster_variants: 2
+  dynamic_sum_variants: 3
+  static_morphology_variants: 4
+  fixed_k_variants: 9
+  powerball_variants: 6
+  note: >-
+    Results are exploratory discovery evidence. Nominal p-values or sign counts are not
+    confirmatory after this operator/variant search.
+
+adversarial_controls:
+  - exact_structural_null
+  - matched_candidate_exposure
+  - simple_frequency
+  - simple_recency
+  - morphology_matched_line_control
+  - oracle_candidate_universe_stage_isolation
+  - expert_redundancy_interpretation
+
+falsification:
+  spectral_candidate: "No materially higher fixed-K recall than simple/matched controls -> no candidate authority."
+  spectral_coalition: "No persistent >0.5 winner percentile and no improvement over simple PMI/pair/frequency -> reject/hold."
+  vvd: "Proper scores do not improve versus NULL_VVD_STRUCTURAL -> no predictive VVD distribution authority."
+  regime: "Regime proper scores/MAE do not improve baselines -> diagnostic only."
+  morphology: "Compression lift <=1 or unstable -> no hard pruning."
+  rescue: "Same-K rescue does not improve recall after displaced-winner accounting -> no rescue authority."
+  powerball: "Conditional convergence does not improve rank/log loss over uniform/frequency -> retain incumbent only."
+
+prospective_rule:
+  any_derivative_survivor: >-
+    Retrospective performance is discovery evidence only. Create a new experiment package,
+    freeze its first eligible untouched XTRA output before result reveal, grant no more than
+    diagnostic/shadow authority, and preserve existing 2026-08-28 XTRA prediction unchanged.
+
+reproducibility:
+  runner: scripts/xtra_algorithm_championship.py
+  random_seed: 20260827
+  ci_test: tests/test_xtra_algorithm_championship.py
