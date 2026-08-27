@@ -1,0 +1,134 @@
+{
+  "experiment_id": "E0016",
+  "run_date": "2026-08-27",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "candidate_acquisition": {
+    "feature_library_size": 85,
+    "population": 180,
+    "generations": 30,
+    "evaluated_genome_cache_entries": 4117,
+    "frozen_discovery_champion": {
+      "features": [
+        {"name": "gap_cos_p6", "weight": -0.294914},
+        {"name": "vvd_resid_w50_s5", "weight": -0.344819},
+        {"name": "drift_diffusion_w40_a0.5", "weight": 0.360267}
+      ],
+      "discovery_470": {
+        "mean_winner_rank": 24.74382978723404,
+        "top10_recall": 0.2272340425531915,
+        "top13_recall": 0.2902127659574468,
+        "top13_3plus_rate": 0.15106382978723404,
+        "top15_recall": 0.33361702127659576,
+        "top20_recall": 0.4251063829787234,
+        "top20_3plus_rate": 0.3680851063829787
+      },
+      "later_historical_311": {
+        "mean_winner_rank": 25.536977491961416,
+        "top10_recall": 0.18906752411575561,
+        "top13_recall": 0.2463022508038585,
+        "top13_3plus_rate": 0.08038585209003216,
+        "top15_recall": 0.2919614147909968,
+        "top20_recall": 0.3897106109324759,
+        "top20_3plus_rate": 0.3054662379421222
+      },
+      "current_2026_transfer_17_targets": {
+        "mean_winner_rank": 26.435294117647057,
+        "top10_recall": 0.16470588235294117,
+        "top13_recall": 0.24705882352941178,
+        "top13_3plus_rate": 0.0,
+        "top15_recall": 0.29411764705882354,
+        "top20_recall": 0.43529411764705883,
+        "top20_3plus_rate": 0.4117647058823529
+      },
+      "disposition": "REJECT_AS_PREDICTIVE_BREAKTHROUGH"
+    },
+    "simple_controls_later_311": {
+      "recency_inverse_gap": {"mean_rank": 25.388424437299037, "top13_recall": 0.262379421221865, "top20_recall": 0.4045016077170418},
+      "frequency_all": {"mean_rank": 25.539549839228297, "top13_recall": 0.262379421221865, "top20_recall": 0.4006430868167203},
+      "gap_hazard_s20": {"mean_rank": 25.09646302250804, "top13_recall": 0.26495176848874596, "top20_recall": 0.4077170418006431}
+    },
+    "robust_simple_lead": {
+      "name": "transition_w50_d1",
+      "discovery_mean_rank": 24.823,
+      "discovery_top13_recall": 0.277,
+      "validation_mean_rank": 25.203,
+      "validation_top13_recall": 0.273,
+      "current_2026_mean_rank": 26.75294117647059,
+      "current_2026_top13_recall": 0.25882352941176473,
+      "disposition": "INSUFFICIENT_EVIDENCE_NO_CURRENT_TRANSFER"
+    }
+  },
+  "coalition_ranking": {
+    "feature_library_size": 17,
+    "population": 120,
+    "generations": 25,
+    "frozen_legacy_discovery_champion": {
+      "features": [
+        {"name": "raw_pair_mean", "weight": 0.220862},
+        {"name": "spectral_k5", "weight": -0.410581},
+        {"name": "diffusion_tau0.25", "weight": -0.368558}
+      ],
+      "discovery_470": {
+        "mean_percentile": 0.540,
+        "mean_morphology_matched_percentile": 0.549,
+        "above_random_median_rate": 0.574,
+        "sampled_top20_rate": 0.017,
+        "sampled_top100_rate": 0.134
+      },
+      "later_historical_311": {
+        "mean_percentile": 0.49960209003215433,
+        "mean_morphology_matched_percentile": 0.5077728778172869,
+        "above_random_median_rate": 0.5241157556270096,
+        "sampled_top20_rate": 0.03215434083601286,
+        "sampled_top100_rate": 0.12218649517684887
+      },
+      "current_2026_transfer_17_targets": {
+        "mean_percentile": 0.37368627450980396,
+        "mean_morphology_matched_percentile": 0.379491797785534,
+        "above_random_median_rate": 0.29411764705882354
+      },
+      "disposition": "REJECT_AS_GENERAL_COALITION_BREAKTHROUGH"
+    },
+    "e0013_independent_current_reproduction": {
+      "operator": "positive_PMI_normalized_Laplacian_three_eigenvector_coherence",
+      "targets": 17,
+      "random_lines_per_target": 3000,
+      "mean_future_winner_percentile": 0.6587843137254902,
+      "targets_above_random_median": 14,
+      "above_median_rate": 0.8235294117647058,
+      "one_sided_sign_p_before_search_correction": 0.0063629150390625,
+      "repository_reference_result": "approximately 0.657 mean percentile and 14/17 above median",
+      "reproduction_status": "NUMERICALLY_REPRODUCED",
+      "evidence_status": "PROVISIONAL_SIGNAL"
+    },
+    "diffusion_dynamics_current_sensitivity": {
+      "tau_0.1": {"mean_percentile": 0.5669019607843137, "above_median_targets": 11},
+      "tau_0.25": {"mean_percentile": 0.5647647058823528, "above_median_targets": 11},
+      "tau_0.5": {"mean_percentile": 0.5689607843137255, "above_median_targets": 11},
+      "tau_1": {"mean_percentile": 0.5619607843137254, "above_median_targets": 11},
+      "tau_2": {"mean_percentile": 0.4760980392156862, "above_median_targets": 10},
+      "tau_4": {"mean_percentile": 0.40168627450980393, "above_median_targets": 6},
+      "tau_8": {"mean_percentile": 0.3997647058823529, "above_median_targets": 5},
+      "best_scanned_tau": 0.5,
+      "best_scanned_tau_mean_percentile": 0.5689607843137255,
+      "disposition": "NO_INCREMENTAL_LIFT_OVER_E0013"
+    },
+    "simple_spectral_diffusion_mixtures": {
+      "spectral_weight_0": 0.5691647058823529,
+      "spectral_weight_0.25": 0.6048470588235294,
+      "spectral_weight_0.5": 0.6316352941176471,
+      "spectral_weight_0.75": 0.6465411764705882,
+      "spectral_weight_1.0": 0.6573058823529411,
+      "conclusion": "pure_E0013_spectral_was_best; diffusion_diluted_signal"
+    }
+  },
+  "overall": {
+    "predictive_breakthrough_found": false,
+    "strongest_current_survivor": "E0013 PPMI spectral coalition coherence",
+    "strongest_current_survivor_status": "PROVISIONAL_SIGNAL",
+    "candidate_acquisition_breakthrough": false,
+    "physics_diffusion_incremental_breakthrough": false,
+    "core_promotion": false,
+    "next_decisive_evidence": "frozen prospective E0013 scoring beginning 2026-08-28"
+  }
+}
