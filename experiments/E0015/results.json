@@ -1,0 +1,18 @@
+{
+  "experiment_id": "E0015",
+  "evidence_classification": "PROVISIONAL_SIGNAL",
+  "discovery_only": true,
+  "source_experiment": "E0014",
+  "canonical_cutoff": "2026-08-21",
+  "targets": 16,
+  "selected_hyperparameter": {"tau": 4.0, "pooling": "normalized_geometric_mean"},
+  "discovery_metrics": {
+    "uniform": {"mean_logloss": 2.772588722239781, "top1_hits": 0, "mean_exact_rank": 8.25},
+    "global_frequency": {"mean_logloss": 2.8725579269425614, "top1_hits": 2, "mean_exact_rank": 8.375},
+    "exact_state_tau4": {"mean_logloss": 2.756817699441546, "top1_hits": 2, "mean_exact_rank": 8.125},
+    "vvd_hlr_tau4": {"mean_logloss": 2.843664806541125, "top1_hits": 3, "mean_exact_rank": 7.5625},
+    "convergence_tau4": {"mean_logloss": 2.660017861032129, "top1_hits": 4, "mean_exact_rank": 7.5},
+    "convergence_tau8": {"mean_logloss": 2.677008977625074, "top1_hits": 3, "mean_exact_rank": 7.6875}
+  },
+  "warning": "tau=4 was selected after E0014 variant comparison. These metrics are hypothesis-generation only and provide no prospective validation."
+}
