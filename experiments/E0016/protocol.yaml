@@ -1,0 +1,133 @@
+experiment_id: E0016
+title: HEPS-Evolve v0.2 Cross-Experiment Algorithm Synergy Championship
+status: completed_exploratory_championship
+architecture_status: experimental
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+branch: research/heps-evolve-v0.2-2026-08-27
+may_modify_core: false
+
+stages:
+  candidate_acquisition:
+    output: score_vector_1_to_50
+    max_features_per_genome: 6
+    evolutionary_population: 180
+    generations: 30
+    progressive_targets: [100, 250, 470]
+    fitness_emphasis:
+      - mean_winner_rank
+      - top10_recall
+      - top13_recall
+      - top13_3plus_draw_rate
+      - top20_recall
+      - complexity_penalty
+  coalition_ranking:
+    output: legal_five_number_line_score
+    evolutionary_population: 120
+    generations: 25
+    progressive_targets: [80, 200, 470]
+    discovery_random_lines_per_target: 800
+    metrics:
+      - future_winner_percentile
+      - morphology_matched_percentile
+      - above_random_median_rate
+      - top20_rate_within_sampled_universe
+      - top100_rate_within_sampled_universe
+
+historical_data:
+  source: Train on Main.xlsx
+  rows: 811
+  chronological_first: 2018-01-09
+  chronological_last: 2025-10-17
+  warmup_draws: 30
+  discovery_targets: 470
+  later_diagnostic_targets: 311
+  authority: legacy_discovery_gymnasium_only
+
+current_transfer:
+  source: data/draw_history.jsonl
+  canonical_rows_at_run: 25
+  latest_draw: 2026-08-25
+  minimum_prior_draws_for_transfer_score: 8
+  scored_targets: 17
+  rule: legacy_evolved_genomes_are_frozen_before_current_transfer
+
+candidate_feature_library:
+  feature_count: 85
+  families:
+    - recency_exponential_and_inverse_gap
+    - rolling_frequency
+    - shadow_support
+    - residue_occupancy
+    - beta_shrunk_gap_hazard
+    - gap_phase_harmonics_periods_2_to_8
+    - directed_successor_transition_fields
+    - structural_null_residualized_HLR_fields
+    - structural_null_residualized_VVD_fields
+    - positive_PMI_degree
+    - normalized_Laplacian_spectral_row_norm
+    - previous_draw_embedding_proximity
+    - positive_PMI_heat_kernel_candidate_diffusion
+    - discrete_drift_diffusion_fields
+    - one_dimensional_optimal_transport_advection
+
+coalition_feature_library:
+  - raw_pair_mean
+  - positive_PMI_pair_mean
+  - spectral_coherence_k2
+  - spectral_coherence_k3
+  - spectral_coherence_k5
+  - diffusion_distance_tau_0_25
+  - diffusion_distance_tau_0_5
+  - diffusion_distance_tau_1
+  - diffusion_distance_tau_2
+  - diffusion_distance_tau_4
+  - additive_frequency
+  - additive_recency
+  - additive_gap_hazard
+  - additive_PPMI_degree
+  - additive_drift_diffusion
+  - sum_centrality
+  - span_centrality
+
+spectral_definition:
+  adjacency: A_ij=max(0,log(((C_ij+0.5)*N)/((C_i+1)*(C_j+1))))
+  laplacian: L=I-D^(-1/2)*A*D^(-1/2)
+  e0013_embedding: three_smallest_strictly_positive_eigenvectors
+  e0013_line_score: negative_mean_pairwise_Euclidean_embedding_distance
+  diffusion_extension: negative_mean_pairwise_diffusion_distance
+  diffusion_weight: exp(-2*tau*lambda)
+
+candidate_nulls:
+  random_mean_rank: 25.5
+  top10_coordinate_recall: 0.20
+  top13_coordinate_recall: 0.26
+  top15_coordinate_recall: 0.30
+  top20_coordinate_recall: 0.40
+  top13_3plus_draw_probability: 0.10299326020880137
+
+coalition_controls:
+  - random_legal_lines_same_target
+  - morphology_matched_random_lines_same_odd_count_decade_count_and_sum_plus_minus_10
+  - raw_pair_score
+  - additive_frequency
+  - E0013_spectral_k3
+
+multiple_testing:
+  rule: all historical and current replay results are exploratory
+  candidate_search: thousands_of_sparse_genomes
+  coalition_search: thousands_of_sparse_genomes
+  diffusion_tau_grid_current_sensitivity: [0.1, 0.25, 0.5, 1, 2, 4, 8]
+  no_nominal_p_value_may_be_called_confirmatory: true
+
+falsification:
+  - candidate champion fails later 311-target block
+  - candidate champion fails current 2026 transfer block
+  - coalition champion regresses to random on later 311-target block
+  - diffusion extensions do not improve E0013 spectral coherence
+  - E0013 prospective shadow fails preregistered future scoring
+
+decision_rule:
+  breakthrough_requires: prospective_and_search_corrected_evidence
+  provisional_signal_allowed_if: independent_reproduction_of_existing_preregistered_lead
+  core_changes_from_E0016: forbidden
