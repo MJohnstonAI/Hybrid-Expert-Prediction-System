@@ -1,0 +1,54 @@
+{
+  "experiment_id": "E0016",
+  "evidence_scope": "exploratory post-June-2026 walk-forward taste test; formulas now frozen prospectively in protocol.yaml",
+  "legacy_pre_june_data_used": false,
+  "main_nonequilibrium_current": {
+    "targets": 17,
+    "baseline_k13_winner_coordinates": 19,
+    "current_shadow_k13_winner_coordinates": 25,
+    "random_k13_expected_winner_coordinates": 22.1,
+    "baseline_mean_winner_rank": 27.48,
+    "current_shadow_mean_winner_rank": 26.08,
+    "last_two_holdout_baseline_k13_winner_coordinates": 1,
+    "last_two_holdout_current_k13_winner_coordinates": 2,
+    "approx_random_upper_tail_p": 0.26,
+    "chronology_irreversibility_permutation_p": 0.33,
+    "interpretation": "directionally useful but underpowered; shadow only"
+  },
+  "main_levy_tail_diagnostic": {
+    "targets": 17,
+    "k13_winner_coordinates": 22,
+    "random_k13_expected_winner_coordinates": 22.1,
+    "notable_target": "2026-08-21",
+    "notable_target_main": [2, 4, 5, 24, 49],
+    "notable_target_top10_capture": 4,
+    "notable_target_top13_capture": 4,
+    "notable_target_top20_capture": 4,
+    "fixed_k_rescue_overall_improvement": false,
+    "interpretation": "useful tail diagnostic; no normal candidate authority"
+  },
+  "xtra_richardson_pair_dispersion": {
+    "targets": 16,
+    "baseline_k13_winner_coordinates": 15,
+    "richardson_k13_winner_coordinates": 25,
+    "random_k13_expected_winner_coordinates": 20.8,
+    "baseline_k20_winner_coordinates": 29,
+    "richardson_k20_winner_coordinates": 34,
+    "baseline_mean_winner_rank": 26.31,
+    "richardson_mean_winner_rank": 24.69,
+    "last_two_holdout_baseline_k13_winner_coordinates": 2,
+    "last_two_holdout_richardson_k13_winner_coordinates": 4,
+    "approx_random_upper_tail_p": 0.16,
+    "interpretation": "strongest physics-derived XTRA candidate lead; prospective shadow only"
+  },
+  "rejected_or_not_integrated": [
+    "general_drift_diffusion_tensor",
+    "optimal_transport_main_number_flow",
+    "nucleation_augmentation_of_E0013",
+    "heat_kernel_diffusion_augmentation_of_E0013",
+    "levy_as_normal_main_candidate_ranker",
+    "physics_family_xtra_powerball_models"
+  ],
+  "reproduction_required": true,
+  "warning": "These numerical results justify shadow admission only. They are not prospective confirmation and may not be used to retune E0016 after future outcomes."
+}
