@@ -4,6 +4,8 @@
 
 This handoff records the director-approved disposition of the physics-derived strategy championship. Read it together with `experiments/E0016/` before modifying Main candidate research, XTRA candidate research, tail-rescue logic, or any physics-inspired expert.
 
+For XTRA-specific continuation, also read `knowledge/XTRA_RICHARDSON_RESEARCH_HANDOFF_2026-08-28.md`.
+
 ## Hard data rule
 
 For the physics programme described here:
