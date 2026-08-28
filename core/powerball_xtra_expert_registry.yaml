@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-08-14
+updated: 2026-08-28
 purpose: >-
   Independent expert-state registry for the South African PowerBall XTRA HEPS lane.
   Architecture families may mirror Main, but all fitted state, evidence, and outputs
@@ -72,6 +72,37 @@ experts:
       diagnostic: true
       may_score: true
       may_hard_eliminate: false
+
+  - expert_id: XTRA_RICHARDSON_PAIR_DISPERSION
+    name: Richardson Residual Pair-Dispersion Shadow
+    stage: candidate_funnel
+    architecture_status: shadow
+    evidence: PROVISIONAL_SIGNAL
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_start_history: false
+      allow_main_state_transfer: false
+    evidence_paths:
+      - core/xtra_richardson_pair_dispersion.md
+      - experiments/E0016/findings.md
+      - experiments/E0016/decision.md
+      - knowledge/PHYSICS_SHADOW_INTEGRATION_HANDOFF_2026-08-28.md
+    notes:
+      - Models all ten sorted-slot pair separations using XTRA-only expanding history.
+      - Residualizes against exact 5/50 pair-separation geometry before message passing.
+      - Integrates distribution-first into XTRA slot/global marginals; no hard gap gate.
+      - E0016 50/50 incumbent/Richardson blend is counterfactual shadow only.
+      - Main Richardson state, pair counts, coordinates and weights may not be imported.
+    falsification:
+      - Demote or reject if prospective fixed-exposure K13/K20/rank lift disappears or is redundant with slot-density/recency/VVD controls.
 
   - expert_id: XTRA_COALITION_PAIR_OF_PAIRS_ANCHOR
     stage: coalition_assembly
