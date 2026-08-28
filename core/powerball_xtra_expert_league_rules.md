@@ -16,6 +16,7 @@ The league compares HEPS experts prospectively. It must reward precision, penali
 4. An expert is scored only for the task it actually performs: direction, candidate acquisition, exact slot, exact PowerBall, coalition assembly, morphology, or portfolio construction.
 5. Broad candidate sets do not receive the same credit as exact predictions.
 6. All rankings retain attempt counts; no expert is promoted from one memorable success.
+7. XTRA physics-derived experts use only the 2026-06-02-onward XTRA ledger; pre-June Plus/XTRA history has zero league authority.
 
 ## Core score: null-adjusted hit surplus
 
@@ -55,6 +56,32 @@ For an unstructured K-number candidate basket from 1-50, report:
 
 When a candidate set is slot-constrained rather than global, use the corresponding exact order-statistic null instead of `K/50` where feasible.
 
+## Richardson pair-dispersion scoring
+
+`XTRA_RICHARDSON_PAIR_DISPERSION` is a candidate-funnel shadow expert under `experiments/E0016/` and `core/xtra_richardson_pair_dispersion.md`.
+
+For every eligible target, freeze and score separately:
+
+1. incumbent XTRA global candidate ranking/basket;
+2. Richardson-only shadow ranking/basket;
+3. frozen 50/50 incumbent/Richardson shadow blend.
+
+Keep total unique exposure identical for every K comparison.
+
+Required Richardson metrics:
+
+- mean/median rank of the five winning coordinates;
+- K13 winner recall and recall surplus;
+- K20 winner recall and recall surplus;
+- K13 3+/5 indicator;
+- catastrophic exclusion indicator;
+- per-target delta versus incumbent, simple recency and simple frequency;
+- cumulative null-adjusted recall surplus by K.
+
+Do not credit Richardson for a larger effective basket, downstream line assembly, or a winning coordinate supplied by another lane outside the frozen Richardson field.
+
+Pair-family diagnostics may report which of the ten sorted-slot pair separations contributed residual information, but those ten pair messages are **not ten independent expert votes**.
+
 ## Exact-line and coalition scoring
 
 A five-number line is scored by number of main-field matches. Assembly experts must be compared against randomized assembly controls using the **same candidate pool and same number of lines**. Do not credit an assembly expert for numbers that were unavailable upstream.
@@ -74,6 +101,8 @@ Keep three levels distinct:
 3. **Exact hit** — a frozen single-ball prediction equals the actual PB.
 
 An exact hit may also imply a band hit, but league summaries must not count those as independent successful attempts from the same expert unless the expert explicitly froze both outputs as separate hypotheses.
+
+E0016 Richardson evidence applies only to XTRA main-number candidate acquisition. It receives no XTRA PowerBall credit.
 
 ## Evidence labels
 
@@ -108,3 +137,5 @@ Do not compare fundamentally different task classes solely by one scalar score. 
 ## 2026-08-14 inception
 
 The first fully frozen league-table target is Friday 2026-08-14. Earlier XTRA successes may be documented as historical evidence, but they must be clearly labelled retrospective or prospectively frozen-at-the-time before entering the formal league standings.
+
+Richardson's E0016 replay is discovery evidence only and does not enter prospective league standings retroactively. Its league record starts only with targets frozen after the E0016 specification.
