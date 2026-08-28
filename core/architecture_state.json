@@ -2,12 +2,17 @@
   "schema_version": 1,
   "architecture_id": "HEPS-v34.1-johnson-assembly",
   "status": "active_research",
-  "updated": "2026-08-10",
+  "updated": "2026-08-28",
   "canonical_architecture": "core/heps_architecture.md",
   "normative_modules": [
     "core/johnson_portfolio_assembly.md"
   ],
+  "shadow_modules": [
+    "core/main_physics_shadow_experts.md",
+    "core/xtra_richardson_pair_dispersion.md"
+  ],
   "expert_registry": "core/expert_registry.yaml",
+  "xtra_expert_registry": "core/powerball_xtra_expert_registry.yaml",
   "active_data": "data/draw_history.jsonl",
   "dataset_manifest": "data/draw_manifest.json",
   "pipeline": [
@@ -31,6 +36,22 @@
     "evidence": "PROVISIONAL_SIGNAL",
     "jurisdiction": "assembly_only_after_candidate_freeze",
     "experiment": "E0002"
+  },
+  "physics_shadow_integration": {
+    "experiment": "E0016",
+    "data_boundary": "post_2026_06_02_only",
+    "main_nonequilibrium_current": {
+      "architecture_status": "shadow",
+      "authority": "shadow_candidate_score_only"
+    },
+    "main_levy_tail": {
+      "architecture_status": "shadow",
+      "authority": "diagnostic_only"
+    },
+    "xtra_richardson_pair_dispersion": {
+      "architecture_status": "shadow",
+      "authority": "xtra_candidate_field_shadow_only"
+    }
   },
   "learning_speeds": {
     "fast": "deterministic state updates after each draw",
