@@ -177,3 +177,25 @@ prospective_rule:
   minimum_review_horizon: 10_targets
   stronger_promotion_review: 20_plus_targets
   one_draw_promotion_forbidden: true
+
+implementation:
+  script: scripts/physics_shadow_e0016.py
+  tests: tests/test_physics_shadow_e0016.py
+  dependencies: standard_library_only
+  inner_loop_llm_calls: 0
+  hard_boundary_enforced_in_code: true
+  main_command: >-
+    python scripts/physics_shadow_e0016.py main --ledger data/draw_history.jsonl
+  xtra_command: >-
+    python scripts/physics_shadow_e0016.py xtra --ledger data/powerball_xtra_history.jsonl
+  optional_inputs:
+    main_incumbent_global_field: --base-global-field
+    xtra_incumbent_slot_marginals: --base-slot-field
+  local_smoke_test_2026_08_28:
+    tests_run: 4
+    tests_passed: 4
+    checks:
+      - post_june_boundary
+      - exact_structural_pmf_normalization
+      - main_shadow_output_shape
+      - xtra_richardson_output_normalization
