@@ -1,0 +1,105 @@
+{
+  "target_draw_date": "2026-08-28",
+  "frozen_on": "2026-08-28",
+  "mode": "paper_trading_only",
+  "status": "late_pre_draw_working_state_shadow",
+  "integrity": {
+    "does_not_modify_existing_frozen_forecast": true,
+    "working_previous_draw": {
+      "date": "2026-08-25",
+      "main": [4, 7, 15, 18, 29],
+      "powerball": 16,
+      "draw_id": 1749
+    },
+    "canonical_manifest_lags_at": "2026-08-21",
+    "formal_e0016_league_credit": "pending canonicalization of 2026-08-25",
+    "pre_june_history_used": false,
+    "main_state_transfer_used": false
+  },
+  "direction_primary": "H,H,H,H,H | L",
+  "richardson": {
+    "expert_id": "XTRA_RICHARDSON_PAIR_DISPERSION",
+    "h": 5.0,
+    "kappa": 8.0,
+    "pair_state": {
+      "S1_S2": 3,
+      "S1_S3": 11,
+      "S1_S4": 14,
+      "S1_S5": 25,
+      "S2_S3": 8,
+      "S2_S4": 11,
+      "S2_S5": 22,
+      "S3_S4": 3,
+      "S3_S5": 14,
+      "S4_S5": 11
+    },
+    "standalone_structural_base_top13": [1, 50, 2, 49, 22, 48, 47, 44, 7, 46, 42, 45, 23],
+    "standalone_structural_base_top20": [1, 50, 2, 49, 22, 48, 47, 44, 7, 46, 42, 45, 23, 3, 5, 4, 8, 43, 24, 21],
+    "primary_HHHHH_branch_slot_top": {
+      "1": [7, 5, 6, 8, 9, 10, 11, 12],
+      "2": [21, 18, 19, 22, 20, 17, 16, 15],
+      "3": [29, 30, 27, 28, 31, 26, 32, 25],
+      "4": [39, 38, 37, 36, 41, 40, 42, 35],
+      "5": [50, 49, 48, 47, 46, 45, 44, 43]
+    },
+    "primary_HHHHH_50_50_blend_slot_top": {
+      "1": [7, 5, 6, 8, 9, 10, 11, 12],
+      "2": [18, 19, 17, 16, 21, 20, 15, 22],
+      "3": [29, 27, 28, 30, 26, 31, 25, 32],
+      "4": [39, 38, 40, 41, 37, 36, 42, 35],
+      "5": [50, 49, 48, 47, 46, 45, 44, 43]
+    }
+  },
+  "pb_e0015_working_state": {
+    "status": "working_state_challenger_zero_existing_2026_08_28_credit",
+    "tau": 4.0,
+    "ranking": [
+      {"ball": 5, "p": 0.13427008},
+      {"ball": 16, "p": 0.12728412},
+      {"ball": 2, "p": 0.11680392},
+      {"ball": 10, "p": 0.10926006},
+      {"ball": 6, "p": 0.09190083},
+      {"ball": 12, "p": 0.08060236},
+      {"ball": 13, "p": 0.05699448},
+      {"ball": 8, "p": 0.04414773},
+      {"ball": 11, "p": 0.04414773},
+      {"ball": 9, "p": 0.04030118},
+      {"ball": 15, "p": 0.03604647},
+      {"ball": 1, "p": 0.03121716},
+      {"ball": 4, "p": 0.02548870},
+      {"ball": 14, "p": 0.02548870},
+      {"ball": 3, "p": 0.01802324},
+      {"ball": 7, "p": 0.01802324}
+    ]
+  },
+  "revised_main_hierarchy": {
+    "S1": [7, 5, 6, 11, 12],
+    "S2": [19, 21, 18, 20, 17],
+    "S3": [29, 28, 27, 30, 31],
+    "S4": [39, 38, 37, 40, 41],
+    "S5": [48, 50, 49, 47, 46]
+  },
+  "revised_flagship": {
+    "main": [7, 19, 29, 39, 48],
+    "powerball": 5
+  },
+  "slates": [
+    {"label": "revised_consensus", "main": [7, 19, 29, 39, 48], "powerball": 5},
+    {"label": "richardson_H_branch", "main": [7, 21, 29, 39, 50], "powerball": 5},
+    {"label": "richardson_50_50_branch", "main": [7, 18, 29, 39, 50], "powerball": 10},
+    {"label": "incumbent_preserved", "main": [7, 19, 28, 39, 48], "powerball": 10},
+    {"label": "richardson_local_rescue", "main": [5, 19, 29, 38, 49], "powerball": 5},
+    {"label": "central_bridge", "main": [6, 20, 30, 40, 50], "powerball": 2},
+    {"label": "structural_residual", "main": [11, 17, 27, 37, 47], "powerball": 10},
+    {"label": "expansion_hedge", "main": [12, 21, 31, 41, 50], "powerball": 6},
+    {"label": "full_field_richardson_rescue", "main": [5, 22, 24, 42, 47], "powerball": 16},
+    {"label": "direction_dissent", "main": [4, 17, 27, 38, 50], "powerball": 12}
+  ],
+  "notes": [
+    "Original cycles/2026-08-28/powerball_xtra_pre_draw.md remains immutable and independently scored.",
+    "This late challenger uses the director-confirmed 2026-08-25 working result and is frozen before the 2026-08-28 draw.",
+    "Richardson operates before K compression and receives zero production weight.",
+    "Richardson main-number evidence is not fed into PowerBall. PB ranking is a separate E0015 working-state calculation.",
+    "No pre-June XTRA/Plus rows and no Main fitted state are used."
+  ]
+}
