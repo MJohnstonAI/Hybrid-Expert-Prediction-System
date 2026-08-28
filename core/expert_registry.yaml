@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-08-10
+updated: 2026-08-28
 purpose: >-
   Machine-readable registry of HEPS experts, their architectural stage,
   scientific status, and allowed authority. Detailed formulas remain in
@@ -146,6 +146,62 @@ experts:
       - workspace/contributions/experimental_discovery_lab/HEPS_BREAKTHROUGH_HANDOFF.md
     falsification:
       - Must survive frozen prospective comparison against recency before promotion.
+
+  - expert_id: MAIN_NONEQUILIBRIUM_CURRENT
+    name: Nonequilibrium Probability Current Shadow
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_june_2026_history: false
+    evidence_paths:
+      - core/main_physics_shadow_experts.md
+      - experiments/E0016/findings.md
+      - experiments/E0016/decision.md
+      - knowledge/PHYSICS_SHADOW_INTEGRATION_HANDOFF_2026-08-28.md
+    notes:
+      - Directed next-draw inclusion-current residual; statistical chronology operator, not literal particle motion.
+      - E0016 50/50 incumbent/current blend is counterfactual shadow only.
+      - Must be residualized against recency/frequency before confidence is increased.
+    falsification:
+      - Demote or reject if prospective fixed-exposure rank/K13/K20 lift disappears or is redundant with simple controls.
+
+  - expert_id: MAIN_LEVY_TAIL_DIAGNOSTIC
+    name: Levy / Anomalous-Dispersion Tail Diagnostic
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_june_2026_history: false
+    evidence_paths:
+      - core/main_physics_shadow_experts.md
+      - experiments/E0016/findings.md
+      - experiments/E0016/decision.md
+      - knowledge/PHYSICS_SHADOW_INTEGRATION_HANDOFF_2026-08-28.md
+    notes:
+      - Null-residualized heavy-tail VVD diagnostic only.
+      - May report tail pressure and log-loss delta versus NULL_VVD_STRUCTURAL.
+      - Must not rank candidates, allocate rescue seats, change K, or receive ensemble vote weight.
+    falsification:
+      - Archive if the heavy-tail family does not improve prospective displacement scoring or provides no actionable calibration information.
 
   - expert_id: MAIN_HLR_SLOT
     name: Slot High-Low-Repeat
