@@ -1,0 +1,179 @@
+experiment_id: E0016
+title: Physics-Derived Shadow Integration and XTRA Richardson Dispersion
+status: director_approved_shadow_integration
+paper_trading_only: true
+
+data_boundary:
+  main_start: 2026-06-02
+  xtra_start: 2026-06-02
+  allow_pre_june_2026_history: false
+  allow_2018_2025_workbooks: false
+  allow_main_state_transfer_to_xtra: false
+  allow_xtra_state_transfer_to_main: false
+
+main_nonequilibrium_current:
+  expert_id: MAIN_NONEQUILIBRIUM_CURRENT
+  stage: candidate_funnel
+  architecture_status: shadow
+  evidence: PROVISIONAL_SIGNAL
+  authority:
+    diagnostic: true
+    may_score_shadow: true
+    may_adjust_production_exposure: false
+    may_hard_eliminate: false
+  training_rule: use only Main draws strictly before target
+  state_space: main coordinate inclusion states 1..50
+  transition_definition: >-
+    For each consecutive historical pair D_u -> D_(u+1), every source coordinate i in D_u
+    receives one binary next-draw inclusion observation for every destination n in 1..50:
+    y(i,n,u)=1 when n is in D_(u+1), otherwise 0.
+  shrinkage:
+    baseline_next_inclusion_probability: 0.1
+    kappa: 10.0
+    formula: p(i_to_n)=(hits(i,n)+kappa*0.1)/(exposures(i)+kappa)
+  residual:
+    formula: r(i_to_n)=logit(p(i_to_n))-logit(0.1)
+  antisymmetric_current:
+    formula: A(i,n)=0.5*(r(i_to_n)-r(n_to_i))
+  target_score:
+    formula: J_t(n)=mean_{i in current_draw} A(i,n)
+    standardization: zscore_across_1_to_50_with_zero_variance_guard
+  shadow_comparator:
+    current_weight: 0.50
+    incumbent_weight: 0.50
+    note: >-
+      The 50/50 blend is a frozen shadow comparator motivated by the post-June taste test.
+      It does not alter the production candidate field or K basket.
+  outputs:
+    - current_residual_score_1_to_50
+    - shadow_rank_1_to_50
+    - shadow_K13
+    - shadow_K20
+    - delta_vs_incumbent_rank
+  baselines:
+    - flat_global_inclusion_0.1
+    - simple_recency
+    - simple_frequency
+    - incumbent_main_candidate_field
+  primary_metrics:
+    - mean_winner_rank
+    - K13_coordinate_recall
+    - K20_coordinate_recall
+    - K13_3plus_draw_rate
+    - catastrophic_exclusion_count
+
+main_levy_tail_diagnostic:
+  expert_id: MAIN_LEVY_TAIL_DIAGNOSTIC
+  stage: candidate_funnel
+  architecture_status: shadow
+  evidence: INSUFFICIENT_EVIDENCE
+  authority:
+    diagnostic: true
+    may_score_candidates: false
+    may_adjust_exposure: false
+    may_hard_eliminate: false
+  training_rule: use only Main draws strictly before target
+  structural_baseline: NULL_VVD_STRUCTURAL
+  family: >-
+    Null-residualized heavy-tail tilt. For each sorted slot and previous coordinate p,
+    start from exact structural displacement mass q0(d|p) and define
+    q_alpha(d|p) proportional to q0(d|p)*(d+1)^alpha.
+    Positive alpha increases tail mass without discarding exact 5/50 geometry.
+  alpha_grid: [0.0, 0.5, 1.0, 1.5, 2.0]
+  selection: >-
+    Choose alpha using only prior post-June slot events by expanding walk-forward log loss.
+    Alpha=0 is the exact structural null and must remain in the championship.
+  outputs:
+    - selected_alpha_by_slot
+    - logloss_delta_vs_NULL_VVD_STRUCTURAL
+    - tail_probability_mass_by_slot
+    - null_90pct_displacement_threshold_by_slot
+    - diagnostic_tail_pressure
+  forbidden:
+    - adding rescue seats
+    - altering K13
+    - direct candidate ranking
+    - treating one tail draw as evidence of a persistent heavy-tail regime
+  promotion_gate: >-
+    Candidate or rescue authority requires a separate fixed-K prospective experiment showing
+    stable improvement beyond NULL_VVD_STRUCTURAL and incumbent rescue controls.
+
+xtra_richardson_pair_dispersion:
+  expert_id: XTRA_RICHARDSON_PAIR_DISPERSION
+  stage: candidate_funnel
+  architecture_status: shadow
+  evidence: PROVISIONAL_SIGNAL
+  authority:
+    diagnostic: true
+    may_score_shadow: true
+    may_adjust_production_exposure: false
+    may_hard_eliminate: false
+  training_rule: use only canonical XTRA draws strictly before target
+  pair_state:
+    slot_pairs: all_10_pairs_among_S1_to_S5
+    separation: R_ab_t=S_b_t-S_a_t
+  structural_baseline: >-
+    For every slot pair (a,b), enumerate the exact legal 5/50 distribution p0_ab(r)
+    of next-draw separation r. This is a comparator, not a predictive expert.
+  conditional_estimator:
+    kernel: exp(-abs(R_ab_u-R_ab_current)/h)
+    h: 5.0
+    kappa: 8.0
+    formula: >-
+      p_hat_ab(r_next | r_current) =
+      (sum_u w_u*I(R_ab_(u+1)=r_next) + kappa*p0_ab(r_next)) /
+      (sum_u w_u + kappa)
+    rule: all u transitions must end strictly before target
+  residual_pair_compatibility:
+    formula: C_ab(x,y)=log(p_hat_ab(y-x|R_ab_current)/p0_ab(y-x))
+    legality: x<y and both coordinates must be legal for their sorted slots
+  distribution_first_message_passing:
+    base_slot_field: >-
+      Use the already-frozen XTRA slot marginal field when available. If an experiment needs
+      a standalone Richardson comparator, use exact sorted-slot structural marginals only.
+    pair_message: m_a_to_b(y)=sum_x base_a(x)*exp(C_ab(x,y))
+    normalization: normalize each message over legal slot coordinates
+    update: >-
+      For each slot j, multiply the base marginal by the geometric mean of normalized inbound
+      pair messages, then renormalize. Preserve a separate Richardson-only marginal and a
+      50/50 shadow blend with the incumbent XTRA slot field.
+    global_inclusion: sum updated slot marginals for each number n across S1..S5
+    note: exact-slot and anywhere-coordinate probabilities remain distinct artifacts
+  shadow_comparator:
+    richardson_weight: 0.50
+    incumbent_weight: 0.50
+    production_weight: 0.0
+  outputs:
+    - pair_separation_state
+    - residual_pair_compatibility_matrices
+    - richardson_slot_marginals
+    - richardson_global_inclusion_1_to_50
+    - shadow_blended_global_inclusion
+    - shadow_K13
+    - shadow_K20
+  baselines:
+    - exact_pair_separation_null
+    - simple_recency
+    - simple_frequency
+    - incumbent_xtra_candidate_field
+  primary_metrics:
+    - mean_winner_rank
+    - K13_coordinate_recall
+    - K20_coordinate_recall
+    - K13_3plus_draw_rate
+    - catastrophic_exclusion_count
+  falsification: >-
+    Reject Richardson candidate authority if prospective K13/K20 and rank metrics fail to beat
+    matched incumbent/simple controls or if gains come only from effectively increasing exposure.
+
+multiple_testing:
+  note: >-
+    Earlier taste-test comparisons were exploratory. E0016 freezes the formulas above for future shadow use.
+    Future evaluation must not retune h, kappa, alpha grid, blend weights, or stage placement after outcomes.
+
+prospective_rule:
+  freeze_before_each_target: true
+  score_main_and_xtra_separately: true
+  minimum_review_horizon: 10_targets
+  stronger_promotion_review: 20_plus_targets
+  one_draw_promotion_forbidden: true
