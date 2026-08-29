@@ -1,0 +1,75 @@
+experiment_id: E0017
+title: Gemini XTRA Spectral Gap Acquisition Claim Audit
+status: active_audit
+paper_trading_only: true
+evidence_classification: INSUFFICIENT_EVIDENCE
+
+data_boundary:
+  xtra_start: 2026-06-02
+  allow_pre_june_history: false
+  allow_main_state_transfer: false
+
+stage1_spectral:
+  adjacency_primary_interpretation: weighted_pair_cooccurrence_counts
+  ambiguity_control: binary_ever_cooccurred_adjacency
+  laplacian: symmetric_normalized
+  eigenvectors: three_smallest_strictly_positive_eigenvalues
+  score: sum_k(abs(v_k_i)/lambda_k)
+  k: 12
+  target_number_examples_forbidden: true
+
+stage2_gap_residual:
+  current_gap: draws_since_last_appearance_before_target
+  historical_gap_sample: completed_interappearance_intervals_before_target
+  zscore: (current_gap - mean_completed_gap) / sd_completed_gap
+  threshold: 1.20
+  max_k: 14
+  undefined_policy: >-
+    Numbers with fewer than two completed interappearance intervals have undefined standard deviation
+    and may not receive a numerical residual without a separately preregistered shrinkage/fallback rule.
+
+stage3_entropy_balance:
+  status: underspecified_in_external_prompt
+  required_before_clean_test:
+    - exact entropy objective
+    - candidate eligibility rule
+    - deterministic tie_break
+    - explicit disjointness/overlap rule
+  hardcoded_target_or_boundary_examples_forbidden: true
+
+stage4_powerball:
+  first_order_transition: P(PB_next=j | PB_current=k)
+  current_state_for_2026_08_28: 16
+  recurrence_gap_combination: underspecified_in_external_prompt
+  required_before_clean_test:
+    - explicit recurrence score
+    - normalization
+    - blend_weight
+    - tie_break
+  target_ball_examples_forbidden: true
+
+matched_exposure:
+  main_k: 36
+  powerball_k: 11
+  primary_k: 12
+
+baselines:
+  - random_same_k
+  - simple_frequency
+  - simple_recency
+  - incumbent_xtra_candidate_field
+  - XTRA_RICHARDSON_PAIR_DISPERSION_shadow
+
+metrics:
+  - mean_winner_rank
+  - k12_primary_recall
+  - k36_main_recall
+  - pb_k11_recall
+  - exact_line_rank_if_pre_draw_boards_exist
+  - fixed_exposure_recall_surplus
+
+integrity:
+  - no_target_winner_names_in_prediction_prompt
+  - no_post_draw_tier_reassignment
+  - no_pre_june_plus_history
+  - freeze_candidate_lists_and_boards_before_target
