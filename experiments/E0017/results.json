@@ -1,0 +1,44 @@
+{
+  "experiment_id": "E0017",
+  "target": "2026-08-28",
+  "actual_main": [3,4,16,35,38],
+  "actual_powerball": 15,
+  "status": "initial_independent_red_team_reproduction",
+  "spectral_stage": {
+    "weighted_pair_count_interpretation": {
+      "top12": [36,1,23,26,22,17,7,18,19,4,3,12],
+      "winner_capture": [3,4],
+      "recall": 2
+    },
+    "binary_ever_cooccurred_interpretation": {
+      "top12": [36,1,26,22,41,18,17,4,23,43,12,19],
+      "winner_capture": [4],
+      "recall": 1
+    },
+    "claimed_primary_recall": 4,
+    "reproduction_matches_claim": false
+  },
+  "gap_residual_stage": {
+    "definition": "current draws-since-last minus mean completed interappearance interval divided by population SD",
+    "eligible_at_R_ge_1_20": [3,16,40,32],
+    "winner_capture": [3,16],
+    "number_38_prior_appearances_before_target": 1,
+    "number_38_standard_recurrence_mean_sd_defined": false,
+    "claim_38_R_ge_1_20_reproducible_under_standard_definition": false
+  },
+  "powerball_stage": {
+    "current_pb": 16,
+    "observed_prior_successors_from_16": [16,10],
+    "pb15_is_first_order_markov_successor_from_16": false,
+    "modular_recurrence_gap_decay_formula_supplied": false,
+    "pb15_top_attractor_reproducible_from_prompt": false
+  },
+  "exposure_nulls": {
+    "probability_random_K36_contains_all_5_mains": 0.1779304876,
+    "probability_random_K11_contains_actual_PB": 0.6875,
+    "probability_joint_K36_5of5_and_K11_PB_hit": 0.1223272103,
+    "expected_main_winners_in_random_K36": 3.6,
+    "probability_random_K12_contains_at_least_4_of_5": 0.0092516378
+  },
+  "interpretation": "The broad 36+11 capture is not rare enough to establish edge. The claimed 4/5 spectral Primary Tier would be much more interesting if genuinely frozen, but the supplied target-contaminated prompt does not reproduce that tier under two natural adjacency interpretations. PB15 likewise does not follow from the stated first-order transition matrix without an unspecified recurrence term."
+}
