@@ -1,0 +1,16 @@
+{
+  "experiment_id": "E0013",
+  "target_draw_date": "2026-08-28",
+  "actual_main": [19,22,24,25,47],
+  "candidate_universe": [2,6,8,15,19,24,29,33,34,40,43,44,46],
+  "candidate_survival": {
+    "count": 2,
+    "survivors": [19,24],
+    "missing": [22,25,47]
+  },
+  "primary_metric_status": "NOT_SCORABLE_FOR_PRIMARY_E0013_WINNER_RANK",
+  "reason": "E0013 primary metrics are conditional on 5/5 candidate survival. The exact winning line was not present in the frozen 5-of-13 universe.",
+  "evidence_effect": "NONE_ON_PRIMARY_COALITION_HYPOTHESIS",
+  "acquisition_failure_scored_separately": true,
+  "integrity": "No regeneration of the pre-draw spectral ranking was performed."
+}
