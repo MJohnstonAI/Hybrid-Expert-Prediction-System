@@ -1,0 +1,125 @@
+experiment_id: E0018
+title: XTRA Full-Mixture Acquisition and Power-Governed Residual Integration
+status: prospective_shadow
+evidence: INSUFFICIENT_EVIDENCE
+first_eligible_target: 2026-09-01
+paper_trading_only: true
+
+data:
+  game: powerball_xtra
+  active_start: 2026-06-02
+  canonical_ledger: data/powerball_xtra_history.jsonl
+  allow_pre_start_history: false
+  allow_main_state_transfer: false
+  working_extension:
+    allowed: true
+    path_for_2026_09_01: cycles/2026-09-01/xtra_working_state_extension.jsonl
+    rule: must_be_frozen_and_provenance_qualified_before_target
+    canonical_credit: pending_official_source_verification
+
+exchangeability_gate:
+  exact_null: Hypergeometric(N=50,K,n=5)
+  primary_k: 13
+  secondary_k: 20
+  expected_hits_k13: 1.3
+  expected_hits_k20: 2.0
+  minimum_effect_of_interest_k13: 0.20
+  planning_alpha_one_sided: 0.05
+  planning_power: 0.80
+  approximate_targets_for_mei: 137
+  twenty_target_review: first_look_futility_and_calibration_only
+  matched_exposure_required: true
+
+stage_1_full_hlr_mixture:
+  script: scripts/xtra_full_mixture_base.py
+  tau: 6.0
+  current_state_definition: slotwise_HLR_of_latest_draw_relative_to_previous_draw
+  learned_component: per_slot_successor_HLR_conditioned_on_current_slot_HLR
+  shrinkage_target: exact_5_of_50_order_statistic_HLR_mass_at_current_coordinate
+  legal_space: all_C_50_5_combinations
+  pooling: geometric_mean_of_slot_HLR_residual_likelihood_ratios
+  hard_hlr_gate: forbidden
+  positive_mass_for_every_legal_combination: required
+  output: full_slot_marginals_and_global_inclusion
+
+stage_2_richardson_residual:
+  script: scripts/physics_shadow_e0016.py
+  expert: XTRA_RICHARDSON_PAIR_DISPERSION
+  input_base: stage_1_full_hlr_mixture.slot_marginals
+  h: 5.0
+  kappa: 8.0
+  production_weight: 0.0
+  hard_pruning: forbidden
+  candidate_add_remove_authority: false
+  scored_baskets:
+    - full_mixture_base_K13
+    - full_mixture_base_K20
+    - richardson_K13
+    - richardson_K20
+    - blend_50_50_K13
+    - blend_50_50_K20
+
+stage_3_candidate_preservation:
+  rule: fixed_K_only
+  core_k13: required
+  diagnostic_k20: required
+  reserve_or_rescue:
+    may_exist: true
+    must_displace_core_at_same_total_K_for_confirmatory_comparison: true
+  no_union_credit: true
+  acquisition_scored_before_assembly: true
+
+stage_4_convergence:
+  expert_vote_multiplier: forbidden_until_redundancy_audit_sufficient
+  redundancy_protocol: experiments/E0011/xtra_redundancy_protocol.md
+  redundancy_script: scripts/xtra_expert_redundancy.py
+  rule: correlated_or_unknown_redundancy_reduces_confidence
+  richardson_double_count_in_coalition_stage: forbidden
+
+stage_5_machine_provenance:
+  capture_machine_name_when_verified: true
+  unknown_is_valid_value: true
+  prospective_machine_conditioning:
+    enabled: false
+    activation_gate: machine_assignment_or_state_must_be_known_before_draw
+  diagnostic_use_if_post_draw_only:
+    - heterogeneity
+    - stationarity
+    - pooled_model_falsification
+  no_guessed_machine_identity: true
+
+stage_6_spectral_moratorium:
+  ordinary_historical_cooccurrence_graph_candidate_acquisition: moratorium
+  reopening_requires:
+    - materially_new_information_or_exogenous_covariate
+    - preregistered_matched_K_control
+    - no_reuse_of_rejected_E0012_E0014_E0017_claims_as_evidence
+  e0013_coalition_shadow_affected: false
+
+powerball:
+  expert: XTRA_PB_CONDITIONAL_CONVERGENCE_E0015
+  model_family: conditional_exact_state_plus_VVD_HLR_shrinkage
+  separate_from_main_candidate_acquisition: true
+  no_richardson_authority: true
+  no_director_intuition_merge: true
+  director_hypotheses_may_be_frozen_as_separate_zero_weight_shadows: true
+
+freeze_requirements:
+  - ledger_or_working_extension_hash_or_path
+  - stage_1_full_probability_field
+  - stage_1_K13_K20
+  - Richardson_pair_state_and_fields
+  - Richardson_K13_K20_and_50_50_blend
+  - PowerBall_full_probability_field
+  - assembly_inputs_and_final_slates
+  - exposure_denominators
+  - machine_provenance_status
+
+post_draw_scoring:
+  - exact_winner_rank_in_each_global_field
+  - K13_and_K20_recall_at_matched_exposure
+  - acquisition_vs_assembly_failure_attribution
+  - Richardson_helpful_neutral_harmful_per_actual_coordinate
+  - HLR_realized_vector_and_probability_without_posthoc_repair
+  - PB_actual_rank_logloss_and_Brier
+  - update_power_budget_target_count_without_claiming_early_proof
