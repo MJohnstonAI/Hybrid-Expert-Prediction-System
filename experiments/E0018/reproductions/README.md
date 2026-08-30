@@ -5,6 +5,21 @@
 Use the canonical XTRA ledger plus the explicitly frozen noncanonical working extension:
 
 ```bash
+python scripts/xtra_e0018_pipeline.py \
+  --ledger data/powerball_xtra_history.jsonl \
+  --working-extension cycles/2026-09-01/xtra_working_state_extension.jsonl \
+  --cutoff 2026-08-28 \
+  --tau 6 \
+  --h 5 \
+  --kappa 8 \
+  --out cycles/2026-09-01/xtra_e0018_pre_draw_field.json
+```
+
+This command creates the full-support HLR base and applies Richardson to that same field without requiring a temporary canonical-ledger rewrite.
+
+For independent inspection of the base alone:
+
+```bash
 python scripts/xtra_full_mixture_base.py \
   --ledger data/powerball_xtra_history.jsonl \
   --working-extension cycles/2026-09-01/xtra_working_state_extension.jsonl \
@@ -12,18 +27,6 @@ python scripts/xtra_full_mixture_base.py \
   --tau 6 \
   --out cycles/2026-09-01/xtra_full_mixture_base.json
 ```
-
-Then feed the resulting full-support slot marginals into Richardson:
-
-```bash
-python scripts/physics_shadow_e0016.py xtra \
-  --ledger <merged_or_provenance_equivalent_xtra_ledger_through_2026-08-28> \
-  --cutoff 2026-08-28 \
-  --base-slot-field cycles/2026-09-01/xtra_full_mixture_base.json \
-  --out cycles/2026-09-01/xtra_richardson_full_mixture_shadow.json
-```
-
-`physics_shadow_e0016.py` currently reads one ledger path, so a temporary merged ledger may be produced for execution only. It must contain exactly canonical rows plus the frozen working extension and must not be committed as canonical data.
 
 ## Power planning
 
