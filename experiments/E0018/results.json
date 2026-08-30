@@ -1,6 +1,6 @@
 {
   "experiment_id": "E0018",
-  "status": "awaiting_first_prospective_target",
+  "status": "first_prospective_target_frozen_pre_draw",
   "evidence": "INSUFFICIENT_EVIDENCE",
   "first_eligible_target": "2026-09-01",
   "prospective_targets_scored": 0,
@@ -15,6 +15,20 @@
     "actual_hlr": "LLHHH",
     "forecast_integration_error": "Richardson was applied to a preferred HHHHH-conditioned branch rather than a full-support HLR mixture",
     "retrospective_predictive_credit": 0
+  },
+  "target_2026_09_01": {
+    "candidate_field_path": "cycles/2026-09-01/xtra_e0018_pre_draw_field.json",
+    "candidate_field_commit": "4243ced2a48b74bafaa66856cbe9f77b1fd53fb4",
+    "working_state_path": "cycles/2026-09-01/xtra_working_state_extension.jsonl",
+    "working_state_is_canonical": false,
+    "base_K13": [3,1,2,4,5,7,8,6,9,10,15,14,13],
+    "richardson_K13": [1,2,3,4,7,8,5,9,6,10,11,12,14],
+    "blend_K13": [1,2,3,4,7,8,5,9,6,10,11,12,14],
+    "pb_working_shadow_path": "cycles/2026-09-01/xtra_pb_e0015_working_shadow.json",
+    "pb_working_shadow_commit": "cbea16b89b6ed3f4c7bee50ab7ab4a7fed52be96",
+    "pb_top1_working_state": 12,
+    "pb_formal_e0015_credit": "pending canonical verification of immediately preceding draw",
+    "final_assembled_slate_frozen": false
   },
   "prospective_results": []
 }
