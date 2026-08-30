@@ -1,11 +1,12 @@
 schema_version: 1
-updated: 2026-08-28
+updated: 2026-08-30
 purpose: >-
   Independent expert-state registry for the South African PowerBall XTRA HEPS lane.
   Architecture families may mirror Main, but all fitted state, evidence, and outputs
   are XTRA-only and use data from 2026-06-02 onward.
 
 architecture_stages:
+  - data_integrity
   - slot_forecast
   - candidate_funnel
   - coalition_assembly
@@ -15,6 +16,21 @@ architecture_stages:
   - powerball_matrix
 
 experts:
+  - expert_id: XTRA_MACHINE_PROVENANCE_DIAGNOSTIC
+    stage: data_integrity
+    architecture_status: production
+    evidence: BREAKTHROUGH
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    notes:
+      - Breakthrough status is methodological/data-integrity necessity, not predictive superiority.
+      - Backfill only from verifiable source records; unknown is valid.
+      - Machine-conditioned prediction remains disabled unless machine identity/state is known before the target draw.
+      - Post-draw-only machine identity may support heterogeneity and stationarity diagnostics only.
+
   - expert_id: XTRA_HLR_SLOT
     stage: slot_forecast
     architecture_status: experimental
@@ -23,6 +39,33 @@ experts:
       diagnostic: true
       may_score: true
       may_hard_eliminate: false
+
+  - expert_id: XTRA_HLR_FULL_MIXTURE_BASE
+    name: Full-Support HLR Residual Mixture Base
+    stage: slot_forecast
+    architecture_status: shadow
+    evidence: INSUFFICIENT_EVIDENCE
+    dependencies: [XTRA_HLR_SLOT]
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+    parameters:
+      tau: 6.0
+      pooling: geometric_mean_of_slot_HLR_residual_likelihood_ratios
+    evidence_paths:
+      - experiments/E0018/hypothesis.md
+      - experiments/E0018/protocol.yaml
+      - experiments/E0018/decision.md
+      - scripts/xtra_full_mixture_base.py
+    notes:
+      - Enumerates all C(50,5) legal combinations and preserves positive probability for every legal combination.
+      - Shrinks learned slot-HLR successor probabilities toward exact order-statistic HLR geometry.
+      - A modal HLR vector may be reported but cannot hard-gate the candidate field.
+      - First eligible target is 2026-09-01.
 
   - expert_id: XTRA_VVD_DELTA
     stage: candidate_funnel
@@ -78,6 +121,7 @@ experts:
     stage: candidate_funnel
     architecture_status: shadow
     evidence: PROVISIONAL_SIGNAL
+    dependencies: [XTRA_HLR_FULL_MIXTURE_BASE]
     authority:
       diagnostic: true
       may_score: true
@@ -90,16 +134,22 @@ experts:
       active_start: 2026-06-02
       allow_pre_start_history: false
       allow_main_state_transfer: false
+    parameters:
+      h: 5.0
+      kappa: 8.0
+      e0018_blend: 0.5
     evidence_paths:
       - core/xtra_richardson_pair_dispersion.md
       - experiments/E0016/findings.md
       - experiments/E0016/decision.md
+      - experiments/E0018/protocol.yaml
       - knowledge/PHYSICS_SHADOW_INTEGRATION_HANDOFF_2026-08-28.md
     notes:
       - Models all ten sorted-slot pair separations using XTRA-only expanding history.
       - Residualizes against exact 5/50 pair-separation geometry before message passing.
-      - Integrates distribution-first into XTRA slot/global marginals; no hard gap gate.
-      - E0016 50/50 incumbent/Richardson blend is counterfactual shadow only.
+      - From 2026-09-01, E0018 Richardson must receive the full-support HLR mixture base, never one preferred HLR scenario.
+      - E0018 scores base, Richardson and 50/50 blend at identical K13/K20 exposure.
+      - Production weight remains zero.
       - Main Richardson state, pair counts, coordinates and weights may not be imported.
     falsification:
       - Demote or reject if prospective fixed-exposure K13/K20/rank lift disappears or is redundant with slot-density/recency/VVD controls.
@@ -153,8 +203,58 @@ experts:
       may_adjust_exposure: true
       may_hard_eliminate: false
 
+  - expert_id: XTRA_PB_CONDITIONAL_CONVERGENCE_E0015
+    name: XTRA Conditional PowerBall Residual Convergence
+    stage: powerball_matrix
+    architecture_status: shadow
+    evidence: PROVISIONAL_SIGNAL
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    evidence_paths:
+      - experiments/E0015/hypothesis.md
+      - experiments/E0015/protocol.yaml
+      - experiments/E0015/findings.md
+      - experiments/E0015/decision.md
+    notes:
+      - Publishes a full 1..16 probability field; score actual-ball rank, log loss and Brier.
+      - Uses conditional exact-state and VVD+HLR shrinkage paths.
+      - Director hypotheses remain separate zero-weight shadows and are not merged post hoc.
+      - Richardson has no XTRA PowerBall authority.
+
+research_moratoria:
+  - family: ordinary_historical_spectral_graph_candidate_acquisition
+    status: moratorium
+    rationale:
+      - E0012 no detected acquisition lift.
+      - E0014 no XTRA coordinate-acquisition lift from spectral transfer.
+      - E0017 claimed spectral success was post-hoc and did not reproduce.
+      - E0013 surviving spectral authority is coalition ranking, not candidate acquisition.
+    reopen_gate:
+      - materially_new_information_or_exogenous_covariate
+      - preregistered_matched_K_control
+      - declared_minimum_effect_and_power_horizon
+
+governance:
+  acquisition_primary_k: 13
+  acquisition_diagnostic_k: 20
+  expected_hits_k13_under_exchangeable_null: 1.3
+  expected_hits_k20_under_exchangeable_null: 2.0
+  default_minimum_effect_hits_per_draw_k13: 0.20
+  approximate_targets_for_default_effect: 137
+  twenty_target_review_is_proof_threshold: false
+  expert_vote_multiplier_before_redundancy_audit: false
+  power_budget: experiments/E0011/xtra_power_budget.md
+  redundancy_protocol: experiments/E0011/xtra_redundancy_protocol.md
+
 data_boundary:
   active_series_start: 2026-06-02
   canonical_ledger: data/powerball_xtra_history.jsonl
   allow_pre_start_history: false
   allow_main_state_transfer: false
+  working_state_extensions:
+    allowed: true
+    canonical_promotion_requires_source_policy: true
+    must_be_target_cycle_frozen_and_disclosed: true
