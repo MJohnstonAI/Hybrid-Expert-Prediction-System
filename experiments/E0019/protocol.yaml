@@ -1,0 +1,76 @@
+experiment_id: E0019
+title: Main Full-Support Line-Mass Candidate Acquisition
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+stage: candidate_funnel
+first_prospective_target: 2026-09-01
+
+data:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  target_excluded: true
+  legacy_prng_allowed: false
+
+primary_arm:
+  id: MAIN_FULL_SUPPORT_LINE_MASS_K13
+  structural_slot_mass: exact_5of50_order_statistic
+  hlr_component: E0005_BARP
+  vvd_component: E0005_VVD_R_kappa10
+  residual_factor: "sqrt((P_BARP(state)/P0_HLR(state))*(P_VVDR(displacement)/P0_VVD(displacement)))"
+  legal_line_weight: "product over slots of residual_factor"
+  basket_objective: "sum legal-line weights for all C(13,5) lines contained in K13"
+  optimizer:
+    start: top13_global_residual_marginal
+    move: single_coordinate_swap
+    tie_break: lower_coordinate
+    stop: no_strictly_improving_swap
+  k: 13
+
+independent_shadow:
+  id: MAIN_NONEQUILIBRIUM_CURRENT
+  source: experiments/E0016/protocol.yaml
+  use_formula_without_retuning: true
+  k: 13
+
+reserve_envelope:
+  k: 20
+  construction: "primary K13 plus seven highest E0016 current-score coordinates not already present"
+  authority: diagnostic_only
+  warning: "K20 increases exposure and cannot be credited as predictive lift without matched K20 control"
+
+baselines:
+  - flat_exchangeable_K13
+  - top13_global_residual_marginal
+  - E0016_nonequilibrium_current_K13
+  - simple_frequency_K13
+  - simple_recency_K13
+
+metrics:
+  primary:
+    - K13_winner_coordinate_count
+    - K13_3plus_rate
+    - K13_4plus_rate
+    - K13_5of5_rate
+    - catastrophic_0or1_rate
+  secondary:
+    - K20_winner_coordinate_count
+    - winner_coordinate_rank
+    - full_50_coordinate_Bernoulli_log_loss_for_underlying_residual_field
+    - full_50_coordinate_Brier_score_for_underlying_residual_field
+
+multiple_testing:
+  discovery_note: "E0019 was created after comparing several candidate-acquisition formulations on revealed targets. All replay statistics are discovery evidence only."
+  first_target_parameters_frozen: true
+  no_retuning_after_2026_09_01_result: true
+
+falsification:
+  - no persistent K13 survival gain versus matched controls
+  - gain disappears under independent reproduction
+  - gain is attributable to exposure expansion
+  - underlying residual field remains worse than flat and basket optimization shows no prospective containment gain
+
+promotion:
+  one_draw_promotion_forbidden: true
+  production_authority: false
+  hard_pruning_authority: false
