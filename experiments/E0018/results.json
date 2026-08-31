@@ -28,7 +28,10 @@
     "pb_working_shadow_commit": "cbea16b89b6ed3f4c7bee50ab7ab4a7fed52be96",
     "pb_top1_working_state": 12,
     "pb_formal_e0015_credit": "pending canonical verification of immediately preceding draw",
-    "final_assembled_slate_frozen": false
+    "final_assembled_slate_frozen": true,
+    "final_slate_path": "cycles/2026-09-01/powerball_xtra_pre_draw.md",
+    "final_slate_commit": "7e6f64d21492fdda5688e37b7b0deee261c3d245",
+    "final_slate_count": 10
   },
   "prospective_results": []
 }
