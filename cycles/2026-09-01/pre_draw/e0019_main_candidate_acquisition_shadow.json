@@ -1,0 +1,22 @@
+{
+  "experiment_id": "E0019",
+  "target_draw_date": "2026-09-01",
+  "frozen_on": "2026-08-31",
+  "dataset_cutoff": "2026-08-28",
+  "paper_trading_only": true,
+  "shadow_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "previous_main": [19,22,24,25,47],
+  "primary_line_mass_K13": [20,22,23,26,30,31,32,34,35,39,41,43,49],
+  "independent_nonequilibrium_current_K13": [40,2,12,37,26,8,22,20,3,13,36,23,27],
+  "diagnostic_reserve7": [40,2,12,37,8,3,13],
+  "diagnostic_K20_envelope": [20,22,23,26,30,31,32,34,35,39,41,43,49,40,2,12,37,8,3,13],
+  "primary_method": "maximize total full-support residual legal-line weight contained in fixed K13 using E0005 BARP/VVD-R likelihood ratios against exact structural nulls and deterministic local swaps",
+  "reserve_method": "append seven highest E0016 nonequilibrium-current coordinates absent from primary K13",
+  "levy_tail_selected_alpha_by_slot": [0.0,0.0,0.0,0.0,0.0],
+  "integrity": {
+    "do_not_modify_after_result": true,
+    "K20_is_exposure_management_not_predictive_lift": true,
+    "no_production_promotion": true
+  }
+}
