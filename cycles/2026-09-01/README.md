@@ -2,7 +2,7 @@
 
 ## Readiness status
 
-Architecture and probability-field preparation completed on 2026-08-30, before the target result.
+Architecture, probability-field preparation, and final paper-trading assembly were completed before the target result.
 
 ## Data state
 
@@ -38,17 +38,20 @@ Working-state ranking begins:
 
 PB12 is the numerical Top1 working-state shadow. Formal E0015 prospective credit remains pending canonical verification of the immediately preceding XTRA row.
 
-## Not yet frozen
+## Frozen final slate
 
-- final assembled paper-trading slate;
-- director overrides/hedges for this target;
-- any machine-conditioned field (machine identity is unknown and unused).
+`powerball_xtra_pre_draw.md`
+
+Commit at freeze: `7e6f64d21492fdda5688e37b7b0deee261c3d245`
+
+The final 10-line portfolio allocates exposure across `HHHHH`, `HHHLH`, `HHHLL`, the Director `HHLLL | H` reversal branch, and one `LHHHH` contrarian branch. Because previous PB=15, the Director HIGH branch maps exactly to PB16.
 
 ## Binding target rules
 
-- matched K exposure;
+- matched K exposure for acquisition research;
 - no spectral candidate-acquisition restart;
 - no expert vote multiplier before redundancy evidence;
 - no morphology hard-pruning before acquisition scoring;
 - no post-target parameter tuning;
-- post-draw score base/Richardson/blend separately before evaluating assembly.
+- score base/Richardson/blend acquisition baskets separately before evaluating assembly;
+- do not edit `powerball_xtra_pre_draw.md` after the result is known.
