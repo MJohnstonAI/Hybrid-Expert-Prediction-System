@@ -1,0 +1,105 @@
+{
+  "target_draw_date": "2026-09-01",
+  "frozen_on": "2026-08-31",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "dataset_cutoff": "2026-08-28",
+  "previous_state": {
+    "main": [19,22,24,25,47],
+    "powerball": 11
+  },
+  "hlr": {
+    "exact_joint_structural_top": [
+      {"vector":"LLLHL","probability":0.17275670675300647},
+      {"vector":"LLHHL","probability":0.15045592705167174},
+      {"vector":"LLLLL","probability":0.1300496516830599},
+      {"vector":"LHHHL","probability":0.08831108761728558},
+      {"vector":"LLHHH","probability":0.08099218410768563},
+      {"vector":"LHHHH","probability":0.06586588381883743},
+      {"vector":"LLLHH","probability":0.0567629179331307},
+      {"vector":"HHHHL","probability":0.03477930487643716}
+    ],
+    "barp_probabilities": {
+      "S1":{"LOW":0.7090647827644535,"REPEAT":0.014850667371481432,"HIGH":0.276084549864065},
+      "S2":{"LOW":0.7239669317195729,"REPEAT":0.03246993524514338,"HIGH":0.24356313303528357},
+      "S3":{"LOW":0.4173962040534846,"REPEAT":0.038808076422058184,"HIGH":0.5437957195244574},
+      "S4":{"LOW":0.18894771242225036,"REPEAT":0.023881893182805036,"HIGH":0.7871703943949445},
+      "S5":{"LOW":0.6019986270290992,"REPEAT":0.07701910551454624,"HIGH":0.3209822674563545}
+    },
+    "barp_product_modal_scenarios": [
+      {"vector":"LLHHL","score":0.13228319710358993},
+      {"vector":"LLLHL","score":0.10153537872527159},
+      {"vector":"LLHHH","score":0.07053265347502814},
+      {"vector":"LLLHH","score":0.05413809039916962},
+      {"vector":"HLHHL","score":0.051506361357472975},
+      {"vector":"LHHHL","score":0.04450384198895205}
+    ],
+    "interpretation": "Exact joint structural geometry and BARP both place major mass on S1 LOW. LLHHL and LLLHL are the strongest shared scenario region. No HLR vector has hard-pruning authority."
+  },
+  "candidate_acquisition": {
+    "primary_experiment": "E0019",
+    "primary_line_mass_K13": [20,22,23,26,30,31,32,34,35,39,41,43,49],
+    "independent_nonequilibrium_current_K13": [2,3,8,12,13,20,22,23,26,27,36,37,40],
+    "diagnostic_K20_envelope": [2,3,8,12,13,20,22,23,26,30,31,32,34,35,37,39,40,41,43,49],
+    "integration_rule": "E0019 K13 remains the fixed acquisition test. Portfolio hedge lanes may use frozen K20 reserve coordinates only to preserve high-probability HLR branches and catastrophic-exclusion insurance; this does not retroactively change the E0019 K13 metric.",
+    "levy_tail_selected_alpha_by_slot": [0.0,0.0,0.0,0.0,0.0]
+  },
+  "coalition_assembly": {
+    "expert": "E0013_positive_PMI_spectral",
+    "authority": "soft_shadow_rank_only",
+    "use": "Within each scenario lane, E0019 residual line mass is primary and E0013 spectral coherence is a secondary rank signal. Portfolio selection also caps repeated coordinate exposure rather than taking the raw top-20 from either ranker."
+  },
+  "morphology": {
+    "authority": "soft_only",
+    "hard_pruning": false,
+    "portfolio_rule": "Avoid unnecessary concentration while retaining morphology tails; no parity, sum, span or gap state is treated as a veto."
+  },
+  "powerball": {
+    "current_ball": 11,
+    "current_vvd": 10,
+    "method": "E0011-style conditional convergence frozen for this target: exact-state successor model with uniform 1/16 prior kappa=4; current-VVD successor model with exact uniform-PB displacement baseline eta=4; exact-ball field is the normalized geometric pool of the two distributions. HLR is descriptive and not counted as a third independent vote.",
+    "prior_exact_state_successors": {"13":2,"12":1,"15":1},
+    "prior_current_vvd_successors": {"5":1,"9":1},
+    "ranking": [13,2,12,15,6,16],
+    "probabilities": {"13":0.12946489048457716,"2":0.09649743194102674,"12":0.09649743194102674,"15":0.09649743194102674,"6":0.07474658937187605,"16":0.07474658937187605},
+    "primary": 13,
+    "interpretation": "PB13 has the strongest exact-state support. PB12/PB15 retain exact-state support; PB2/PB6/PB16 preserve the current-VVD transition path because the conditional components disagree."
+  },
+  "portfolio": [
+    {"line":1,"main":[2,23,31,35,39],"powerball":13,"scenario":"LHHHL","lane":"E0016_RESERVE_HEDGE"},
+    {"line":2,"main":[3,30,31,35,39],"powerball":12,"scenario":"LHHHL","lane":"E0016_RESERVE_HEDGE"},
+    {"line":3,"main":[20,23,31,35,37],"powerball":15,"scenario":"HHHHL","lane":"E0016_RESERVE_HEDGE"},
+    {"line":4,"main":[26,30,31,35,40],"powerball":2,"scenario":"HHHHL","lane":"E0016_RESERVE_HEDGE"},
+    {"line":5,"main":[12,13,34,35,41],"powerball":13,"scenario":"LLHHL","lane":"E0019_E0013_CORE"},
+    {"line":6,"main":[20,23,31,34,39],"powerball":13,"scenario":"HHHHL","lane":"E0019_E0013_CORE"},
+    {"line":7,"main":[12,13,22,30,39],"powerball":12,"scenario":"LLLHL","lane":"E0019_E0013_CORE"},
+    {"line":8,"main":[8,13,34,43,49],"powerball":15,"scenario":"LLHHH","lane":"E0019_E0013_CORE"},
+    {"line":9,"main":[8,13,22,43,49],"powerball":6,"scenario":"LLLHH","lane":"E0019_E0013_CORE"},
+    {"line":10,"main":[12,23,39,43,49],"powerball":13,"scenario":"LHHHH","lane":"E0019_E0013_CORE"},
+    {"line":11,"main":[12,13,32,35,41],"powerball":13,"scenario":"LLHHL","lane":"E0019_E0013_CORE"},
+    {"line":12,"main":[26,30,32,35,41],"powerball":16,"scenario":"HHHHL","lane":"E0019_E0013_CORE"},
+    {"line":13,"main":[12,20,23,26,39],"powerball":12,"scenario":"LLLHL","lane":"E0019_E0013_CORE"},
+    {"line":14,"main":[8,20,39,43,49],"powerball":15,"scenario":"LLHHH","lane":"E0019_E0013_CORE"},
+    {"line":15,"main":[8,13,22,35,49],"powerball":2,"scenario":"LLLHH","lane":"E0019_E0013_CORE"},
+    {"line":16,"main":[12,20,31,34,39],"powerball":13,"scenario":"LLHHL","lane":"E0019_E0013_CORE","flagship":true},
+    {"line":17,"main":[26,30,32,34,41],"powerball":6,"scenario":"HHHHL","lane":"E0019_E0013_CORE"},
+    {"line":18,"main":[8,13,22,35,41],"powerball":15,"scenario":"LLLHL","lane":"E0019_E0013_CORE"},
+    {"line":19,"main":[12,20,31,39,43],"powerball":13,"scenario":"LLHHL","lane":"E0019_E0013_CORE"},
+    {"line":20,"main":[22,30,32,34,43],"powerball":16,"scenario":"HHHHL","lane":"E0019_E0013_CORE"}
+  ],
+  "portfolio_exposure": {
+    "maximum_main_coordinate_line_count": 9,
+    "most_exposed_coordinates": {"35":9,"39":9},
+    "reserve_coordinates_explicitly_used": [2,3,37,40],
+    "note": "The final 20-line portfolio is wider than the E0019 K13 by design. Score E0019 candidate acquisition on its frozen K13 separately from final portfolio exposure."
+  },
+  "flagship": {"main":[12,20,31,34,39],"powerball":13,"scenario":"LLHHL"},
+  "integrity": {
+    "freeze_rule": "Do not alter this artifact after the 2026-09-01 result is known.",
+    "no_durable_edge_claimed": true,
+    "structural_nulls_are_controls_not_votes": true,
+    "E0019_K13_metric_remains_separate": true,
+    "E0013_has_no_candidate_authority": true,
+    "K20_reserve_is_exposure_management_not_proof_of_edge": true
+  }
+}
