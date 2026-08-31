@@ -1,0 +1,38 @@
+{
+  "experiment_id": "E0019",
+  "evidence_scope": "post_hoc exploratory walk-forward discovery; no confirmatory credit",
+  "targets": 18,
+  "minimum_prior_draws": 8,
+  "target_range": "draw_id 9 through 26",
+  "primary_line_mass_K13": {
+    "winner_coordinates": 26,
+    "random_K13_expected": 23.4,
+    "draws_with_3plus": 2,
+    "draws_with_0or1": 10,
+    "interpretation": "directionally above random expectation but small and underpowered"
+  },
+  "top13_residual_marginal": {
+    "winner_coordinates": 24,
+    "random_K13_expected": 23.4
+  },
+  "E0016_nonequilibrium_current_K13": {
+    "winner_coordinates": 25,
+    "random_K13_expected": 23.4
+  },
+  "underlying_combined_residual_probability_field": {
+    "mean_Bernoulli_logloss_delta_vs_flat": 0.0031246364,
+    "mean_Brier_delta_vs_flat": 0.0006236482,
+    "interpretation": "worse than flat on proper score in this replay; line-mass basket result must therefore be treated cautiously"
+  },
+  "K20_reserve_envelope": {
+    "construction": "line-mass K13 plus seven highest nonequilibrium-current coordinates not already present",
+    "winner_coordinates": 41,
+    "random_K20_expected": 36.0,
+    "interpretation": "exposure-managed robustness only; not evidence of predictive lift"
+  },
+  "other_exploratory_checks": {
+    "Main_Richardson_transfer": "no detected K13 lift over matched exposure",
+    "Levy_tail_selected_alpha_for_2026_09_01": [0.0,0.0,0.0,0.0,0.0],
+    "interpretation": "current post-June history does not justify a heavy-tail tilt for the 2026-09-01 target"
+  }
+}
