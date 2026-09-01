@@ -1,0 +1,43 @@
+{
+  "experiment_id": "E0020",
+  "evidence_scope": "exploratory walk-forward discovery through 2026-08-28; no confirmatory credit",
+  "targets": 18,
+  "main_slot_observations": 90,
+  "terminal_models": {
+    "M0_exact_terminal_null": {"mean_logloss": 2.289626, "mean_brier": 0.089782, "top1_rate": 0.133333},
+    "same_slot_longest_suffix": {"mean_logloss": 2.332522, "mean_brier": 0.091215, "top1_rate": 0.144444},
+    "cross_slot_longest_suffix": {"mean_logloss": 2.321306, "mean_brier": 0.090861, "top1_rate": 0.111111},
+    "markov1": {"mean_logloss": 2.344822, "mean_brier": 0.091376, "top1_rate": 0.144444}
+  },
+  "coordinate_synergy_same_slot_suffix": {
+    "M0_structural": {"mean_logloss": 3.367651, "mean_brier": 0.019199, "mean_actual_rank": 11.866667},
+    "M1_terminal": {"mean_logloss": 3.410547, "mean_brier": 0.019318, "mean_actual_rank": 12.044444},
+    "M2_terminal_plus_HLR": {"mean_logloss": 3.436837, "mean_brier": 0.019306, "mean_actual_rank": 12.322222},
+    "M3_terminal_plus_HLR_plus_VVD": {"mean_logloss": 3.748890, "mean_brier": 0.019931, "mean_actual_rank": 14.933333}
+  },
+  "sequence_shuffle_diagnostics": {
+    "same_L2": {"observed": 17, "shuffle_mean": 12.6030, "empirical_p": 0.093981, "Holm_p": 0.601880},
+    "same_L3": {"observed": 4, "shuffle_mean": 1.1044, "empirical_p": 0.030194, "Holm_p": 0.241552},
+    "same_L4": {"observed": 1, "shuffle_mean": 0.0942, "empirical_p": 0.085983, "Holm_p": 0.601880},
+    "cross_L2": {"observed": 38, "shuffle_mean": 40.2480, "empirical_p": 0.789842, "Holm_p": 1.0},
+    "cross_L3": {"observed": 6, "shuffle_mean": 5.3634, "empirical_p": 0.447910, "Holm_p": 1.0},
+    "cross_L4": {"observed": 2, "shuffle_mean": 0.4916, "empirical_p": 0.094981, "Holm_p": 0.601880},
+    "ABA": {"observed": 10, "shuffle_mean": 10.4054, "empirical_p": 0.603679, "Holm_p": 1.0},
+    "ABAB": {"observed": 0, "shuffle_mean": 0.9454, "empirical_p": 1.0, "Holm_p": 1.0}
+  },
+  "repeated_same_slot_words": [
+    {"slot":1,"length":3,"word":[2,9,6],"continuations":[7,5]},
+    {"slot":2,"length":3,"word":[3,9,0],"continuations":[5,8]},
+    {"slot":3,"length":3,"word":[2,7,0],"continuations":[7,7]},
+    {"slot":3,"length":3,"word":[7,0,7],"continuations":[2,1]},
+    {"slot":3,"length":4,"word":[2,7,0,7],"continuations":[2,1]}
+  ],
+  "algebraic_main_best": {"rule":"(2b-a)_mod_10","hits":11,"observations":90,"null_expected_hits":9.243595,"unadjusted_upper_tail_p":0.317797},
+  "powerball": {
+    "M0_exact_terminal_null": {"mean_logloss":2.117950,"mean_brier":0.086632,"top1_rate":0.277778},
+    "same_slot_longest_suffix": {"mean_logloss":2.267597,"mean_brier":0.091151,"top1_rate":0.111111},
+    "markov1": {"mean_logloss":2.238971,"mean_brier":0.090455,"top1_rate":0.111111},
+    "best_algebraic_rule": {"rule":"repeat_b","hits":5,"observations":18,"null_expected_hits":2.1875,"unadjusted_upper_tail_p":0.058249,"Holm_p_across_6_rules":0.349496}
+  },
+  "overall_interpretation": "Main contains a nominal excess of repeated same-slot length-3 terminal words, but it does not survive multiplicity correction and does not translate into predictive suffix-model or HLR/VVD coordinate-score improvement. Retain as prospective shadow only."
+}
