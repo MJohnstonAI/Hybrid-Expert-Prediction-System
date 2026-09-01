@@ -1,0 +1,90 @@
+experiment_id: E0020
+title: Main Terminal Motif and Symbolic-Dynamics Synergy
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+stage: slot_forecast|candidate_funnel|powerball_matrix
+first_prospective_target: 2026-09-01
+
+data:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  target_excluded: true
+  xtra_state_transfer: false
+
+terminal_nulls:
+  main_slots: exact order-statistic PMF aggregated by n mod 10
+  powerball: exact 1..16 residue support; residues 1..6 have 2/16 and 0,7,8,9 have 1/16
+
+motif_models:
+  same_slot_suffix:
+    max_length: 4
+    backoff: 4_to_1
+    shrinkage_kappa: 4.0
+    prior: exact_slot_terminal_null
+  cross_slot_suffix:
+    search_other_main_slots_only: true
+    max_length: 4
+    backoff: 4_to_1
+    shrinkage_kappa: 8.0
+    prior: target_slot_exact_terminal_null
+  markov1:
+    shrinkage_kappa: 4.0
+  finite_algebraic_library:
+    - abs(a-b)
+    - (a+b)_mod_10
+    - (2b-a)_mod_10
+    - (b-a)_mod_10
+    - repeat_b
+    - pair_flip_a
+
+sequence_diagnostics:
+  - repeated_same_slot_words_L2_L3_L4
+  - repeated_cross_slot_words_L2_L3_L4
+  - ABA
+  - ABAB
+  temporal_control: independent within-slot terminal permutation preserving each slot marginal
+  permutation_trials: 5000
+  permutation_seed: 20260901
+  multiplicity: Holm across the eight primary sequence diagnostics
+
+nested_coordinate_models:
+  M0: exact structural slot coordinate PMF
+  M1: M0 times same-slot terminal residual ratio Pmotif(residue)/P0_terminal(residue)
+  M2: M1 times BARP HLR residual ratio P_BARPHLR(state)/P0_HLR(state)
+  M3: M2 times VVD-R residual ratio P_VVDR(d)/P0_VVD(d)
+  M4_current_shadow: M3 line ranking conditioned on the already-frozen E0019 diagnostic K20 envelope; this is not a historical proper-score arm
+
+walk_forward:
+  minimum_prior_draws: 8
+  target_draw_ids: 9_through_latest_available_before_freeze
+  no_target_in_feature_or_rule_selection: true
+
+metrics:
+  terminal:
+    - multiclass_log_loss
+    - multiclass_Brier
+    - top1_terminal_hit
+  coordinate:
+    - multiclass_log_loss
+    - multiclass_Brier
+    - actual_coordinate_rank
+  algebraic:
+    - exact_terminal_hits
+    - expected_hits_under_slot_specific_terminal_null
+    - Poisson_binomial_upper_tail
+  sequence:
+    - marginal_preserving_shuffle_empirical_p
+    - Holm_adjusted_p
+
+baselines:
+  - exact_terminal_null
+  - Markov1_terminal
+  - exact_structural_coordinate_null
+  - no_motif_HLR_VVD_path
+
+integrity:
+  current_main_prediction_may_change: false
+  E0019_candidate_authority_unchanged: true
+  one_draw_promotion_forbidden: true
+  all_historical_results_are_discovery_evidence: true
