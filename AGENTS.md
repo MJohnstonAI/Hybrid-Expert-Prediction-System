@@ -28,7 +28,8 @@ Read in this order before substantive prediction/research work:
 9. `knowledge/open_questions.md`
 10. `experiments/registry.csv`
 11. latest relevant session handoff, currently `knowledge/SESSION_HANDOFF_MAIN_HEPS_2026-09-02.md`
-12. only the experiment/cycle/review files directly relevant to the task.
+12. for coalition/portfolio work, `knowledge/ASSEMBLY_EVOLUTION_HANDOFF_2026-09-02.md` and `experiments/E0022/`
+13. only the experiment/cycle/review files directly relevant to the task.
 
 Use `data/draw_history.jsonl` as the canonical Main ledger.
 
@@ -151,6 +152,8 @@ An expert's forecast and authority are separate. External operators should be te
 
 Johnson covering is assembly/portfolio geometry only. It has zero candidate-discovery authority.
 
+For K13 assembly, enumerate all `C(13,5)=1,287` legal lines before ranking. Do not hard-prune the winning line through morphology or generation shortcuts. For discrete coalition scores with ties, use average midrank or an explicitly justified tie-aware rule; E0022 showed best-in-tie scoring can materially inflate apparent lift.
+
 ## 9. Main candidate-acquisition priority
 
 K=13 remains the preferred primary acquisition research target, but it is falsifiable and must be compared with matched K controls.
@@ -257,6 +260,8 @@ python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 ```
 
 For relevant slot/null research also run `scripts/structural_null.py` for the previous draw and declared basket sizes.
+
+For E0022 assembly work run `pytest -q tests/test_e0022_assembly_evolution.py` and reproduce `scripts/oracle_k13_assembly_evolution.py` before making new lift claims.
 
 Main numbers are sorted order statistics, not physical extraction order.
 
