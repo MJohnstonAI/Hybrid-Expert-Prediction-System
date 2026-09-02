@@ -1,0 +1,66 @@
+{
+  "experiment_id": "E0025",
+  "analysis_date": "2026-09-02",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "source": "collaboration/contributions/apodex_2026-09-02/",
+  "supplied_engine_audit": {
+    "bundled_tests": "PASS",
+    "important_note": "Passing supplied tests does not validate the central signed-transition or PB claims.",
+    "previous_state_sensitivity_check": {
+      "model": "P0_j(x)*exp(phi*(x-p))",
+      "max_normalized_probability_difference_for_two_different_p_values_at_fixed_phi": 2.1e-17,
+      "result": "FAIL - previous-state dependence cancels algebraically"
+    },
+    "adjacent_preserver_check": {
+      "result": "FAIL - no genuine seat-trade path under same-score Top13 rule",
+      "reason": "an omitted coordinate cannot normally exceed the weakest Top13 coordinate on the same p_anywhere score used to define Top13"
+    },
+    "powerball_check": {
+      "result": "FAIL",
+      "reason": "uniform quantity uses negative log-probability sign opposite to shrunk quantities and is not withheld-target scoring"
+    }
+  },
+  "canonical_main_replay": {
+    "data_start": "2026-06-02",
+    "data_end": "2026-09-01",
+    "draws": 27,
+    "minimum_prior_draws": 3,
+    "targets": 24,
+    "mean_marginal_log_loss": 17.503974,
+    "mean_inclusion_brier": 0.091362,
+    "mean_logloss_delta_vs_structural_null": -0.855384,
+    "mean_brier_delta_vs_structural_null": -0.001362,
+    "mean_hits_base_K13": 1.25,
+    "mean_hits_preserved_K13": 1.25,
+    "IID_expected_hits_K13": 1.30,
+    "targets_5of5_K13": 0,
+    "zero_hit_targets": 3,
+    "interpretation": "No predictive lift; field is worse than structural null on proper scores and adjacent preservation is inert."
+  },
+  "corrected_PB_dirichlet_discovery": {
+    "walk_forward_targets": 24,
+    "minimum_prior_draws": 3,
+    "uniform_mean_logloss": 2.7725887222,
+    "uniform_mean_multiclass_brier": 0.9375,
+    "alpha2_mean_logloss": 2.7289133544,
+    "alpha2_mean_multiclass_brier": 0.9326253248,
+    "alpha2_logloss_improvement_vs_uniform": 0.0436753678,
+    "alpha2_brier_improvement_vs_uniform": 0.0048746752,
+    "alpha2_logloss_one_sided_t_p_uncorrected": 0.2597238535,
+    "alpha2_logloss_sign_test_wins": "15/24",
+    "alpha2_logloss_sign_test_p_uncorrected": 0.1537281275,
+    "alpha_values_inspected": [0.25,0.5,1,2,4,8,16],
+    "interpretation": "Directionally better but non-significant and selected after retrospective alpha sweep; eligible only as a prospective zero-weight shadow."
+  },
+  "component_decisions": {
+    "legal_line_DP": "ACCEPT_FOR_CANONICAL_REIMPLEMENTATION",
+    "M_K_containment_DP": "ACCEPT_FOR_CANONICAL_REIMPLEMENTATION",
+    "walk_forward_harness_skeleton": "ACCEPT_FOR_REPAIR_AND_INTEGRATION",
+    "supplied_phi_signed_transition": "REJECT_CURRENT_FORM",
+    "supplied_adjacent_preserver": "REJECT_CURRENT_FORM",
+    "supplied_PB_championship": "REJECT_CURRENT_FORM",
+    "supplied_coalition_PMI_probability_interpretation": "REWORK",
+    "corrected_dirichlet_alpha2_PB": "PROSPECTIVE_SHADOW_ONLY"
+  }
+}
