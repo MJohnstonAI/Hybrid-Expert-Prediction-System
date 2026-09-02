@@ -26,23 +26,38 @@ transition_representation:
     terminal: x_j mod 10
   independent_multiplication_of_derived_views: forbidden
 
-slot_model:
+slot_residual_model:
+  exact_slot_null: NULL_ORDER_STATISTIC_SLOT
+  learned_distribution: q_j(x_given_p_history)
+  residual_ratio: T_j(x)=q_j(x_given_p_history)/P0_j(x)
   principle: strongly_regularized_single_transition_distribution
-  structural_anchor: NULL_ORDER_STATISTIC_SLOT
   minimum_complexity_rule: >-
     Prefer a low-dimensional or hierarchical shrinkage model. Do not fit a free high-variance parameter
     for every signed displacement unless a preregistered shrinkage hierarchy and power justification are supplied.
+  allowed_parameterization_example: >-
+    q_j(x) proportional to P0_j(x) * exp(phi_j(x-p_j)), with phi_j estimated only from rows before target.
   hyperparameter_rule: >-
     All shrinkage/model-form choices must be frozen before prospective scoring. Any retrospective grid search is discovery only.
 
 joint_legal_line_model:
   legal_space: all_C_50_5_sorted_lines
-  unnormalized_weight: product_of_five_regularized_slot_transition_probabilities
+  exact_line_null: uniform_over_all_2118760_legal_lines
+  exact_line_null_probability: 1/C(50,5)
   exact_legality: x1_lt_x2_lt_x3_lt_x4_lt_x5
+  unnormalized_weight: P0_line(x) * product_j T_j(x_j)
   normalization: exact_sum_over_all_2118760_legal_lines
-  note: >-
-    Factorization is a low-dimensional parameterization, not a claim that sorted slots are independent.
-    The resulting line field must be normalized over the exact legal state space.
+  ranking_equivalence: >-
+    Because P0_line is constant on legal lines, relative line weights are proportional to product_j T_j(x_j),
+    but the probabilistic baseline remains the exact uniform legal-line null.
+  forbidden:
+    - product_of_five_learned_slot_probabilities_as_joint_line_field
+    - product_of_five_exact_slot_marginals_as_joint_null
+  rationale: >-
+    Multiplying learned slot probabilities would multiply order-statistic geometry across dependent sorted slots and
+    would not recover the exact uniform legal-line null when learned residual signal is zero.
+  mandatory_null_recovery_test: >-
+    Set q_j equal to P0_j for every slot. Then every T_j must equal 1 and the normalized E0021 line field must equal
+    1/C(50,5) for every legal line, up to numerical tolerance.
 
 candidate_objective:
   k: 13
@@ -64,7 +79,7 @@ adjacent_slot_preservation_shadow:
   exact_slot_and_anywhere_metrics_separate: true
 
 comparators:
-  - exact_structural_legal_line_null
+  - exact_uniform_legal_line_null
   - flat_global_inclusion_0_1
   - simple_frequency_K13
   - simple_recency_K13
@@ -76,7 +91,8 @@ metrics:
   primary_probability:
     - mean_Bernoulli_logloss_delta_vs_flat_global
     - mean_Brier_delta_vs_flat_global
-    - legal_line_log_probability_delta_vs_uniform_when_numerically_stable
+    - legal_line_log_probability_delta_vs_uniform
+    - null_recovery_max_absolute_error
   candidate:
     - K13_winner_coordinate_count
     - K13_3plus_rate
@@ -105,6 +121,7 @@ multiple_testing:
   retrospective_selection_is_discovery_only: true
 
 falsification:
+  - implementation fails exact uniform-null recovery when q_j equals P0_j
   - proper scores fail to improve prospectively versus structural/simple controls
   - apparent K13 gains occur only with worse probability calibration
   - adjacent-slot preservation does not improve matched-K survival
