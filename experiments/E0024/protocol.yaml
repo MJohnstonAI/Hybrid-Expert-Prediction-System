@@ -1,0 +1,75 @@
+experiment_id: E0024
+title: External Strategy Championship — Balanced Overlap, Machine State, and Change-Point Audit
+status: exploratory_replay_and_methodology_audit
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+scope:
+  - main
+  - xtra
+  - portfolio_optimization
+  - machine_nonexchangeability
+  - change_point_detection
+  - physical_data_feasibility
+
+exclusions:
+  - anti_crowd_selection
+  - game_rule_arbitrage
+
+active_data_boundary:
+  start: 2026-06-02
+  pre_june_allowed: false
+  main: data/draw_history.jsonl
+  xtra: data/powerball_xtra_history.jsonl
+  xtra_replay_supplement: experiments/E0022/xtra_replay_supplement.jsonl
+
+portfolio_arm:
+  candidate_count: 13
+  line_budget: 20
+  exact_winner_states: 1287
+  primary_metric: exact_4plus_state_coverage
+  baseline: E0022 four_plus_first lexicographic greedy
+  challenger: randomized_tie_multistart_plus_one_swap_with_balance_tiebreak
+  balance_metrics:
+    - coordinate_exposure_variance
+    - pair_exposure_variance
+    - ticket_overlap_variance
+  rules:
+    - no_K_expansion
+    - no_line_budget_expansion
+    - coverage_priority_before_balance
+    - geometry_not_predictive_signal
+
+machine_arm:
+  labels: externally_sourced_only
+  inferred_from_outcomes: forbidden
+  association_test: between_machine_inclusion_dispersion_with_label_permutation
+  predictive_diagnostic:
+    target_machine: oracle_known_for_replay
+    global_baseline: expanding_frequency_shrunk_to_0.1
+    machine_model: same_machine_frequency_shrunk_to_expanding_global
+    global_tau_draws: 8
+    machine_tau_draws: 8
+    minimum_global_prior_draws: 6
+    minimum_same_machine_prior_draws: 2
+    metrics:
+      - full_50_coordinate_brier
+      - fixed_K13_winner_capture
+  deployability_gate: exact_machine_must_be_independently_known_before_ticket_cutoff
+
+change_point_arm:
+  feature: 50_coordinate_inclusion_vector
+  minimum_draws_each_side: 6
+  statistic: harmonic_sample_scaled_squared_mean_shift
+  selection: maximum_over_all_eligible_splits
+  correction: chronology_permutation_max_statistic
+  authority: diagnostic_only
+
+physical_video_arm:
+  requirement: archived_actual_physical_motion_with_pre_outcome_features
+  graphical_result_representation: insufficient
+  authority: none_until_dataset_exists
+
+promotion:
+  predictive_breakthrough_from_replay: forbidden
+  methodology_or_geometry_improvement: allowed_if_deterministic_and_reproduced
