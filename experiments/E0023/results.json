@@ -1,0 +1,42 @@
+{
+  "experiment_id": "E0023",
+  "analysis_date": "2026-09-02",
+  "target_draw_date": "2026-09-04",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "frozen_upstream_K13": [3,8,18,19,20,23,32,34,35,39,40,48,50],
+  "winner_state_count": 1287,
+  "line_budget": 20,
+  "comparators": {
+    "e0022_single_start_four_plus_first": {
+      "covered_4plus": 788,
+      "fraction": 0.6122766123
+    },
+    "e0023_pure_multistart_geometry": {
+      "covered_4plus": 796,
+      "fraction": 0.6184926185,
+      "seed_lines": [[3,19,34,39,48],[8,19,20,35,48]],
+      "interpretation": "Real deterministic same-K/same-budget 4+ geometry improvement, but selected portfolio is weak on E0013/Dissent predictive ranks overall."
+    },
+    "e0023_rank_seeded_precision_portfolio": {
+      "mandatory_predictive_seed": "E0013 ranks 1 through 6; all six are also Dissent-OR rank 12 or better",
+      "extra_geometry_seed": [3,23,32,34,39],
+      "covered_4plus": 733,
+      "fraction": 0.5695415695,
+      "covered_3plus": 1287,
+      "exact_5of5_states": 20,
+      "coverage_retention_vs_e0022": 0.9302030457,
+      "coverage_retention_vs_pure_multistart": 0.9208542714,
+      "interpretation": "Preserves the strongest current coalition consensus while retaining about 93% of E0022's 4+ coverage count. Selected as the pre-draw precision compromise, not as a predictive promotion claim."
+    }
+  },
+  "top6_consensus": [
+    {"main":[18,32,34,35,50],"e0013_rank":1.0,"dissent_or_rank":1.0},
+    {"main":[8,19,20,39,48],"e0013_rank":2.0,"dissent_or_rank":4.5},
+    {"main":[3,19,20,39,48],"e0013_rank":3.0,"dissent_or_rank":6.0},
+    {"main":[3,8,19,39,48],"e0013_rank":4.0,"dissent_or_rank":9.0},
+    {"main":[8,19,20,23,39],"e0013_rank":5.0,"dissent_or_rank":10.0},
+    {"main":[19,20,23,39,48],"e0013_rank":6.0,"dissent_or_rank":12.0}
+  ],
+  "search_warning": "This refinement was designed pre-result for the 2026-09-04 target. Geometry gains are exact. Predictive benefit of rank-seeding remains unproven and must be scored prospectively."
+}
