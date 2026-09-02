@@ -1,0 +1,123 @@
+experiment_id: E0022
+title: Oracle-K13 Assembly Evolution and Tie-Safe Ranking Audit
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+stage:
+  - coalition_assembly
+  - winner_float_ranking
+  - portfolio_optimization
+
+candidate_authority: none
+
+training:
+  main_canonical: data/draw_history.jsonl
+  main_active_start: 2026-06-02
+  xtra_canonical: data/powerball_xtra_history.jsonl
+  xtra_active_start: 2026-06-02
+  pre_june_history_allowed: false
+  expanding_history: true
+  target_excluded: true
+
+oracle_k13:
+  design: actual five target winners plus eight random decoys
+  candidate_count: 13
+  legal_line_count: 1287
+  decoy_replicates_per_target: 30
+  random_seed: 20260902
+  interpretation: stage isolation only; not candidate-acquisition evidence
+
+rank_integrity:
+  canonical_tie_rule: average_midrank
+  forbidden_tie_rule: best_rank_for_every_tie
+  reason: discrete pair/frequency scores can have large tie blocks and optimistic tie treatment inflates winner percentile
+
+main_models:
+  baselines:
+    - additive_frequency
+    - additive_recency
+    - raw_pair_count
+    - smoothed_pair_PMI
+    - E0013_spectral
+  challengers:
+    - four_node_nucleus
+    - conditional_completion
+    - weak_link
+    - residualized_pair_family
+    - rank_average_fusions
+    - softmax_rank_fusions
+    - adaptive_reliability_fusions
+    - capped_dissent
+    - nucleus_expansion
+  frozen_forward_shadow:
+    name: MAIN_ASSEMBLY_DISSENT_OR
+    formula: max(midrank_percentile(frequency), midrank_percentile(recency), midrank_percentile(E0013_spectral))
+    authority: shadow_only
+    note: OR/robustness operator; never count the three lanes as independent convergence evidence
+
+xtra_models:
+  rule: fit all states on XTRA only; no Main transfer
+  baselines:
+    - additive_frequency
+    - additive_recency
+    - raw_pair_count
+    - smoothed_pair_PMI
+    - transferred_E0013_spectral_diagnostic
+  promotion: none_from_retrospective_replay
+
+johnson:
+  candidate_count: 13
+  winner_state_count: 1287
+  radius1_definition: overlap_at_least_4_of_5
+  radius1_states_per_selected_line: 41
+  legacy_objective: three_plus_first_then_four_plus
+  challenger_objective: four_plus_first_then_three_plus
+  exact_5of5_note: any M distinct selected lines cover exactly M of 1287 exact winning states; Johnson objective cannot change this without predictive weights
+
+metrics:
+  predictive_rank:
+    - exact_winner_rank
+    - winner_percentile
+    - top20_survival
+    - top100_survival
+    - minimum_target_mean_percentile
+    - catastrophic_bottom20_target_rate
+  portfolio_geometry:
+    - exact_3plus_coverage
+    - exact_4plus_coverage
+    - exact_5of5_coverage
+    - matched_budget_gain_vs_random_distinct_lines
+    - matched_budget_gain_vs_legacy_Johnson_objective
+
+search_exposure:
+  classification: large_exploratory_search
+  families_screened:
+    - singleton_frequency
+    - recency
+    - raw_pair
+    - PMI
+    - E0013_spectral
+    - nucleus
+    - completion
+    - weak_link
+    - residualized_variants
+    - rank_average
+    - max_OR
+    - softmax_logsumexp
+    - adaptive_reliability
+    - capped_dissent
+    - nucleus_expansion
+  consequence: no predictive BREAKTHROUGH may be claimed from E0022 replay
+
+prospective:
+  main_first_eligible_target_after_freeze: 2026-09-04
+  xtra_first_eligible_target_after_freeze: 2026-09-04
+  requirement: use actual frozen upstream K13; oracle-K13 continues only as stage-isolation diagnostic
+
+falsification:
+  - dissent_OR fails to reduce catastrophic burial prospectively at matched K13
+  - dissent_OR degrades winner rank without compensating robustness value
+  - any XTRA apparent pair lift disappears under average-tie ranking
+  - four_plus_first does not improve exact 4plus coverage at identical line budget
+  - any claimed gain depends on increasing candidate K or line budget
