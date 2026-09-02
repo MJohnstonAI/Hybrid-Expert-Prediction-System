@@ -1,9 +1,14 @@
-schema_version: 1
-updated: 2026-08-28
+schema_version: 2
+updated: 2026-09-02
 purpose: >-
-  Machine-readable registry of HEPS experts, their architectural stage,
-  scientific status, and allowed authority. Detailed formulas remain in
-  core/heps_architecture.md, expert-specific files, and experiment packages.
+  Machine-readable registry of HEPS expert/stage authority. Architecture status means whether a component
+  is available in the pipeline; it does NOT imply proven predictive edge. Evidence classification, authority,
+  current-method doctrine, and deprecations control interpretation.
+
+binding_interpretation:
+  - governance/current_method_doctrine.md
+  - governance/methodology_deprecations.md
+  - core/feature_dictionary.yaml
 
 architecture_stages:
   - slot_forecast
@@ -14,37 +19,217 @@ architecture_stages:
   - portfolio_optimization
   - powerball_matrix
 
+information_families:
+  MAIN_SLOT_TRANSITION:
+    members:
+      - MAIN_SIGNED_SLOT_TRANSITION
+      - MAIN_HLR_SLOT
+      - MAIN_VVD_DELTA
+      - MAIN_TERMINAL_MOTIF
+    rule: >-
+      These are representations/models of the same sorted-slot transition family and may not be counted
+      as independent convergence votes or multiplied as independent likelihood ratios without an explicit coherent dependency model.
+
 experts:
+  - expert_id: MAIN_SIGNED_SLOT_TRANSITION
+    name: Joint Signed-Displacement Transition Field
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    information_family: MAIN_SLOT_TRANSITION
+    source: experiments/E0021/
+    authority:
+      diagnostic: true
+      may_score: true_after_implementation_and_freeze
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_change_K: false
+    notes:
+      - Corrected successor research path to E0019 HLRxVVD field.
+      - One transition representation per slot; exact legal-line normalization preferred.
+      - Proper-score-first gate before K13 recall promotion.
+
+  - expert_id: MAIN_HLR_SLOT
+    name: Slot High-Low-Repeat / BARP Direction View
+    stage: slot_forecast
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    information_family: MAIN_SLOT_TRANSITION
+    independent_vote_authority: false
+    mandatory_output_when_enabled: true
+    output:
+      unit: sorted_slot
+      states: [LOW, REPEAT, HIGH]
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    evidence_paths:
+      - experiments/E0005/
+      - cycles/2026-09-01/post_draw/main_audit.json
+    notes:
+      - Frozen BARP modal LLHHL matched all five realized directions on 2026-09-01.
+      - This is positive one-target prospective credit only; no retuning or promotion.
+      - HLR is the sign view of MAIN_SIGNED_SLOT_TRANSITION.
+
+  - expert_id: MAIN_VVD_DELTA
+    name: Vertical Variance Delta / VVD-R Diagnostic
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    information_family: MAIN_SLOT_TRANSITION
+    independent_vote_authority: false
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    notes:
+      - Absolute magnitude view of signed slot transition.
+      - Retain for displacement diagnostics/proper-score comparison only.
+      - Do not multiply with HLR or terminal ratios as independent evidence.
+      - On 2026-09-01 VVD helped S3 rank but harmed S5; no global reward multiplier.
+
+  - expert_id: MAIN_TERMINAL_MOTIF
+    name: Main Terminal Motif / Symbolic-Dynamics Diagnostic
+    stage: slot_forecast
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    information_family: MAIN_SLOT_TRANSITION
+    independent_vote_authority: false
+    source: experiments/E0020/
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+    notes:
+      - Terminal diagnostic family retained.
+      - E0020 M1-M3 terminalxHLRxVVD multiplicative chain is REJECT for forward acquisition.
+      - S3 terminal1 and S4 terminal4 were top-1 hits on 2026-09-01 but overall proper-score history remains negative.
+
+  - expert_id: MAIN_ADJACENT_SLOT_PRESERVATION
+    name: Adjacent-Slot / Anywhere-Coordinate Preservation Challenger
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: experimental
+    source: experiments/E0021/
+    authority:
+      diagnostic: true
+      may_score: true_after_freeze
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_change_K: false
+    constraints:
+      fixed_k: 13
+      maximum_preservation_seats: 2
+      union_expansion: forbidden
+    notes:
+      - Motivated by 2026-09-01 coordinate14/16 adjacent-slot migration evidence.
+      - Exact-slot and anywhere-coordinate credit remain separate.
+
+  - expert_id: MAIN_PPMI_SPECTRAL_COALITION
+    name: Positive-PMI Spectral Coalition Ranking
+    stage: coalition_assembly
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    source: experiments/E0013/
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    notes:
+      - Coalition-only; zero candidate-discovery authority.
+      - Discovery signal is post-search and requires prospective validation.
+      - Do not subtract a fictitious coordinate-varying central pair null; future challenger should condition/shrink on observed marginals C_i,C_j.
+
+  - expert_id: MAIN_NONEQUILIBRIUM_CURRENT
+    name: Nonequilibrium Probability Current Shadow
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    information_family: CHRONOLOGY_DIRECTED_INCLUSION
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_june_2026_history: false
+    evidence_paths:
+      - experiments/E0016/
+      - core/main_physics_shadow_experts.md
+    notes:
+      - Statistical chronology operator, not literal particle flow.
+      - Must show incremental value after recency/frequency and transition-family redundancy controls.
+      - Frozen K13 captured only 40 on 2026-09-01; no one-target rejection or reward.
+
+  - expert_id: MAIN_LEVY_TAIL_DIAGNOSTIC
+    name: Levy / Anomalous-Dispersion Tail Diagnostic
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    information_family: MAIN_SLOT_TRANSITION
+    independent_vote_authority: false
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    notes:
+      - Null-residualized heavy-tail VVD diagnostic only.
+      - Must not rank candidates, allocate rescue seats, change K, or receive ensemble vote weight.
+
   - expert_id: MAIN_STICTION_SHADOW
     name: Coulomb Stiction / Shadow
     stage: candidate_funnel
     evidence: PROVISIONAL_SIGNAL
     architecture_status: production
+    information_family: RECURRENCE_ADJACENCY
     authority:
       diagnostic: true
       may_score: true
       may_adjust_exposure: true
       may_hard_eliminate: false
     notes:
-      - Tracks exact repeats and +/-1 or +/-2 coordinate shadows.
+      - Production means pipeline-available, not proven edge.
+      - Tracks exact repeats and +/-1 or +/-2 coordinate support.
       - Sorted coordinates are not physical draw order.
+      - Incremental authority remains subject to E0011 redundancy/proper-score audit.
 
   - expert_id: MAIN_VOID_BRIDGE
     name: Coulomb Void Potential / Canyon Fill
     stage: candidate_funnel
     evidence: PROVISIONAL_SIGNAL
     architecture_status: production
+    information_family: FREQUENCY_RECENCY_VOID
     authority:
       diagnostic: true
       may_score: true
       may_adjust_exposure: true
       may_hard_eliminate: false
+    notes:
+      - Production means pipeline-available, not proven edge.
+      - Must show residual value beyond frequency/recency controls before increasing confidence.
 
   - expert_id: MAIN_SORTED_SLOT_DENSITY
     name: Sorted-Position Momentum / Slot Density
     stage: candidate_funnel
     evidence: PROVISIONAL_SIGNAL
     architecture_status: production
+    information_family: STRUCTURAL_SLOT_GEOMETRY
     authority:
       diagnostic: true
       may_score: true
@@ -52,6 +237,7 @@ experts:
       may_hard_eliminate: false
     notes:
       - Treat Slot1-Slot5 strictly as order statistics.
+      - Structural geometry itself is not predictive residual evidence.
 
   - expert_id: MAIN_HARMONIC_BOUNDARY
     name: Harmonic Boundary Governor
@@ -63,6 +249,9 @@ experts:
       may_score: true
       may_adjust_exposure: true
       may_hard_eliminate: false
+    notes:
+      - Production means pipeline-available, not proven edge.
+      - Must not receive confidence merely from structural boundary plausibility.
 
   - expert_id: MAIN_TRI_CLUSTER
     name: Tri-Cluster Lane
@@ -75,7 +264,7 @@ experts:
       may_adjust_exposure: true
       may_hard_eliminate: false
     notes:
-      - Portfolio/morphology lane only; never universal forced structure.
+      - Portfolio/morphology lane only; never forced universal structure.
 
   - expert_id: MORPH_SUM_SPREAD
     name: Sum / Spread Governor
@@ -88,154 +277,7 @@ experts:
       may_adjust_exposure: true
       may_hard_eliminate: false
     notes:
-      - Central-looking morphology is not itself predictive evidence.
-      - Hard boundaries require separate promotion evidence.
-
-  - expert_id: PORTFOLIO_CHAOS_BASELINE
-    name: Chaos / Random Baseline Hedge
-    stage: portfolio_optimization
-    evidence: BREAKTHROUGH
-    architecture_status: production
-    authority:
-      diagnostic: true
-      may_score: false
-      may_adjust_exposure: true
-      may_hard_eliminate: false
-    notes:
-      - Breakthrough status refers to its methodological necessity as a control,
-        not predictive superiority.
-
-  - expert_id: JOHNSON_COVER_PORTFOLIO
-    name: Johnson Covering Portfolio Optimizer
-    stage: portfolio_optimization
-    evidence: PROVISIONAL_SIGNAL
-    architecture_status: shadow
-    authority:
-      diagnostic: true
-      may_score: false
-      may_adjust_exposure: true
-      may_hard_eliminate: false
-      may_add_candidates: false
-      may_remove_candidates: false
-      may_prune_candidates: false
-    dependencies:
-      - frozen_candidate_universe
-    evidence_paths:
-      - core/johnson_portfolio_assembly.md
-      - experiments/E0002/findings.md
-      - experiments/E0002/decision.md
-    notes:
-      - Assembly-only extremal-combinatorics / Johnson-space module.
-      - Zero authority over candidate discovery or Safe Exclusion.
-      - K=13 is the primary acquisition research target but remains falsifiable.
-      - Coverage geometry is never itself predictive evidence.
-    falsification:
-      - Must beat or materially preserve incumbent same-line 3+/4+/5/5 outcomes prospectively on identical frozen candidates and line budgets before primary assembly promotion.
-
-  - expert_id: MAIN_GPR8
-    name: Gap-Phase Residual Ensemble GPR-8
-    stage: candidate_funnel
-    evidence: PROVISIONAL_SIGNAL
-    architecture_status: shadow
-    authority:
-      diagnostic: true
-      may_score: true
-      may_adjust_exposure: false
-      may_hard_eliminate: false
-    evidence_paths:
-      - workspace/contributions/experimental_discovery_lab/HEPS_BREAKTHROUGH_HANDOFF.md
-    falsification:
-      - Must survive frozen prospective comparison against recency before promotion.
-
-  - expert_id: MAIN_NONEQUILIBRIUM_CURRENT
-    name: Nonequilibrium Probability Current Shadow
-    stage: candidate_funnel
-    evidence: PROVISIONAL_SIGNAL
-    architecture_status: shadow
-    authority:
-      diagnostic: true
-      may_score: true
-      may_adjust_exposure: false
-      may_hard_eliminate: false
-      may_add_candidates: false
-      may_remove_candidates: false
-      may_prune_candidates: false
-    data_boundary:
-      active_start: 2026-06-02
-      allow_pre_june_2026_history: false
-    evidence_paths:
-      - core/main_physics_shadow_experts.md
-      - experiments/E0016/findings.md
-      - experiments/E0016/decision.md
-      - knowledge/PHYSICS_SHADOW_INTEGRATION_HANDOFF_2026-08-28.md
-    notes:
-      - Directed next-draw inclusion-current residual; statistical chronology operator, not literal particle motion.
-      - E0016 50/50 incumbent/current blend is counterfactual shadow only.
-      - Must be residualized against recency/frequency before confidence is increased.
-    falsification:
-      - Demote or reject if prospective fixed-exposure rank/K13/K20 lift disappears or is redundant with simple controls.
-
-  - expert_id: MAIN_LEVY_TAIL_DIAGNOSTIC
-    name: Levy / Anomalous-Dispersion Tail Diagnostic
-    stage: candidate_funnel
-    evidence: INSUFFICIENT_EVIDENCE
-    architecture_status: shadow
-    authority:
-      diagnostic: true
-      may_score: false
-      may_adjust_exposure: false
-      may_hard_eliminate: false
-      may_add_candidates: false
-      may_remove_candidates: false
-      may_prune_candidates: false
-    data_boundary:
-      active_start: 2026-06-02
-      allow_pre_june_2026_history: false
-    evidence_paths:
-      - core/main_physics_shadow_experts.md
-      - experiments/E0016/findings.md
-      - experiments/E0016/decision.md
-      - knowledge/PHYSICS_SHADOW_INTEGRATION_HANDOFF_2026-08-28.md
-    notes:
-      - Null-residualized heavy-tail VVD diagnostic only.
-      - May report tail pressure and log-loss delta versus NULL_VVD_STRUCTURAL.
-      - Must not rank candidates, allocate rescue seats, change K, or receive ensemble vote weight.
-    falsification:
-      - Archive if the heavy-tail family does not improve prospective displacement scoring or provides no actionable calibration information.
-
-  - expert_id: MAIN_HLR_SLOT
-    name: Slot High-Low-Repeat
-    stage: slot_forecast
-    evidence: INSUFFICIENT_EVIDENCE
-    architecture_status: experimental
-    mandatory_output_when_enabled: true
-    output:
-      unit: sorted_slot
-      states: [LOW, REPEAT, HIGH]
-    authority:
-      diagnostic: true
-      may_score: true
-      may_adjust_exposure: false
-      may_hard_eliminate: false
-    notes:
-      - When enabled for an experiment, must commit one direction for each Slot1-Slot5.
-      - Do not conflate with LEGACY_HIGH_LOW_MACRO.
-
-  - expert_id: MAIN_VVD_DELTA
-    name: Vertical Variance Delta
-    stage: candidate_funnel
-    evidence: INSUFFICIENT_EVIDENCE
-    architecture_status: experimental
-    dependencies: [MAIN_HLR_SLOT]
-    authority:
-      diagnostic: true
-      may_score: true
-      may_adjust_exposure: false
-      may_hard_eliminate: false
-    formula: abs(slot_t - slot_t_minus_1)
-    notes:
-      - Movement magnitude; HLR supplies direction.
-      - Do not conflate with LEGACY_VVD_VOLUME.
+      - Central-looking morphology is not predictive evidence by itself.
 
   - expert_id: MORPH_SLDV
     name: Sum of Last-Digit Variance
@@ -249,7 +291,6 @@ experts:
       may_hard_eliminate: false
     notes:
       - Combination morphology feature, not standalone candidate predictor.
-      - Prefer null-adjusted residual scoring over raw frequency when tested.
 
   - expert_id: COALITION_PAIR_OF_PAIRS_ANCHOR
     name: Pair-of-Pairs plus Anchor
@@ -272,9 +313,52 @@ experts:
       may_score: true
       may_adjust_exposure: false
       may_hard_eliminate: false
-    objective:
-      - Improve future exact-winning-line rank within a frozen survivor universe.
-      - Evaluate against matched random and current-score baselines.
+
+  - expert_id: JOHNSON_COVER_PORTFOLIO
+    name: Johnson Covering Portfolio Optimizer
+    stage: portfolio_optimization
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+    dependencies:
+      - frozen_candidate_universe
+    notes:
+      - Assembly/portfolio geometry only.
+      - Zero candidate-discovery or safe-exclusion authority.
+      - Coverage geometry is not predictive evidence.
+
+  - expert_id: PORTFOLIO_CHAOS_BASELINE
+    name: Chaos / Random Baseline Hedge
+    stage: portfolio_optimization
+    evidence: BREAKTHROUGH
+    architecture_status: production
+    authority:
+      diagnostic: true
+      may_score: false
+      may_adjust_exposure: true
+      may_hard_eliminate: false
+    notes:
+      - BREAKTHROUGH refers to methodological necessity as a control, not predictive superiority.
+
+  - expert_id: MAIN_GPR8
+    name: Gap-Phase Residual Ensemble GPR-8
+    stage: candidate_funnel
+    evidence: PROVISIONAL_SIGNAL
+    architecture_status: shadow
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+    notes:
+      - Historical provisional signal only; must survive prospective and current deprecation/redundancy doctrine before promotion.
 
   - expert_id: PB_ACTIVE_MATRIX
     name: Active PowerBall Matrix
@@ -287,7 +371,9 @@ experts:
       may_adjust_exposure: true
       may_hard_eliminate: false
     notes:
-      - Operates on 1-16 field separately from main field.
+      - Production means pipeline-available, not proven conditional edge.
+      - PB conditional claims require strong shrinkage and proper-score comparison with uniform/unconditional baselines.
+      - PB HLR/VVD/terminal/exact-state projections are not independent votes.
 
 legacy_identifiers:
   - expert_id: LEGACY_VVD_VOLUME
@@ -306,3 +392,12 @@ legacy_identifiers:
     name: Ink-Mass Weighting
     architecture_status: archived
     evidence: REJECT
+
+superseded_formulas:
+  - id: E0019_HLR_VVD_RESIDUAL_PRODUCT
+    evidence: REJECT
+    retained_component: complete_line_containment_objective
+    successor: E0021
+  - id: E0020_TERMINAL_HLR_VVD_CHAIN
+    evidence: REJECT
+    retained_component: terminal_diagnostic_family
