@@ -1,0 +1,64 @@
+{
+  "target_draw_date": "2026-09-04",
+  "created_after_result": "2026-09-01",
+  "basis_audit": "cycles/2026-09-01/post_draw/main_audit.json",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "principle": "Reward prospective success by bounded preservation and portfolio allocation, not by post-hoc parameter retuning or multiplying correlated expert probabilities.",
+  "previous_verified_state": {
+    "main": [14,16,31,34,40],
+    "powerball": 4
+  },
+  "credits": [
+    {
+      "expert": "E0005_BARP_HLR",
+      "credit_level": "HIGH_TEMPORARY",
+      "reason": "Frozen modal LLHHL exactly matched all five realized slot directions on 2026-09-01.",
+      "friday_use": "Give the newly computed BARP modal scenario the largest portfolio scenario allocation, while retaining at least two material hedge scenarios.",
+      "forbidden": ["parameter_retuning_from_2026_09_01", "hard_pruning", "counting_HLR_as_independent_from_signed_displacement"]
+    },
+    {
+      "expert": "E0020_TERMINAL_DIAGNOSTIC",
+      "credit_level": "TARGETED_MEDIUM_SHADOW",
+      "reason": "S3 terminal 1 and S4 terminal 4 were frozen top-1 hits; S1 algebraic residue4 and S2/S5 top-3 fields also preserved realized residues.",
+      "friday_use": "Preserve terminal-consistent coordinates as bounded hedge candidates when they also remain legal under the dominant HLR scenario or rank strongly in an independent coordinate field. No multiplicative terminal-HLR-VVD chain.",
+      "forbidden": ["global_weight_promotion", "hard_terminal_elimination", "multiplying_terminal_HLR_VVD_ratios"]
+    },
+    {
+      "expert": "ADJACENT_SLOT_PRESERVATION",
+      "credit_level": "MEDIUM_NEW_SHADOW",
+      "reason": "Coordinate 14 was ranked first for S2 but realized in S1; coordinate 16 was ranked strongly in S1/S2 and realized in S2. Strict slot provenance discarded useful anywhere-coordinate information.",
+      "friday_use": "At fixed K13, test up to two preservation seats for coordinates strongly ranked in an adjacent sorted slot but omitted by the primary global basket. Seats must displace existing candidates; no K expansion credit.",
+      "forbidden": ["union_K_expansion", "hindsight_coordinate_insertion"]
+    },
+    {
+      "expert": "E0005_VVD_R",
+      "credit_level": "SLOT_SPECIFIC_ONLY",
+      "reason": "On 2026-09-01 VVD reweighting improved the actual S3 coordinate from rank11 to rank4 and improved S1 from rank21 to rank11, but worsened S5 from rank13 to rank20.",
+      "friday_use": "Retain the frozen VVD-R estimator unchanged and use its information only inside a single signed-displacement/transition representation or as a diagnostic. Do not increase a global VVD multiplier.",
+      "forbidden": ["global_reward_multiplier", "double_count_with_HLR"]
+    },
+    {
+      "expert": "E0019_LINE_MASS_K13",
+      "credit_level": "NEUTRAL",
+      "reason": "Captured only 31 and 34 (2/5); exact-null probability of exactly two hits at K13 is about 0.286.",
+      "friday_use": "Keep as comparator until superseded by the corrected joint signed-displacement model.",
+      "forbidden": ["reward_from_one_draw"]
+    },
+    {
+      "expert": "E0016_NONEQUILIBRIUM_CURRENT",
+      "credit_level": "NEGATIVE_ONE_TARGET_NO_DEMOTION",
+      "reason": "Its frozen K13 captured only 40 (1/5).",
+      "friday_use": "Retain as independent shadow comparator with unchanged formula and no increased exposure.",
+      "forbidden": ["one_draw_rejection", "increased_weight"]
+    }
+  ],
+  "portfolio_allocation_rule": {
+    "dominant_BARPHLR_scenario_share_target": 0.40,
+    "secondary_HLR_scenarios_combined_minimum": 0.35,
+    "terminal_adjacent_slot_hedge_share_maximum": 0.25,
+    "note": "These are line-allocation ceilings/targets, not probability calibration claims. Final Friday slate must still satisfy concentration controls and matched-exposure governance."
+  },
+  "promotion_status": "none",
+  "review_after": "2026-09-04 post-draw audit"
+}
