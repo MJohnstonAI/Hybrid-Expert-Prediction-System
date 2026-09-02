@@ -42,6 +42,17 @@ Reason: strong description of the 2026-08-21 tail event did not translate into s
 
 Reason: strongest physics-derived XTRA candidate result in the post-June-only taste test; improved rank and fixed-exposure K13/K20 capture across multiple replay metrics, but the sample remains too small for promotion.
 
+### 2026-09-02 inference clarification
+
+The Richardson **conditional pair-separation estimator** and residual pair compatibility ratio remain legitimate shadow components.
+
+However, the historical distribution-first message-passing step must be interpreted as a **heuristic approximation**, not exact belief propagation or an exact joint posterior:
+
+- E0016 uses all ten slot pairs among S1..S5, not a five-node chain;
+- geometric-mean inbound message aggregation is not guaranteed to correspond to the exact normalized joint distribution implied by all pair potentials.
+
+Future Richardson successors should, where computationally feasible, compare this heuristic with direct legal-line scoring and exact normalization over the legal state space. Estimator validity, pair-potential value, heuristic marginal update, and exact joint inference must be scored separately.
+
 ## Hard data boundary
 
 E0016 and every derivative of these three experts use only post-June-2026 target-system data. The pre-June PRNG-era workbooks are outside this physics programme and have zero fitted-state authority.
@@ -57,6 +68,8 @@ Do not add routine HEPS execution cost for:
 - Lévy as normal candidate ranking;
 - physics-family XTRA PowerBall models.
 
+These rejected formulations require materially new information/operator evidence before being reopened; renaming the old formulation is insufficient.
+
 ## Prospective gate
 
 Before any survivor gains production authority:
@@ -66,8 +79,11 @@ Before any survivor gains production authority:
 3. accumulate at least 10 targets for first review and preferably 20+ for stronger promotion review;
 4. compare against simple recency/frequency, exact structural controls where relevant, and incumbent HEPS/XTRA fields;
 5. perform redundancy/residualization review;
-6. reject or demote if gains disappear, depend on one draw, or arise from exposure inflation.
+6. compare proper probability scores where a full field exists;
+7. reject or demote if gains disappear, depend on one draw, arise from exposure inflation, or are redundant with a simpler field.
 
 ## Architecture impact
 
 This decision authorizes registry/documentation integration at shadow/diagnostic level only. It does not alter any production HEPS candidate basket, final slate, PowerBall matrix, E0013 formulation, or XTRA production forecast.
+
+Current interpretation is additionally governed by `governance/current_method_doctrine.md` and `governance/methodology_deprecations.md`.
