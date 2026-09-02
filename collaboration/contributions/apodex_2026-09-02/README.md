@@ -7,10 +7,18 @@ External AI contributor: **Apodex** (described by the director as a deep-thinkin
 Original artifacts supplied by the director on 2026-09-02:
 
 - `HEPS_Improvement_Analysis.md`
-- `Final_Report.md`
+- `Final Report.md`
 - `heps_improved_acquisition_engine.py`
 
-These files are preserved as external-source artifacts. They do **not** inherit HEPS predictive authority merely by being stored here.
+The repository copies in this folder preserve the substantive contribution for HEPS collaboration use. They should not be treated as bit-identical archival copies of the uploaded attachments; the uploaded source artifacts remain the source of record for exact textual/code provenance.
+
+Source-of-record SHA-256 checksums from the supplied uploads:
+
+- `HEPS_Improvement_Analysis.md`: `d2b48e7a499ce476dd49ed31ce639f34b98ab5bf5c6a623c8c1c72bf0371f621`
+- `Final Report.md`: `80090913c7b8c1831a0662b3720c988d3ffaf8effc26ab2a329447aafeb4e1ba`
+- `heps_improved_acquisition_engine.py`: `5ba5667950132c7673a328bc75d713ca74ea813990987a9b0489cabb36775226`
+
+These artifacts do **not** inherit HEPS predictive authority merely by being stored here.
 
 ## Intake governance
 
