@@ -42,19 +42,45 @@ They may not receive independent convergence votes merely because their names or
 
 ## 3. Preferred Main transition representation
 
-The preferred successor to multiplicative HLR/VVD chains is a single regularized signed-displacement model:
+The preferred successor to multiplicative HLR/VVD chains is a single regularized signed-displacement model.
 
-`P_j(x_j | p_j, history) = P0_j(x_j) * exp(phi_j(x_j-p_j)) / Z_j`
+For slot `j`, let:
+
+- `P0_j(x)` = exact order-statistic slot null at coordinate `x`;
+- `q_j(x | p_j, history)` = learned/shrunk slot transition distribution;
+- `T_j(x) = q_j(x | p_j, history) / P0_j(x)` = **residual ratio** on legal support.
+
+`q_j` may be parameterized as:
+
+`q_j(x) proportional to P0_j(x) * exp(phi_j(x-p_j))`
 
 or an equivalent low-dimensional shrinkage form.
 
 `phi_j` must be estimated only from prior data and heavily regularized. Free per-displacement parameters are discouraged at the current sample size unless justified by a preregistered shrinkage hierarchy.
 
-A coherent legal-line model may then use:
+### Correct legal-line construction
 
-`P(x_1,...,x_5 | history) proportional to I(x_1<...<x_5) * product_j P_j(x_j | history)`
+The exact IID Main line null is uniform over legal lines:
 
-followed by exact normalization over all legal lines. Pairwise residual potentials may be added only when they represent information not already encoded by the slot transition field and survive redundancy/proper-score tests.
+`P0_line(x_1,...,x_5) = 1 / C(50,5)` for `x_1<...<x_5`.
+
+The learned joint line field should therefore tilt the **uniform legal-line null by residual ratios**, not multiply the five slot null probabilities again:
+
+`Q(x) = P0_line(x) * product_j T_j(x_j)`
+
+for legal sorted `x`, followed by:
+
+`P(x) = Q(x) / sum_legal_y Q(y)`.
+
+Since `P0_line` is constant on legal lines, ranking weights are proportional to `product_j T_j(x_j)`, but the baseline interpretation remains the exact uniform legal-line null.
+
+This construction has an essential sanity property:
+
+> if every learned slot field equals its exact structural slot null, then every `T_j=1` and the joint model reduces exactly to the uniform legal 5/50 line null.
+
+Do **not** use `product_j q_j(x_j)` as the legal-line field: that would multiply order-statistic geometry across dependent slots and fail to return to the exact uniform line null when no learned residual signal exists.
+
+Pairwise residual potentials may be added only when they represent information not already encoded by the transition field, are defined relative to an appropriate exact/simple null, and survive redundancy/proper-score tests.
 
 ## 4. Proper-score-first promotion gate
 
