@@ -1,0 +1,95 @@
+{
+  "target_draw_date": "2026-09-04",
+  "frozen_on": "2026-09-02",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "experiment_id": "E0022",
+  "authority": "prospective_shadow_only",
+  "upstream_frozen_K13": [3,8,18,19,20,23,32,34,35,39,40,48,50],
+  "line_universe_count": 1287,
+  "canonical_cutoff": "2026-09-01",
+  "main_active_start": "2026-06-02",
+  "rank_ties": "average_midrank",
+  "production_slate_unchanged": "cycles/2026-09-04/pre_draw/main_prediction_v35.json",
+  "governance": {
+    "candidate_authority": "none",
+    "production_weight": 0,
+    "e0013_status": "PROVISIONAL_SIGNAL_shadow",
+    "dissent_or_status": "INSUFFICIENT_EVIDENCE_prospective_shadow",
+    "johnson_four_plus_first": "deterministic_portfolio_geometry_only",
+    "hard_morphology_pruning_before_ranking": "forbidden"
+  },
+  "e0013_top20": [
+    {"main":[18,32,34,35,50],"rank":1.0,"percentile":1.0},
+    {"main":[8,19,20,39,48],"rank":2.0,"percentile":0.999222395},
+    {"main":[3,19,20,39,48],"rank":3.0,"percentile":0.998444790},
+    {"main":[3,8,19,39,48],"rank":4.0,"percentile":0.997667185},
+    {"main":[8,19,20,23,39],"rank":5.0,"percentile":0.996889580},
+    {"main":[19,20,23,39,48],"rank":6.0,"percentile":0.996111975},
+    {"main":[18,32,34,40,50],"rank":7.0,"percentile":0.995334370},
+    {"main":[8,19,35,39,48],"rank":8.0,"percentile":0.994556765},
+    {"main":[19,20,35,39,48],"rank":9.0,"percentile":0.993779160},
+    {"main":[8,19,23,39,48],"rank":10.0,"percentile":0.993001555},
+    {"main":[3,8,20,39,48],"rank":11.0,"percentile":0.992223950},
+    {"main":[3,19,35,39,48],"rank":12.0,"percentile":0.991446345},
+    {"main":[8,20,23,39,48],"rank":13.0,"percentile":0.990668740},
+    {"main":[8,19,20,35,39],"rank":14.0,"percentile":0.989891135},
+    {"main":[3,8,19,20,39],"rank":15.0,"percentile":0.989113530},
+    {"main":[18,32,34,35,40],"rank":16.0,"percentile":0.988335925},
+    {"main":[8,19,20,23,48],"rank":17.0,"percentile":0.987558320},
+    {"main":[3,20,23,39,48],"rank":18.0,"percentile":0.986780715},
+    {"main":[3,8,19,20,48],"rank":19.0,"percentile":0.986003110},
+    {"main":[8,19,20,35,48],"rank":20.0,"percentile":0.985225505}
+  ],
+  "dissent_or_top20": [
+    {"main":[18,32,34,35,50],"rank":1.0,"percentile":1.0},
+    {"main":[3,19,34,39,40],"rank":2.5,"percentile":0.998833593},
+    {"main":[19,20,34,39,40],"rank":2.5,"percentile":0.998833593},
+    {"main":[8,19,20,39,48],"rank":4.5,"percentile":0.997278383},
+    {"main":[8,19,34,39,40],"rank":4.5,"percentile":0.997278383},
+    {"main":[3,19,20,39,48],"rank":6.0,"percentile":0.996111975},
+    {"main":[3,19,20,34,40],"rank":7.5,"percentile":0.994945568},
+    {"main":[19,34,39,40,48],"rank":7.5,"percentile":0.994945568},
+    {"main":[3,8,19,39,48],"rank":9.0,"percentile":0.993779160},
+    {"main":[8,19,20,23,39],"rank":10.0,"percentile":0.993001555},
+    {"main":[3,20,34,39,40],"rank":11.0,"percentile":0.992223950},
+    {"main":[19,20,23,39,48],"rank":12.0,"percentile":0.991446345},
+    {"main":[18,32,34,40,50],"rank":13.0,"percentile":0.990668740},
+    {"main":[8,19,35,39,48],"rank":14.0,"percentile":0.989891135},
+    {"main":[3,19,20,34,39],"rank":16.5,"percentile":0.987947123},
+    {"main":[3,19,20,39,40],"rank":16.5,"percentile":0.987947123},
+    {"main":[3,19,34,40,48],"rank":16.5,"percentile":0.987947123},
+    {"main":[19,20,34,40,48],"rank":16.5,"percentile":0.987947123},
+    {"main":[19,20,35,39,48],"rank":19.0,"percentile":0.986003110},
+    {"main":[3,8,19,34,40],"rank":24.5,"percentile":0.981726283}
+  ],
+  "ranking_hashes_sha256": {
+    "e0013_order": "a2f15e50ab53d77397730c0a640beae9c5c0eef439a29eae6e6eeb486a63e2d0",
+    "dissent_or_order": "0c657bbd57592f46d62abaab4ba59260a95f20871dc44a9099b705a93ed93d9c",
+    "frequency_order": "71c968d42e9028b9e488eeb2450dc20070080aa899bbb13ba5fdc6ba2e1a4a55",
+    "recency_order": "bc3725298e73bfeb1ce10b025a616aecee430482d779e4934d1124c65d5a3f0b"
+  },
+  "johnson_four_plus_first": {
+    "budget": 20,
+    "covered_4plus": 788,
+    "winner_states": 1287,
+    "coverage_fraction": 0.6122766123,
+    "exact_5of5_states": 20,
+    "selected_lines": [
+      [3,8,18,19,20],[3,8,23,32,34],[3,8,35,39,40],[3,18,23,35,48],[3,18,32,39,50],
+      [3,19,23,40,50],[3,19,34,39,48],[3,20,32,40,48],[3,20,34,35,50],[8,18,34,40,48],
+      [8,19,32,35,48],[8,20,23,39,48],[8,18,23,35,50],[8,19,34,39,50],[8,20,32,40,50],
+      [18,19,20,23,32],[18,19,34,35,40],[20,23,34,39,40],[23,32,34,48,50],[35,39,40,48,50]
+    ]
+  },
+  "director_core_19_23_39_48": {
+    "note": "diagnostic only; director supplied independently; E0022 has zero candidate authority",
+    "best_k13_completions_by_e0013": [
+      {"main":[19,20,23,39,48],"e0013_rank":6.0,"dissent_or_rank":12.0},
+      {"main":[8,19,23,39,48],"e0013_rank":10.0,"dissent_or_rank":24.5},
+      {"main":[19,23,35,39,48],"e0013_rank":24.0,"dissent_or_rank":53.0},
+      {"main":[3,19,23,39,48],"e0013_rank":27.0,"dissent_or_rank":55.0}
+    ]
+  },
+  "freeze_rule": "Do not alter after the 2026-09-04 result. Score E0013 and Dissent-OR separately. Johnson geometry receives no predictive credit."
+}
