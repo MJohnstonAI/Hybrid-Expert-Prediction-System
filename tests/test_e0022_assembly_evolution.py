@@ -1,5 +1,12 @@
-from scripts.oracle_k13_assembly_evolution import four_plus_cover, midrank_percentiles
-from scripts.johnson_portfolio_optimizer import greedy_johnson_cover
+import sys
+from pathlib import Path
+
+
+SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
+sys.path.insert(0, str(SCRIPTS))
+
+from johnson_portfolio_optimizer import greedy_johnson_cover  # noqa: E402
+from oracle_k13_assembly_evolution import four_plus_cover, midrank_percentiles  # noqa: E402
 
 
 def test_midrank_percentiles_do_not_give_every_tie_best_rank():
