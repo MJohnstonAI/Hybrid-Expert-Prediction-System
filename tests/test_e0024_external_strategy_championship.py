@@ -8,6 +8,7 @@ sys.path.insert(0, str(SCRIPTS))
 
 import e0024_external_strategy_championship as e24  # noqa: E402
 import e0024_fast_portfolio as fast_port  # noqa: E402
+import e0024_refinement as refine  # noqa: E402
 
 
 class E0024ExternalStrategyChampionshipTests(unittest.TestCase):
@@ -54,6 +55,17 @@ class E0024ExternalStrategyChampionshipTests(unittest.TestCase):
         }
         print("E0024_SUMMARY=" + json.dumps(result, sort_keys=True))
         self.assertEqual(result["experiment_id"], "E0024")
+
+    def test_refinement_emit_summary(self):
+        result = {
+            "balanced_nibble": refine.balanced_nibble(budget=20, restarts=8),
+            "machine_tau_holdout": {
+                "main": refine.machine_tau_holdout("main"),
+                "xtra": refine.machine_tau_holdout("xtra"),
+            },
+        }
+        print("E0024_REFINEMENT=" + json.dumps(result, sort_keys=True))
+        self.assertEqual(result["balanced_nibble"]["budget"], 20)
 
 
 if __name__ == "__main__":
