@@ -4,7 +4,9 @@
 
 Operational target-specific HEPS lane authorized for South African **PowerBall XTRA** research and paper trading.
 
-This lane reuses the **architecture shape and scientific governance** of the Main PowerBall system but maintains completely independent data, state, fitted parameters, expert outputs, candidate baskets, rankings, and PowerBall forecasts.
+This lane reuses the **architecture shape and scientific governance** of the Main PowerBall system but maintains completely independent data, state, fitted parameters, expert outputs, candidate baskets, rankings, assembly models, and PowerBall forecasts.
+
+**Current XTRA predictive assembly status:** `INSUFFICIENT_EVIDENCE / no promoted predictive XTRA assembler`.
 
 ## Hard isolation boundary
 
@@ -15,7 +17,9 @@ This lane reuses the **architecture shape and scientific governance** of the Mai
 - No pre-June 2026 PowerBall Plus/XTRA history enters active XTRA state.
 - No Main PowerBall learned state or fitted parameter may be copied into XTRA.
 - Main and XTRA may share code/formulas only where the formula itself is target-agnostic.
+- Main and XTRA assembly models remain separate fitted systems.
 - Every XTRA expert must be fitted/evaluated using XTRA observations only.
+- Main E0013 fitted spectral state, pair counts, recency state, or coalition scores may not be imported into XTRA.
 
 For the physics-derived candidate shadow introduced on 2026-08-28, also read:
 
@@ -30,6 +34,12 @@ For the post-2026-08-28 acquisition correction, also read:
 - `experiments/E0011/xtra_redundancy_protocol.md`;
 - `scripts/xtra_full_mixture_base.py`;
 - `scripts/xtra_e0018_pipeline.py`.
+
+For current assembly doctrine, also read:
+
+- `experiments/E0022/`;
+- `knowledge/ASSEMBLY_EVOLUTION_HANDOFF_2026-09-02.md`;
+- `governance/methodology_deprecations.md`.
 
 ## Exchangeability and acquisition doctrine
 
@@ -122,13 +132,49 @@ Acquisition is scored before assembly. If Core/Reserve/Rescue lanes are shown, c
 
 ### Stage 3 — Coalition Assembly
 
-Pair, pair-of-pairs, anchor, graph, and related interaction models may be reused algorithmically, but they must be trained and scored from XTRA observations only.
+#### E0022 complete-universe rule
 
-Richardson pair-separation compatibility is a candidate-funnel probability refinement. Do not count the same Richardson pair information again as an independent coalition vote unless a future residualization experiment demonstrates incremental coalition information.
+Once an XTRA K13 is frozen, assembly begins from the complete legal within-K13 universe:
+
+`C(13,5) = 1,287` five-number lines.
+
+All 1,287 lines must be enumerated before any coalition ranking, morphology scoring, winner-float ranking, or portfolio compression. If the five true winners are present in K13, the exact winning line must therefore remain present in the assembly universe. Heuristic generation shortcuts may not remove it before ranking.
+
+This rule separates two failure questions cleanly:
+
+- **acquisition failure:** one or more winners were absent from K13;
+- **assembly/ranking failure:** all five winners were in K13 but the exact line was buried or excluded downstream.
+
+#### No promoted XTRA predictive coalition ranker
+
+E0022 does **not** promote an XTRA coalition ranker.
+
+The prior E0014 raw-pair oracle result was materially inflated by optimistic tie handling. E0022 reproduced approximately:
+
+- optimistic best-in-tie raw-pair mean percentile: `0.628`;
+- average-midrank corrected raw-pair mean percentile: `0.459`.
+
+Therefore raw-pair assembly is not a current XTRA breakthrough and has no predictive authority.
+
+The expanded 19-target XTRA replay likewise showed no stable coalition advantage: raw-pair, PMI, spectral, frequency and recency all remained around chance-level mean winner percentiles. No searched E0022 retrospective fusion earns production authority.
+
+Main E0013 fitted state may not be transferred into XTRA. XTRA-specific coalition research must be fitted, frozen and scored independently.
+
+Richardson pair-separation compatibility is an upstream candidate-funnel probability refinement. Do not count the same Richardson pair information again as an independent coalition vote unless a future residualized experiment demonstrates incremental assembly information.
+
+### Mandatory tie-safe ranking rule
+
+For any XTRA coalition/winner-float score with ties, use average midrank or another explicitly justified tie-aware rule.
+
+Do not use:
+
+`1 + count(score > winner_score)`
+
+and then interpret the winner as first within every tie block. Historical E0014 files remain immutable, but any forward interpretation of their raw-pair oracle strength must carry the E0022 correction.
 
 ### Spectral acquisition moratorium
 
-Ordinary historical co-occurrence graph -> spectral transform -> global candidate ranking is under research moratorium after the negative/insufficient acquisition record across E0012, E0014 and E0017, with E0013 retaining coalition authority only.
+Ordinary historical co-occurrence graph -> spectral transform -> global candidate ranking is under research moratorium after the negative/insufficient acquisition record across E0012, E0014 and E0017, with E0013 retaining Main coalition authority only.
 
 Reopening spectral **candidate acquisition** requires materially new information or an exogenous covariate plus a preregistered matched-K protocol. Renaming a Laplacian/centrality transform does not constitute a new family.
 
@@ -136,15 +182,51 @@ Reopening spectral **candidate acquisition** requires materially new information
 
 Sum, spread, gaps, parity/register, terminal digits, SLDV, and related morphology are computed from XTRA combinations only. Structural commonness must not be confused with higher exact-line probability.
 
-Morphology may rank or diversify assembled lines but may not hard-delete candidate coordinates before candidate-acquisition scoring in E0018.
+Morphology may rank or diversify assembled lines but may not hard-delete lines from the complete 1,287-line K13 universe before assembly/ranking evaluation. Any pruning authority must independently demonstrate winner-retention lift against the legal-space compression it imposes.
 
 ### Stage 5 — Winner-Float Ranking
 
-Rank surviving XTRA combinations using frozen XTRA-only expert outputs. Evaluate exact winning-line rank and Top-K survival against random/simple baselines.
+Rank the complete 1,287-line XTRA K13 universe using only frozen XTRA-specific rankers when such rankers exist.
+
+Current predictive authority is **none**. Until a ranker is prospectively promoted, report simple/random controls and any registered shadows separately rather than manufacturing ensemble confidence.
+
+Required conditional-on-correct-K13 metrics include:
+
+- exact winning-line rank and average-midrank percentile;
+- Top-20 and Top-100 survival;
+- catastrophic burial rate;
+- comparison against random/simple controls at identical 1,287-line exposure.
+
+Do not credit a ranker when the five winning coordinates never survived acquisition.
 
 ### Stage 6 — Portfolio Optimization
 
-Compress ranked XTRA combinations into the final paper-trading slate while preserving exposure and diversity. Keep a chaos/random control lane.
+After K13 is frozen and all 1,287 lines are available, compress the universe to the fixed paper-trading line budget.
+
+#### Optional E0022 `four_plus_first` Johnson geometry
+
+`JOHNSON_COVER_PORTFOLIO` may optionally use `four_plus_first` when the objective is fixed-budget 4+/5 winner-state coverage.
+
+For K13, E0022 reports deterministic coverage:
+
+- 10 lines: `410/1287 ≈ 31.86%` of possible winner states at >=4/5;
+- 20 lines: `788/1287 ≈ 61.23%`;
+- 30 lines: `1039/1287 ≈ 80.73%`;
+- 50 lines: `1251/1287 ≈ 97.20%`.
+
+At budget 20, legacy `three_plus_first` covers `757/1287 ≈ 58.82%`, so `four_plus_first` improves same-budget 4+/5 geometric coverage.
+
+This is **deterministic portfolio geometry, not prediction**. It may not:
+
+- alter or expand K13;
+- increase the line budget;
+- claim candidate-discovery credit;
+- claim predictive coalition authority;
+- claim an exact 5/5 probability gain without an independently validated non-uniform winner-state posterior.
+
+For any M distinct selected lines, exact 5/5 state coverage remains exactly `M/1287` under a uniform winner-state model.
+
+The historical `three_plus_first` objective remains available for backward compatibility and audit reproduction.
 
 ## Expert redundancy and convergence
 
@@ -200,6 +282,8 @@ Every mutable or fitted item must use an `XTRA_` namespace or live in an XTRA-sp
 - `XTRA_PB_CONDITIONAL_CONVERGENCE_E0015`
 - `XTRA_MACHINE_PROVENANCE_DIAGNOSTIC`
 
+No XTRA predictive coalition expert is currently promoted by E0022.
+
 ## Per-draw XTRA cycle
 
 For every target draw, freeze separately from Main:
@@ -210,14 +294,16 @@ For every target draw, freeze separately from Main:
 4. full-support HLR/slot probability field;
 5. fixed-K base candidate baskets;
 6. Richardson pair-separation state, residual field and counterfactual shadow K13/K20 when enabled;
-7. XTRA coalition/morphology/ranking outputs;
-8. XTRA full PowerBall probability field;
-9. machine-provenance/knowability status;
-10. final XTRA paper-trading slate.
+7. complete 1,287-line universe for each frozen K13 used for assembly evaluation;
+8. XTRA coalition/ranking outputs with average-midrank tie handling;
+9. XTRA full PowerBall probability field;
+10. optional Johnson portfolio objective (`three_plus_first` or `four_plus_first`) and fixed line budget;
+11. machine-provenance/knowability status;
+12. final XTRA paper-trading slate.
 
 Post-draw, score only against the XTRA result and run XTRA-specific Physics of Failure.
 
-For Richardson, score base, Richardson and blend baskets separately. Never rewrite the authoritative pre-draw XTRA basket after seeing the result.
+For Richardson, score base, Richardson and blend baskets separately. For assembly, first score whether K13 contained all five winners; only then evaluate winning-line rank and portfolio coverage. Never rewrite the authoritative pre-draw XTRA basket or line universe after seeing the result.
 
 ## Evidence doctrine
 
@@ -226,6 +312,14 @@ The XTRA sample is short. All pattern claims remain subject to matched null cont
 `XTRA_RICHARDSON_PAIR_DISPERSION` currently carries only `PROVISIONAL_SIGNAL` / `shadow` status. The post-June replay justified prospective attention, not production authority.
 
 E0018 carries `INSUFFICIENT_EVIDENCE` / prospective-shadow status. A single strong target cannot promote it because its acquisition power horizon is long.
+
+E0022 carries `INSUFFICIENT_EVIDENCE` for prediction. Its XTRA contribution is binding methodology plus optional deterministic portfolio geometry:
+
+- average-midrank tie handling is required;
+- full 1,287-line enumeration is required after K13 freeze;
+- raw-pair oracle strength is downgraded and has no predictive authority;
+- no XTRA predictive coalition assembler is promoted;
+- optional `four_plus_first` Johnson geometry is allowed at fixed K and fixed line budget.
 
 ## Data-update doctrine
 
