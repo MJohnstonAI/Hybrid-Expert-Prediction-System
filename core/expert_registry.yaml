@@ -148,6 +148,37 @@ experts:
       - Discovery signal is post-search and requires prospective validation.
       - Do not subtract a fictitious coordinate-varying central pair null; future challenger should condition/shrink on observed marginals C_i,C_j.
 
+  - expert_id: MAIN_SLOT1_DECADE_SHELL_ECHO
+    name: Slot-1 Anchored Decade-Shell Echo
+    stage: coalition_assembly
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    information_family: ORDER_STATISTIC_DECADE_SHELL
+    source: experiments/E0023/
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_prune_candidates: false
+      may_change_K: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_june_2026_history: false
+      xtra_state_transfer: false
+    parameters:
+      kappa: 20
+      decade_bins: ["1-10", "11-20", "21-30", "31-40", "41-50"]
+      tie_rule: average_midrank
+    notes:
+      - Exact-null-residualized P(decade shell | Slot1) diagnostic only.
+      - Discovery oracle-K13 mean winner percentile was about 0.531 across 19 targets; no significant lift.
+      - Do not add to MAIN_ASSEMBLY_DISSENT_OR until incremental prospective value is demonstrated.
+      - No hard decade quotas, candidate changes, or morphology pruning.
+      - First eligible prospective Main target is 2026-09-04.
+
   - expert_id: MAIN_NONEQUILIBRIUM_CURRENT
     name: Nonequilibrium Probability Current Shadow
     stage: candidate_funnel
