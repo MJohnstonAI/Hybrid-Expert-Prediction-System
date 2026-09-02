@@ -1,0 +1,119 @@
+experiment_id: E0021
+title: Joint Signed-Displacement Legal-Line Acquisition
+status: proposed_design
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+stage: candidate_funnel|methodology
+
+data:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  target_excluded: true
+  xtra_state_transfer: false
+
+binding_governance:
+  - governance/current_method_doctrine.md
+  - governance/methodology_deprecations.md
+  - governance/research_protocol.md
+  - core/feature_dictionary.yaml
+
+transition_representation:
+  canonical_feature: MAIN_SIGNED_SLOT_TRANSITION
+  formula: delta_j = x_j - p_j
+  derived_views:
+    HLR: sign(delta_j)
+    VVD: abs(delta_j)
+    terminal: x_j mod 10
+  independent_multiplication_of_derived_views: forbidden
+
+slot_model:
+  principle: strongly_regularized_single_transition_distribution
+  structural_anchor: NULL_ORDER_STATISTIC_SLOT
+  minimum_complexity_rule: >-
+    Prefer a low-dimensional or hierarchical shrinkage model. Do not fit a free high-variance parameter
+    for every signed displacement unless a preregistered shrinkage hierarchy and power justification are supplied.
+  hyperparameter_rule: >-
+    All shrinkage/model-form choices must be frozen before prospective scoring. Any retrospective grid search is discovery only.
+
+joint_legal_line_model:
+  legal_space: all_C_50_5_sorted_lines
+  unnormalized_weight: product_of_five_regularized_slot_transition_probabilities
+  exact_legality: x1_lt_x2_lt_x3_lt_x4_lt_x5
+  normalization: exact_sum_over_all_2118760_legal_lines
+  note: >-
+    Factorization is a low-dimensional parameterization, not a claim that sorted slots are independent.
+    The resulting line field must be normalized over the exact legal state space.
+
+candidate_objective:
+  k: 13
+  objective: sum_probability_mass_of_all_legal_5_lines_contained_in_K
+  optimizer:
+    initial: top13_global_marginals_or_declared_deterministic_start
+    move: single_coordinate_swap
+    tie_break: lower_coordinate
+    stop: no_strictly_improving_swap
+  matched_exposure_required: true
+
+adjacent_slot_preservation_shadow:
+  enabled_as_separate_arm: true
+  maximum_seats: 2
+  trigger: strong_anywhere_coordinate_support_from_adjacent_slot
+  fixed_total_k: 13
+  union_expansion: forbidden
+  target_hindsight_insertion: forbidden
+  exact_slot_and_anywhere_metrics_separate: true
+
+comparators:
+  - exact_structural_legal_line_null
+  - flat_global_inclusion_0_1
+  - simple_frequency_K13
+  - simple_recency_K13
+  - E0019_historical_line_mass_K13
+  - E0016_nonequilibrium_current_K13
+  - marginal_top13_from_E0021_field
+
+metrics:
+  primary_probability:
+    - mean_Bernoulli_logloss_delta_vs_flat_global
+    - mean_Brier_delta_vs_flat_global
+    - legal_line_log_probability_delta_vs_uniform_when_numerically_stable
+  candidate:
+    - K13_winner_coordinate_count
+    - K13_3plus_rate
+    - K13_4plus_rate
+    - K13_5of5_rate
+    - catastrophic_0or1_rate
+    - modeled_complete_line_containment_mass
+  adjacent_slot:
+    - seats_traded
+    - actual_winner_gain_loss_per_trade
+    - exact_slot_rank
+    - anywhere_coordinate_rank
+
+promotion_gate:
+  proper_score_first: true
+  rule: >-
+    Do not interpret K13 recall as predictive lift unless the underlying full-support field is at least non-inferior
+    and preferably better than preregistered structural/simple controls on proper score prospectively.
+  one_draw_promotion_forbidden: true
+  independent_reproduction_required: true
+
+multiple_testing:
+  record_model_forms: true
+  record_shrinkage_values_inspected: true
+  record_optimizer_variants: true
+  retrospective_selection_is_discovery_only: true
+
+falsification:
+  - proper scores fail to improve prospectively versus structural/simple controls
+  - apparent K13 gains occur only with worse probability calibration
+  - adjacent-slot preservation does not improve matched-K survival
+  - independent implementation fails to reproduce results
+  - gains depend on target-conditioned tuning
+
+authority:
+  diagnostic: true
+  may_score_shadow: true_after_implementation_and_freeze
+  may_adjust_production_exposure: false
+  may_hard_eliminate: false
+  may_change_K: false
