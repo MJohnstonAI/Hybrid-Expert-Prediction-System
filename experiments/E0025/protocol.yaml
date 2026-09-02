@@ -1,0 +1,79 @@
+experiment_id: E0025
+title: Apodex Acquisition Infrastructure Extraction and Repair
+status: active_methodology_rework
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+source:
+  path: collaboration/contributions/apodex_2026-09-02/
+  protocol: governance/external_contribution_protocol.md
+
+data:
+  canonical_main: data/draw_history.jsonl
+  active_start: 2026-06-02
+  pre_june_allowed: false
+  target_excluded: true
+
+independent_reproduction:
+  supplied_unit_tests:
+    status: passed_in_external_sandbox
+    note: tests do not cover the material defects listed below
+  canonical_main_replay:
+    minimum_prior_draws: 3
+    targets: 24
+    metrics:
+      mean_K13_hits: 1.25
+      IID_expected_K13_hits: 1.30
+      mean_logloss_delta_vs_structural_null: -0.855384
+      mean_brier_delta_vs_structural_null: -0.001362
+      interpretation: supplied model did not beat the structural null
+
+material_defects:
+  signed_transition:
+    supplied: q_j(x|p) proportional to P0_j(x)*exp(phi_j*(x-p))
+    defect: exp(-phi_j*p) cancels in normalization, so q_j is independent of p
+    disposition: rework_required
+  adjacent_preserver:
+    defect: outside Top13 on p_anywhere cannot normally exceed weakest Top13 member on same p_anywhere score
+    disposition: rework_required
+  powerball_championship:
+    defect: uniform loss has opposite sign and routine does not score withheld realized PB targets
+    disposition: reject_current_implementation
+  coalition_shadow:
+    defect: smoothing denominators are not coherent singleton/pair event probabilities
+    disposition: rederive_before_probability_interpretation
+
+surviving_components:
+  - exact_legal_line_dynamic_programming
+  - exact_null_recovery_tests
+  - fixed_K_complete_line_containment_MK
+  - walk_forward_harness_structure
+  - proper_score_first_orchestration_concept
+  - machine_provenance_backfill_priority
+  - search_exposure_registry_priority
+  - automated_first_failure_stage_tracing
+
+repaired_signed_transition_requirement:
+  rule: >-
+    Use a genuinely previous-state-dependent low-dimensional residual potential over delta=x-p,
+    for example strongly-shrunk sign(delta) and log1p(abs(delta)) basis functions inside one coherent
+    transition family. HLR/VVD remain derived views, not independent votes.
+  exact_legal_line_normalization: required
+  null_recovery: required
+  previous_state_sensitivity_test: required
+
+powerball_derivative:
+  family: unconditional_Dirichlet_shrunk_frequency
+  retrospective_alpha_values_inspected: [0.25,0.5,1,2,4,8,16]
+  selected_derivative_alpha: 2
+  selection_status: retrospective_discovery_only
+  first_prospective_shadow_target: 2026-09-04
+  compare_against: uniform_1_16
+  primary_metrics: [multiclass_logloss,multiclass_Brier]
+  production_weight: 0
+
+promotion_gate:
+  proper_score_first: true
+  matched_K_required: true
+  one_target_promotion_forbidden: true
+  independent_reproduction_required: true
