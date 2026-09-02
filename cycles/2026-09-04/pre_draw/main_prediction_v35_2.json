@@ -1,0 +1,72 @@
+{
+  "target_draw_date": "2026-09-04",
+  "frozen_on": "2026-09-02",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture": "HEPS_v35.2_rank_seeded_precision_portfolio",
+  "official_current_prediction": true,
+  "supersedes": "cycles/2026-09-04/pre_draw/main_prediction_v35.json",
+  "supersession_policy": "governance/pre_draw_supersession_policy.md",
+  "supersession_reason": "E0022 full-1287 assembly ingestion plus E0023 rank-seeded four-plus portfolio refinement. Prior artifact remains immutable for audit but is no longer the active Friday slate.",
+  "canonical_cutoff": "2026-09-01",
+  "previous_verified_state": {"main":[14,16,31,34,40],"powerball":4},
+  "frozen_K13": [3,8,18,19,20,23,32,34,35,39,40,48,50],
+  "assembly": {
+    "all_1287_lines_enumerated_before_ranking": true,
+    "tie_rule": "average_midrank",
+    "predictive_seed_rule": "preserve E0013 ranks 1-6; all six are Dissent-OR rank 12 or better",
+    "remaining_budget_rule": "greedy Johnson 4+/5 coverage after predictive seeds plus preregistered geometry seed",
+    "four_plus_coverage": {"covered_states":733,"winner_states":1287,"fraction":0.5695415695},
+    "three_plus_coverage": {"covered_states":1287,"winner_states":1287,"fraction":1.0},
+    "exact_5of5_geometric_states":20,
+    "note":"Johnson coverage is portfolio geometry, not predictive information. E0013 remains PROVISIONAL_SIGNAL shadow; Dissent-OR remains INSUFFICIENT_EVIDENCE shadow."
+  },
+  "top6_consensus": [
+    {"main":[18,32,34,35,50],"e0013_rank":1.0,"dissent_or_rank":1.0},
+    {"main":[8,19,20,39,48],"e0013_rank":2.0,"dissent_or_rank":4.5},
+    {"main":[3,19,20,39,48],"e0013_rank":3.0,"dissent_or_rank":6.0},
+    {"main":[3,8,19,39,48],"e0013_rank":4.0,"dissent_or_rank":9.0},
+    {"main":[8,19,20,23,39],"e0013_rank":5.0,"dissent_or_rank":10.0},
+    {"main":[19,20,23,39,48],"e0013_rank":6.0,"dissent_or_rank":12.0,"director_core_match":[19,23,39,48]}
+  ],
+  "powerball_policy": {
+    "heps_model_primary":4,
+    "director_challenger":14,
+    "director_rationale":"higher-than-4 branch plus terminal digit 4 resolves to PB14; this is a human/director challenger and not an independent HEPS probability multiplication",
+    "exposure_counts":{"14":5,"4":4,"1":3,"11":2,"16":2,"15":2,"13":2},
+    "note":"PB14 receives bounded largest single exposure by director authorization. PB4 remains the HEPS-model primary. Post-draw score them separately."
+  },
+  "technical_flagship": {"main":[18,32,34,35,50],"powerball":4,"e0013_rank":1.0,"dissent_or_rank":1.0},
+  "director_assisted_flagship": {"main":[19,20,23,39,48],"powerball":14,"e0013_rank":6.0,"dissent_or_rank":12.0,"director_core":[19,23,39,48]},
+  "lines": [
+    {"id":1,"main":[18,32,34,35,50],"powerball":4,"HLR":"HHHHH","role":"consensus_rank_1"},
+    {"id":2,"main":[8,19,20,39,48],"powerball":14,"HLR":"LHLHH","role":"consensus_rank_2"},
+    {"id":3,"main":[3,19,20,39,48],"powerball":1,"HLR":"LHLHH","role":"consensus_rank_3"},
+    {"id":4,"main":[3,8,19,39,48],"powerball":14,"HLR":"LLLHH","role":"consensus_rank_4"},
+    {"id":5,"main":[8,19,20,23,39],"powerball":11,"HLR":"LHLLL","role":"consensus_rank_5"},
+    {"id":6,"main":[19,20,23,39,48],"powerball":14,"HLR":"HHLHH","role":"consensus_rank_6_director_core"},
+    {"id":7,"main":[3,23,32,34,39],"powerball":16,"HLR":"LHHRL","role":"geometry_seed"},
+    {"id":8,"main":[3,8,18,20,32],"powerball":15,"HLR":"LLLLL","role":"four_plus_cover"},
+    {"id":9,"main":[3,8,23,35,40],"powerball":13,"HLR":"LLLHR","role":"four_plus_cover"},
+    {"id":10,"main":[3,18,19,23,50],"powerball":4,"HLR":"LHLLH","role":"four_plus_cover"},
+    {"id":11,"main":[3,18,34,40,48],"powerball":14,"HLR":"LHHHH","role":"four_plus_cover"},
+    {"id":12,"main":[8,18,39,40,50],"powerball":1,"HLR":"LHHHH","role":"four_plus_cover"},
+    {"id":13,"main":[8,19,32,34,40],"powerball":11,"HLR":"LHHRR","role":"four_plus_cover"},
+    {"id":14,"main":[8,23,32,48,50],"powerball":16,"HLR":"LHHHH","role":"four_plus_cover"},
+    {"id":15,"main":[18,19,20,35,40],"powerball":15,"HLR":"HHLHR","role":"four_plus_cover"},
+    {"id":16,"main":[20,23,34,40,50],"powerball":4,"HLR":"HHHHH","role":"four_plus_cover"},
+    {"id":17,"main":[32,35,39,40,48],"powerball":13,"HLR":"HHHHH","role":"four_plus_cover"},
+    {"id":18,"main":[3,20,35,39,50],"powerball":14,"HLR":"LHHHH","role":"four_plus_cover"},
+    {"id":19,"main":[8,20,34,35,48],"powerball":1,"HLR":"LHHHH","role":"four_plus_cover"},
+    {"id":20,"main":[3,19,32,40,50],"powerball":4,"HLR":"LHHHH","role":"four_plus_cover"}
+  ],
+  "post_draw_required": [
+    "score final active v35.2 slate as official prediction",
+    "score superseded v35 slate separately",
+    "score K13 acquisition before assembly",
+    "if K13 contains all five winners report exact winner ranks under E0013 and Dissent-OR out of 1287",
+    "report 4+/5 and exact 5/5 portfolio survival",
+    "score PB4 model primary and PB14 director challenger separately"
+  ],
+  "freeze_rule": "This version may itself be superseded only before the 2026-09-04 result is known, under governance/pre_draw_supersession_policy.md. After result reveal it is immutable."
+}
