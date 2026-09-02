@@ -1,0 +1,94 @@
+{
+  "target_draw_date": "2026-09-01",
+  "verified_result": {
+    "main": [14,16,31,34,40],
+    "powerball": 4,
+    "source": "https://www.powerball.net/southafrica/results",
+    "verification_status": "externally_verified"
+  },
+  "previous_state": {
+    "main": [19,22,24,25,47],
+    "powerball": 11
+  },
+  "realized_transition": {
+    "HLR": "LLHHL",
+    "VVD": [5,6,7,9,7],
+    "terminal_digits": [4,6,1,4,0],
+    "macro_sum": 135,
+    "span": 26
+  },
+  "frozen_main_prediction_audit": {
+    "BARP_modal_HLR": {
+      "forecast": "LLHHL",
+      "actual": "LLHHL",
+      "slot_direction_hits": 5,
+      "slot_direction_targets": 5,
+      "credit": "positive_prospective_one_target",
+      "promotion": false,
+      "note": "Exact five-slot modal direction hit. One draw cannot establish durable edge."
+    },
+    "E0019_primary_K13": {
+      "K13": [20,22,23,26,30,31,32,34,35,39,41,43,49],
+      "winner_coordinates": [31,34],
+      "hits": 2,
+      "null_exact_2_probability": 0.28604466763578695,
+      "credit": "neutral",
+      "note": "2/5 at K13 is ordinary under the exact fixed-K null and does not justify promotion."
+    },
+    "E0019_diagnostic_K20": {
+      "K20": [2,3,8,12,13,20,22,23,26,30,31,32,34,35,37,39,40,41,43,49],
+      "winner_coordinates": [31,34,40],
+      "hits": 3,
+      "null_P_3plus": 0.3099709263909079,
+      "credit": "weak_positive_exposure_diagnostic_only",
+      "note": "3/5 at K20 is not rare enough to count as predictive evidence."
+    },
+    "E0016_nonequilibrium_current_K13": {
+      "K13": [2,3,8,12,13,20,22,23,26,27,36,37,40],
+      "winner_coordinates": [40],
+      "hits": 1,
+      "credit": "negative_for_this_target"
+    },
+    "E0020_terminal_shadow": {
+      "primary_top1_hits": {
+        "S1": false,
+        "S2": false,
+        "S3": true,
+        "S4": true,
+        "S5": false
+      },
+      "secondary_preserved_hits": {
+        "S1_algebraic_residue4": true,
+        "S2_suffix_residue6_top3": true,
+        "S5_suffix_residue0_top3": true
+      },
+      "credit": "mixed_positive_diagnostic_only",
+      "note": "S3 terminal 1 and S4 terminal 4 were top-1 hits. S1 residue 4 was independently frozen by three algebraic rules, while S2 residue 6 and S5 residue 0 were preserved in the top-3 terminal field. Historical E0020 proper scores remain worse than the structural null, so no production promotion."
+    },
+    "E0020_M3_exact_slot_ranks": {
+      "S1_actual_14_rank": 11,
+      "S2_actual_16_rank": 8,
+      "S3_actual_31_rank": 4,
+      "S4_actual_34_rank": 1,
+      "S5_actual_40_rank": 20,
+      "credit": "slot_specific_mixed",
+      "note": "VVD materially improved S3 actual coordinate rank and preserved S4 rank1, but worsened S5. Do not reward VVD globally."
+    },
+    "final_portfolio": {
+      "maximum_line_overlap": 2,
+      "first_failure_stage": "candidate_acquisition",
+      "note": "Correct directional information did not survive compression into a sufficiently complete candidate universe."
+    }
+  },
+  "important_cross_slot_observation": {
+    "coordinate_14": "pre-draw M3 ranked 14 first in S2 but actual was S1",
+    "coordinate_16": "pre-draw M3 ranked 16 second in S1 and eighth in S2; actual was S2",
+    "interpretation": "The model contained useful anywhere-coordinate information that was partly lost by strict slot provenance. For future acquisition, adjacent-slot high-rank preservation should be tested at fixed K rather than discarded."
+  },
+  "governance_decision": {
+    "evidence_classification": "INSUFFICIENT_EVIDENCE",
+    "one_draw_promotion_forbidden": true,
+    "reward_rule_for_2026_09_04": "Apply bounded prospective credit, not authority promotion. Give BARP direction the strongest temporary preservation credit; give E0020 S3/S4 terminal and adjacent-slot coordinate preservation a smaller shadow credit; give VVD slot-specific rather than global credit; do not reward E0019 K13 or E0016 current solely from this target.",
+    "no_posthoc_refit": true
+  }
+}
