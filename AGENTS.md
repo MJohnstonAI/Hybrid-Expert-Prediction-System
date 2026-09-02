@@ -261,7 +261,7 @@ python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 
 For relevant slot/null research also run `scripts/structural_null.py` for the previous draw and declared basket sizes.
 
-For E0022 assembly work run `pytest -q tests/test_e0022_assembly_evolution.py` and reproduce `scripts/oracle_k13_assembly_evolution.py` before making new lift claims.
+For E0022 assembly work run `python -m unittest discover -s tests -v` and reproduce `scripts/oracle_k13_assembly_evolution.py` before making new lift claims.
 
 Main numbers are sorted order statistics, not physical extraction order.
 
