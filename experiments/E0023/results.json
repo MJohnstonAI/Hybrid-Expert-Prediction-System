@@ -1,42 +1,64 @@
 {
   "experiment_id": "E0023",
   "analysis_date": "2026-09-02",
-  "target_draw_date": "2026-09-04",
   "paper_trading_only": true,
   "evidence_classification": "INSUFFICIENT_EVIDENCE",
-  "frozen_upstream_K13": [3,8,18,19,20,23,32,34,35,39,40,48,50],
-  "winner_state_count": 1287,
-  "line_budget": 20,
-  "comparators": {
-    "e0022_single_start_four_plus_first": {
-      "covered_4plus": 788,
-      "fraction": 0.6122766123
+  "design": {
+    "main_rows": 27,
+    "main_cutoff": "2026-09-01",
+    "active_start": "2026-06-02",
+    "minimum_prior_draws": 8,
+    "oracle_k13_targets": 19,
+    "decoy_replicates_per_target": 30,
+    "line_universe_per_k13": 1287,
+    "tie_rule": "average_midrank",
+    "kappa": 20,
+    "parameter_search": "none"
+  },
+  "discovery_replay": {
+    "slot1_marginal_residual": {
+      "mean_winner_percentile": 0.5366531609,
+      "targets_above_0_5": 10
     },
-    "e0023_pure_multistart_geometry": {
-      "covered_4plus": 796,
-      "fraction": 0.6184926185,
-      "seed_lines": [[3,19,34,39,48],[8,19,20,35,48]],
-      "interpretation": "Real deterministic same-K/same-budget 4+ geometry improvement, but selected portfolio is weak on E0013/Dissent predictive ranks overall."
+    "decade_shell_marginal_residual": {
+      "mean_winner_percentile": 0.4357023001,
+      "targets_above_0_5": 2
     },
-    "e0023_rank_seeded_precision_portfolio": {
-      "mandatory_predictive_seed": "E0013 ranks 1 through 6; all six are also Dissent-OR rank 12 or better",
-      "extra_geometry_seed": [3,23,32,34,39],
-      "covered_4plus": 733,
-      "fraction": 0.5695415695,
-      "covered_3plus": 1287,
-      "exact_5of5_states": 20,
-      "coverage_retention_vs_e0022": 0.9302030457,
-      "coverage_retention_vs_pure_multistart": 0.9208542714,
-      "interpretation": "Preserves the strongest current coalition consensus while retaining about 93% of E0022's 4+ coverage count. Selected as the pre-draw precision compromise, not as a predictive promotion claim."
+    "joint_slot1_shell_residual": {
+      "mean_winner_percentile": 0.5392997463,
+      "targets_above_0_5": 2,
+      "warning": "Mean is driven by a small number of rare high-percentile states; not stable."
+    },
+    "conditional_shell_given_slot1_primary": {
+      "mean_winner_percentile": 0.5314227443,
+      "median_target_mean_percentile": 0.6015940902,
+      "targets_above_0_5": 11,
+      "targets": 19,
+      "minimum_target_mean_percentile": 0.1711119751,
+      "maximum_target_mean_percentile": 0.9818558839,
+      "one_sided_sign_p_uncorrected": 0.3238029480,
+      "one_sided_ttest_p_uncorrected": 0.3067474376
     }
   },
-  "top6_consensus": [
-    {"main":[18,32,34,35,50],"e0013_rank":1.0,"dissent_or_rank":1.0},
-    {"main":[8,19,20,39,48],"e0013_rank":2.0,"dissent_or_rank":4.5},
-    {"main":[3,19,20,39,48],"e0013_rank":3.0,"dissent_or_rank":6.0},
-    {"main":[3,8,19,39,48],"e0013_rank":4.0,"dissent_or_rank":9.0},
-    {"main":[8,19,20,23,39],"e0013_rank":5.0,"dissent_or_rank":10.0},
-    {"main":[19,20,23,39,48],"e0013_rank":6.0,"dissent_or_rank":12.0}
-  ],
-  "search_warning": "This refinement was designed pre-result for the 2026-09-04 target. Geometry gains are exact. Predictive benefit of rank-seeding remains unproven and must be scored prospectively."
+  "recent_primary_target_means": {
+    "2026-08-18": 0.2311041991,
+    "2026-08-21": 0.1740020736,
+    "2026-08-25": 0.4224209435,
+    "2026-08-28": 0.7615863142,
+    "2026-09-01": 0.4945956454
+  },
+  "interpretation": {
+    "predictive_breakthrough": false,
+    "standalone_lift": "small and statistically inconclusive",
+    "decade_shell_only": "negative",
+    "incremental_fusion": "not demonstrated; do not add to MAIN_ASSEMBLY_DISSENT_OR",
+    "reason_to_shadow": "cheap, exact-null-residualized, and prospectively falsifiable without changing exposure"
+  },
+  "decision": {
+    "MAIN_SLOT1_DECADE_SHELL_ECHO": "ACCEPT_DIAGNOSTIC_PROSPECTIVE_SHADOW_ONLY",
+    "candidate_authority": "NONE",
+    "hard_pruning": "FORBIDDEN",
+    "production_weight": 0,
+    "first_eligible_target": "2026-09-04"
+  }
 }

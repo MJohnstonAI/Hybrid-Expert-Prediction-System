@@ -1,0 +1,76 @@
+experiment_id: E0023
+title: Slot-1 Anchored Decade-Shell Echo
+status: active_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+
+stage:
+  - coalition_assembly
+  - winner_float_ranking
+
+candidate_authority: none
+
+data:
+  game: main
+  canonical_ledger: data/draw_history.jsonl
+  active_start: 2026-06-02
+  allow_pre_june_2026_history: false
+  xtra_transfer: forbidden
+
+state:
+  slot1: minimum sorted main number
+  decade_bins:
+    - 1-10
+    - 11-20
+    - 21-30
+    - 31-40
+    - 41-50
+  shell: five-count decade occupancy vector
+
+primary_operator:
+  name: MAIN_SLOT1_DECADE_SHELL_ECHO
+  null: exact uniform 5-of-50 conditional shell probability given Slot1
+  prior_strength_kappa: 20
+  parameter_search: none
+  formula: >-
+    P_hat(shell|m)=(c(m,shell)+20*P0(shell|m))/(c(m)+20);
+    score=log(P_hat(shell|m)/P0(shell|m))
+  unseen_slot1_rule: neutral score zero
+
+oracle_k13_discovery:
+  minimum_prior_draws: 8
+  candidate_count: 13
+  construction: actual five target winners plus eight random decoys
+  legal_lines: 1287
+  decoy_replicates_per_target: 30
+  seed: 20260902
+  tie_rule: average_midrank
+  interpretation: stage isolation only; zero candidate-acquisition credit
+
+controls:
+  - Slot1 marginal residual vs exact null
+  - decade-shell marginal residual vs exact null
+  - joint Slot1+shell residual vs exact null
+  - random 0.5 oracle percentile
+
+prospective:
+  first_eligible_main_target: 2026-09-04
+  required_use: score all 1287 lines only if an upstream frozen K13 is available
+  integration_with_MAIN_ASSEMBLY_DISSENT_OR: forbidden_until_incremental_prospective_evidence
+
+authority:
+  diagnostic: true
+  may_score_completed_lines: true
+  may_add_candidates: false
+  may_remove_candidates: false
+  may_prune_candidates: false
+  may_change_K: false
+  may_change_line_budget: false
+  may_hard_eliminate_lines: false
+  production_weight: 0
+
+falsification:
+  - prospective winner rank remains near random
+  - residual score is redundant with E0013/frequency/recency
+  - adding the score increases catastrophic burial
+  - apparent lift depends on optimistic tie handling or exposure expansion

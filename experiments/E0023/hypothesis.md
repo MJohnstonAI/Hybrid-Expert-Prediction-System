@@ -1,57 +1,49 @@
-# E0023 — Rank-Seeded Multi-Start Four-Plus Portfolio
-
-## Status
-
-`PROSPECTIVE SHADOW / NO PREDICTIVE PROMOTION`
-
-Evidence classification: `INSUFFICIENT_EVIDENCE`.
-
-Paper trading only.
-
-## Purpose
-
-E0023 is a portfolio-optimization derivative of E0022. It attempts to improve fixed-budget 4+/5 winner-state coverage inside an already-frozen Main K13 while preserving some coalition-ranking information from E0013 and `MAIN_ASSEMBLY_DISSENT_OR`.
-
-It has **zero candidate-acquisition authority** and introduces no new learned probability model.
+# E0023 — Slot-1 Anchored Decade-Shell Echo
 
 ## Hypothesis
 
-The legacy single-start greedy `four_plus_first` Johnson path is not guaranteed to find the best 20-line 4+/5 cover. A small deterministic multi-start search can discover a better same-budget cover. When multiple multi-start solutions are available, coalition ranks may be used only as a secondary robustness tie-break, not as proof of independent predictive votes.
+For South African PowerBall Main Mechanical-Era draws, a completed five-number line may carry residual coalition information when its decade-occupancy shell is unusually recurrent **conditional on its Slot 1 minimum**, after exact 5/50 order-statistic geometry is removed.
 
-## Friday 2026-09-04 target
+This is not a claim that repeated decade patterns or repeated Slot 1 values are predictive by themselves.
 
-Frozen upstream K13:
+## Motivation
 
-`[3,8,18,19,20,23,32,34,35,39,40,48,50]`
+Two Main pairs showed the same Slot 1 and the same five-decade occupancy shell while the other exact coordinates largely rotated:
 
-E0022 single-start `four_plus_first` baseline at 20 lines:
+- `3,12,27,36,47` and `3,14,26,40,48` -> shell `(1,1,1,1,1)`
+- `9,14,27,32,34` and `9,13,21,36,40` -> shell `(1,1,1,2,0)`
 
-- 4+/5 winner-state coverage: `788 / 1,287 = 61.2277%`.
+The research question is whether `P(shell | Slot1)` contains residual information beyond the exact IID 5/50 null, not whether historical coordinates should repeat.
 
-Pre-result E0023 multi-start search found a 20-line solution covering:
+## Primary score
 
-- `796 / 1,287 = 61.8493%` at 4+/5;
-- exact 5/5 state count remains `20 / 1,287`;
-- candidate K and line budget are unchanged.
+For a legal sorted line `C`:
 
-This is a deterministic geometry improvement, **not predictive information**.
+- `m = Slot1(C)`
+- `d(C)` = decade-count signature over `1-10,11-20,21-30,31-40,41-50`
+- `P0(d|m)` = exact combinatorial probability under uniform 5-of-50 conditional on minimum `m`
+- `c(m,d)` = prior post-June count of state `(m,d)`
+- `c(m)` = prior count of Slot1 `m`
 
-## Authority boundary
+With frozen `kappa=20`:
 
-E0023 may:
+`P_hat(d|m) = (c(m,d) + 20*P0(d|m)) / (c(m) + 20)`
 
-- optimize a fixed K13/fixed-budget portfolio;
-- report exact 3+/4+/5 coverage geometry;
-- preserve prospectively frozen coalition-ranked seed lines as a secondary portfolio constraint.
+`R_shell(C) = log(P_hat(d|m) / P0(d|m))`
 
-E0023 may not:
+If Slot1 `m` has never occurred, the score is neutral.
 
-- change K13;
-- add/remove candidate coordinates;
-- claim E0013/Dissent ranks are independent votes;
-- claim improved exact 5/5 probability without a validated non-uniform winner-state posterior;
-- rewrite already-frozen 2026-09-04 artifacts.
+## Data boundary
 
-## First eligible prospective target
+- Main only.
+- Active history begins `2026-06-02`.
+- No pre-June history may enter fitting, calibration, replay or ranking.
+- No fitted state transfers to XTRA.
 
-`2026-09-04`.
+## Authority requested
+
+Coalition/winner-float diagnostic shadow only. It may score completed lines after K13 is frozen, but it may not change candidates, K, pruning, morphology or line budget.
+
+## Falsification
+
+Reject forward predictive authority if prospective winner-rank performance remains near random, is redundant with E0013/frequency/recency, or increases catastrophic burial.
