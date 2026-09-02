@@ -1,0 +1,113 @@
+{
+  "experiment_id": "E0022",
+  "analysis_date": "2026-09-02",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "design": {
+    "main_rows": 27,
+    "main_cutoff": "2026-09-01",
+    "xtra_canonical_rows": 24,
+    "xtra_canonical_cutoff": "2026-08-21",
+    "xtra_external_replay_supplement": ["2026-08-25", "2026-08-28", "2026-09-01"],
+    "minimum_prior_draws": 8,
+    "oracle_k13": "actual five target winners plus eight random decoys",
+    "decoy_replicates_per_target": 30,
+    "line_universe_per_k13": 1287,
+    "rank_ties": "average_midrank",
+    "evidence_note": "All new strategy replay is post-hoc/discovery because formulas were designed after outcomes existed."
+  },
+  "main": {
+    "e0013_spectral_all19": {
+      "mean_winner_percentile": 0.5904265914,
+      "top20_rate": 0.0280701754,
+      "top100_rate": 0.1561403509,
+      "minimum_target_mean_percentile": 0.0705935718
+    },
+    "e0013_recent_two": {
+      "mean_winner_percentile": 0.2858994298,
+      "top20_rate": 0.0,
+      "top100_rate": 0.0
+    },
+    "dissent_or_definition": "max(midrank_percentile(frequency), midrank_percentile(recency), midrank_percentile(E0013_spectral))",
+    "dissent_or_all19": {
+      "mean_winner_percentile": 0.5452586560,
+      "top20_rate": 0.0192982456,
+      "top100_rate": 0.1140350877,
+      "minimum_target_mean_percentile": 0.2457361327,
+      "targets_above_random_median": 10,
+      "one_sided_sign_p_uncorrected": 0.5,
+      "one_sided_ttest_p_uncorrected": 0.1942922283
+    },
+    "dissent_or_recent_two": {
+      "mean_winner_percentile": 0.5575038880,
+      "top20_rate": 0.0666666667,
+      "top100_rate": 0.25
+    },
+    "recent_target_means": {
+      "2026-08-28": {
+        "spectral": 0.2452566096,
+        "dissent_or": 0.2457361327,
+        "frequency": 0.4910575428,
+        "recency": 0.5082426128
+      },
+      "2026-09-01": {
+        "spectral": 0.3265422499,
+        "dissent_or": 0.8692716433,
+        "frequency": 0.9392172110,
+        "recency": 0.8547693105
+      }
+    },
+    "rejected_evolved_variants": {
+      "four_node_nucleus_recent_two_mean_percentile": 0.1186625194,
+      "conditional_completion_recent_two_mean_percentile": 0.1448807672,
+      "simple_pmi_recent_two_mean_percentile": 0.1300155521,
+      "interpretation": "Discovery-stage strength collapsed on the two newest Main targets; no forward authority."
+    }
+  },
+  "xtra": {
+    "original_e0014_window_tie_audit": {
+      "raw_pair": {"optimistic_best_tie": 0.6283680016, "midrank_corrected": 0.4590744881},
+      "frequency": {"optimistic_best_tie": 0.5537308839, "midrank_corrected": 0.4742855754},
+      "pmi": {"optimistic_best_tie": 0.5268354717, "midrank_corrected": 0.5128361522},
+      "spectral": {"optimistic_best_tie": 0.4767868714, "midrank_corrected": 0.4762206778},
+      "interpretation": "The old strict-greater oracle rank treats every tied line as best-in-tie. This materially inflates discrete raw-pair and frequency scores."
+    },
+    "expanded_19_target_replay": {
+      "raw_pair_mean_percentile": 0.4619485144,
+      "pmi_mean_percentile": 0.5060769147,
+      "spectral_mean_percentile": 0.4690451829,
+      "frequency_mean_percentile": 0.4726596819,
+      "recency_mean_percentile": 0.4933166899
+    },
+    "decision": "No XTRA coalition ranking strategy earns predictive promotion from this championship."
+  },
+  "johnson_k13": {
+    "winner_state_count": 1287,
+    "radius1_states_per_line": 41,
+    "objective_evolution": "optional four_plus_first objective; legacy three_plus_first remains default for backward compatibility",
+    "coverage_by_budget": [
+      {"budget": 5, "four_plus_first_coverage": 0.1592851593, "random_expected_coverage": 0.1496725965, "relative_gain": 0.0642239330, "exact_5of5_coverage": 0.0038850039},
+      {"budget": 10, "four_plus_first_coverage": 0.3185703186, "random_expected_coverage": 0.2774086310, "relative_gain": 0.1483792605, "exact_5of5_coverage": 0.0077700078},
+      {"budget": 20, "four_plus_first_coverage": 0.6122766123, "random_expected_coverage": 0.4792152331, "relative_gain": 0.2776651701, "exact_5of5_coverage": 0.0155400155},
+      {"budget": 30, "four_plus_first_coverage": 0.8073038073, "random_expected_coverage": 0.6256495578, "relative_gain": 0.2903450459, "exact_5of5_coverage": 0.0233100233},
+      {"budget": 50, "four_plus_first_coverage": 0.9720279720, "random_expected_coverage": 0.8081298674, "relative_gain": 0.2028115916, "exact_5of5_coverage": 0.0388500389}
+    ],
+    "legacy_vs_four_plus_first": {
+      "budget10": {"legacy_4plus": 0.3061383061, "four_plus_first_4plus": 0.3185703186},
+      "budget20": {"legacy_4plus": 0.5881895882, "four_plus_first_4plus": 0.6122766123},
+      "budget30": {"legacy_4plus": 0.7917637918, "four_plus_first_4plus": 0.8073038073}
+    },
+    "interpretation": "Deterministic portfolio geometry only. Exact 5/5 coverage remains M/1287 for any M distinct lines."
+  },
+  "search_exposure": {
+    "families_screened": ["frequency", "recency", "raw_pair", "PMI", "E0013_spectral", "four_node_nucleus", "conditional_completion", "weak_link", "residualized_variants", "rank_average", "max_OR", "softmax_logsumexp", "adaptive_reliability", "capped_dissent", "nucleus_expansion"],
+    "warning": "Large exploratory search; no predictive BREAKTHROUGH claim is permitted from this replay."
+  },
+  "decision": {
+    "johnson_four_plus_first": "ACCEPT_AS_OPTIONAL_ASSEMBLY_GEOMETRY",
+    "main_dissent_or": "PROSPECTIVE_SHADOW_ONLY",
+    "main_nucleus_completion": "REJECT_FOR_FORWARD_AUTHORITY_CURRENT_FORM",
+    "xtra_raw_pair": "DOWNGRADE_PRIOR_APPARENT_SIGNAL_DUE_TO_TIE_ARTIFACT",
+    "xtra_new_predictive_assembler": "NONE"
+  }
+}
