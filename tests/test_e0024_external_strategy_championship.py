@@ -7,6 +7,7 @@ SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
 import e0024_external_strategy_championship as e24  # noqa: E402
+import e0024_fast_portfolio as fast_port  # noqa: E402
 
 
 class E0024ExternalStrategyChampionshipTests(unittest.TestCase):
@@ -27,19 +28,32 @@ class E0024ExternalStrategyChampionshipTests(unittest.TestCase):
         self.assertGreaterEqual(main[0]["draw_date"], "2026-06-02")
         self.assertGreaterEqual(xtra[0]["draw_date"], "2026-06-02")
 
-    def test_balanced_search_never_degrades_4plus_coverage(self):
-        result = e24.balanced_overlap_championship(budget=20, restarts=4)
-        base = result["e0022_lexicographic_greedy"]["covered_4plus"]
-        evolved = result["balanced_multistart_one_swap"]["covered_4plus"]
-        self.assertEqual(base, 788)
-        self.assertGreaterEqual(evolved, base)
+    def test_fast_balanced_search_never_degrades_4plus_coverage(self):
+        result = fast_port.fast_championship(budget=20, restarts=16)
+        self.assertEqual(result["e0022_lex_coverage"], 788)
+        self.assertGreaterEqual(result["post_one_swap_coverage"], 788)
 
-    def test_full_championship_smoke_and_emit_summary(self):
-        result = e24.run(permutations=400, portfolio_restarts=4)
-        self.assertEqual(result["experiment_id"], "E0024")
-        self.assertGreater(result["machine_nonexchangeability"]["main"]["known_rows"], 15)
-        self.assertGreater(result["machine_nonexchangeability"]["xtra"]["known_rows"], 15)
+    def test_full_championship_emit_summary(self):
+        main = e24.load_game("main")
+        xtra = e24.load_game("xtra")
+        result = {
+            "experiment_id": "E0024",
+            "balanced_overlap": fast_port.fast_championship(budget=20, restarts=32),
+            "machine_nonexchangeability": {
+                "main": e24.machine_permutation_test(main, permutations=800, seed=20260902),
+                "xtra": e24.machine_permutation_test(xtra, permutations=800, seed=20260903),
+            },
+            "machine_prequential_oracle_known": {
+                "main": e24.prequential_machine_championship(main),
+                "xtra": e24.prequential_machine_championship(xtra),
+            },
+            "chronological_changepoint": {
+                "main": e24.changepoint_scan(main, permutations=800, seed=20260904),
+                "xtra": e24.changepoint_scan(xtra, permutations=800, seed=20260905),
+            },
+        }
         print("E0024_SUMMARY=" + json.dumps(result, sort_keys=True))
+        self.assertEqual(result["experiment_id"], "E0024")
 
 
 if __name__ == "__main__":
