@@ -55,6 +55,38 @@ Apodex does **not** justify changing the current Friday Main K13 or Main slate. 
 
 A repaired signed-transition implementation may be built and frozen for a later target, with first priority on genuinely previous-state-dependent basis functions plus exact legal-line normalization.
 
+## Follow-up response review — 2026-09-02
+
+Apodex explicitly accepted the three major defects identified in the first red-team review and supplied replacement specifications. This materially improves the contribution, but two proposed repairs remain mathematically defective as written.
+
+### Signed-transition basis — accepted with construction correction
+
+The nonlinear basis `sign(Delta)` plus `sign(Delta)*log(1+abs(Delta))` is genuinely previous-state dependent and may enter a repaired E0021 challenger.
+
+However, the follow-up proposes legal-line factors `P0_j(x)*R_j(x|p)`. Multiplying exact slot null marginals across slots reintroduces order-statistic geometry. The legal-line model must instead begin from the uniform exact 5-of-50 line null and multiply only residual ratios. Equivalently, after fitting the conditional slot models, the full-line DP can use the residual potentials `R_j` alone because slot normalizing constants factor out.
+
+### Adjacent-slot repair — still rejected
+
+The follow-up still requires an omitted coordinate to have greater `p_anywhere` than a current Top13 incumbent. For a K13 defined as the Top13 under that same score, this remains impossible except ties. A future challenger must instead permit a bounded sacrifice in primary anywhere score in exchange for preregistered migration evidence, preferably only when `M(K)` improves or under a fixed composite preservation score.
+
+### Coalition challenger — promising but exact null needs structural odds offset
+
+Marginal-conditioned pair overlap is a strong derivative idea. Ordinary hypergeometric overlap assumes conditional odds ratio 1, whereas exact uniform 5-of-50 sampling gives structural negative pair association (2x2 odds ratio approximately 0.7822222). A correct challenger should use a conditional distribution/log-linear offset preserving that exact structural odds ratio before empirical-Bayes shrinkage.
+
+### Synthetic evidence — downgraded
+
+The follow-up states that measured synthetic results were not actually available and supplies a simulation protocol instead. Any earlier claim that the synthetic probe had empirically proved null neutrality/signal sensitivity is therefore withdrawn from HEPS evidence credit.
+
+### Shrinkage — re-derive
+
+The proposed interpretation of `s_prior` as a fixed fractional prior weight is not established by the stated penalty `N/(2*s_prior)||theta||^2`. Future use should specify an explicit Gaussian prior or calibrate penalty curvature to expected Fisher information under the exact null.
+
+### Physical-regime research
+
+Machine/ball-set metadata remains the highest-value independent-information proposal. Observed exogenous regime labels with hierarchical shrinkage are preferred. The proposed latent 2–4-regime EM mixture is deferred as too parameter-rich for the current Main sample.
+
+Full details: `experiments/E0025/followup_red_team_2026-09-02.md`.
+
 ## Evidence credit
 
-Apodex receives positive methodological credit for implementation scaffolding, governance priorities and an honest neutral replay result. No predictive `BREAKTHROUGH` or production authority is granted.
+Apodex receives positive methodological credit for implementation scaffolding, governance priorities, an honest neutral replay result, and a useful nonlinear signed-transition basis proposal. No predictive `BREAKTHROUGH` or production authority is granted.
