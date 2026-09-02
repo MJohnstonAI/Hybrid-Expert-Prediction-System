@@ -8,12 +8,14 @@ this optimizer is invoked.
 For a frozen candidate set K, a legal 5-number line T covers a possible winning
 5-set W at threshold t when |T ∩ W| >= t.
 
-Default lexicographic objective:
-1. maximize new 3+ winner-set coverage;
-2. then maximize new 4+ winner-set coverage;
-3. then prefer lexicographically smaller lines for reproducibility.
+Objectives:
+- ``three_plus_first`` (legacy/default): maximize new 3+ coverage, then 4+.
+- ``four_plus_first`` (E0022 challenger): maximize new 4+ coverage, then 3+.
 
-This is portfolio geometry, not predictive evidence.
+The E0022 challenger exists because 3+ coverage saturates rapidly for K13 and
+the director's high-order match objective is better served by using the scarce
+portfolio budget to spread 4+/5 neighbourhoods. This remains portfolio geometry,
+not predictive evidence.
 """
 from __future__ import annotations
 
@@ -24,12 +26,14 @@ from dataclasses import dataclass
 from typing import Iterable
 
 MAIN_LINE_SIZE = 5
+VALID_OBJECTIVES = ("three_plus_first", "four_plus_first")
 
 
 @dataclass(frozen=True)
 class CoverageReport:
     candidate_count: int
     line_budget: int
+    objective: str
     selected_lines: list[tuple[int, ...]]
     winner_universe_size: int
     covered_3plus: int
@@ -41,6 +45,7 @@ class CoverageReport:
         return {
             "candidate_count": self.candidate_count,
             "line_budget": self.line_budget,
+            "objective": self.objective,
             "selected_lines": [list(line) for line in self.selected_lines],
             "winner_universe_size": total,
             "coverage": {
@@ -80,8 +85,12 @@ def overlap(left: Iterable[int], right: Iterable[int]) -> int:
 def greedy_johnson_cover(
     candidates: tuple[int, ...],
     line_budget: int = 20,
+    objective: str = "three_plus_first",
 ) -> CoverageReport:
-    """Select lines by lexicographic 3+ then 4+ Johnson coverage.
+    """Select lines by exact Johnson-space incremental coverage.
+
+    ``three_plus_first`` preserves the historical E0002 behaviour.
+    ``four_plus_first`` is the E0022 high-order-match challenger.
 
     Intended research target is K=13. Larger candidate sets are allowed through
     K=18, but runtime grows rapidly because the exact C(K,5) winner universe is
@@ -91,6 +100,8 @@ def greedy_johnson_cover(
         raise ValueError("line_budget must be positive")
     if len(candidates) > 18:
         raise ValueError("exact research implementation currently capped at K<=18")
+    if objective not in VALID_OBJECTIVES:
+        raise ValueError(f"objective must be one of {VALID_OBJECTIVES}")
 
     universe = list(itertools.combinations(candidates, MAIN_LINE_SIZE))
     line_budget = min(line_budget, len(universe))
@@ -123,7 +134,10 @@ def greedy_johnson_cover(
             new3 = len(coverage3[index] - covered3)
             new4 = len(coverage4[index] - covered4)
             line = universe[index]
-            key = (new3, new4, tuple(-number for number in line))
+            if objective == "four_plus_first":
+                key = (new4, new3, tuple(-number for number in line))
+            else:
+                key = (new3, new4, tuple(-number for number in line))
             if best_key is None or key > best_key:
                 best_key = key
                 best_index = index
@@ -139,6 +153,7 @@ def greedy_johnson_cover(
     return CoverageReport(
         candidate_count=len(candidates),
         line_budget=line_budget,
+        objective=objective,
         selected_lines=selected_lines,
         winner_universe_size=len(universe),
         covered_3plus=len(covered3),
@@ -151,10 +166,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", required=True, help="comma-separated frozen main candidates")
     parser.add_argument("--lines", type=int, default=20, help="final main-line budget")
+    parser.add_argument(
+        "--objective",
+        choices=VALID_OBJECTIVES,
+        default="three_plus_first",
+        help="coverage priority; default preserves historical E0002 behaviour",
+    )
     args = parser.parse_args()
 
     candidates = parse_candidates(args.candidates)
-    report = greedy_johnson_cover(candidates, args.lines)
+    report = greedy_johnson_cover(candidates, args.lines, objective=args.objective)
     print(json.dumps(report.as_dict(), indent=2))
     return 0
 
