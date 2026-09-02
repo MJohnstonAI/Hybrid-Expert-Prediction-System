@@ -2,7 +2,7 @@
 
 ## Architecture
 
-**HEPS v35.0 — Joint-Distribution-First Staged Mixture-of-Experts**
+**HEPS v35.1 — Joint-Distribution-First Staged Mixture-of-Experts**
 
 **Updated:** 2026-09-02  
 **Status:** active methodological architecture; predictive authority remains expert/experiment specific.
@@ -156,6 +156,18 @@ Important correction:
 
 For unordered anywhere-coordinate pairs, uniform 5/50 gives the same null co-inclusion probability to every distinct pair. Do not invent a coordinate-varying "central pair geometry" correction. A stronger E0013 challenger should condition/shrink association using observed marginals `C_i,C_j`.
 
+### E0022 oracle-K13 assembly evolution
+
+When a frozen K13 contains all five winners, enumerate all `C(13,5)=1,287` legal lines before ranking. Do not lose the winning coalition through heuristic generation or hard morphology pruning.
+
+E0022 adds `MAIN_ASSEMBLY_DISSENT_OR` as a prospective shadow robustness ranker:
+
+`max(midrank_percentile(frequency), midrank_percentile(recency), midrank_percentile(E0013_spectral))`.
+
+This is one robustness/meta-assembly operator, not three independent convergence votes. It has zero candidate authority and zero production authority. Its purpose is to test whether alternative supported ranking lanes reduce catastrophic burial when E0013 fails.
+
+E0022's four-node nucleus and conditional-completion formulations failed later-target replay and have no forward authority in their current forms.
+
 Coalition methods have zero candidate-discovery credit unless separately tested upstream.
 
 ## Stage 4 — Morphology
@@ -172,6 +184,8 @@ Common morphology is not itself predictive evidence. Every morphology rule must 
 
 Rejected gap-density/JOS-HDR formulations remain historical only.
 
+Morphology may not hard-delete lines from a correct K13 oracle universe merely because a line looks unusual. Any pruning authority must independently earn winner-retention lift against its legal-space compression.
+
 ## Stage 5 — Winner-Float Ranking
 
 Purpose: rank legal surviving combinations.
@@ -182,7 +196,10 @@ Evaluate:
 - percentile;
 - Top-N survival;
 - paired delta vs random/simple/incumbent rankers;
-- stage-isolated attribution.
+- stage-isolated attribution;
+- catastrophic burial rate.
+
+For discrete coalition scores with ties, use average midrank or another explicitly justified tie-aware rule. Do not give every tied winner the best rank in its tie block. E0022 showed that optimistic tie treatment materially inflated historical XTRA raw-pair oracle results.
 
 Do not credit a ranker when the winning coordinates never survived acquisition.
 
@@ -191,6 +208,10 @@ Do not credit a ranker when the winning coordinates never survived acquisition.
 Purpose: select a fixed paper-trading line budget while controlling concentration and duplicate exposure.
 
 Johnson covering/maximum-coverage methods belong here or in assembly only after candidates are frozen. They have zero candidate-discovery authority.
+
+Historical `three_plus_first` Johnson covering remains available for audit/backward compatibility. E0022 adds an optional `four_plus_first` objective for the director's high-order match goal. At K13 and a fixed 20-line budget, this raises exact 4+/5 winner-state coverage from 757/1287 (58.82%) to 788/1287 (61.23%) while exact 5/5 state coverage remains 20/1287 for either distinct-line portfolio.
+
+This is deterministic portfolio geometry, not predictive information. Exact 5/5 probability can improve only if an independently validated ranking/posterior assigns non-uniform probability to the 1,287 winner states.
 
 Portfolio diversification is a robustness/variance question, not proof that expected lottery return changes.
 
@@ -326,9 +347,10 @@ See `knowledge/open_questions.md`. Highest-value active directions are:
 1. E0021 corrected signed-displacement legal-line acquisition;
 2. fixed-K adjacent-slot/anywhere-coordinate preservation;
 3. E0011 redundancy audit;
-4. E0013 marginal-conditioned/shrunk coalition challenger;
-5. machine/ball-set non-exchangeability when metadata permit;
-6. strongly shrunk PB championship;
-7. calibrated full-support modelling to reduce catastrophic exclusions.
+4. E0013 marginal-conditioned/shrunk coalition challenger plus E0022 prospective anti-burial shadow;
+5. E0022 four-plus-first Johnson geometry for fixed-budget high-order coverage;
+6. machine/ball-set non-exchangeability when metadata permit;
+7. strongly shrunk PB championship;
+8. calibrated full-support modelling to reduce catastrophic exclusions.
 
 Avoid reopening deprecated strategies without materially new information. Use `governance/methodology_deprecations.md` as the forward-use map.
