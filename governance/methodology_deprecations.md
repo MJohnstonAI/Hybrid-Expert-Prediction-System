@@ -24,6 +24,7 @@ If a historical experiment contains a formula listed here, the experiment's froz
 | General drift/diffusion tensor, optimal-transport flow, nucleation, heat-kernel E0013 augmentation, routine Levy candidate ranking | **REJECT current formulations** | E0016 taste test found no stable lift or added complexity without stage improvement. | Requires materially new information/operator and fresh preregistration; renaming is insufficient. |
 | E0016 Richardson geometric-mean message passing as exact inference | **MISLEADING INTERPRETATION / HEURISTIC ONLY** | Protocol uses all ten slot pairs, not a five-node chain; update is not exact sum-product posterior inference. | Pair estimator may remain shadow. Prefer direct legal-line scoring/exact normalization when feasible. |
 | E0013 correction by subtracting a coordinate-specific "central geometry" `P0(i,j)` | **REJECT as formulated** | For unordered anywhere-coordinate pairs in uniform 5/50, every distinct pair has identical null co-inclusion probability. | Test a marginal-conditioned/shrunk association null given `C_i,C_j`, not a fictitious central-coordinate pair bias. |
+| E0014 XTRA raw-pair oracle strength interpreted using best-rank-for-every-tie | **DOWNGRADED / INVALID AS LIFT EVIDENCE** | E0022 showed discrete raw-pair/frequency scores had large tie blocks. The historical strict-greater rank gave every tied winner the best rank in its tie block, inflating raw-pair oracle percentile from about 0.628 in reproduction to about 0.459 under average midrank. | Historical E0014 files remain immutable. Future oracle/rank comparisons must use average midrank or another explicit tie-aware rule; do not cite the old raw-pair ~0.645 result as predictive lift without this correction. |
 | Johnson covering as candidate discovery | **FORBIDDEN** | Johnson solves downstream coverage/assembly geometry, not predictive coordinate discovery. | Candidate universe must be frozen first. |
 | Raw K13/K20 recall without matched exposure | **INVALID EVIDENCE** | Recall scales mechanically with K and can reward exposure expansion. | Always compare identical K/exposure and exact hypergeometric controls. |
 | K-basket recall promotion when underlying probability field is worse than flat | **FORBIDDEN PROMOTION PATH** | Basket optimizer can exploit score misspecification. | Proper-score improvement is a primary gate before predictive promotion. |
@@ -38,7 +39,9 @@ Future agents should read the relevant decision/failure record before copying fo
 - `experiments/E0020/` — retain terminal diagnostics; do not reuse M1-M3 multiplicative chain.
 - `experiments/E0007/` — do not assume blind rescue improves K13.
 - `experiments/E0006/` — original JOS-HDR claim rejected; only repaired null-residual research remains open.
+- `experiments/E0014/` — XTRA raw-pair oracle percentiles require the E0022 average-midrank correction before interpretation.
 - `experiments/E0016/` — distinguish sound estimators from heuristic Richardson message passing and rejected physics expansions.
+- `experiments/E0022/` — 4+-first Johnson is deterministic geometry; Dissent-OR is shadow only; searched nucleus/completion variants are not predictive breakthroughs.
 - legacy `workspace/contributions/` — discovery history only unless a current experiment/claim registry explicitly promotes a derivative.
 
 ## Reuse checklist for AI agents
