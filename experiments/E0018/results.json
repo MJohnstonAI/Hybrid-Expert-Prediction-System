@@ -1,9 +1,9 @@
 {
   "experiment_id": "E0018",
-  "status": "first_prospective_target_frozen_pre_draw",
+  "status": "first_prospective_target_scored",
   "evidence": "INSUFFICIENT_EVIDENCE",
   "first_eligible_target": "2026-09-01",
-  "prospective_targets_scored": 0,
+  "prospective_targets_scored": 1,
   "fixed_exposure": {
     "K13_null_expected_hits": 1.3,
     "K20_null_expected_hits": 2.0,
@@ -31,7 +31,52 @@
     "final_assembled_slate_frozen": true,
     "final_slate_path": "cycles/2026-09-01/powerball_xtra_pre_draw.md",
     "final_slate_commit": "7e6f64d21492fdda5688e37b7b0deee261c3d245",
-    "final_slate_count": 10
+    "final_slate_count": 10,
+    "result_source": "project_director_supplied_pending_canonical_provenance_gate",
+    "actual_main": [4,18,31,34,40],
+    "actual_powerball": 10,
+    "actual_hlr": "HHHLH",
+    "actual_vvd": [1,14,15,1,2],
+    "structural_joint_hlr_probability": 0.145001793502,
+    "e0018_joint_hlr_probability": 0.126531330594,
+    "e0018_to_structural_hlr_probability_ratio": 0.872619072759,
+    "acquisition": {
+      "base_K13_hits": [4],
+      "base_K13_recall": 1,
+      "richardson_K13_hits": [4],
+      "richardson_K13_recall": 1,
+      "blend_K13_hits": [4],
+      "blend_K13_recall": 1,
+      "base_K20_hits": [4,34],
+      "base_K20_recall": 2,
+      "richardson_K20_hits": [4],
+      "richardson_K20_recall": 1,
+      "blend_K20_hits": [4],
+      "blend_K20_recall": 1
+    },
+    "portfolio": {
+      "best_line_main_hits": 2,
+      "best_lines": [4,6,8],
+      "union_unique_coordinates": 21,
+      "union_hits": [4,34,40],
+      "union_recall": 3,
+      "powerball_exact_hit": false
+    },
+    "post_draw_audit": "cycles/2026-09-01/powerball_xtra_post_draw.md",
+    "interpretation": "First E0018 target is negative for fixed-K acquisition lift. The actual HLR regime was represented, but the learned mixture underweighted it versus the exact structural null. Richardson reduced K20 recall from 2/5 to 1/5 on this target."
   },
-  "prospective_results": []
+  "prospective_results": [
+    {
+      "target": "2026-09-01",
+      "base_K13_recall": 1,
+      "richardson_K13_recall": 1,
+      "blend_K13_recall": 1,
+      "base_K20_recall": 2,
+      "richardson_K20_recall": 1,
+      "blend_K20_recall": 1,
+      "best_submitted_line_main_hits": 2,
+      "pb_exact_hit": false,
+      "evidence_note": "negative first target; no retuning"
+    }
+  ]
 }
