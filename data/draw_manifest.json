@@ -12,15 +12,15 @@
     "SIZWE",
     "unknown"
   ],
-  "latest_draw_id": 26,
-  "latest_draw_date": "2026-08-28",
-  "latest_main_numbers": [19,22,24,25,47],
-  "latest_powerball": 11,
-  "latest_macro_sum": 137,
+  "latest_draw_id": 27,
+  "latest_draw_date": "2026-09-01",
+  "latest_main_numbers": [14,16,31,34,40],
+  "latest_powerball": 4,
+  "latest_macro_sum": 135,
   "latest_draw_method": "unknown",
   "latest_machine_name": "unknown",
-  "row_count": 26,
-  "last_synced": "2026-08-29",
+  "row_count": 27,
+  "last_synced": "2026-09-02",
   "latest_data_quality_flags": [
     "draw_method_unknown",
     "machine_name_unknown"
@@ -37,15 +37,21 @@
     "Train on Main.xlsx and Train on Plus.xlsx are legacy PRNG-era artifacts and have no active-era prediction authority",
     "For result verification, current director-approved public sources are powerball.net/southafrica/results, lottery.co.za/powerball/results, and nationallottery.co.za/results/powerball/",
     "Rows flagged user_reported_pending_external_verification may update active state but must remain provenance-qualified until one director-approved public source verifies them",
-    "No Excel required for active HEPS processing"
+    "No Excel required for active HEPS processing",
+    "As of 2026-09-02, governance/current_method_doctrine.md and governance/methodology_deprecations.md are binding interpretation layers for historical experiment files",
+    "HLR, VVD, and terminal-digit views derived from the same sorted-slot transition may not be multiplied or counted as independent expert evidence",
+    "Proper-score improvement of the underlying probability field is required before candidate-basket recall is treated as predictive lift"
   ],
   "primary_kpis": [
+    "paired proper-score delta versus exact structural null",
     "per-slot HLR flow-vector accuracy",
-    "candidate-lattice 5/5 coordinate survival at declared basket size",
+    "candidate 5/5 coordinate survival at declared basket size",
+    "exact winning-line containment probability at fixed K",
     "exact winning-line generation rate",
     "exact winning-line rank percentile",
     "Top-20 3+ main-number overlap",
-    "PowerBall exact hit rate",
-    "randomized and simple matched-exposure baseline comparison"
+    "PowerBall proper-score and exact-hit performance",
+    "randomized and simple matched-exposure baseline comparison",
+    "catastrophic-exclusion rate"
   ]
 }
