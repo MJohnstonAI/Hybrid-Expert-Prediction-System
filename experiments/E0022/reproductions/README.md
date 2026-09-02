@@ -21,11 +21,13 @@ The XTRA supplement is explicitly noncanonical replay-only. It must not be used 
 
 ## Tests
 
+Run the repository CI-compatible unit-test discovery:
+
 ```bash
-pytest -q tests/test_e0022_assembly_evolution.py
+python -m unittest discover -s tests -v
 ```
 
-The tests verify:
+The E0022 tests verify:
 
 - average-midrank tie handling;
 - K13 has exactly 1,287 possible five-number winner states;
