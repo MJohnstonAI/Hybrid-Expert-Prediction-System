@@ -2,144 +2,146 @@
 
 HEPS is a private, AI-driven, multi-agent, paper-trading research system for South African PowerBall.
 
-The repository is designed as a shared scientific memory and collaboration environment in which AI models can independently choose research roles, create hypotheses, reproduce or falsify one another's findings, propose challenger architectures, and contribute evidence toward a continuously improving canonical HEPS architecture.
+The repository is shared scientific memory: hypotheses, frozen predictions, failures, reproductions, deprecations, and current architecture. Historical research is preserved for auditability, but **old files are not automatically current advice**.
 
 ## Core principle
 
-The active architecture is not edited by whichever model spoke last.
+Research is promoted through evidence:
 
-Research happens in parallel and is promoted through evidence:
+`hypothesis -> experiment -> reproduction -> red-team -> synthesis -> promotion/deprecation -> active architecture`
 
-`hypothesis -> experiment -> reproduction -> red-team -> synthesis -> promotion -> active architecture`
-
-Every target draw then runs through a frozen pre-draw cycle followed by post-draw Physics-of-Failure analysis and a new research/improvement loop.
-
-## Repository structure
-
-```text
-AGENTS.md                     Autonomous AI-agent constitution
-governance/                   Research, collaboration, nomenclature, promotion rules
-data/                         Canonical draw ledger and dataset state
-core/                         Active HEPS doctrine and machine-readable expert state
-experts/                      Expert-specific research/implementation areas
-experiments/                  Self-contained hypothesis/reproduction/review packages
-knowledge/                    Claims, failures, open questions, shared research memory
-architectures/challengers/    Competing architecture proposals
-collaboration/                Agent intent, synthesis, reviews, priority coordination
-cycles/                       Immutable pre/post-draw research cycles
-scripts/                      Validation, scoring, and research utilities
-tests/                        Mathematical and no-leakage tests
-workspace/                    Legacy contribution/review history retained for traceability
-outputs/                      Legacy/generated outputs retained for compatibility
-archive/                      Explicitly archived material
-```
+Every target draw uses immutable pre-draw artifacts followed by post-draw Physics-of-Failure analysis.
 
 ## Mandatory AI entry point
 
 Every AI model starts with `AGENTS.md`.
 
-The standard read order is:
+Current read order:
 
 1. `AGENTS.md`
-2. `governance/nomenclature.md`
-3. `governance/research_protocol.md`
-4. `data/draw_manifest.json`
-5. `core/heps_architecture.md`
-6. `core/expert_registry.yaml`
-7. `knowledge/open_questions.md`
-8. `experiments/registry.csv`
-9. task-relevant experiment/cycle/review artifacts
+2. `governance/current_method_doctrine.md`
+3. `governance/methodology_deprecations.md`
+4. `governance/nomenclature.md`
+5. `governance/research_protocol.md`
+6. `data/draw_manifest.json`
+7. `core/heps_architecture.md`
+8. `core/expert_registry.yaml`
+9. `knowledge/open_questions.md`
+10. `experiments/registry.csv`
+11. latest relevant session handoff, currently `knowledge/SESSION_HANDOFF_MAIN_HEPS_2026-09-02.md`
+12. only task-relevant experiment/cycle/review artifacts.
 
-## Autonomous collaboration
+Do not recursively ingest all legacy contributions before consulting the registries and deprecation map.
 
-AI models are not assigned permanent roles. Each model examines the current HEPS state and declares where it believes its capabilities can add the most value.
+## Current architecture
 
-A model may become, invent, or switch between roles such as researcher, reproducer, adversarial statistician, architecture challenger, implementation engineer, redundancy auditor, Physics-of-Failure analyst, or synthesizer.
-
-Roles are declared for transparency, not imposed centrally.
-
-See `governance/collaboration_protocol.md`.
-
-## Active scientific architecture
-
-HEPS is organized as a staged mixture of experts:
+**HEPS v35.0 — Joint-Distribution-First Staged Mixture-of-Experts**
 
 ```text
-Data
-  -> Slot Forecast
-  -> Candidate Funnel
-  -> Coalition Assembly
-  -> Combination Morphology
-  -> Winner-Float Ranking
-  -> Portfolio Optimization
+Exact Structural Controls
+        -> Transition / Slot Forecast
+        -> Candidate Funnel
+        -> Coalition Assembly
+        -> Combination Morphology
+        -> Winner-Float Ranking
+        -> Portfolio Optimization
 
 Separate Matrix B:
-  -> PowerBall 1-16
+        -> PowerBall 1-16
 ```
 
-The current accepted doctrine lives only in `core/heps_architecture.md`. Detailed expert metadata and authority live in `core/expert_registry.yaml`.
+The current mathematical doctrine is:
 
-Experimental modules do not become production modules merely because they appear in research files.
+> **Joint distribution first, compression second.**
+
+For a sorted slot, HLR, VVD, terminal digit and exact target coordinate are deterministic views of one signed transition. They may be scored for interpretation, but may not be multiplied or counted as independent expert evidence.
+
+New Main acquisition research should prefer one regularized signed-displacement field, exact legal-line normalization where feasible, proper-score evaluation, then fixed-K compression.
+
+See `governance/current_method_doctrine.md`.
+
+## Important 2026-09-01 lesson
+
+Verified Main result:
+
+`14,16,31,34,40 | PB4`
+
+Previous:
+
+`19,22,24,25,47 | PB11`
+
+Realized HLR was `LLHHL`, exactly matching the frozen BARP modal HLR prediction `LLHHL`.
+
+This is positive one-target prospective evidence, not a promotion.
+
+The first failure remained candidate compression:
+
+- E0019 K13 retained only 31 and 34;
+- wider diagnostic exposure additionally retained 40;
+- useful 14/16 evidence was partly lost because it was assigned to adjacent sorted slots.
+
+This motivated the fixed-K adjacent-slot preservation challenger and E0021 corrected signed-displacement architecture.
+
+## Repository structure
+
+```text
+AGENTS.md                     Current AI constitution/read order
+governance/                   Current doctrine, deprecations, research rules
+data/                         Canonical draw ledger and manifest
+core/                         Active architecture and expert metadata
+experiments/                  Self-contained hypothesis/review packages
+knowledge/                    Claims, failures, open questions, handoffs
+cycles/                       Immutable pre/post-draw cycle artifacts
+collaboration/                Agent intent/reviews/synthesis
+workspace/                    Historical/raw contributions; warning-first reading
+scripts/                      Validation/scoring/research utilities
+tests/                        Mathematical/no-leakage tests
+archive/                      Explicit archives
+```
 
 ## Evidence states
 
-Every material claim uses one of:
+Every material claim uses exactly one:
 
 - `BREAKTHROUGH`
 - `PROVISIONAL_SIGNAL`
 - `INSUFFICIENT_EVIDENCE`
 - `REJECT`
 
-Every expert separately uses one architecture state:
+Architecture status is separate:
 
 - `production`
 - `shadow`
 - `experimental`
 - `archived`
 
-This distinction prevents a promising research idea from receiving production authority prematurely.
+`production` means pipeline-available, not proven predictive edge.
 
-## Per-draw self-improvement loop
+## Current forward-use warnings
 
-Each target draw gets a directory under `cycles/YYYY-MM-DD/`.
+Consult `governance/methodology_deprecations.md` before copying formulas from old experiments.
 
-Before the draw, HEPS freezes:
+In particular:
 
-- dataset state;
-- architecture version;
-- expert versions/weights;
-- expert outputs;
-- candidate baskets;
-- generated/ranked combinations where applicable;
-- final paper-trading slate.
-
-After the draw, HEPS records:
-
-- actual result;
-- scorecard;
-- winner/candidate survival path;
-- expert attribution;
-- leave-one-expert-out counterfactuals where feasible;
-- Physics of Failure;
-- improvement proposals and new open questions.
-
-Architecture changes do not occur automatically from one result. See `governance/promotion_policy.md`.
+- E0019 HLR×VVD residual-product field is rejected for forward reuse; its complete-line containment objective is retained.
+- E0020 terminal×HLR×VVD multiplicative acquisition chain is rejected; terminal diagnostics remain shadow-only.
+- pure structural-null global mobility cannot select candidates because every Main coordinate has IID global inclusion probability 0.1.
+- Johnson covering has zero candidate-discovery authority.
+- original JOS-HDR exact-line density under the exact uniform gap null is rejected.
+- E0016 Richardson geometric-mean message passing is heuristic, not exact joint inference.
+- raw K recall without matched exposure is invalid evidence.
+- one successful draw may not trigger parameter retuning or expert promotion.
 
 ## Data doctrine
 
-- Canonical active ledger: `data/draw_history.jsonl`
-- Dataset manifest: `data/draw_manifest.json`
-- Active game format: `powerball_50_16`
-- Main field: 5 unique numbers from 1-50
-- PowerBall field: 1 number from 1-16
-- `game_format`, `draw_method`, and `machine_name` are separate metadata fields
-- `draw_method` is one of `mechanical_machine`, `electronic_rng`, or `unknown`
-- Sorted Slot1-Slot5 values are order statistics, not physical draw order
-- Never infer a draw method from date or game-format labels alone
-
-The currently verified canonical rows use mechanical machines PB1, Khaya, and SIZWE. Physical experts must disclose when training windows mix machines and compare pooled versus machine-conditioned evidence where feasible.
-
-Older historical data may be used for explicitly labelled discovery, calibration, null testing, and transfer analysis, but active claims must be validated on the relevant current format/method evidence.
+- Canonical Main ledger: `data/draw_history.jsonl`
+- Manifest: `data/draw_manifest.json`
+- Current Main ledger through 2026-09-01 / draw id 27
+- Game format: 5/50 + PowerBall 1/16
+- `game_format`, `draw_method`, and `machine_name` are separate metadata concepts
+- Slot1-Slot5 are sorted order statistics, not physical draw order
+- Unknown method/machine must remain `unknown`; never infer from outcomes/date alone
+- physical/machine hypotheses require provenance and strong controls
 
 ## Quick validation
 
@@ -150,38 +152,20 @@ python scripts/check_stationarity.py
 python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 ```
 
-To test an externally sourced candidate mechanism boundary without searching the data for one:
+## Per-draw learning rule
 
-```bash
-python scripts/check_stationarity.py --boundary-date YYYY-MM-DD
-```
+Before the draw, freeze data state, expert formulas/authority, probability fields, K baskets, line rankings and paper-trading slate.
 
-This boundary diagnostic is advisory only; it must never automatically create a predictive split or trigger weight changes.
+After the draw, score the frozen artifacts, trace winner survival, identify the first failure stage, update claim/failure registries, and learn only for the next target under preregistered rules.
 
-## Append a draw
-
-New rows explicitly record draw method and machine/RNG identity:
-
-```bash
-python scripts/append_draw.py \
-  --date YYYY-MM-DD \
-  --main 1,2,3,4,5 \
-  --pb 11 \
-  --draw-method mechanical_machine \
-  --machine Khaya \
-  --source-url "https://example.com/source"
-```
-
-Use `--draw-method unknown` when the mechanism has not been verified rather than guessing from the date.
+Never regenerate historical predictions after outcome reveal.
 
 ## Legacy compatibility
 
-Existing files under `workspace/contributions/`, `workspace/reviews/`, and `outputs/` are preserved as historical evidence. They should not be mass-deleted or silently rewritten during migration.
+`workspace/contributions/`, `workspace/reviews/`, and older outputs are preserved for provenance. They should not be mass-deleted, but they should not be treated as current doctrine.
 
-New research should prefer the structured `experiments/`, `collaboration/`, `knowledge/`, and `cycles/` workflows.
-
-The historical `regime="mechanical_50_16"` field is deprecated because it conflated game format with draw mechanism. Historical artifacts may still contain it, but new canonical ledger rows use `game_format` and `draw_method` separately.
+See `workspace/contributions/README.md` for warning-first use.
 
 ## Safety frame
 
-All HEPS prediction artifacts are `paper_trading_only`. Do not present results as guaranteed, financially reliable, or proof of a durable predictive edge without rigorous walk-forward and null-baseline evidence.
+All HEPS prediction artifacts are `paper_trading_only`. Do not present them as guaranteed, financially reliable, or proof of a durable lottery edge without prospective, matched-exposure, multiplicity-aware evidence.
