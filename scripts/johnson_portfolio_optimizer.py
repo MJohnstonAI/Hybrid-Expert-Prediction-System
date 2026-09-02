@@ -10,7 +10,9 @@ For a frozen candidate set K, a legal 5-number line T covers a possible winning
 
 Objectives:
 - ``three_plus_first`` (legacy/default): maximize new 3+ coverage, then 4+.
-- ``four_plus_first`` (E0022 challenger): maximize new 4+ coverage, then 3+.
+- ``four_plus_first`` (E0022 challenger): maximize new 4+/5 coverage only;
+  ties use deterministic lexicographic ordering. 3+ is reported but does not
+  steer selection under this objective.
 
 The E0022 challenger exists because 3+ coverage saturates rapidly for K13 and
 the director's high-order match objective is better served by using the scarce
@@ -90,7 +92,9 @@ def greedy_johnson_cover(
     """Select lines by exact Johnson-space incremental coverage.
 
     ``three_plus_first`` preserves the historical E0002 behaviour.
-    ``four_plus_first`` is the E0022 high-order-match challenger.
+    ``four_plus_first`` is the E0022 high-order-match challenger and uses only
+    incremental 4+/5 coverage as the optimization signal. Lexicographic order
+    resolves ties so 3+ cannot distort future 4+ greedy choices.
 
     Intended research target is K=13. Larger candidate sets are allowed through
     K=18, but runtime grows rapidly because the exact C(K,5) winner universe is
@@ -135,7 +139,7 @@ def greedy_johnson_cover(
             new4 = len(coverage4[index] - covered4)
             line = universe[index]
             if objective == "four_plus_first":
-                key = (new4, new3, tuple(-number for number in line))
+                key = (new4, tuple(-number for number in line))
             else:
                 key = (new3, new4, tuple(-number for number in line))
             if best_key is None or key > best_key:
