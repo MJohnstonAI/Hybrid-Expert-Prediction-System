@@ -1,27 +1,34 @@
 # HEPS Research Protocol
 
-This protocol defines the minimum scientific standard for AI-generated HEPS research.
+**Updated:** 2026-09-02
+
+This protocol defines the minimum scientific standard for HEPS research. Read it together with:
+
+- `governance/current_method_doctrine.md`
+- `governance/methodology_deprecations.md`
+- `core/feature_dictionary.yaml`
 
 ## 1. Null-first doctrine
 
-Assume no durable predictive signal until evidence survives the declared test. Pattern visibility, narrative plausibility, and one successful draw are not sufficient.
+Assume no durable predictive signal until evidence survives the declared test. Pattern visibility, narrative plausibility, a good replay, or one successful draw is not sufficient.
 
-For sorted-slot HLR, VVD, gap-space, or candidate-lattice claims, the null must reflect exact 5/50 order-statistic geometry rather than only a flat/random heuristic. A fitted model receives credit only for information beyond the exact structural null at matched exposure.
+Where an exact structural null exists, a fitted model receives predictive credit only for information beyond that null at matched exposure.
 
 ## 2. Walk-forward integrity
 
-For each target draw `t`:
+For target `t`:
 
 1. use only data available before `t`;
-2. compute features and parameters;
-3. freeze rankings, baskets, combinations, probabilities, or slates;
-4. reveal `t`;
-5. score;
-6. permit learning only for target `t+1`.
+2. choose/update parameters only by the preregistered learning rule;
+3. compute features, probabilities, rankings, baskets and slates;
+4. freeze outputs;
+5. reveal `t`;
+6. score;
+7. permit learning only for `t+1`.
 
-No target may participate in its own feature construction, hyperparameter choice, threshold choice, or weight tuning.
+A replay created after outcomes are known is `post_hoc_replay`/discovery evidence even if its code is sequential.
 
-## 3. Discovery, validation, and prospective evidence
+## 3. Discovery / validation / prospective labels
 
 Every experiment must identify which observations are:
 
@@ -29,274 +36,323 @@ Every experiment must identify which observations are:
 - untouched validation;
 - prospective/shadow.
 
-A replay designed after outcomes are already known must be labelled `post_hoc_replay`, even if the replay code itself is sequential.
+Do not convert search over known outcomes into confirmatory evidence.
 
-## 4. Required baselines
+## 4. Required controls
 
-Choose baselines that match the task.
+Use task-matched controls.
 
-Candidate ranking examples:
+### Main slot/transition
 
-- random rank;
-- simple recency;
-- simple cumulative frequency;
-- exact same-exposure basket survival under exchangeability;
-- simple sorted-slot/order-statistic candidate rule;
-- current production candidate engine.
+- `NULL_ORDER_STATISTIC_SLOT`
+- `NULL_HLR_STRUCTURAL`
+- `NULL_VVD_STRUCTURAL`
+- unconditional/strongly shrunk simple transition model where relevant
 
-Slot-direction examples:
+### Joint HLR
 
-- exact `NULL_HLR_STRUCTURAL` conditional on the previous same-slot coordinate;
-- majority direction by slot;
-- unconditional slot transition distribution;
-- order-statistic mean-reversion baseline.
+Use `NULL_HLR_JOINT_243` by enumerating all `C(50,5)=2,118,760` legal next draws relative to the frozen previous draw. Do not multiply five HLR marginals and call the product an exact joint null.
 
-VVD examples:
+### Gap space
 
-- exact `NULL_VVD_STRUCTURAL` conditional on the previous same-slot coordinate;
-- simple unconditional displacement distribution estimated without target leakage.
+Use `NULL_GAP_DM = DirichletMultinomial(45,[1,1,1,1,1,1])`, exactly uniform over legal six-gap compositions. Do not substitute a fixed-p multinomial.
 
-Joint five-slot HLR examples:
+### Candidate baskets
 
-- exact `NULL_HLR_JOINT_243` obtained by enumerating all `C(50,5)` legal next draws relative to the fixed previous draw.
+At fixed K, use exact hypergeometric/exchangeable controls plus simple recency/frequency and incumbent comparator where relevant.
 
-Gap-space examples:
+Global IID Main inclusion is exactly `0.1` per coordinate. The pure structural global field is a calibration control and cannot rank a predictive K basket.
 
-- exact `NULL_GAP_DM = DirichletMultinomial(45, [1,1,1,1,1,1])`, which is uniform over all legal six-gap compositions;
-- do not substitute an ordinary multinomial with fixed `p_i=1/6` because that is not the uniform 5/50 gap null.
+### Coalition / ranking
 
-Combination ranking examples:
+Use random ordering within the same frozen universe, raw/simple association baselines, frequency controls, morphology-matched controls where relevant, and incumbent ordering.
 
-- random ordering within the same survivor universe;
-- morphology-only baseline;
-- candidate-score-only baseline;
-- current winner-float score.
+### Portfolio
 
-Portfolio examples:
+Use identical line budgets and candidate universes. Compare diversity/coverage at matched exposure.
 
-- random sample from the same candidate/survivor universe;
-- diversity-matched control;
-- same-exposure maximum-coverage comparator when portfolio coverage is the claim.
+## 5. Functional-coupling rule
 
-## 5. Exact structural-null scoring
+For sorted slot `j`:
 
-### HLR
+`DELTA_j = X_j(t) - X_j(t-1)`.
 
-For a previous sorted coordinate `p` in slot `j`, compute the exact IID next-slot distribution:
+Then:
 
-`P0(X_(j)=n) = C(n-1,j-1) * C(50-n,5-j) / C(50,5)`.
+- HLR = sign of `DELTA_j`;
+- VVD = absolute value of `DELTA_j`;
+- exact target coordinate = previous coordinate + `DELTA_j`;
+- terminal digit = target coordinate mod 10.
 
-Then obtain LOW / REPEAT / HIGH probabilities by summing below / at / above `p`.
+These are **deterministic views of one transition information family**.
 
-A learned HLR model should be compared prospectively against this null with a proper probability score. For future targets, freeze the model's full three-state probability vector and use multiclass Brier score and/or log loss. If an older frozen artifact contains only the chosen-state probability, score it only as a labelled binary chosen-state event; do not fabricate missing probabilities.
+They may be scored separately for interpretability against their own exact nulls, but they may not be:
 
-### VVD
+- multiplied as independent likelihood ratios;
+- counted as independent expert votes;
+- used to manufacture convergence confidence merely because the feature names differ.
 
-For displacement `d` from previous coordinate `p`, the exact structural null sums the exact next-slot probability at legal coordinates `p-d` and `p+d`, counting `d=0` once. Compare learned VVD distributions to this null with proper scoring rules.
+A new model may use HLR/VVD/terminal as basis functions inside **one coherent dependency model**.
 
-### Joint HLR vector
+This rule supersedes historical E0019 HLR×VVD and E0020 terminal×HLR×VVD forward-use formulas. Frozen historical artifacts remain scoreable.
 
-Sorted slots are dependent. Do not estimate a full-vector null by multiplying five per-slot marginals. Enumerate all `2,118,760` legal next main-number combinations and count the resulting 243 vectors relative to the frozen previous draw.
+## 6. Joint-distribution-first rule
 
-### Candidate exposure
+HEPS should parameterize learned residual information parsimoniously but normalize over the exact legal state space whenever feasible.
 
-For a flat fixed basket of size `K`, exact exchangeable 5/5 survival is `C(K,5)/C(50,5)`. For a slot lattice or non-flat survivor universe, compute its exact retained next-draw probability mass whenever feasible. Candidate success must be judged against exposure retained, not raw hit counts alone.
+For Main there are only 2,118,760 legal lines, so exact legal-state normalization is computationally practical even though estimating 2.1 million free probabilities is not.
 
-Under the uniform IID 5/50 null, the global marginal inclusion probability is exactly `P0(n appears anywhere)=5/50=0.1` for every coordinate `n=1..50`, because the five exact sorted-slot marginals sum to the same global inclusion probability. Therefore a pure structural-null global field cannot rank one predictive K-coordinate basket above another. Use it as a calibration/control field, not as a learned candidate selector.
+Preferred pattern:
 
-HLR, VVD and sorted-slot coordinate structural nulls are different views of the same legal next-draw geometry. Do not multiply or vote them as independent predictive evidence.
+1. estimate low-dimensional/shrunk residual potentials using prior data;
+2. score every legal line under those potentials;
+3. normalize once over the legal state space;
+4. derive slot, HLR, VVD, terminal, coordinate and containment probabilities from that coherent line field;
+5. compress to K only afterwards.
 
-## 6. Metrics by stage
+Factorized parameterization does not imply independent physical slots; exact legality must remain enforced.
+
+## 7. Proper-score-first acquisition gate
+
+For candidate acquisition, evaluate in this order:
+
+1. full-support probability calibration vs structural/simple controls;
+2. fixed-K winner-coordinate survival;
+3. 3+/4+/5/5 survival and catastrophic exclusions;
+4. complete-line containment mass;
+5. downstream assembly/ranking.
+
+A basket optimizer can show better recall while optimizing a misspecified field. Therefore:
+
+> **better K recall + worse proper score is not sufficient predictive lift.**
+
+Log loss/Brier or another preregistered proper score is a primary promotion gate whenever a full probability field exists.
+
+## 8. Exact-slot vs anywhere-coordinate integrity
+
+Keep separate:
+
+- exact-slot probability/rank;
+- anywhere-coordinate inclusion probability/rank.
+
+A coordinate may have acquisition value even if its strongest pre-draw score appears in an adjacent sorted slot. Fixed-K adjacent-slot preservation may be tested prospectively, but:
+
+- total K must remain fixed;
+- seats must displace seats, not form a union expansion;
+- exact-slot forecast credit and anywhere-coordinate acquisition credit remain separate.
+
+The 2026-09-01 result motivates this research but does not prove the rule.
+
+## 9. Metrics by stage
 
 ### Slot Forecast
+
 - per-slot HLR accuracy;
-- whole-pattern exact and 4/5 accuracy;
-- confusion matrix by slot;
-- calibration/probability score if probabilistic;
-- paired Brier/log-loss improvement versus `NULL_HLR_STRUCTURAL`.
+- modal vector exact / 4-of-5 accuracy;
+- confusion matrix;
+- multiclass Brier/log-loss vs structural null.
 
 ### Candidate Funnel
-- winning coordinate rank by slot;
-- Top-K recall;
-- 5/5 candidate survival rate;
-- basket size/exposure;
-- 5/5 and 4+/5 lift versus exact matched-exposure null;
-- explicit catastrophic-exclusion count.
 
-### Coalition / Assembly
-- exact winning-line generation rate conditional on candidate survival;
-- 4/5 near-winner generation;
-- pair/coalition lift versus matched controls.
+- actual winner rank;
+- K13/K20 recall at matched exposure;
+- 3+/4+/5/5 survival;
+- catastrophic 0/1 exclusions;
+- full-field proper score;
+- exact complete-line containment mass when available.
 
-### Morphology / Compression
-- combination-space retention;
-- winning-line retention;
-- compression lift = winner retention / space retention.
+### Coalition
 
-### Winner-Float Ranking
-- exact winning-line rank;
-- percentile within survivor universe;
-- mean reciprocal rank;
-- Top-100K/10K/1K/500/100/20 survival where meaningful;
-- paired improvement versus frozen baseline ranker.
+- winning-line rank conditional on candidate survival;
+- winner percentile;
+- Top-N survival;
+- paired rank delta vs matched controls.
 
-### Final Portfolio
+### Morphology
+
+- survivor-space retention;
+- winner retention;
+- compression lift relative to base rate.
+
+### Portfolio
+
 - exact 3/4/5 main outcomes with submitted-line denominator;
-- same-line PowerBall combinations;
-- diversity/exposure;
-- null-matched portfolio comparison.
+- same-line PB outcomes;
+- diversity/concentration;
+- null/matched comparison.
 
-## 7. Multiple testing
+## 10. Multiple testing / researcher degrees of freedom
 
-Every experiment must record how many variants, features, thresholds, weights, windows, basket sizes, flow vectors, families, stage placements, graph constructions, cluster settings, random seeds, or related researcher choices were inspected before the reported result.
+Record how many:
 
-Do not report a nominal p-value as confirmatory evidence if it arose after broad exploratory search without correction or fresh validation.
+- features;
+- model forms;
+- hyperparameters;
+- windows;
+- K values;
+- graph constructions;
+- rule families;
+- stage placements;
+- thresholds;
+- seeds;
+- rescue definitions
 
-When a useful derivative is discovered during an algorithm championship or external-contribution decomposition, freeze it prospectively before treating its nominal significance as confirmatory.
+were inspected before reporting a survivor.
 
-## 8. Falsification
+Nominal p-values after broad search are discovery-only unless corrected or validated on fresh data.
 
-Every experiment must state what future or validation result would cause it to be rejected, downgraded, or lose architecture authority.
+## 11. Power honesty
 
-When comparing a learned model against an exact structural null, specify the prospective target count and paired scoring rule before evaluation begins.
+Before an experiment is treated as capable of resolving a question, declare:
 
-## 9. Reproduction
-
-A result may be independently reproduced by another model using the same code, or by a distinct implementation from the written protocol. Distinguish:
-
-- `code_reproduction`
-- `independent_implementation`
-- `conceptual_replication`
-
-Independent implementations are stronger evidence against implementation-specific mistakes.
-
-## 10. Research self-assessment
-
-Every findings document should state:
-
-- confidence;
-- strongest supporting evidence;
-- strongest counterargument;
-- likely failure mode;
-- whether replication is required;
-- recommended evidence classification.
-
-## 11. Physics claims
-
-Sorted Slot1-Slot5 values are order statistics. No feature derived only from sorted values may be described as physical ball trajectory or drawn-order mechanics.
-
-Mechanical hypotheses must distinguish observed statistical behavior from speculative mechanism.
-
-Gap-space representations are also sorted-line state representations, not physical spaces between balls in a machine.
-
-## 12. Promotion standard
-
-Research quality is necessary but not sufficient for architecture promotion. Promotion is governed separately by `governance/promotion_policy.md`.
-
-## 13. Statistical-power honesty gate
-
-Before a prospective comparison is treated as capable of resolving an open question, declare:
-
-- the primary paired metric;
-- a minimum effect of interest worth detecting;
-- an approximate target horizon or sample-size calculation;
-- assumptions about serial dependence or independence;
+- primary paired metric;
+- minimum effect of interest;
+- approximate target horizon;
+- dependence assumptions;
 - multiple-testing exposure.
 
-A fixed review count such as 20 targets is an operational checkpoint, not automatically a proof threshold. If the experiment is underpowered for the declared minimum effect, label the conclusion `INSUFFICIENT_EVIDENCE` even when the observed p-value is large.
+A 20-target review is an operational checkpoint, not automatically adequate power.
 
-Failure to reject a null means **no detected advantage at the current sample and exposure**. It must not be described as proof that the effect is exactly zero unless an appropriate equivalence/non-inferiority design supports that claim.
+Failure to reject means no detected advantage at the current sample/exposure, not proof of exact zero effect.
 
-## 14. Non-redundant convergence rule
+## 12. Falsification
 
-Expert agreement is not automatically independent evidence.
+Every experiment must state what would cause:
 
-Before multiple experts are allowed to increase convergence confidence, where feasible:
+- rejection;
+- downgrade;
+- loss of authority;
+- archival.
 
-1. remove or control for exact structural-null effects;
-2. remove or control for simple recency/frequency effects relevant to the expert;
-3. examine residual dependence, for example rank correlation;
-4. measure incremental proper-score value or leave-one-expert-out contribution.
+Promotion language without a falsification rule is invalid.
 
-Experts that remain materially redundant should count as one information family for confidence purposes until prospective evidence demonstrates incremental information.
+## 13. Reproduction
 
-Structural legality and structural-null HLR/VVD/slot views do not count as separate expert votes.
+Distinguish:
 
-## 15. Conditional PowerBall transition scoring
+- `code_reproduction`;
+- `independent_implementation`;
+- `conceptual_replication`.
 
-For PowerBall transition research, unconditional frequency is a baseline, not a substitute for state-transition modelling.
+Independent implementation is stronger evidence against implementation-specific mistakes.
 
-Experimental transition models should separately score, with shrinkage where needed:
+## 14. Redundancy / convergence
 
-- `P(PB_{t+1}=n | PB_t=s)`;
-- `P(VVD_{t+1}=d | VVD_t=v)`;
-- HLR direction probability;
-- the legal translation of direction plus displacement to exact balls.
+Before expert agreement increases confidence:
 
-High exact-ball confidence requires convergence after redundancy/dependency controls. When calibrated components disagree, diversify rather than manufacture certainty.
+1. remove/control structural-null effects;
+2. control simple recency/frequency where relevant;
+3. examine residual dependence;
+4. measure incremental proper-score or stage-isolated contribution.
 
-## 16. External contribution reconstruction
+Experts that are redundant or functionally derived count as one information family.
 
-When research originates from an outside AI agent, report, paper, notebook, or human contributor, follow `governance/external_contribution_protocol.md`.
+Do not add experts merely to create more votes.
 
-External claimed performance is not HEPS evidence until the relevant algorithm is reconstructed against the canonical ledger and data rules. Provenance failures and algorithmic value must be evaluated separately.
+## 15. Coalition-specific caution
 
-Do not accept or reject a substantial external proposal only at the document/architecture level when its components can be meaningfully isolated.
+E0013 unordered coordinate-pair nodes do not have a central-coordinate structural co-inclusion bias under the uniform 5/50 null: every distinct unordered pair has the same anywhere-pair inclusion probability.
 
-Required research questions include:
+A meaningful E0013 residual challenger should control observed coordinate marginals, e.g. a shrunk/conditional null for `C_ij` given `C_i,C_j`, rather than subtracting a fictitious coordinate-varying `P0(i,j)`.
 
-1. What is the smallest testable information operator?
-2. What stage did the contributor assign it to?
-3. What stage does the mathematics naturally support?
-4. Does the operator add incremental information at either stage?
-5. Does the result survive exact/null, simple, incumbent, and matched-exposure controls?
-6. How many formulations and stage placements were searched?
+E0013 remains coalition-only unless separately promoted.
 
-If prose and code define different algorithms, test them as separate variants unless reconciled before evaluation.
+## 16. Richardson / pair-potential caution
 
-## 17. Stage-remapping and isolation protocol
+A valid pairwise residual estimator does not automatically make heuristic message passing exact inference.
 
-An algorithm may fail because it is assigned to the wrong architectural stage rather than because it contains no information.
+If all ten Main/XTRA slot pairs are used, a geometric-mean inbound-message update is an approximation. Future experiments should distinguish:
 
-Where mathematically plausible, a material external or new operator should be tested both in its proposed role and in the nearest alternative HEPS role suggested by its information structure.
+- estimator validity;
+- pair-potential validity;
+- approximate marginal update;
+- exact joint legal-line inference.
 
-Examples:
+Where state space permits, direct legal-line scoring and exact normalization are preferred for a coherent joint field.
 
-- coordinate-frequency or transition evidence -> Candidate Funnel;
-- pair/co-occurrence/community evidence -> Coalition Assembly;
-- completed-line parity/gap/sum structure -> Morphology;
-- survivor-line discrimination -> Winner-Float Ranking;
-- coverage/diversity objectives -> Portfolio Optimization;
-- state/regime features -> Slot Forecast, routing/gating, or methodology depending on the output.
+## 17. PowerBall
 
-Use stage-isolation tests to prevent upstream and downstream attribution errors.
+PowerBall remains a separate 1..16 field.
 
-### Oracle candidate-universe diagnostic
+Sparse conditional counts require strong shrinkage. Compare conditional models prospectively against:
 
-For post-hoc research only, an oracle candidate universe containing the known five target winners plus random or matched decoys may be used to isolate coalition/ranking ability from candidate acquisition.
+- uniform 1/16;
+- preregistered unconditional shrunk frequency;
+- simple incumbent comparator.
 
-This diagnostic must be labelled `post_hoc_replay` or `oracle_stage_isolation`. It provides **zero** candidate-acquisition evidence and may not be used to reconstruct a frozen historical slate.
+PB HLR/VVD/terminal/exact-state views of one transition are not independent votes.
 
-### Morphology-matched controls
+High-confidence exact-ball claims require calibration and non-redundant evidence, not merely convergence of multiple projections of the same transition.
 
-When a line ranker may be exploiting ordinary morphology, compare against random lines matched on relevant coarse features such as sum band, parity, decade count, span, or other preregistered morphology. The purpose is to test information beyond common line shape.
+## 18. Physical / machine claims
 
-### Temporal permutation controls
+Sorted Slot1-Slot5 values are order statistics, not physical extraction order.
 
-For temporal/co-occurrence/state models, preserve the observed draw set while permuting chronological order where appropriate. A signal that disappears under draw-order permutation is stronger evidence of temporal information than a static in-sample fit, though discovery-search correction and prospective validation are still required.
+Physical hypotheses must distinguish statistical behavior from mechanism.
 
-## 18. Derivative hypothesis rule
+Machine/ball-set conditioning is permitted only when provenance is known/qualified and the conditioning state is prospectively actionable. Do not infer machine identity from outcome patterns.
 
-A useful algorithm discovered by modifying an external proposal becomes a **derivative HEPS hypothesis** when its mathematics, stage, or authority differs materially from the original contribution.
+Regime boundaries require external/operator evidence, not outcome-optimized split selection.
 
-The derivative must:
+## 19. External contributions
 
-- cite the originating contribution;
-- state what was changed;
-- record the variant/search path that led to it;
-- receive its own experiment ID when material;
-- preserve retrospective results as discovery evidence only;
-- freeze its first eligible prospective output before result reveal;
-- pass reproduction and promotion gates independently of the source proposal.
+Follow `governance/external_contribution_protocol.md`.
 
-This rule exists to preserve valuable ideas without laundering exploratory search into confirmatory evidence.
+External claimed performance is not HEPS evidence until reconstructed on canonical data.
+
+Decompose substantial proposals into operators and ask:
+
+1. what information is actually new;
+2. what stage naturally owns it;
+3. whether it beats exact/simple/incumbent controls;
+4. whether it adds incremental information;
+5. how many variants/stage placements were searched.
+
+A flawed architecture may contain a useful operator; a useful operator still needs its own evidence path.
+
+## 20. Stage isolation
+
+An algorithm may fail because it is assigned to the wrong stage.
+
+Use oracle candidate universes only for post-hoc stage isolation; they give zero acquisition evidence.
+
+Use morphology-matched/random controls when a line ranker may exploit common line shape.
+
+Use temporal permutations when testing chronology-dependent structure, while preserving multiplicity/search caveats.
+
+## 21. Historical precedence / deprecation
+
+Before reusing any historical formula, check:
+
+1. latest experiment decision;
+2. `knowledge/claim_registry.jsonl`;
+3. `knowledge/failure_registry.jsonl`;
+4. `governance/methodology_deprecations.md`;
+5. `governance/current_method_doctrine.md`.
+
+A frozen historical prediction remains immutable and scoreable even when its formula is later rejected for forward reuse.
+
+## 22. One-draw reward rule
+
+A successful target may justify **bounded, predeclared preservation or portfolio allocation** on the next target, but may not by itself justify:
+
+- parameter retuning;
+- expert promotion;
+- new formula selection;
+- retrospective confidence inflation;
+- deletion of conflicting evidence.
+
+The 2026-09-01 BARP 5/5 HLR hit is the current example of this rule.
+
+## 23. Promotion standard
+
+Research quality is necessary but not sufficient. Promotion is governed by `governance/promotion_policy.md`.
+
+A strong near-term predictive milestone requires simultaneously:
+
+- prospectively better proper score;
+- matched-K acquisition lift;
+- stage-isolated downstream contribution;
+- multiple-target persistence;
+- independent reproduction;
+- documented search exposure.
