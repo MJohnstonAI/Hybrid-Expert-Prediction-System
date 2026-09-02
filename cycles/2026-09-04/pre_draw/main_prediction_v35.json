@@ -1,0 +1,89 @@
+{
+  "target_draw_date": "2026-09-04",
+  "frozen_on": "2026-09-02",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture": "HEPS_v35_joint_distribution_first",
+  "canonical_cutoff": "2026-09-01",
+  "previous_verified_state": {
+    "main": [14,16,31,34,40],
+    "powerball": 4
+  },
+  "governance": {
+    "current_method_doctrine": "governance/current_method_doctrine.md",
+    "methodology_deprecations": "governance/methodology_deprecations.md",
+    "expert_credit_policy": "cycles/2026-09-04/pre_draw/expert_credit_policy.json",
+    "no_HLR_VVD_terminal_multiplication": true,
+    "E0021_not_yet_used_as_implemented_model": true,
+    "note": "E0021 is still a proposed design. This slate therefore uses BARP as one transition-information family, E0013 only for within-universe coalition ranking, and terminal/current fields only as bounded hedge diagnostics."
+  },
+  "barp_slot_probabilities": {
+    "S1": {"LOW":0.6665822281,"REPEAT":0.0278016387,"HIGH":0.3056161332},
+    "S2": {"LOW":0.1904831445,"REPEAT":0.0423644018,"HIGH":0.7671524537},
+    "S3": {"LOW":0.5611314606,"REPEAT":0.0351077989,"HIGH":0.4037607405},
+    "S4": {"LOW":0.3378137427,"REPEAT":0.0412014575,"HIGH":0.6209847998},
+    "S5": {"LOW":0.4007259126,"REPEAT":0.0388203478,"HIGH":0.5604537396}
+  },
+  "barp_slotwise_modal_HLR": "LHLHH",
+  "exact_legal_line_BARP_residual_joint_top_states": [
+    {"HLR":"HHHHH","mass":0.2983941789},
+    {"HLR":"LHHHH","mass":0.1648067623},
+    {"HLR":"LHLHH","mass":0.0526264292},
+    {"HLR":"HHLHH","mass":0.0497108255},
+    {"HLR":"LLLLL","mass":0.0411526518},
+    {"HLR":"LHLLL","mass":0.0395994928}
+  ],
+  "scenario_allocation_rule": {
+    "reason": "The prior frozen BARP modal vector LLHHL matched all five realised directions on 2026-09-01, so the new slotwise BARP modal vector receives bounded temporary portfolio credit rather than parameter retuning.",
+    "LHLHH_lines": 8,
+    "HHHHH_lines": 4,
+    "LHHHH_lines": 3,
+    "other_hedge_lines": 5
+  },
+  "terminal_diagnostic_top_residues": {
+    "S1": [3,1,2,4],
+    "S2": [6,4,8,5],
+    "S3": [1,3,6,0],
+    "S4": [9,6,5,4],
+    "S5": [8,5,2,0]
+  },
+  "diagnostic_candidate_envelope_K20": [3,8,12,15,18,19,20,21,23,26,32,33,34,35,37,39,40,48,49,50],
+  "scenario_preservation_K13_challenger": [3,8,18,19,20,23,32,34,35,39,40,48,50],
+  "powerball": {
+    "primary": 4,
+    "shortlist": [4,1,11,16,15,13],
+    "method": "newly frozen strong-shrinkage diagnostic challenger: Laplace-smoothed unconditional baseline plus exact-current-state=4 successor shrinkage with kappa=16; terminal suffix retained only as a diagnostic",
+    "warning": "This PB challenger has no retrospective confirmatory credit because kappa=16 is first frozen here for this target."
+  },
+  "flagship": {"main":[12,19,20,39,48],"powerball":4,"HLR":"LHLHH","role":"BARP_modal_plus_E0013_top_coalition"},
+  "terminal_hedge": {"main":[3,18,23,39,48],"powerball":1,"HLR":"LHLHH","role":"terminal_consistent_modal_shadow"},
+  "lines": [
+    {"id":1,"main":[12,19,20,39,48],"powerball":4,"HLR":"LHLHH","role":"primary"},
+    {"id":2,"main":[8,19,20,39,48],"powerball":1,"HLR":"LHLHH","role":"primary"},
+    {"id":3,"main":[12,20,23,39,48],"powerball":16,"HLR":"LHLHH","role":"primary"},
+    {"id":4,"main":[12,19,23,35,48],"powerball":11,"HLR":"LHLHH","role":"primary"},
+    {"id":5,"main":[3,21,26,40,48],"powerball":4,"HLR":"LHLHH","role":"primary_diversified"},
+    {"id":6,"main":[8,19,23,35,49],"powerball":15,"HLR":"LHLHH","role":"primary_diversified"},
+    {"id":7,"main":[3,18,23,39,48],"powerball":4,"HLR":"LHLHH","role":"terminal_hedge"},
+    {"id":8,"main":[3,18,21,39,48],"powerball":1,"HLR":"LHLHH","role":"terminal_hedge"},
+    {"id":9,"main":[18,32,34,35,50],"powerball":4,"HLR":"HHHHH","role":"joint_state_hedge"},
+    {"id":10,"main":[15,18,34,35,50],"powerball":16,"HLR":"HHHHH","role":"joint_state_hedge"},
+    {"id":11,"main":[32,33,34,35,50],"powerball":11,"HLR":"HHHHH","role":"joint_state_hedge"},
+    {"id":12,"main":[18,21,32,40,50],"powerball":1,"HLR":"HHHHH","role":"joint_state_hedge"},
+    {"id":13,"main":[3,26,35,40,48],"powerball":4,"HLR":"LHHHH","role":"joint_state_hedge"},
+    {"id":14,"main":[12,19,35,39,49],"powerball":15,"HLR":"LHHHH","role":"joint_state_hedge"},
+    {"id":15,"main":[8,23,34,39,49],"powerball":13,"HLR":"LHHHH","role":"joint_state_hedge"},
+    {"id":16,"main":[8,12,20,35,49],"powerball":4,"HLR":"LLLHH","role":"directional_hedge"},
+    {"id":17,"main":[12,15,21,40,50],"powerball":16,"HLR":"LLLHH","role":"directional_hedge"},
+    {"id":18,"main":[3,18,21,32,34],"powerball":11,"HLR":"LHLLL","role":"directional_hedge"},
+    {"id":19,"main":[15,21,26,32,35],"powerball":1,"HLR":"HHLLL","role":"directional_hedge"},
+    {"id":20,"main":[3,8,15,19,20],"powerball":13,"HLR":"LLLLL","role":"tail_direction_hedge"}
+  ],
+  "portfolio_exposure": {
+    "unique_main_coordinates": 19,
+    "max_coordinate_occurrence": {"coordinate":35,"lines":9},
+    "next_highest": [{"coordinate":48,"lines":8},{"coordinate":39,"lines":7}],
+    "PB_counts": {"4":6,"1":4,"11":3,"16":3,"15":2,"13":2}
+  },
+  "freeze_rule": "Do not alter this artifact after the 2026-09-04 result. Post-draw scoring must separately attribute slot forecast, candidate survival, coalition rank and portfolio inclusion."
+}
