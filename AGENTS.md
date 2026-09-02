@@ -2,51 +2,68 @@
 
 This is the mandatory entry point for every AI model, coding agent, reviewer, synthesizer, or automation operating in the Hybrid Expert Prediction System (HEPS) repository.
 
-HEPS is an AI-driven, multi-agent, paper-trading research environment for South African PowerBall. The repository is the shared scientific memory, blackboard, laboratory, peer-review system, and architecture-evolution record for all participating models.
+HEPS is a multi-agent, paper-trading research environment for South African PowerBall. The repository is scientific memory, experiment ledger, peer-review record, and architecture-evolution record. Historical files are retained for auditability; they are **not automatically current advice**.
 
 ## 1. Constitutional invariants
 
-The AI collective may autonomously choose research directions, invent roles, create hypotheses, fork challenger architectures, reproduce results, red-team claims, and recommend architecture changes. It may not violate these invariants:
-
 1. **Data integrity** — never alter a historical draw to improve a model.
-2. **Temporal integrity** — target draws may not appear in their own training or feature windows.
-3. **Evidence integrity** — predictive claims require explicit baselines and preserved denominators.
-4. **Architecture integrity** — no single agent session may silently rewrite active HEPS doctrine from its own unreviewed idea.
-5. **Paper-trading only** — outputs are experimental research artifacts, not guaranteed or financially reliable gambling advice.
+2. **Temporal integrity** — target draws may not appear in their own training, feature, threshold, or hyperparameter windows.
+3. **Evidence integrity** — predictive claims require explicit baselines, denominators, exposure, and proper scoring where probabilities exist.
+4. **Architecture integrity** — no agent may silently promote its own unreviewed idea to production authority.
+5. **Paper-trading only** — HEPS outputs are research artifacts, not guaranteed or financially reliable gambling advice.
+6. **Historical-precedence integrity** — when an old formula conflicts with current doctrine or a later failure/deprecation decision, the later governance interpretation controls future reuse while the old artifact remains immutable historical evidence.
 
-## 2. Mandatory read order
+## 2. Mandatory read order — optimized for current work
 
-Before substantive research or prediction work, read in this order:
+Read in this order before substantive prediction/research work:
 
 1. `AGENTS.md`
-2. `governance/nomenclature.md`
-3. `governance/research_protocol.md`
-4. `data/draw_manifest.json`
-5. `core/heps_architecture.md`
-6. `core/expert_registry.yaml`
-7. `knowledge/open_questions.md`
-8. `experiments/registry.csv`
-9. the relevant experiment, cycle, contribution, or review files for the task
+2. `governance/current_method_doctrine.md`
+3. `governance/methodology_deprecations.md`
+4. `governance/nomenclature.md`
+5. `governance/research_protocol.md`
+6. `data/draw_manifest.json`
+7. `core/heps_architecture.md`
+8. `core/expert_registry.yaml`
+9. `knowledge/open_questions.md`
+10. `experiments/registry.csv`
+11. latest relevant session handoff, currently `knowledge/SESSION_HANDOFF_MAIN_HEPS_2026-09-02.md`
+12. only the experiment/cycle/review files directly relevant to the task.
 
-Use `data/draw_history.jsonl` as the canonical active draw ledger.
+Use `data/draw_history.jsonl` as the canonical Main ledger.
 
-For work involving `MAIN_HLR_SLOT`, `MAIN_VVD_DELTA`, joint HLR vectors, slot gaps, Candidate Lattice compression, or safe exclusion, `experiments/E0001/` and `knowledge/STRUCTURAL_NULL_GAP_SPACE_RESEARCH_GUIDE_2026-08-06.md` are currently relevant mandatory context. Do not treat learned slot dynamics as incremental signal until compared with the exact structural nulls defined there.
+### Token-efficiency rule
 
-For work reviewing or importing an outside AI/human/paper/code contribution, `governance/external_contribution_protocol.md` is mandatory context. External proposals must be decomposed and tested component-by-component rather than accepted or rejected only as complete architectures.
+Do **not** recursively ingest every historical experiment, `workspace/contributions/`, or every review. Use the registries and deprecation map to identify relevant evidence first. Read legacy material only when reproducing, auditing, or tracing provenance.
 
-## 3. Autonomous role selection
+For HLR/VVD/gap/null work, `experiments/E0001/` and `knowledge/STRUCTURAL_NULL_GAP_SPACE_RESEARCH_GUIDE_2026-08-06.md` remain key context.
 
-Agents are **not assigned fixed research roles**.
+For outside AI/human/paper/code proposals, `governance/external_contribution_protocol.md` is mandatory.
 
-After reading the current repository state, independently decide where your capabilities are most likely to improve, reproduce, falsify, simplify, challenge, or synthesize HEPS.
+## 3. Current mathematical doctrine — non-negotiable interpretation
 
-You may choose or invent any research role, including but not limited to:
+The binding summary is in `governance/current_method_doctrine.md`. In particular:
+
+- **Joint distribution first, compression second.**
+- `MAIN_HLR_SLOT`, `MAIN_VVD_DELTA`, terminal digit, and exact target coordinate are deterministic views of one sorted-slot transition and belong to one information family.
+- Do not multiply or vote those views as independent evidence.
+- Prefer one regularized signed-displacement representation and exact legal-line normalization when feasible.
+- Proper-score improvement of the underlying probability field is a primary promotion gate; raw K13/K20 recall alone is insufficient.
+- Exact-slot probability and anywhere-coordinate probability are distinct artifacts.
+- A coordinate strongly supported in an adjacent slot may be tested for fixed-K preservation; no union/K-expansion credit.
+- Structural nulls are controls, not predictive experts.
+
+If an old experiment contradicts these rules, consult `governance/methodology_deprecations.md` before reuse.
+
+## 4. Autonomous role selection
+
+Agents may choose the research role most likely to improve, reproduce, falsify, simplify, challenge, or synthesize HEPS, including:
 
 - hypothesis explorer;
 - quantitative tester;
 - independent reproducer;
 - adversarial statistician;
-- expert-redundancy auditor;
+- redundancy auditor;
 - state-space modeller;
 - architecture challenger;
 - implementation engineer;
@@ -54,212 +71,183 @@ You may choose or invent any research role, including but not limited to:
 - synthesis architect;
 - meta-research auditor.
 
-Before creating substantive research artifacts, declare your intent using `collaboration/templates/agent_intent.yaml` or the same fields in your experiment package.
+Declare substantive research intent using `collaboration/templates/agent_intent.yaml` or equivalent experiment fields.
 
-Agents may change roles when repository evidence indicates a higher-value problem. Document why.
+Do not overwrite another agent's experiment package. Add a reproduction, critique, challenger, or successor experiment.
 
-## 4. Research freedom and coordination
+## 5. Evidence classifications and architecture status
 
-Agents may:
-
-- create new falsifiable hypotheses;
-- challenge accepted or provisional experts;
-- independently reproduce another model's result;
-- open challenger architectures under `architectures/challengers/`;
-- create meta-reviews when the research process itself is failing;
-- identify neglected open questions;
-- recommend that another research direction be abandoned;
-- propose new expert stages or scoring mechanisms;
-- disagree with other models.
-
-Agents must not overwrite another model's experiment package. Add a reproduction, critique, or challenger artifact instead.
-
-Disagreement is preserved as evidence. Do not force consensus before the evidence justifies it.
-
-### External contribution decomposition obligation
-
-When an outside AI agent, human researcher, paper, report, notebook, or code contribution proposes a strategy, do not judge only whether the complete proposal is correct.
-
-Follow `governance/external_contribution_protocol.md` and ask separately:
-
-1. what mathematical/information operators are present;
-2. whether the external performance claim is reproducible on canonical HEPS data;
-3. which canonical HEPS stage each operator naturally belongs to;
-4. whether an operator that fails in the proposed stage could add information at another plausible stage;
-5. whether the operator adds value beyond exact structural geometry, simple frequency/recency, incumbent experts, and matched exposure;
-6. how many formulations/stage placements were searched before a survivor was found.
-
-A flawed external architecture may contain a valuable component. A valuable component must still pass the normal evidence pipeline before receiving authority.
-
-If a useful derivative is discovered only after exploring alternatives, preserve its retrospective result as discovery evidence and freeze the derivative as a new prospective experiment. Do not convert exploratory search into retrospective confirmation.
-
-## 5. Evidence classifications
-
-Every material hypothesis or expert claim must use exactly one evidence classification:
+Use exactly one evidence classification:
 
 - `BREAKTHROUGH`
 - `PROVISIONAL_SIGNAL`
 - `INSUFFICIENT_EVIDENCE`
 - `REJECT`
 
-Every expert also has one architecture status:
+Architecture status is separate:
 
 - `production`
 - `shadow`
 - `experimental`
 - `archived`
 
-Evidence classification and architecture status are different concepts. An expert may be `PROVISIONAL_SIGNAL` and still remain `shadow` or `experimental`.
-
-Evidence classification should be component-specific when an external contribution contains multiple distinct claims. Do not assign one blanket label when one component is invalid and another survives as a research signal.
+A component may be mathematically useful while having no predictive authority. A failed architecture may contain a reusable objective/operator; preserve component-level decisions.
 
 ## 6. Experimental protocol
 
-All predictive experiments must state before evaluation:
+Before evaluation declare:
 
-- hypothesis;
-- target variable;
-- training window;
-- validation or prospective window;
+- hypothesis and target;
+- data/training window;
+- validation/prospective window;
 - feature definitions;
 - baselines;
 - metrics;
 - hyperparameter selection rule;
 - falsification rule;
-- multiple-testing exposure.
+- multiple-testing/search exposure;
+- authority requested.
 
-Strict walk-forward order is mandatory:
+Strict walk-forward order:
 
-1. use only information before target draw `t`;
-2. compute features and scores;
+1. use only information before target `t`;
+2. compute parameters/features/scores;
 3. freeze output;
 4. reveal `t`;
 5. score;
-6. update only for target `t+1`.
+6. update only for `t+1`.
 
-Random/null and simple baseline comparisons are mandatory for claims of improvement. Where an exact structural null exists, use it in addition to heuristic baselines.
+A sequential replay designed after outcomes are known is still discovery/post-hoc evidence.
 
-## 7. Draw-method and stationarity integrity
+## 7. Nulls and dependency controls
 
-The **game format**, **draw method**, and **machine identity** are separate data concepts:
+Use exact structural controls where available:
 
-- `game_format` describes the fixed game rules/pools, currently `powerball_50_16`;
-- `draw_method` describes how the winning numbers were selected: `mechanical_machine`, `electronic_rng`, or `unknown`;
-- `machine_name` identifies the reported machine/RNG when known.
+- `NULL_ORDER_STATISTIC_SLOT`
+- `NULL_HLR_STRUCTURAL`
+- `NULL_VVD_STRUCTURAL`
+- `NULL_HLR_JOINT_243`
+- `NULL_GAP_DM`
 
-Never infer draw method from a date, operator-era label, or game-format label alone. A candidate mechanism boundary must be externally pre-specified and sourced; agents must not scan outcome statistics for a split point and then present the best split as evidence.
+Global Main IID inclusion is exactly `5/50=0.1` for each coordinate; the pure structural global field cannot rank a predictive K basket.
 
-Any expert making a physical or machine-specific claim must disclose whether its training window mixes draw methods or machine identities and, where feasible, compare pooled evidence with method/machine-conditioned evidence. `scripts/check_stationarity.py` is an advisory diagnostic for this purpose; it is not itself a predictive feature.
+Sorted slots are dependent. Do not multiply per-slot structural marginals and call the product an exact joint null.
 
-## 8. Mixture-of-Experts architecture stages
+Before expert agreement increases confidence, control structural geometry, simple frequency/recency where relevant, residual dependence, and incremental proper-score value. Functionally derived features count as one information family.
 
-HEPS is a staged mixture of experts, not a flat voting system.
+## 8. Stage architecture
 
-Canonical stages are:
+HEPS remains staged:
 
-1. **Slot Forecast** — directional or state forecasts for sorted Slot1-Slot5.
-2. **Candidate Funnel** — rank and retain candidate coordinates without premature over-compression.
-3. **Coalition Assembly** — estimate which candidate coordinates belong together.
-4. **Morphology** — score completed lines by structural properties such as SLDV, gaps, span, parity/register, and related features.
-5. **Winner-Float Ranking** — rank legal surviving combinations using transparent expert evidence.
-6. **Portfolio Optimization** — select the final paper-trading slate while controlling duplicate exposure.
-7. **PowerBall Matrix** — maintain the separate 1-16 PowerBall field.
+1. **Slot Forecast**
+2. **Candidate Funnel**
+3. **Coalition Assembly**
+4. **Morphology**
+5. **Winner-Float Ranking**
+6. **Portfolio Optimization**
+7. **PowerBall Matrix**
 
-An expert's **forecast** and its **authority** are separate. An expert may be required to make a forecast while having no authority to hard-eliminate conflicting candidates.
+An expert's forecast and authority are separate. External operators should be tested in the stage implied by their information content, not automatically in the contributor's proposed stage.
 
-Exact structural nulls are methodological baselines, not predictive experts. Do not count them as ensemble votes.
+Johnson covering is assembly/portfolio geometry only. It has zero candidate-discovery authority.
 
-For external or newly derived operators, stage assignment is itself a testable architectural hypothesis. A method should be evaluated where its information content naturally belongs rather than automatically inheriting the contributor's proposed stage.
+## 9. Main candidate-acquisition priority
 
-## 9. Self-improvement operates at three speeds
+K=13 remains the preferred primary acquisition research target, but it is falsifiable and must be compared with matched K controls.
 
-### Fast: state updates
-After each draw, deterministic frozen formulas may update state: HLR history, VVD history, gaps, recurrence intervals, sufficient statistics, and score ledgers.
+A candidate model should be evaluated in this order:
 
-### Medium: parameter learning
-Weights, shrinkage coefficients, transition probabilities, and ranking coefficients may update only through predeclared algorithms. Never change a weight merely because one draw missed.
+1. full-support proper score vs structural/simple controls;
+2. fixed-K winner-coordinate survival;
+3. catastrophic-exclusion rate;
+4. complete-line containment probability;
+5. downstream assembly/ranking only after acquisition is scored.
 
-### Slow: architecture evolution
-Adding/removing experts or changing expert meaning requires evidence, reproduction, adversarial review, and a promotion decision.
+Do not promote an optimized basket if its underlying probability field is worse than flat/structural control.
 
-## 10. Experiment package workflow
+## 10. Current lessons from 2026-09-01 Main draw
 
-New research belongs under `experiments/<experiment_id>/` using the format described in `experiments/README.md`.
+Verified result: `14,16,31,34,40 | PB4`.
 
-Minimum package:
+Previous draw: `19,22,24,25,47 | PB11`.
 
-- `hypothesis.md`
-- `protocol.yaml`
-- `results.json` or reproducible result artifact
-- `findings.md`
-- `red_team/`
-- `reproductions/`
-- `decision.md`
+Realized HLR: `LLHHL`.
 
-Legacy research in `workspace/contributions/` and `workspace/reviews/` remains valid historical evidence and must not be deleted. New work should prefer experiment packages.
+The frozen BARP modal HLR was also `LLHHL`, an exact 5/5 directional hit. This is positive one-target prospective evidence, not a promotion.
 
-A derivative hypothesis extracted from an outside contribution should receive its own experiment package when it differs materially from the original contributor's architecture or requested authority.
+The first failure remained candidate acquisition/compression:
 
-## 11. Promotion path
+- E0019 K13 retained 31 and 34;
+- diagnostic K20 additionally retained 40;
+- coordinate 14 had strong pre-draw adjacent-slot evidence;
+- coordinate 16 had strong S1/S2 evidence;
+- strict slot provenance lost useful anywhere-coordinate information.
 
-`core/heps_architecture.md` is the **end of the research pipeline**, not a scratchpad.
+Future work may reward this by bounded scenario allocation and fixed-K adjacent-slot preservation, never by post-hoc parameter tuning.
 
-Architecture evolution follows:
+## 11. Draw-method and stationarity integrity
 
-`proposal -> experiment -> reproduction -> red-team -> synthesis -> promotion decision -> core architecture`
+`game_format`, `draw_method`, and `machine_name` are separate concepts.
 
-For outside contributions, the preferred path is:
+Never infer draw method/machine from a date or outcome pattern. Physical/mechanical hypotheses must disclose machine/method mixing. A regime boundary requires external evidence, not outcome-optimized split selection.
 
-`external contribution -> decomposition -> exploratory championship -> derivative hypothesis -> prospective shadow -> reproduction -> promotion decision`.
+Machine/ball-set non-exchangeability is a high-value future research question only when metadata are prospectively knowable and models are strongly regularized.
 
-A single model may contribute at several stages, but it may not use its own unreviewed result as sole authority for promotion.
+## 12. PowerBall integrity
 
-Use `governance/promotion_policy.md`.
+PowerBall is a separate 1..16 field.
 
-## 12. Per-draw cycle integrity
+Sparse conditional transitions require strong shrinkage and prospective comparison against uniform plus a preregistered unconditional shrunk baseline. HLR/VVD/terminal/exact-state views of the same PB transition are not independent votes.
 
-Each target draw should have a directory under `cycles/YYYY-MM-DD/`.
+Main-number success never transfers authority automatically to PB.
 
-Pre-draw artifacts are immutable once frozen. After the result, write post-draw scoring, expert attribution, and Physics-of-Failure artifacts without regenerating the original slate.
+## 13. Per-draw cycle integrity
 
-Use `cycles/README.md`.
+Each target should have `cycles/YYYY-MM-DD/`.
 
-## 13. Physics of Failure
+Pre-draw artifacts become immutable once frozen.
 
-After each target, diagnose where the actual winning coordinates or line were lost:
+Post-draw work may add:
 
-- slot-direction forecast;
-- exact structural-null comparator;
-- movement estimate;
-- candidate rank;
-- basket survival;
-- combination generation;
-- morphology survival;
-- final combination rank;
-- portfolio inclusion.
+- verified result/provenance;
+- scoring;
+- expert attribution;
+- Physics of Failure;
+- leave-one-expert-out or stage-isolation diagnostics;
+- research-priority updates.
 
-Where possible, compute leave-one-expert-out counterfactual ranks. Do not infer causality from one miss; accumulate evidence across targets.
+Never regenerate the old slate after outcome reveal.
 
-## 14. Nomenclature is binding
+## 14. Three-speed self-improvement
 
-Read `governance/nomenclature.md` before using legacy names.
+**Fast — state:** frozen formulas update sufficient statistics after each validated draw.
 
-In particular:
+**Medium — parameters:** update only through predeclared algorithms, never because one draw hit/missed.
 
-- `MAIN_HLR_SLOT` means per-slot Low/Repeat/High flow prediction.
-- `MAIN_VVD_DELTA` means Vertical Variance Delta: absolute sorted-slot movement between consecutive draws.
-- `MAIN_GAP_VECTOR` means the corrected six-component composition of the 45 unselected positions around a sorted five-number line.
-- `NULL_HLR_STRUCTURAL`, `NULL_VVD_STRUCTURAL`, `NULL_HLR_JOINT_243`, and `NULL_GAP_DM` are exact structural baselines, not learned experts.
-- `LEGACY_VVD_VOLUME` means the rejected historical Variance Volume Density concept.
-- `LEGACY_HIGH_LOW_MACRO` means the rejected/demoted whole-field high/low oscillator.
+**Slow — architecture:** new experts, changed semantics, changed authority, or removal requires evidence/review and a successor/deprecation record.
 
-Do not conflate similarly named concepts.
+## 15. External contributions
 
-When an outside contributor uses different terminology for mathematically equivalent concepts, translate to the canonical identifier without treating the wording difference as evidence against the algorithm. When the mathematics differs, register the distinction explicitly.
+A flawed external architecture can contain a valuable component. Decompose contributions into operators, reproduce claimed results on canonical data, stage-remap when mathematically appropriate, record search-degree exposure, and freeze useful derivatives prospectively.
 
-## 15. Engineering and validation
+External performance claims receive zero HEPS predictive credit until reproduced under canonical data/governance.
 
-Before prediction, backtest, or ledger changes, run the repository's validation tools when available:
+## 16. Nomenclature
+
+`governance/nomenclature.md` is binding.
+
+Key distinctions:
+
+- `MAIN_HLR_SLOT` = direction view of sorted-slot transition.
+- `MAIN_VVD_DELTA` = absolute magnitude view of the same transition.
+- `MAIN_SIGNED_SLOT_TRANSITION` = canonical signed displacement representation for new research.
+- `MAIN_GAP_VECTOR` = six-component sorted-line gap composition.
+- structural-null identifiers are controls, not learned experts.
+- legacy VVD-volume / whole-field high-low / ink-mass concepts remain rejected historical identifiers.
+
+## 17. Validation
+
+Before prediction/backtest/ledger changes, run available validation tools when practical:
 
 ```bash
 python scripts/validate_draws.py data/draw_history.jsonl
@@ -268,16 +256,12 @@ python scripts/check_stationarity.py
 python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 ```
 
-For HLR, VVD, gap-space, Candidate Lattice, or safe-exclusion research, also run the exact structural-null audit for the relevant previous draw, for example:
+For relevant slot/null research also run `scripts/structural_null.py` for the previous draw and declared basket sizes.
 
-```bash
-python scripts/structural_null.py --draw-id 19 --basket-size 13 --basket-size 18 --basket-size 38
-```
+Main numbers are sorted order statistics, not physical extraction order.
 
-Main numbers are sorted order statistics, not physical draw order. Never convert order-statistic movement or gap-space movement into unsupported physical ball-trajectory claims.
+## 18. Final obligation
 
-## 16. Final agent obligation
+Leave HEPS more auditable and less misleading than you found it.
 
-Leave HEPS more auditable than you found it.
-
-A useful contribution is not merely a new prediction. It may be a falsification, reproduction, nomenclature repair, stronger baseline, failure diagnosis, implementation test, open question, evidence that an attractive strategy should be removed, or extraction of a valid mathematical signal from an otherwise flawed outside proposal.
+Useful contributions include falsification, deprecation, reproduction, stronger nulls, cleaner dependency modelling, better calibration, failure localization, data/provenance repair, or a demonstrably independent information source. More complexity is not itself progress.
