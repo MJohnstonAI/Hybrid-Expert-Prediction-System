@@ -1,19 +1,63 @@
-schema_version: 1
-updated: 2026-08-06
+schema_version: 2
+updated: 2026-09-02
 features:
+  MAIN_SIGNED_SLOT_TRANSITION:
+    type: integer
+    unit: sorted_slot
+    formula: slot_t - slot_t_minus_1
+    role: canonical_transition_representation
+    leakage_rule: Target transition may only be scored after reveal; forecasts must be frozen from prior data.
+    information_family: MAIN_SLOT_TRANSITION
+    note: >-
+      Canonical latent/derived transition variable for new Main research. HLR, VVD, exact target coordinate,
+      and terminal digit are deterministic views of this same transition and are not independent expert evidence.
+
   MAIN_HLR_SLOT:
     type: categorical
     unit: sorted_slot
     values: [LOW, REPEAT, HIGH]
     definition: Direction of target slot relative to previous same sorted slot.
     leakage_rule: Must be forecast before target draw is revealed.
+    information_family: MAIN_SLOT_TRANSITION
+    derived_from: MAIN_SIGNED_SLOT_TRANSITION
+    independent_vote_authority: false
+    note: >-
+      Interpretability/direction view of signed displacement. May be scored against NULL_HLR_STRUCTURAL,
+      but must not be multiplied or voted independently with VVD/terminal/exact-coordinate views from the same transition.
 
   MAIN_VVD_DELTA:
     type: integer
     unit: sorted_slot
     formula: abs(slot_t - slot_t_minus_1)
     role: movement_magnitude
-    note: Direction is supplied separately by MAIN_HLR_SLOT.
+    information_family: MAIN_SLOT_TRANSITION
+    derived_from: MAIN_SIGNED_SLOT_TRANSITION
+    independent_vote_authority: false
+    note: >-
+      Magnitude view of signed displacement. Direction is MAIN_HLR_SLOT. May be scored against NULL_VVD_STRUCTURAL,
+      but must not be multiplied or voted independently with HLR/terminal/exact-coordinate views from the same transition.
+
+  MAIN_TERMINAL_DIGIT:
+    type: integer
+    unit: sorted_slot_coordinate
+    formula: slot_t mod 10
+    values: [0,1,2,3,4,5,6,7,8,9]
+    role: diagnostic_symbolic_view
+    information_family: MAIN_SLOT_TRANSITION
+    derived_from: target_slot_coordinate
+    independent_vote_authority: false
+    note: >-
+      Terminal motifs may be modelled prospectively against exact slot-specific terminal nulls, but the realized terminal
+      digit is another deterministic view of the target coordinate. Do not multiply terminal, HLR and VVD ratios as independent evidence.
+
+  MAIN_ANYWHERE_COORDINATE:
+    type: probability_or_rank
+    unit: coordinate_1_to_50
+    definition: Probability/rank that a coordinate appears anywhere in the next five-number Main draw.
+    role: candidate_funnel
+    note: >-
+      Must remain distinct from exact-slot probability. A coordinate may carry useful acquisition evidence when its strongest
+      support is in an adjacent sorted slot. Fixed-K adjacent-slot preservation is an allowed research question after 2026-09-01.
 
   MAIN_GAP_VECTOR:
     type: structured_integer_vector
@@ -132,3 +176,8 @@ rules:
   - Every new feature must define unit, formula/semantics, stage, and leakage rule before use in a promotable experiment.
   - Features with the same acronym but different definitions require different canonical identifiers.
   - Exact structural-null features are methodological baselines, not predictive experts and not evidence of lottery edge.
+  - HLR, VVD, terminal digit, and exact coordinate derived from one sorted-slot transition belong to one information family.
+  - Different views of one information family may be scored diagnostically but may not be multiplied or counted as independent expert votes without an explicit coherent dependency model.
+  - New Main acquisition research should prefer one regularized signed-transition representation and exact legal-line normalization where feasible.
+  - Proper-score improvement of the underlying probability field is a primary gate before K-basket recall is treated as predictive lift.
+  - Exact-slot and anywhere-coordinate probabilities must remain distinct artifacts.
