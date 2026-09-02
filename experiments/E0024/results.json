@@ -1,0 +1,127 @@
+{
+  "experiment_id": "E0024",
+  "analysis_date": "2026-09-02",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "scope": ["Main", "XTRA", "portfolio_overlap", "machine_nonexchangeability", "change_point", "physical_video_feasibility"],
+  "exclusions": ["anti_crowd", "game_rule_arbitrage"],
+  "portfolio": {
+    "k13_winner_states": 1287,
+    "line_budget": 20,
+    "e0022_four_plus_first": {
+      "covered_4plus": 788,
+      "coverage_fraction": 0.6122766123,
+      "coordinate_variance": 0.5207100592,
+      "pair_exposure_variance": 0.3484549638
+    },
+    "external_balance_nibble": {
+      "covered_4plus": 772,
+      "coverage_fraction": 0.5998445998,
+      "coordinate_exposures": [8,8,7,8,7,8,8,7,8,8,8,7,8],
+      "coordinate_variance": 0.2130177515,
+      "pair_exposure_variance": 0.2715318869,
+      "meets_exact_7_8_balance_condition": true,
+      "delta_4plus_states_vs_e0022": -16
+    },
+    "random_tie_multistart_plus_one_swap": {
+      "best_covered_4plus": 788,
+      "delta_vs_e0022": 0
+    },
+    "coding_theory_context": {
+      "A_13_6_5": 18,
+      "meaning": "At most 18 five-of-13 codewords can have pairwise Hamming distance at least 6, so a 20-line portfolio cannot make all Johnson radius-1 4+/5 neighborhoods disjoint.",
+      "source": "external literature; see findings.md"
+    },
+    "decision": "retain E0022 four_plus_first for the 4+/5 objective; reject pure overlap-balance replacement"
+  },
+  "machine_nonexchangeability": {
+    "main": {
+      "known_rows": 26,
+      "group_sizes": {"PB1":2,"KHAYA":7,"SIZWE":6,"GRACE":4,"MPUMELELO":7},
+      "permutation_p": 0.1810237203,
+      "decision": "no detected machine association"
+    },
+    "xtra": {
+      "known_rows": 23,
+      "group_sizes": {"PB1":2,"KHAYA":8,"SIZWE":4,"GRACE":3,"MPUMELELO":6},
+      "permutation_p": 0.5293383271,
+      "decision": "no detected machine association"
+    }
+  },
+  "oracle_known_machine_prequential_tau8": {
+    "main": {
+      "targets": 15,
+      "global_mean_brier": 0.0925618849,
+      "machine_mean_brier": 0.0941827943,
+      "machine_minus_global_brier": 0.0016209094,
+      "global_total_k13_hits": 17,
+      "machine_total_k13_hits": 21,
+      "interpretation": "K13 capture increased but probability calibration worsened; no promotion"
+    },
+    "xtra": {
+      "targets": 11,
+      "global_mean_brier": 0.0918483553,
+      "machine_mean_brier": 0.0945793773,
+      "machine_minus_global_brier": 0.0027310219,
+      "global_total_k13_hits": 14,
+      "machine_total_k13_hits": 14,
+      "interpretation": "worse calibration and no K13 lift"
+    }
+  },
+  "machine_shrinkage_retrospective_partition": {
+    "tau_grid": [4,8,16,32,64],
+    "main": {
+      "development_targets": 10,
+      "retrospective_holdout_targets": 5,
+      "chosen_tau": 64,
+      "holdout_global_mean_brier": 0.0921963805,
+      "holdout_machine_mean_brier": 0.0921210519,
+      "holdout_machine_minus_global_brier": -0.0000753286,
+      "holdout_global_k13_hits": 3,
+      "holdout_machine_k13_hits": 6,
+      "interpretation": "interesting discovery lead only; tiny Brier advantage and five-target K13 lift require genuine prospective replication and pre-cutoff machine availability"
+    },
+    "xtra": {
+      "development_targets": 6,
+      "retrospective_holdout_targets": 5,
+      "chosen_tau": 64,
+      "holdout_global_mean_brier": 0.0922097515,
+      "holdout_machine_mean_brier": 0.0924784316,
+      "holdout_machine_minus_global_brier": 0.0002686801,
+      "holdout_global_k13_hits": 6,
+      "holdout_machine_k13_hits": 5,
+      "interpretation": "negative"
+    }
+  },
+  "chronological_change_point": {
+    "main": {
+      "best_split_after": "2026-07-31",
+      "next_date": "2026-08-04",
+      "max_scan_permutation_p": 0.1323345818,
+      "decision": "no significant regime change"
+    },
+    "xtra": {
+      "best_split_after": "2026-08-11",
+      "next_date": "2026-08-14",
+      "max_scan_permutation_p": 0.4881398252,
+      "decision": "no significant regime change"
+    }
+  },
+  "physical_video": {
+    "status": "DATA_GAP_NOT_TESTABLE",
+    "reason": "No reliable archived dataset of actual pre-outcome physical ball/machine motion features was located. Public result/live-draw pages do not provide a reproducible pre-outcome dynamics feature stream suitable for HEPS scoring.",
+    "future_requirement": "timestamped physical draw video or sensor-derived motion features, machine and ball-set provenance, and features extractable before the winning identities are known"
+  },
+  "deployability": {
+    "machine_identity": "NO_PREDICTION_AUTHORITY_UNLESS exact target machine is independently knowable before ticket cutoff",
+    "ball_set": "future external-metadata research priority if a reliable post-June ledger can be acquired; do not infer from outcomes"
+  },
+  "overall_decision": {
+    "balanced_overlap": "REJECT_AS_REPLACEMENT_FOR_E0022_4PLUS_OBJECTIVE",
+    "main_machine_conditioning": "RESEARCH_LEAD_ONLY_NOT_DEPLOYABLE",
+    "xtra_machine_conditioning": "REJECT_CURRENT_FORM",
+    "change_point_gate": "NO_PROMOTION",
+    "physical_video": "DATA_GAP",
+    "friday_2026_09_04_slate_revision": "NO"
+  }
+}
