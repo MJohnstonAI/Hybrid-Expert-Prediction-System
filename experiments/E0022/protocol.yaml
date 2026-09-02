@@ -72,7 +72,8 @@ johnson:
   radius1_definition: overlap_at_least_4_of_5
   radius1_states_per_selected_line: 41
   legacy_objective: three_plus_first_then_four_plus
-  challenger_objective: four_plus_first_then_three_plus
+  challenger_objective: maximize_incremental_four_plus_only_with_lexicographic_ties
+  three_plus_under_challenger: report_only_not_selection_signal
   exact_5of5_note: any M distinct selected lines cover exactly M of 1287 exact winning states; Johnson objective cannot change this without predictive weights
 
 metrics:
