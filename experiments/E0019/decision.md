@@ -1,32 +1,73 @@
-# E0019 Initial Decision
+# E0019 Decision
 
-## Decision
+## Original decision
 
 `RUN PROSPECTIVE SHADOW / DO NOT PROMOTE`
 
 Evidence classification: `INSUFFICIENT_EVIDENCE`.
 
-## Rationale
+The 2026-09-01 pre-draw artifact remains immutable and must continue to be scored exactly as frozen.
 
-The line-mass K13 objective is methodologically better aligned with the actual candidate-funnel goal than marginal Top-13 ranking because it directly maximizes modeled complete-line containment at fixed K13.
+## 2026-09-02 mathematical review
 
-Its discovery replay is only directionally positive and the underlying residual probability field is worse than flat on proper score. The basket result may therefore be sampling noise or an optimization artifact. No production authority is justified.
+### Retain
 
-E0016 nonequilibrium current remains an independent shadow rather than being blended into the primary arm on the first prospective target.
+The **complete-line containment objective** remains methodologically useful:
 
-The K20 reserve envelope is retained only as an exposure-management diagnostic and must never be credited against K13 baselines.
+`M(K) = sum of modeled legal-line probability mass for all 5-number lines contained inside K`.
 
-## 2026-09-01 action
+This objective is better aligned with candidate acquisition than simply taking the top K marginal coordinates, because it measures the modelled probability that all five future winners survive the candidate basket.
 
-Freeze before the draw:
+### Supersede / reject for forward use
 
-- primary line-mass K13;
-- independent E0016 current K13;
-- diagnostic K20 reserve envelope;
-- all formulas and dataset cutoff.
+The historical E0019 probability operator:
 
-Do not retune after the result.
+`sqrt((P_BARP/P0_HLR) * (P_VVDR/P0_VVD))`
 
-## Promotion gate
+is **superseded and must not be reused in new predictive models**.
 
-Require repeated prospective improvement in K13 containment/recall versus matched K13 controls, proper-score monitoring of the underlying field, and independent reproduction. One draw cannot change the evidence class to BREAKTHROUGH.
+Reason:
+
+- HLR is the sign of the sorted-slot transition;
+- VVD is the absolute magnitude of that same transition;
+- multiplying their residual ratios treats one information source as if it were two;
+- the geometric mean attenuates but does not remove this double-counting;
+- the underlying combined probability field was worse than flat on proper score in the discovery replay.
+
+This is now recorded in `governance/methodology_deprecations.md` and `knowledge/failure_registry.jsonl`.
+
+## 2026-09-01 prospective score
+
+Actual Main: `14,16,31,34,40 | PB4`.
+
+Frozen E0019 primary K13:
+
+`20,22,23,26,30,31,32,34,35,39,41,43,49`
+
+captured `31,34` = 2/5.
+
+Exactly two hits at K13 is ordinary under the exact matched-exposure null and receives no promotion credit.
+
+The diagnostic K20 additionally retained `40`, but K20 remains exposure diagnostic only.
+
+## Successor requirement
+
+Any E0019 successor must:
+
+1. use one coherent signed-displacement transition representation per slot, or another explicit dependency model;
+2. avoid multiplying HLR and VVD as independent evidence;
+3. normalize over legal lines when feasible;
+4. score the full probability field on proper scores before interpreting K13 recall as predictive lift;
+5. retain the line-containment objective as a comparator;
+6. preserve exact-slot and anywhere-coordinate scoring separately;
+7. use matched K/exposure controls.
+
+The intended successor research path is E0021.
+
+## Current status
+
+- Historical frozen E0019 arm: **immutable / scoreable**.
+- E0019 HLR×VVD probability field: **REJECT for forward reuse**.
+- E0019 line-mass containment objective: **retained as a research objective**.
+- Production authority: **none**.
+- Evidence classification: `INSUFFICIENT_EVIDENCE`.
