@@ -1,0 +1,62 @@
+experiment_id: E0027
+title: Non-Colliding Slot Diffusion and Collision-Field Championship
+lane: Main
+status: completed_exploratory_shadow_championship
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+active_data_boundary:
+  start: 2026-06-02
+  allow_pre_june_2026: false
+walk_forward:
+  minimum_prior_draws: 8
+  eligible_targets: 19
+  target_excluded: true
+fixed_exposure:
+  K: 13
+  k_expansion: forbidden
+models:
+  - uniform_exact_line_null
+  - signed_transition_kde
+  - acceleration_persistence
+  - gap_dispersion_only
+  - gap_pressure_only
+  - signed_plus_gap_dispersion
+  - signed_plus_gap_pressure
+  - acceleration_plus_gap_pressure
+  - all_pair_separation_collision_ranker
+  - signed_plus_all_pair_collision_ranker
+parameters:
+  slot_kde_bandwidth: 3.0
+  slot_shrinkage_kappa: 20
+  gap_kde_bandwidth: 2.5
+  gap_shrinkage_kappa: 30
+  gap_pressure_ridge: 100
+  pair_separation_shrinkage_kappa: 40
+  pair_separation_bandwidth: 3.0
+  oracle_k13_replicates_per_target: 100
+  oracle_seed_rule: 10000_plus_target_index
+proper_score:
+  legal_line_null: uniform_over_C_50_5
+  normalization: exact_chain_dynamic_programming_for_slot_plus_adjacent_gap_models
+  metrics:
+    - mean_log_score_delta_vs_uniform
+    - coordinate_inclusion_brier
+candidate_metrics:
+  - mean_winner_coordinates_in_top13_marginal_compression
+  - retention_3plus
+  - retention_4plus
+  - containment_5of5
+  - catastrophic_exclusion_distance
+assembly_metrics:
+  oracle_k13: winner_five_plus_eight_random_decoys
+  legal_lines_per_oracle_k13: 1287
+  ranking_rule: average_midrank_percentile
+  matched_decoys: true
+search_exposure:
+  pair_collision_combination_weights_screened: [0.0, 0.1, 0.25, 0.5]
+  note: discovery-only; no weight receives prospective authority from this replay
+promotion_gate:
+  - beat_or_match_exact_uniform_on_proper_score_with_incremental_value
+  - matched_K13_or_oracle_assembly_improvement
+  - no_reliance_on_K_expansion
+  - prospective_replication
