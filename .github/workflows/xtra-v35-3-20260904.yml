@@ -9,6 +9,9 @@ on:
       - 'scripts/xtra_full_mixture_base.py'
       - '.github/workflows/xtra-v35-3-20260904.yml'
 
+permissions:
+  contents: write
+
 jobs:
   xtra-v35-3:
     runs-on: ubuntu-latest
@@ -19,10 +22,22 @@ jobs:
           python-version: '3.12'
       - name: Run XTRA v35.3 deterministic pre-draw model
         run: |
-          python scripts/xtra_v35_3_prediction.py > xtra-v35-3-20260904.json
-          cat xtra-v35-3-20260904.json
+          mkdir -p cycles/2026-09-04/pre_draw
+          python scripts/xtra_v35_3_prediction.py > cycles/2026-09-04/pre_draw/xtra_v35_3_prediction.json
+          cat cycles/2026-09-04/pre_draw/xtra_v35_3_prediction.json
       - name: Upload calculation artifact
         uses: actions/upload-artifact@v4
         with:
           name: xtra-v35-3-20260904
-          path: xtra-v35-3-20260904.json
+          path: cycles/2026-09-04/pre_draw/xtra_v35_3_prediction.json
+      - name: Freeze pre-draw artifact in repository
+        run: |
+          git config user.name "HEPS GitHub Actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add cycles/2026-09-04/pre_draw/xtra_v35_3_prediction.json
+          if git diff --cached --quiet; then
+            echo "No prediction artifact change to commit"
+          else
+            git commit -m "freeze(xtra): v35.3 pre-draw prediction 2026-09-04"
+            git push
+          fi
