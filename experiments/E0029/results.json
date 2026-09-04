@@ -1,0 +1,126 @@
+{
+  "experiment_id": "E0029",
+  "analysis_date": "2026-09-04",
+  "lane": "Main",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "replay_label": "strict_target_excluded_discovery_replay_not_prospective_confirmation",
+  "data": {
+    "canonical_start": "2026-06-02",
+    "canonical_cutoff": "2026-09-01",
+    "draws": 27,
+    "min_prior_draws": 8,
+    "eligible_targets": 19,
+    "oracle_k13_lines": 1287,
+    "decoy_reps_per_target": 30,
+    "independent_decoy_seeds": [20261201, 20261231]
+  },
+  "baseline_two_seed_average": {
+    "E0013_spectral": {
+      "mean_winner_percentile": 0.581894,
+      "top100_rate": 0.148246,
+      "above_median_rate": 0.621930
+    },
+    "E0022_dissent_or": {
+      "mean_winner_percentile": 0.500761,
+      "top100_rate": 0.072807,
+      "above_median_rate": 0.510526
+    },
+    "adaptive_pattern_or": {
+      "mean_winner_percentile": 0.625574,
+      "top100_rate": 0.116667,
+      "above_median_rate": 0.719298
+    },
+    "adaptive_pattern_mean": {
+      "mean_winner_percentile": 0.620243,
+      "top100_rate": 0.148246,
+      "above_median_rate": 0.642105
+    }
+  },
+  "primary_challenger_MAIN_PATTERN80_SPECTRAL5_RESCUE": {
+    "seed_20261201": {
+      "mean_winner_percentile": 0.637910,
+      "median_winner_percentile": 0.711509,
+      "top100_rate": 0.166667,
+      "above_median_rate": 0.700000,
+      "winner_gate_survival": 0.928070,
+      "mean_fraction_lines_retained": 0.804747
+    },
+    "seed_20261231": {
+      "mean_winner_percentile": 0.635587,
+      "median_winner_percentile": 0.704705,
+      "top100_rate": 0.159649,
+      "above_median_rate": 0.680702,
+      "winner_gate_survival": 0.928070,
+      "mean_fraction_lines_retained": 0.800705
+    },
+    "two_seed_average": {
+      "mean_winner_percentile": 0.636748,
+      "median_winner_percentile": 0.708107,
+      "top100_rate": 0.163158,
+      "above_median_rate": 0.690351,
+      "winner_gate_survival": 0.928070,
+      "mean_fraction_lines_retained": 0.802726,
+      "mean_fraction_lines_eliminated": 0.197274,
+      "gate_survival_to_space_retention_lift": 1.1562
+    },
+    "target_level_seed1_vs_random_0_5": {
+      "targets_above_median": "14/19",
+      "one_sided_t_p_nominal": 0.012620,
+      "one_sided_sign_p_nominal": 0.031784,
+      "warning": "Nominal discovery statistics only; method family was designed after historical outcomes existed and multiplicity is not exhausted."
+    }
+  },
+  "gate_championship_seed_20261201": {
+    "pattern80_plus_spectral5_rescue": {
+      "mean_winner_percentile": 0.637910,
+      "winner_gate_survival": 0.928070,
+      "fraction_lines_kept": 0.804747
+    },
+    "pattern80_plus_spectral10_rescue": {
+      "mean_winner_percentile": 0.630510,
+      "winner_gate_survival": 0.929825,
+      "fraction_lines_kept": 0.815419
+    },
+    "pattern80_plus_spectral20_rescue": {
+      "mean_winner_percentile": 0.621180,
+      "winner_gate_survival": 0.936842,
+      "fraction_lines_kept": 0.836316
+    },
+    "pattern70_plus_spectral5_rescue": {
+      "mean_winner_percentile": 0.634894,
+      "winner_gate_survival": 0.856140,
+      "fraction_lines_kept": 0.711483
+    }
+  },
+  "posthoc_fixed_band_upper_bound_diagnostic": {
+    "fixed_pass_count_two_seed_mean_winner_percentile": 0.676676,
+    "fixed_pass_count_top100_rate": 0.169298,
+    "fixed_LDSAD_11_13_mean_winner_percentile": 0.650751,
+    "bands": {
+      "LDSAD": "11..13",
+      "SUMAD": "8..9",
+      "SPANAD": "5..6"
+    },
+    "authority": "zero_for_promotion_because_bands_were_chosen_after_outcome_inspection"
+  },
+  "within_feature_band_search_null_audit_20000_iid_simulations": {
+    "LDSAD_best_width3_count_at_least_11_probability": 0.16505,
+    "SUMAD_best_width2_count_at_least_5_probability": 0.04950,
+    "SPANAD_best_width2_count_at_least_8_probability": 0.07730,
+    "all_three_thresholds_in_same_simulation_probability": 0.00050,
+    "warning": "This controls only the stated within-feature contiguous-band search, not the broader HEPS pattern-search universe. It is discovery evidence only."
+  },
+  "component_decisions": {
+    "adaptive_pattern_or": "RETAIN_AS_PROSPECTIVE_SHADOW_META_PATTERN",
+    "adaptive_pattern_mean": "RETAIN_AS_SECONDARY_SHADOW",
+    "fixed_historical_bands": "DISCOVERY_DIAGNOSTIC_ONLY",
+    "hard_50_percent_pattern_gate": "REJECT_AS_PRIMARY_TOO_MUCH_CATASTROPHIC_RISK",
+    "pattern80_gate": "RETAIN_AS_CONSERVATIVE_SHADOW_GATE",
+    "top5_spectral_rescue": "RETAIN_AS_BOUNDED_SHADOW_PRESERVATION",
+    "E0022_dissent_or_as_primary_assembler": "NO_NEW_PROMOTION",
+    "candidate_acquisition_authority": "ZERO"
+  },
+  "architecture_decision": "ADD_MAIN_PATTERN80_SPECTRAL5_RESCUE_AS_PROSPECTIVE_SHADOW_AFTER_FROZEN_K13; DO_NOT HARD-PRUNE PRODUCTION OR ALTER K13",
+  "first_fresh_prospective_target": "2026-09-04"
+}
