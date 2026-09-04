@@ -1,0 +1,28 @@
+name: XTRA v35.3 pre-draw 2026-09-04
+
+on:
+  push:
+    paths:
+      - 'data/powerball_xtra_history.jsonl'
+      - 'data/powerball_xtra_manifest.json'
+      - 'scripts/xtra_v35_3_prediction.py'
+      - 'scripts/xtra_full_mixture_base.py'
+      - '.github/workflows/xtra-v35-3-20260904.yml'
+
+jobs:
+  xtra-v35-3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run XTRA v35.3 deterministic pre-draw model
+        run: |
+          python scripts/xtra_v35_3_prediction.py > xtra-v35-3-20260904.json
+          cat xtra-v35-3-20260904.json
+      - name: Upload calculation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xtra-v35-3-20260904
+          path: xtra-v35-3-20260904.json
