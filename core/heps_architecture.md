@@ -2,9 +2,9 @@
 
 ## Architecture
 
-**HEPS v35.1 — Joint-Distribution-First Staged Mixture-of-Experts**
+**HEPS v35.3 — Joint-Distribution-First Staged Mixture-of-Experts with Candidate-Frozen Pattern Triage**
 
-**Updated:** 2026-09-02  
+**Updated:** 2026-09-04  
 **Status:** active methodological architecture; predictive authority remains expert/experiment specific.
 
 ## Purpose
@@ -14,6 +14,7 @@ HEPS is a multi-agent, paper-trading research system for South African PowerBall
 - exact lottery geometry;
 - learned residual probability fields;
 - candidate acquisition;
+- candidate-frozen pattern triage;
 - coalition/ranking;
 - portfolio geometry;
 - PowerBall modelling;
@@ -83,6 +84,14 @@ Therefore candidate acquisition is evaluated in this order:
 
 Better K recall with a worse probability field is not sufficient for predictive promotion.
 
+## Architecture principle 4 — pattern constraints act after candidate freeze unless separately validated upstream
+
+Pattern-recognition features such as HLR scenario compatibility, last-digit-sum absolute delta, total-sum absolute delta, span absolute delta, parity transition, decade transport, or related morphology must not silently alter K13 membership.
+
+Once K13 is frozen, enumerate all `C(13,5)=1,287` lines and evaluate pattern constraints at the line level. A pattern gate earns elimination authority only when winner retention is materially higher than the fraction of line space retained.
+
+E0029 establishes a new **candidate-frozen Pattern Constraint Triage shadow stage**. Its preferred discovery architecture is conservative: retain the top 80% of adaptive Pattern-OR lines, rescue the top 5% E0013 spectral lines, then rank retained lines by E0013 spectral. This is shadow only until prospective evidence accumulates.
+
 ---
 
 # Matrix A — Main Architecture
@@ -114,7 +123,8 @@ Current important shadow research:
 
 - E0005 BARP HLR state-duration model;
 - E0005 VVD-R diagnostic distribution;
-- E0021 corrected signed-displacement successor.
+- E0021 corrected signed-displacement successor;
+- E0026 scenario-constrained slot routing.
 
 ### 2026-09-01 lesson
 
@@ -127,12 +137,13 @@ Purpose: preserve useful coordinates at a declared K before combination assembly
 Key doctrine:
 
 - exact-slot probability and anywhere-coordinate probability are separate;
-- strict slot provenance may not automatically discard a strong global coordinate;
-- adjacent-slot preservation may be tested prospectively at fixed K;
+- unrestricted anywhere probability must not erase slot provenance;
+- E0026 preserves candidate + admissible slot provenance + scenario probability;
+- adjacent-slot preservation may be tested prospectively at fixed K when scenario-valid;
 - K expansion receives no predictive credit;
 - K13 remains the primary acquisition research target but is falsifiable.
 
-### E0019 -> E0021 transition
+### E0019 -> E0021 -> E0026 transition
 
 Retain from E0019:
 
@@ -142,33 +153,75 @@ Reject/supersede:
 
 - HLR×VVD residual-product probability field.
 
-E0021 is the designated corrected successor using one signed-transition information family, legal-line normalization, proper-score-first gating, and a separate adjacent-slot preservation arm.
+E0021 is the designated corrected signed-transition successor using one transition information family, legal-line normalization, proper-score-first gating, and fixed-K adjacent-slot preservation research.
+
+E0026 further refines preservation: a candidate must retain explicit slot provenance and may migrate only through non-negligible pre-draw scenarios compatible with HLR/signed displacement, exact order-statistic support, and legal sorted-line geometry. Unrestricted anywhere-coordinate promotion is not allowed.
 
 Independent candidate shadows may include E0016 nonequilibrium current, but their incremental value must be tested after redundancy controls.
 
-## Stage 3 — Coalition Assembly
+## Stage 3 — Frozen-K13 Enumeration and Coalition Assembly
 
 Purpose: estimate which frozen candidate coordinates belong together.
 
+When K13 is frozen, enumerate **all**:
+
+`C(13,5)=1,287`
+
+legal five-number combinations before pruning/ranking. Do not lose the true line through heuristic generation shortcuts.
+
 E0013 Positive-PMI spectral remains a coalition-only `PROVISIONAL_SIGNAL` shadow.
 
-Important correction:
+For unordered anywhere-coordinate pairs, uniform 5/50 gives the same null co-inclusion probability to every distinct pair. Do not invent a coordinate-varying central-pair structural correction. A stronger E0013 challenger should condition/shrink association using observed marginals `C_i,C_j`.
 
-For unordered anywhere-coordinate pairs, uniform 5/50 gives the same null co-inclusion probability to every distinct pair. Do not invent a coordinate-varying "central pair geometry" correction. A stronger E0013 challenger should condition/shrink association using observed marginals `C_i,C_j`.
-
-### E0022 oracle-K13 assembly evolution
-
-When a frozen K13 contains all five winners, enumerate all `C(13,5)=1,287` legal lines before ranking. Do not lose the winning coalition through heuristic generation or hard morphology pruning.
-
-E0022 adds `MAIN_ASSEMBLY_DISSENT_OR` as a prospective shadow robustness ranker:
+E0022 `MAIN_ASSEMBLY_DISSENT_OR` remains a prospective shadow robustness ranker:
 
 `max(midrank_percentile(frequency), midrank_percentile(recency), midrank_percentile(E0013_spectral))`.
 
-This is one robustness/meta-assembly operator, not three independent convergence votes. It has zero candidate authority and zero production authority. Its purpose is to test whether alternative supported ranking lanes reduce catastrophic burial when E0013 fails.
+It has zero candidate authority and no new promotion from E0029; the E0029 replay found it approximately random on mean oracle-K13 percentile.
 
-E0022's four-node nucleus and conditional-completion formulations failed later-target replay and have no forward authority in their current forms.
+E0022's four-node nucleus and conditional-completion formulations remain rejected in their current forms.
 
-Coalition methods have zero candidate-discovery credit unless separately tested upstream.
+## Stage 3.5 — Candidate-Frozen Pattern Constraint Triage (E0029 shadow)
+
+Purpose: eliminate or demote implausible **lines inside a frozen K13** while controlling catastrophic winner loss.
+
+Adaptive E0029 pattern lanes are fitted target-excluded from earlier Main draws only:
+
+- BARP HLR residual relative to exact structural HLR null;
+- adaptive LDSAD residual;
+- adaptive total-sum absolute-delta (`SUMAD`) residual;
+- adaptive span absolute-delta (`SPANAD`) residual.
+
+The three whole-line delta fields use strong `kappa=20` shrinkage in the E0029 discovery replay.
+
+Define:
+
+`MAIN_PATTERN_OR = max(midrank_pct(HLR), midrank_pct(LDSAD), midrank_pct(SUMAD), midrank_pct(SPANAD))`.
+
+This is one robustness/meta-pattern operator, not four independent likelihood votes.
+
+### Preferred E0029 shadow cascade
+
+`MAIN_PATTERN80_SPECTRAL5_RESCUE`
+
+1. retain Pattern-OR top 80% of the 1,287 lines;
+2. rescue any line in E0013 spectral top 5%;
+3. rank retained lines by E0013 spectral;
+4. retain excluded lines below the gate in the frozen artifact for audit;
+5. apply portfolio geometry only after this stage.
+
+Discovery replay across 19 eligible targets and two independent decoy seeds produced approximately:
+
+- winner percentile `0.637`;
+- line retention `0.803`;
+- line elimination `0.197`;
+- winner gate survival `0.928`.
+
+This is promising stage-isolated discovery evidence but remains `INSUFFICIENT_EVIDENCE`. It has zero production hard-pruning authority until multiple fresh prospective targets confirm the retention/compression advantage.
+
+### Fixed-band research
+
+E0028 LDSAD `11..13` and exploratory SUMAD `8..9` / SPANAD `5..6` bands remain post-hoc frozen diagnostics. They may be scored prospectively but cannot drive promotion from retrospective strength.
 
 ## Stage 4 — Morphology
 
@@ -178,6 +231,7 @@ Purpose: evaluate completed legal lines using structural features such as:
 - parity/register;
 - sum/spread;
 - SLDV/terminal morphology;
+- transition-pattern residuals declared in E0029;
 - other preregistered line-shape features.
 
 Common morphology is not itself predictive evidence. Every morphology rule must be compared with its combinatorial base rate and matched controls.
@@ -197,7 +251,8 @@ Evaluate:
 - Top-N survival;
 - paired delta vs random/simple/incumbent rankers;
 - stage-isolated attribution;
-- catastrophic burial rate.
+- catastrophic burial rate;
+- gate survival versus line-retention fraction where a triage layer is used.
 
 For discrete coalition scores with ties, use average midrank or another explicitly justified tie-aware rule. Do not give every tied winner the best rank in its tie block. E0022 showed that optimistic tie treatment materially inflated historical XTRA raw-pair oracle results.
 
@@ -209,7 +264,7 @@ Purpose: select a fixed paper-trading line budget while controlling concentratio
 
 Johnson covering/maximum-coverage methods belong here or in assembly only after candidates are frozen. They have zero candidate-discovery authority.
 
-Historical `three_plus_first` Johnson covering remains available for audit/backward compatibility. E0022 adds an optional `four_plus_first` objective for the director's high-order match goal. At K13 and a fixed 20-line budget, this raises exact 4+/5 winner-state coverage from 757/1287 (58.82%) to 788/1287 (61.23%) while exact 5/5 state coverage remains 20/1287 for either distinct-line portfolio.
+Historical `three_plus_first` Johnson covering remains available for audit/backward compatibility. E0022 adds optional `four_plus_first` for the director's high-order match goal. At K13 and a fixed 20-line budget, this raises exact 4+/5 winner-state coverage from 757/1287 (58.82%) to 788/1287 (61.23%) while exact 5/5 state coverage remains 20/1287 for either distinct-line portfolio.
 
 This is deterministic portfolio geometry, not predictive information. Exact 5/5 probability can improve only if an independently validated ranking/posterior assigns non-uniform probability to the 1,287 winner states.
 
@@ -254,7 +309,7 @@ Before expert convergence increases confidence:
 3. examine residual dependence;
 4. measure incremental proper-score or stage-isolated value.
 
-Functionally derived views count as one information family.
+Functionally derived views count as one information family. E0029 Pattern-OR is explicitly a robustness meta-operator and may not be interpreted as independent-probability multiplication.
 
 ---
 
@@ -270,7 +325,7 @@ But:
 - strong hierarchical shrinkage is mandatory at current sample sizes;
 - physical mechanism claims require more than sorted-number behavior.
 
-E0016 nonequilibrium current is a statistical chronology operator, not evidence of literal particle flow. Levy remains diagnostic only. Richardson pair-separation estimators may remain shadow, but historical geometric-mean message passing is heuristic rather than exact joint inference.
+E0016 nonequilibrium current is a statistical chronology operator, not evidence of literal particle flow. Levy remains diagnostic only. E0027 further rejects current Main Brownian/acceleration/pair-collision predictive formulations; only gap-pressure regularization remains a diagnostic research note.
 
 ---
 
@@ -285,8 +340,10 @@ Freeze:
 3. expert formulas and authority;
 4. full probability fields where available;
 5. K baskets and exact exposure;
-6. coalition/ranking outputs;
-7. final paper-trading slate.
+6. all 1,287 K13 lines when K13 is used;
+7. Pattern Constraint Triage shadow outputs when E0029 is active;
+8. coalition/ranking outputs;
+9. final paper-trading slate.
 
 ## Post-draw
 
@@ -297,9 +354,10 @@ After result verification:
 3. trace each winner through the pipeline;
 4. identify first failure stage;
 5. separate exact-slot from anywhere-coordinate credit;
-6. update claim/failure registries;
-7. apply only preregistered next-target learning rules;
-8. never regenerate old predictions.
+6. if K13 contains all five winners, score E0029 gate survival and exact winner rank;
+7. update claim/failure registries;
+8. apply only preregistered next-target learning rules;
+9. never regenerate old predictions.
 
 ---
 
@@ -321,7 +379,7 @@ Failure:
 - 14/16 useful coordinate evidence was partly lost by strict slot provenance;
 - candidate acquisition/compression remained the first binding failure.
 
-Operational consequence for 2026-09-04 is encoded in `cycles/2026-09-04/pre_draw/expert_credit_policy.json`: bounded reward, no retuning or one-draw promotion.
+Operational consequence for 2026-09-04 is encoded in the frozen cycle artifacts. E0026 and E0029 may create new **shadow** counterfactuals before the draw, but discovery evidence alone does not retroactively rewrite earlier frozen artifacts.
 
 ---
 
@@ -344,13 +402,15 @@ Current predictive state remains dominated by `INSUFFICIENT_EVIDENCE` and shadow
 
 See `knowledge/open_questions.md`. Highest-value active directions are:
 
-1. E0021 corrected signed-displacement legal-line acquisition;
-2. fixed-K adjacent-slot/anywhere-coordinate preservation;
-3. E0011 redundancy audit;
-4. E0013 marginal-conditioned/shrunk coalition challenger plus E0022 prospective anti-burial shadow;
-5. E0022 four-plus-first Johnson geometry for fixed-budget high-order coverage;
-6. machine/ball-set non-exchangeability when metadata permit;
-7. strongly shrunk PB championship;
-8. calibrated full-support modelling to reduce catastrophic exclusions.
+1. E0026 scenario-constrained slot-routed K13 acquisition;
+2. E0021 corrected signed-displacement legal-line acquisition and proper-score repair;
+3. E0029 prospective Pattern-OR triage plus E0013 spectral-rescue cascade after frozen K13;
+4. E0028 LDSAD and related whole-line delta patterns as frozen prospective diagnostics only;
+5. E0011 redundancy audit;
+6. E0013 marginal-conditioned/shrunk coalition challenger;
+7. E0022 four-plus-first Johnson geometry for fixed-budget high-order coverage;
+8. machine/ball-set non-exchangeability when metadata permit;
+9. strongly shrunk PB championship;
+10. calibrated full-support modelling to reduce catastrophic exclusions.
 
 Avoid reopening deprecated strategies without materially new information. Use `governance/methodology_deprecations.md` as the forward-use map.
