@@ -1,0 +1,65 @@
+{
+  "experiment_id": "E0026",
+  "run_date": "2026-09-04",
+  "label": "locked_walk_forward_replay",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "warning": "Historical outcomes already exist; this is a blind-style rolling-cutoff replay, not genuine prospective evidence. Each target was fit using prior rows only. Hyperparameter/model selection credit is therefore discovery-level only.",
+  "data_boundary": "Main Mechanical-Era only, 2026-06-02 onward",
+  "method": {
+    "direction": "E0005 BARP exactly as preregistered",
+    "signed_magnitude": "E0025 corrected nonlinear signed-transition basis: sign(delta) and sign(delta)*log1p(abs(delta)), fitted per slot using prior transitions only with exploratory s_prior=3 penalty",
+    "dependency_handling": "BARP supplies direction mass; nonlinear signed model supplies within-direction conditional coordinate shape. They are recombined as one transition family, not multiplied as independent experts.",
+    "joint_field": "uniform exact legal 5-of-50 line null tilted by per-slot residual ratios, normalized over all 2,118,760 legal sorted lines",
+    "candidate_representation": "retain U1..U5 slot provenance plus global inclusion marginal",
+    "base_K13": "top 13 global inclusion marginals from the same coherent line field",
+    "challenger_K13": "fixed K=13 local/multi-start maximization of complete-line mass M(K); no K expansion",
+    "assembly": "not part of this replay; acquisition stage only"
+  },
+  "recent_targets": [
+    {"date":"2026-07-24","marginal_hits":1,"e0026_M_hits":1},
+    {"date":"2026-07-28","marginal_hits":2,"e0026_M_hits":2},
+    {"date":"2026-07-31","marginal_hits":2,"e0026_M_hits":2},
+    {"date":"2026-08-04","marginal_hits":1,"e0026_M_hits":1},
+    {"date":"2026-08-07","marginal_hits":0,"e0026_M_hits":2},
+    {"date":"2026-08-11","marginal_hits":2,"e0026_M_hits":2},
+    {"date":"2026-08-14","marginal_hits":1,"e0026_M_hits":1},
+    {"date":"2026-08-18","marginal_hits":1,"e0026_M_hits":1},
+    {"date":"2026-08-21","marginal_hits":3,"e0026_M_hits":3},
+    {"date":"2026-08-25","marginal_hits":1,"e0026_M_hits":1},
+    {"date":"2026-08-28","marginal_hits":1,"e0026_M_hits":1},
+    {"date":"2026-09-01","marginal_hits":0,"e0026_M_hits":1}
+  ],
+  "development_partition": {
+    "targets": 6,
+    "dates": "2026-07-24 through 2026-08-11",
+    "marginal_total_hits": 8,
+    "e0026_M_total_hits": 10,
+    "e0026_M_mean_hits": 1.6666666667
+  },
+  "locked_holdout_partition": {
+    "targets": 6,
+    "dates": "2026-08-14 through 2026-09-01",
+    "marginal_total_hits": 7,
+    "e0026_M_total_hits": 8,
+    "e0026_M_mean_hits": 1.3333333333,
+    "random_expected_total_hits": 7.8
+  },
+  "combined_recent_window": {
+    "targets": 12,
+    "marginal_total_hits": 15,
+    "marginal_mean_hits": 1.25,
+    "e0026_M_total_hits": 18,
+    "e0026_M_mean_hits": 1.5,
+    "random_expected_total_hits": 15.6,
+    "null_tail_p_total_hits_ge_18": 0.2752397612,
+    "e0026_targets_3plus": 1,
+    "e0026_targets_4plus": 0,
+    "e0026_targets_5of5": 0,
+    "mean_exact_line_logloss_delta_model_minus_uniform": 0.4169427220,
+    "development_mean_logloss_delta": 0.5098198049,
+    "holdout_mean_logloss_delta": 0.3240656392,
+    "proper_score_interpretation": "positive log-loss deltas are worse than uniform; the probability field fails the promotion gate despite modest K13 hit lift"
+  },
+  "decision": "Authorize one zero-weight prospective Friday E0026 comparison slate. Do not supersede v35.2. Score acquisition first tomorrow. No predictive promotion."
+}
