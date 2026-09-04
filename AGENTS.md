@@ -27,9 +27,10 @@ Read in this order before substantive prediction/research work:
 8. `core/expert_registry.yaml`
 9. `knowledge/open_questions.md`
 10. `experiments/registry.csv`
-11. latest relevant session handoff, currently `knowledge/SESSION_HANDOFF_MAIN_HEPS_2026-09-02.md`
-12. for coalition/portfolio work, `knowledge/ASSEMBLY_EVOLUTION_HANDOFF_2026-09-02.md` and `experiments/E0022/`
-13. only the experiment/cycle/review files directly relevant to the task.
+11. latest relevant prediction/research handoff, currently `knowledge/HEPS_V35_3_CROSS_SESSION_PREDICTION_HANDOFF_2026-09-04.md`
+12. for pattern-triage work, `knowledge/PATTERN_CONSTRAINT_K13_HANDOFF_2026-09-04.md`, `experiments/E0028/`, and `experiments/E0029/`
+13. for coalition/portfolio work, `knowledge/ASSEMBLY_EVOLUTION_HANDOFF_2026-09-02.md` and `experiments/E0022/`
+14. only the experiment/cycle/review files directly relevant to the task.
 
 Use `data/draw_history.jsonl` as the canonical Main ledger.
 
@@ -142,7 +143,8 @@ HEPS remains staged:
 
 1. **Slot Forecast**
 2. **Candidate Funnel**
-3. **Coalition Assembly**
+3. **Coalition Assembly / Frozen-K Enumeration**
+3.5. **Candidate-Frozen Pattern Constraint Triage**
 4. **Morphology**
 5. **Winner-Float Ranking**
 6. **Portfolio Optimization**
@@ -152,7 +154,7 @@ An expert's forecast and authority are separate. External operators should be te
 
 Johnson covering is assembly/portfolio geometry only. It has zero candidate-discovery authority.
 
-For K13 assembly, enumerate all `C(13,5)=1,287` legal lines before ranking. Do not hard-prune the winning line through morphology or generation shortcuts. For discrete coalition scores with ties, use average midrank or an explicitly justified tie-aware rule; E0022 showed best-in-tie scoring can materially inflate apparent lift.
+For K13 assembly, enumerate all `C(13,5)=1,287` legal lines before ranking. E0029 may shadow-triage those already-enumerated lines only after K13 is frozen. Do not hard-prune with E0029 in production until prospective authority is earned. For discrete coalition scores with ties, use average midrank or an explicitly justified tie-aware rule; E0022 showed best-in-tie scoring can materially inflate apparent lift.
 
 ## 9. Main candidate-acquisition priority
 
@@ -167,6 +169,8 @@ A candidate model should be evaluated in this order:
 5. downstream assembly/ranking only after acquisition is scored.
 
 Do not promote an optimized basket if its underlying probability field is worse than flat/structural control.
+
+Pattern-recognition constraints from E0028/E0029 normally act **after candidate freeze** and do not silently alter K13 membership.
 
 ## 10. Current lessons from 2026-09-01 Main draw
 
@@ -245,6 +249,7 @@ Key distinctions:
 - `MAIN_VVD_DELTA` = absolute magnitude view of the same transition.
 - `MAIN_SIGNED_SLOT_TRANSITION` = canonical signed displacement representation for new research.
 - `MAIN_GAP_VECTOR` = six-component sorted-line gap composition.
+- `LAST_DIGIT_SUM_ABS_DELTA (LDSAD)` = absolute draw-to-draw change in the sum of the five main-number terminal digits; despite the director shorthand "Last Digit Absolute Variance", it is not statistical variance.
 - structural-null identifiers are controls, not learned experts.
 - legacy VVD-volume / whole-field high-low / ink-mass concepts remain rejected historical identifiers.
 
@@ -261,7 +266,7 @@ python scripts/simulate_null_model.py --trials 100000 --seed 20260704
 
 For relevant slot/null research also run `scripts/structural_null.py` for the previous draw and declared basket sizes.
 
-For E0022 assembly work run `python -m unittest discover -s tests -v` and reproduce `scripts/oracle_k13_assembly_evolution.py` before making new lift claims.
+For E0022/E0029 assembly work run `python -m unittest discover -s tests -v` and reproduce the applicable `scripts/oracle_k13_assembly_evolution.py` / `scripts/pattern_constraint_k13_championship.py` results before making new lift claims.
 
 Main numbers are sorted order statistics, not physical extraction order.
 
