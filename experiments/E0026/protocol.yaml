@@ -1,0 +1,64 @@
+experiment_id: E0026
+title: Scenario-Constrained Slot-Routed K13 Acquisition
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+lane: Main
+stage:
+  - slot_forecast
+  - candidate_funnel
+  - methodology
+active_data_boundary:
+  start: 2026-06-02
+  allow_pre_june_2026: false
+fixed_exposure:
+  K: 13
+  k_expansion: forbidden
+core_objects:
+  candidate_slot_state: "coordinate n with explicit slot-provenance vector U_1..U_5"
+  scenario_weights: "pre-draw distribution over admissible HLR/signed-transition scenarios"
+  legal_line_field: "mixture over scenario-conditioned legal sorted 5-of-50 lines"
+mandatory_constraints:
+  - preserve candidate plus slot provenance
+  - never treat HLR modal scenario as certain
+  - enforce x1 < x2 < x3 < x4 < x5
+  - HLR/signed-displacement compatibility must be pre-draw
+  - adjacent-slot migration only when scenario-valid
+  - no unrestricted anywhere-coordinate promotion
+  - no K expansion
+  - no multiplication of HLR VVD terminal as independent evidence
+  - full-support proper score before K13 recall credit
+baselines:
+  - random_K13
+  - frequency_K13
+  - recency_K13
+  - marginal_top13_signed_transition
+  - E0021_complete_line_mass_K13
+  - unrestricted_anywhere_preservation_diagnostic
+challengers:
+  - E0026_slot_routed_scenario_K13
+  - E0026_robust_scenario_K13
+metrics:
+  - proper_log_score
+  - brier_score
+  - mean_winner_coordinates_in_K13
+  - retention_3plus
+  - retention_4plus
+  - containment_5of5
+  - worst_winner_rank
+  - catastrophic_exclusion_distance
+  - complete_line_mass_MK
+  - one_seat_swap_regret
+  - slot_provenance_attribution
+promotion_gate:
+  - prospective proper-score noninferiority or improvement versus structural/simple controls
+  - matched-K13 retention improvement
+  - reduction in catastrophic exclusions
+  - multiple prospective targets
+  - independent reproduction
+forbidden:
+  - target-conditioned HLR scenario selection
+  - outcome-aware slot migration
+  - hard pruning from a single uncertain HLR vector
+  - retrospective rescue credit
+  - union basket expansion
