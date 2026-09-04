@@ -1,8 +1,12 @@
 {
   "target_draw_date": "2026-09-04",
-  "active_prediction": "cycles/2026-09-04/pre_draw/main_prediction_v35_2.json",
+  "active_prediction": "cycles/2026-09-04/pre_draw/main_prediction_v35_3.json",
   "superseded_pre_draw": [
-    "cycles/2026-09-04/pre_draw/main_prediction_v35.json"
+    "cycles/2026-09-04/pre_draw/main_prediction_v35.json",
+    "cycles/2026-09-04/pre_draw/main_prediction_v35_2.json"
+  ],
+  "invalidated_diagnostic_artifacts": [
+    "cycles/2026-09-04/pre_draw/e0026_slot_routed_comparison_slate.json"
   ],
   "policy": "governance/pre_draw_supersession_policy.md",
   "rule": "Newest explicitly designated pre-result version is official. Preserve all earlier versions for audit. No new version after result knowledge."
