@@ -1,0 +1,89 @@
+experiment_id: E0028
+title: Last-Digit Sum Absolute-Delta Constraint Championship
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+lanes:
+  main: independent
+  xtra: independent_method_transfer_only
+stage:
+  - pattern_constraint_elimination
+  - morphology
+  - methodology
+active_data_boundary:
+  start: 2026-06-02
+  allow_pre_june_2026: false
+canonical_statistic:
+  name: LAST_DIGIT_SUM_ABS_DELTA
+  alias: Last Digit Absolute Variance
+  formula_sld: "SLD_t = sum(number mod 10 for five main numbers)"
+  formula_delta: "LDSAD_t = abs(SLD_t - SLD_(t-1))"
+main_discovery_freeze:
+  cutoff: 2026-09-01
+  draws: 27
+  transitions: 26
+  primary_band: [11, 12, 13]
+  primary_band_observed_count: 11
+  primary_band_observed_rate: 0.4230769231
+  exact_iid_null_rate: 0.1093753578
+  observed_null_lift: 3.8674
+  secondary_bands:
+    - band: [10, 11, 12, 13]
+      observed_count: 13
+      observed_rate: 0.5
+      exact_iid_null_rate: 0.1575316022
+    - band: [9, 10, 11, 12, 13]
+      observed_count: 15
+      observed_rate: 0.5769230769
+      exact_iid_null_rate: 0.2118593810
+multiplicity:
+  discovery_band_selected_post_hoc: true
+  nominal_fixed_band_significance_not_confirmation: true
+  neighboring_band_search_exposure_mandatory: true
+  broad_pattern_search_exposure_mandatory: true
+constraint_order:
+  - exact_legal_line_geometry
+  - HLR_or_signed_transition_scenario_constraint
+  - E0026_slot_routing
+  - LDSAD_shadow_constraint
+  - downstream_soft_ranking
+main_next_state_reference:
+  prior_draw_date: 2026-09-01
+  prior_sld: 15
+  primary_band_next_sld_values: [2, 3, 4, 26, 27, 28]
+challengers:
+  - no_LDSAD_constraint
+  - LDSAD_primary_11_13
+  - LDSAD_secondary_10_13
+  - LDSAD_secondary_9_13
+metrics:
+  - legal_lines_before
+  - legal_lines_after
+  - compression_fraction
+  - incremental_compression_after_HLR_E0026
+  - winning_line_survival
+  - winner_retention_rate
+  - catastrophic_winner_loss
+  - candidate_coordinate_survival
+  - retention_3plus
+  - retention_4plus
+  - containment_5of5
+  - matched_random_band_control
+  - exact_structural_null_expected_retention
+promotion_gate:
+  - multiple genuinely prospective targets
+  - high winner retention preferably 0.90_or_higher before hard-pruning consideration
+  - material incremental compression after HLR_E0026
+  - survival advantage versus matched null/random bands
+  - multiplicity-aware evidence
+  - independent reproduction
+forbidden:
+  - retroactively selecting a different band after each outcome
+  - applying Main 11_13 fitted band to XTRA as authority
+  - hard-eliminating lines before prospective evidence
+  - changing K to claim benefit
+  - counting terminal-derived evidence as independent from another terminal statistic without redundancy audit
+xtra_method_transfer:
+  allowed: true
+  fitted_band_transfer: false
+  requirement: "derive and freeze an XTRA-specific LDSAD distribution and band from XTRA Mechanical-Era history only"
