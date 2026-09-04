@@ -1,0 +1,39 @@
+{
+  "experiment_id": "E0028",
+  "analysis_date": "2026-09-04",
+  "lane": "Main",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "canonical_cutoff": "2026-09-01",
+  "draws": 27,
+  "transitions": 26,
+  "sld_sequence": [21,21,32,22,14,27,16,25,13,26,31,10,19,25,13,25,25,19,31,20,21,31,20,24,26,27,15],
+  "ldsad_sequence": [0,11,10,8,13,11,9,12,13,5,21,9,6,12,12,0,6,12,11,1,10,11,4,2,1,12],
+  "observed_frequency_descending_delta": [
+    {"delta":21,"count":1,"observed_rate":0.0384615385,"exact_iid_null_rate":0.0049370145},
+    {"delta":13,"count":2,"observed_rate":0.0769230769,"exact_iid_null_rate":0.0309194501},
+    {"delta":12,"count":5,"observed_rate":0.1923076923,"exact_iid_null_rate":0.0363381176},
+    {"delta":11,"count":4,"observed_rate":0.1538461538,"exact_iid_null_rate":0.0421177901},
+    {"delta":10,"count":2,"observed_rate":0.0769230769,"exact_iid_null_rate":0.0481562445},
+    {"delta":9,"count":2,"observed_rate":0.0769230769,"exact_iid_null_rate":0.0543277788},
+    {"delta":8,"count":1,"observed_rate":0.0384615385,"exact_iid_null_rate":0.0604867113},
+    {"delta":6,"count":2,"observed_rate":0.0769230769,"exact_iid_null_rate":0.0721161550},
+    {"delta":5,"count":1,"observed_rate":0.0384615385,"exact_iid_null_rate":0.0772480332},
+    {"delta":4,"count":1,"observed_rate":0.0384615385,"exact_iid_null_rate":0.0817057801},
+    {"delta":2,"count":1,"observed_rate":0.0384615385,"exact_iid_null_rate":0.0880348950},
+    {"delta":1,"count":2,"observed_rate":0.0769230769,"exact_iid_null_rate":0.0896892338},
+    {"delta":0,"count":2,"observed_rate":0.0769230769,"exact_iid_null_rate":0.0451236531}
+  ],
+  "frozen_bands": {
+    "primary_11_13": {"count":11,"observed_rate":0.4230769231,"exact_iid_null_rate":0.1093753578,"lift":3.8674},
+    "secondary_10_13": {"count":13,"observed_rate":0.5,"exact_iid_null_rate":0.1575316022,"lift":3.1730},
+    "secondary_9_13": {"count":15,"observed_rate":0.5769230769,"exact_iid_null_rate":0.2118593810,"lift":2.7222}
+  },
+  "multiplicity_note": "Bands were identified after inspecting historical transitions. Nominal fixed-band surprise is not confirmation. Neighboring-band and broader pattern-search exposure must be accounted for prospectively.",
+  "next_main_reference": {
+    "prior_draw_date": "2026-09-01",
+    "prior_sld": 15,
+    "primary_band_next_sld_targets": [2,3,4,26,27,28]
+  },
+  "authority": "shadow_constraint_only_no_hard_pruning"
+}
