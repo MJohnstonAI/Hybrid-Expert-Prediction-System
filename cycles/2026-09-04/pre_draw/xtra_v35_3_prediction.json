@@ -1,0 +1,1072 @@
+{
+  "architecture": "HEPS v35.3 methodology transfer; XTRA fitted independently",
+  "artifact": "HEPS_XTRA_V35_3_PRE_DRAW_2026_09_04",
+  "assembly": {
+    "enumerated_lines": 1287,
+    "predictive_xtra_coalition_ranker": "none promoted",
+    "ranking": "XTRA adaptive Pattern-OR shadow; average-midrank ties; no Main spectral state",
+    "xtra_spectral_transfer": "forbidden / E0014 rejected Main E0013 reproduction in XTRA"
+  },
+  "candidate_acquisition": {
+    "K": 13,
+    "bounded_reserve_diagnostic_only": [
+      17,
+      16,
+      15,
+      14,
+      13
+    ],
+    "evidence": "INSUFFICIENT_EVIDENCE",
+    "k13": [
+      1,
+      2,
+      3,
+      5,
+      31,
+      32,
+      33,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "method": "XTRA E0018 full-support HLR mixture; Richardson has zero candidate authority after negative first prospective target",
+    "reserve_does_not_expand_primary_K": true,
+    "slot_provenance": [
+      {
+        "global_inclusion": 0.11646995030152062,
+        "number": 1,
+        "primary_slot": "S1",
+        "secondary_slot": null,
+        "slot_vector": {
+          "S1": 0.11646995030152062,
+          "S2": 0.0,
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0
+        }
+      },
+      {
+        "global_inclusion": 0.11646995030151563,
+        "number": 2,
+        "primary_slot": "S1",
+        "secondary_slot": "S2",
+        "slot_vector": {
+          "S1": 0.10681632562908655,
+          "S2": 0.009653624672429091,
+          "S3": 0.0,
+          "S4": 0.0,
+          "S5": 0.0
+        }
+      },
+      {
+        "global_inclusion": 0.11646995030150147,
+        "number": 3,
+        "primary_slot": "S1",
+        "secondary_slot": "S2",
+        "slot_vector": {
+          "S1": 0.09777602602751927,
+          "S2": 0.018080599203113577,
+          "S3": 0.0006133250708686181,
+          "S4": 0.0,
+          "S5": 0.0
+        }
+      },
+      {
+        "global_inclusion": 0.10023070203242662,
+        "number": 5,
+        "primary_slot": "S1",
+        "secondary_slot": "S2",
+        "slot_vector": {
+          "S1": 0.06753483684869378,
+          "S2": 0.029229313487912904,
+          "S3": 0.0033607694297594815,
+          "S4": 0.0001051708669701459,
+          "S5": 6.113990903116638e-07
+        }
+      },
+      {
+        "global_inclusion": 0.10433634738344696,
+        "number": 31,
+        "primary_slot": "S3",
+        "secondary_slot": "S4",
+        "slot_vector": {
+          "S1": 0.001754519896361787,
+          "S2": 0.013423015466752834,
+          "S3": 0.0386321547915789,
+          "S4": 0.035972432446272254,
+          "S5": 0.014554224782481187
+        }
+      },
+      {
+        "global_inclusion": 0.10094581939643582,
+        "number": 32,
+        "primary_slot": "S4",
+        "secondary_slot": "S3",
+        "slot_vector": {
+          "S1": 0.0013833915163370125,
+          "S2": 0.011677408697010366,
+          "S3": 0.033209779558366806,
+          "S4": 0.038005509612559,
+          "S5": 0.01666973001216263
+        }
+      },
+      {
+        "global_inclusion": 0.10094581939643595,
+        "number": 33,
+        "primary_slot": "S4",
+        "secondary_slot": "S3",
+        "slot_vector": {
+          "S1": 0.0010739081441641714,
+          "S2": 0.010047256111485561,
+          "S3": 0.03140372146874941,
+          "S4": 0.03937647975691842,
+          "S5": 0.019044453915118376
+        }
+      },
+      {
+        "global_inclusion": 0.1038215040865424,
+        "number": 35,
+        "primary_slot": "S4",
+        "secondary_slot": "S3",
+        "slot_vector": {
+          "S1": 0.0006143413672320559,
+          "S2": 0.007087491988608126,
+          "S3": 0.02777581844067388,
+          "S4": 0.04427126434512903,
+          "S5": 0.024072587944899308
+        }
+      },
+      {
+        "global_inclusion": 0.10382150408653364,
+        "number": 36,
+        "primary_slot": "S4",
+        "secondary_slot": "S5",
+        "slot_vector": {
+          "S1": 0.00045024552970001285,
+          "S2": 0.005819594420676598,
+          "S3": 0.025337920782575712,
+          "S4": 0.044736768267728225,
+          "S5": 0.027476975085853093
+        }
+      },
+      {
+        "global_inclusion": 0.10382150408652782,
+        "number": 37,
+        "primary_slot": "S4",
+        "secondary_slot": "S5",
+        "slot_vector": {
+          "S1": 0.0003215336208217775,
+          "S2": 0.004693429198774408,
+          "S3": 0.022832785263934452,
+          "S4": 0.044770015158713414,
+          "S5": 0.03120374084428377
+        }
+      },
+      {
+        "global_inclusion": 0.10382150408652124,
+        "number": 38,
+        "primary_slot": "S4",
+        "secondary_slot": "S5",
+        "slot_vector": {
+          "S1": 0.00022260019903045847,
+          "S2": 0.003706501786031504,
+          "S3": 0.020301528144760137,
+          "S4": 0.044318677874936825,
+          "S5": 0.035272196081762325
+        }
+      },
+      {
+        "global_inclusion": 0.10382150408651622,
+        "number": 39,
+        "primary_slot": "S4",
+        "secondary_slot": "S5",
+        "slot_vector": {
+          "S1": 0.00014840013268697233,
+          "S2": 0.0028540764058669157,
+          "S3": 0.01778862754463002,
+          "S4": 0.043328188033546926,
+          "S5": 0.03970221196978539
+        }
+      },
+      {
+        "global_inclusion": 0.1029604421733059,
+        "number": 40,
+        "primary_slot": "S5",
+        "secondary_slot": "S4",
+        "slot_vector": {
+          "S1": 9.443644807352785e-05,
+          "S2": 0.002129655616152806,
+          "S3": 0.01533271610175078,
+          "S4": 0.04185483880190439,
+          "S5": 0.0435487952054244
+        }
+      }
+    ]
+  },
+  "comparison_previous_xtra_slate": {
+    "new_union": [
+      1,
+      2,
+      3,
+      5,
+      31,
+      32,
+      33,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "previous_slate_count": 10,
+    "previous_target": "2026-09-01",
+    "previous_union": [
+      1,
+      4,
+      5,
+      6,
+      10,
+      11,
+      12,
+      14,
+      15,
+      22,
+      23,
+      24,
+      33,
+      34,
+      36,
+      37,
+      38,
+      40,
+      48,
+      49,
+      50
+    ],
+    "reason": "new target state, three newly canonical-operational rows through 2026-09-01, and v35.3 candidate-frozen adaptive pattern methodology",
+    "recommendation": "SUPERSEDE for 2026-09-04 target; preserve old slate as immutable 2026-09-01 historical artifact",
+    "union_overlap": [
+      1,
+      5,
+      33,
+      36,
+      37,
+      38,
+      40
+    ]
+  },
+  "data": {
+    "active_start": "2026-06-02",
+    "cutoff": "2026-09-01",
+    "draw_count": 27,
+    "latest_main": [
+      4,
+      18,
+      31,
+      34,
+      40
+    ],
+    "latest_powerball": 10,
+    "operational_state_complete_through_cutoff": true,
+    "pending_official_source_verification_dates": [
+      "2026-08-21",
+      "2026-08-25",
+      "2026-08-28",
+      "2026-09-01"
+    ]
+  },
+  "evidence_map": {
+    "E0015_XTRA_PB": "PROVISIONAL_SIGNAL / shadow; recent prospective proper-score evidence negative",
+    "E0016_Richardson": "PROVISIONAL_SIGNAL / shadow / zero candidate authority; first E0018 target harmful at K20",
+    "E0018_XTRA_full_mixture": "INSUFFICIENT_EVIDENCE / prospective shadow; first target negative",
+    "E0022_four_plus_first": "accepted deterministic portfolio geometry / not prediction",
+    "XTRA_adaptive_Pattern_OR": "INSUFFICIENT_EVIDENCE / new prospective shadow",
+    "XTRA_coalition_ranker": "INSUFFICIENT_EVIDENCE / no promoted predictive assembler",
+    "XTRA_fixed_LDSAD_SUMAD_SPANAD_bands": "POST-HOC DISCOVERY / INSUFFICIENT_EVIDENCE / zero hard-pruning authority"
+  },
+  "hlr_signed_transition": {
+    "current_hlr_state": [
+      "H",
+      "H",
+      "H",
+      "L",
+      "H"
+    ],
+    "evidence": "INSUFFICIENT_EVIDENCE / E0018 shadow",
+    "note": "HLR is the sign view of the XTRA signed transition family; VVD/terminal are not multiplied as independent evidence.",
+    "slot_models": [
+      {
+        "conditioning_state": "H",
+        "current_coordinate": 4,
+        "matching_transition_count": 13,
+        "posterior_hlr": {
+          "H": 0.4674612062070069,
+          "L": 0.5082169709989258,
+          "R": 0.024321822794067235
+        },
+        "slot": 1,
+        "structural_hlr": {
+          "H": 0.6469604863221884,
+          "L": 0.27602040816326534,
+          "R": 0.07701910551454624
+        },
+        "successor_counts": {
+          "H": 5,
+          "L": 8,
+          "R": 0
+        }
+      },
+      {
+        "conditioning_state": "H",
+        "current_coordinate": 18,
+        "matching_transition_count": 13,
+        "posterior_hlr": {
+          "H": 0.38964538344672306,
+          "L": 0.597787186348321,
+          "R": 0.012567430204956027
+        },
+        "slot": 2,
+        "structural_hlr": {
+          "H": 0.4005437142479564,
+          "L": 0.5596594234363496,
+          "R": 0.039796862315694084
+        },
+        "successor_counts": {
+          "H": 5,
+          "L": 8,
+          "R": 0
+        }
+      },
+      {
+        "conditioning_state": "H",
+        "current_coordinate": 31,
+        "matching_transition_count": 12,
+        "posterior_hlr": {
+          "H": 0.31384326471877677,
+          "L": 0.6188985800919196,
+          "R": 0.0672581551893036
+        },
+        "slot": 3,
+        "structural_hlr": {
+          "H": 0.27486312748966374,
+          "L": 0.6900290736090922,
+          "R": 0.035107798901244124
+        },
+        "successor_counts": {
+          "H": 4,
+          "L": 7,
+          "R": 1
+        }
+      },
+      {
+        "conditioning_state": "L",
+        "current_coordinate": 34,
+        "matching_transition_count": 12,
+        "posterior_hlr": {
+          "H": 0.6172637664378117,
+          "L": 0.3690024144101057,
+          "R": 0.013733819152082665
+        },
+        "slot": 4,
+        "structural_hlr": {
+          "H": 0.5184579659801016,
+          "L": 0.44034057656365044,
+          "R": 0.041201457456247995
+        },
+        "successor_counts": {
+          "H": 8,
+          "L": 4,
+          "R": 0
+        }
+      },
+      {
+        "conditioning_state": "H",
+        "current_coordinate": 40,
+        "matching_transition_count": 13,
+        "posterior_hlr": {
+          "H": 0.42824333199855724,
+          "L": 0.5068660318696834,
+          "R": 0.06489063613175929
+        },
+        "slot": 5,
+        "structural_hlr": {
+          "H": 0.6894372179954313,
+          "L": 0.2717424342539976,
+          "R": 0.03882034775057109
+        },
+        "successor_counts": {
+          "H": 4,
+          "L": 8,
+          "R": 1
+        }
+      }
+    ],
+    "top_joint_scenarios": [
+      {
+        "pattern": "HHHHH",
+        "probability": 0.1505505855160537
+      },
+      {
+        "pattern": "LLLLL",
+        "probability": 0.09753343988001692
+      },
+      {
+        "pattern": "HLLLL",
+        "probability": 0.08982978624441364
+      },
+      {
+        "pattern": "HLLHH",
+        "probability": 0.05959430887785765
+      },
+      {
+        "pattern": "HLLLH",
+        "probability": 0.058673728688343585
+      },
+      {
+        "pattern": "LLLLH",
+        "probability": 0.057412000739880426
+      },
+      {
+        "pattern": "HHLHH",
+        "probability": 0.051471500191614776
+      },
+      {
+        "pattern": "LLLHH",
+        "probability": 0.049800563447451006
+      },
+      {
+        "pattern": "HHLLL",
+        "probability": 0.0318126381240033
+      },
+      {
+        "pattern": "HLHHH",
+        "probability": 0.030556365774682483
+      },
+      {
+        "pattern": "HHLLH",
+        "probability": 0.02798854190729372
+      },
+      {
+        "pattern": "LHHHH",
+        "probability": 0.02416363630563347
+      },
+      {
+        "pattern": "LLHHH",
+        "probability": 0.02125531969113923
+      },
+      {
+        "pattern": "RLLLL",
+        "probability": 0.017295257344245283
+      },
+      {
+        "pattern": "HHRHH",
+        "probability": 0.012253905020550024
+      },
+      {
+        "pattern": "LHLHH",
+        "probability": 0.010741230154372094
+      },
+      {
+        "pattern": "RLLLH",
+        "probability": 0.010536247663969578
+      },
+      {
+        "pattern": "RLLHH",
+        "probability": 0.009595428080248327
+      },
+      {
+        "pattern": "HLLLR",
+        "probability": 0.007152025155332683
+      },
+      {
+        "pattern": "HLLHL",
+        "probability": 0.0070716939458092855
+      }
+    ]
+  },
+  "paper_trading_only": true,
+  "pattern_or": {
+    "eliminated_at_80pct_shadow_gate": 264,
+    "evidence": "INSUFFICIENT_EVIDENCE / first XTRA v35.3 shadow",
+    "formula": "max(midrank_pct(HLR), midrank_pct(LDSAD), midrank_pct(SUMAD), midrank_pct(SPANAD))",
+    "hard_pruning_authority": false,
+    "kappa": 20.0,
+    "lanes": [
+      "XTRA_HLR_residual",
+      "XTRA_LDSAD_adaptive",
+      "XTRA_SUMAD_adaptive",
+      "XTRA_SPANAD_adaptive"
+    ],
+    "posthoc_fixed_band_diagnostics": {
+      "LDSAD": {
+        "band": [
+          0,
+          1,
+          2
+        ],
+        "count": 8
+      },
+      "SPANAD": {
+        "band": [
+          1,
+          2
+        ],
+        "count": 9
+      },
+      "SUMAD": {
+        "band": [
+          23,
+          24
+        ],
+        "count": 3
+      },
+      "label": "POST-HOC DISCOVERY / INSUFFICIENT_EVIDENCE / not used as a fixed gate"
+    },
+    "retained_at_80pct_shadow_gate": 1023,
+    "retention_fraction": 0.7948717948717948
+  },
+  "portfolio": {
+    "budget": 10,
+    "evidence": "deterministic geometry + shadow ranking; no predictive breakthrough authority",
+    "exact_5of5_uniform_state_fraction": 0.00777000777000777,
+    "four_plus_winner_state_coverage_fraction": 0.29836829836829837,
+    "slate": [
+      {
+        "board": 1,
+        "main": [
+          1,
+          2,
+          3,
+          5,
+          40
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 1.0,
+        "powerball": 5
+      },
+      {
+        "board": 2,
+        "main": [
+          5,
+          36,
+          38,
+          39,
+          40
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9992223950233281,
+        "powerball": 5
+      },
+      {
+        "board": 3,
+        "main": [
+          2,
+          3,
+          5,
+          38,
+          39
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9968895800933126,
+        "powerball": 10
+      },
+      {
+        "board": 4,
+        "main": [
+          1,
+          2,
+          5,
+          39,
+          40
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9968895800933126,
+        "powerball": 5
+      },
+      {
+        "board": 5,
+        "main": [
+          31,
+          32,
+          33,
+          35,
+          36
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9968895800933126,
+        "powerball": 2
+      },
+      {
+        "board": 6,
+        "main": [
+          1,
+          2,
+          31,
+          32,
+          37
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9825038880248833,
+        "powerball": 5
+      },
+      {
+        "board": 7,
+        "main": [
+          1,
+          35,
+          37,
+          38,
+          40
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9825038880248833,
+        "powerball": 15
+      },
+      {
+        "board": 8,
+        "main": [
+          3,
+          32,
+          37,
+          39,
+          40
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.9825038880248833,
+        "powerball": 10
+      },
+      {
+        "board": 9,
+        "main": [
+          1,
+          3,
+          31,
+          35,
+          39
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.94751166407465,
+        "powerball": 6
+      },
+      {
+        "board": 10,
+        "main": [
+          3,
+          5,
+          31,
+          36,
+          37
+        ],
+        "pattern80_retained": true,
+        "pattern_or_pct": 0.94751166407465,
+        "powerball": 16
+      }
+    ],
+    "strategy": "top4 Pattern-OR seed + four-plus-first greedy coverage fill; Pattern-OR tie-break only"
+  },
+  "powerball": {
+    "component_exact_state": {
+      "1": 0.05581395348837209,
+      "10": 0.05581395348837209,
+      "11": 0.037209302325581395,
+      "12": 0.07441860465116279,
+      "13": 0.037209302325581395,
+      "14": 0.037209302325581395,
+      "15": 0.09302325581395349,
+      "16": 0.07441860465116279,
+      "2": 0.11162790697674418,
+      "3": 0.018604651162790697,
+      "4": 0.037209302325581395,
+      "5": 0.2558139534883721,
+      "6": 0.037209302325581395,
+      "7": 0.018604651162790697,
+      "8": 0.037209302325581395,
+      "9": 0.018604651162790697
+    },
+    "component_vvd_hlr": {
+      "1": 0.01687979539641944,
+      "10": 0.17289002557544755,
+      "11": 0.05626598465473146,
+      "12": 0.011253196930946294,
+      "13": 0.05626598465473146,
+      "14": 0.05626598465473146,
+      "15": 0.05626598465473146,
+      "16": 0.03375959079283888,
+      "2": 0.05063938618925831,
+      "3": 0.0843989769820972,
+      "4": 0.05063938618925831,
+      "5": 0.0843989769820972,
+      "6": 0.0843989769820972,
+      "7": 0.0843989769820972,
+      "8": 0.01687979539641944,
+      "9": 0.0843989769820972
+    },
+    "current_ball": 10,
+    "current_hlr": "L",
+    "current_vvd": 5,
+    "evidence": "PROVISIONAL_SIGNAL / shadow; recent prospective proper-score evidence negative",
+    "probabilities": {
+      "1": 0.03475673740358516,
+      "10": 0.11123472434319542,
+      "11": 0.05181228500701732,
+      "12": 0.03276896627999359,
+      "13": 0.05181228500701732,
+      "14": 0.05181228500701732,
+      "15": 0.08192241569998394,
+      "16": 0.05675751450846019,
+      "2": 0.0851362717626903,
+      "3": 0.04487075504419659,
+      "4": 0.04915344941999037,
+      "5": 0.16638521283680544,
+      "6": 0.06345683033742378,
+      "7": 0.04487075504419659,
+      "8": 0.028378757254230096,
+      "9": 0.04487075504419659
+    },
+    "ranking": [
+      5,
+      10,
+      2,
+      15,
+      6,
+      16,
+      11,
+      13,
+      14,
+      4,
+      3,
+      7,
+      9,
+      1,
+      12,
+      8
+    ]
+  },
+  "target": "2026-09-04",
+  "top20": [
+    {
+      "hlr_pct": 0.2006220839813375,
+      "ldsad_pct": 0.8157076205287714,
+      "line": [
+        1,
+        2,
+        3,
+        5,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 1.0,
+      "rank": 1,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 1.0
+    },
+    {
+      "hlr_pct": 0.05287713841368585,
+      "ldsad_pct": 0.48989113530326595,
+      "line": [
+        5,
+        36,
+        38,
+        39,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9992223950233281,
+      "rank": 2,
+      "spanad_pct": 0.5762052877138414,
+      "sumad_pct": 0.9992223950233281
+    },
+    {
+      "hlr_pct": 0.34097978227060655,
+      "ldsad_pct": 0.6446345256609642,
+      "line": [
+        2,
+        3,
+        5,
+        38,
+        39
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9968895800933126,
+      "rank": 3,
+      "spanad_pct": 0.5762052877138414,
+      "sumad_pct": 0.9968895800933126
+    },
+    {
+      "hlr_pct": 0.317651632970451,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        2,
+        5,
+        39,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9968895800933126,
+      "rank": 4,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9968895800933126
+    },
+    {
+      "hlr_pct": 0.317651632970451,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        3,
+        5,
+        38,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9968895800933126,
+      "rank": 5,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9968895800933126
+    },
+    {
+      "hlr_pct": 0.317651632970451,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        2,
+        3,
+        5,
+        37,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9968895800933126,
+      "rank": 6,
+      "spanad_pct": 0.8701399688958009,
+      "sumad_pct": 0.9968895800933126
+    },
+    {
+      "hlr_pct": 0.14852255054432348,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        31,
+        32,
+        33,
+        35,
+        36
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9968895800933126,
+      "rank": 7,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9968895800933126
+    },
+    {
+      "hlr_pct": 0.05287713841368585,
+      "ldsad_pct": 0.8650855365474339,
+      "line": [
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.994556765163297,
+      "rank": 8,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.994556765163297
+    },
+    {
+      "hlr_pct": 0.9047433903576982,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        2,
+        31,
+        32,
+        37
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 9,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.9047433903576982,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        2,
+        31,
+        33,
+        36
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 10,
+      "spanad_pct": 0.5762052877138414,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.9047433903576982,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        3,
+        31,
+        32,
+        36
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 11,
+      "spanad_pct": 0.5762052877138414,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.9047433903576982,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        3,
+        31,
+        33,
+        35
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 12,
+      "spanad_pct": 0.8701399688958009,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.9047433903576982,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        2,
+        3,
+        31,
+        32,
+        35
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 13,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.9047433903576982,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        2,
+        5,
+        31,
+        32,
+        33
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 14,
+      "spanad_pct": 0.4109642301710731,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.6539657853810265,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 15,
+      "spanad_pct": 0.8701399688958009,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.6539657853810265,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        2,
+        35,
+        37,
+        38,
+        39
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 16,
+      "spanad_pct": 0.5762052877138414,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.6539657853810265,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        3,
+        35,
+        36,
+        38,
+        39
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 17,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.42068429237947125,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        33,
+        38,
+        39,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 18,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.42068429237947125,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        35,
+        36,
+        39,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 19,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9825038880248833
+    },
+    {
+      "hlr_pct": 0.42068429237947125,
+      "ldsad_pct": 0.16329704510108864,
+      "line": [
+        1,
+        35,
+        37,
+        38,
+        40
+      ],
+      "pattern80_retained": true,
+      "pattern_or_pct": 0.9825038880248833,
+      "rank": 20,
+      "spanad_pct": 0.19362363919129083,
+      "sumad_pct": 0.9825038880248833
+    }
+  ]
+}
