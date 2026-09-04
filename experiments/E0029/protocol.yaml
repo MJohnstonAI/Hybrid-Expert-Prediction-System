@@ -1,0 +1,106 @@
+experiment_id: E0029
+title: K13 Pattern-Constraint Triage and Spectral-Rescue Championship
+status: proposed_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+lane: Main
+stage:
+  - coalition_assembly
+  - morphology
+  - winner_float_ranking
+
+active_data_boundary:
+  start: 2026-06-02
+  cutoff_for_discovery_replay: 2026-09-01
+  allow_pre_june_2026: false
+
+oracle_k13_replay:
+  min_prior_draws: 8
+  eligible_targets: 19
+  construction: five target winners plus eight random nonwinner decoys
+  candidate_count: 13
+  lines_per_universe: 1287
+  decoy_reps_per_target: 30
+  primary_seed: 20261201
+  independent_reproduction_seed: 20261231
+  rank_ties: average_midrank
+  warning: stage isolation only; oracle K13 gives zero candidate-acquisition credit
+
+adaptive_pattern_lanes:
+  HLR:
+    source: E0005 BARP
+    use: residual tilt q_state / exact structural HLR slot null
+    dependency_rule: HLR is the direction view of MAIN_SIGNED_SLOT_TRANSITION and receives one transition-family lane only
+  LDSAD:
+    definition: abs(sum(last_digits(next_line)) - sum(last_digits(previous_draw)))
+    shrinkage_kappa: 20
+    residualization: empirical target-excluded delta distribution shrunk toward exact 5/50 structural expectation
+  SUMAD:
+    definition: abs(sum(next_line) - sum(previous_draw))
+    shrinkage_kappa: 20
+    residualization: empirical target-excluded delta distribution shrunk toward exact 5/50 structural expectation
+  SPANAD:
+    definition: abs((S5-S1)_next - (S5-S1)_previous)
+    shrinkage_kappa: 20
+    residualization: empirical target-excluded delta distribution shrunk toward exact 5/50 structural expectation
+
+pattern_meta_operator:
+  name: MAIN_PATTERN_OR
+  formula: max(midrank_pct(HLR), midrank_pct(LDSAD), midrank_pct(SUMAD), midrank_pct(SPANAD))
+  interpretation: robustness/anti-burial meta-pattern; not independent probability multiplication
+
+primary_challenger:
+  name: MAIN_PATTERN80_SPECTRAL5_RESCUE
+  steps:
+    - enumerate all 1287 K13 lines
+    - retain lines with Pattern-OR percentile >= 0.20
+    - additionally retain lines with E0013 spectral percentile >= 0.95
+    - rank all retained lines by E0013 spectral percentile
+    - place excluded lines below retained lines for diagnostic full ranking
+  expected_line_retention: approximately 0.80
+  candidate_authority: zero
+  production_authority: zero
+
+baselines:
+  - random_line_rank_expected_percentile_0_5
+  - additive_frequency
+  - additive_recency
+  - E0013_spectral
+  - E0022_Dissent_OR
+  - Pattern_OR_without_spectral_cascade
+  - Pattern_MEAN_without_spectral_cascade
+
+posthoc_diagnostics_only:
+  fixed_LDSAD_band: 11-13
+  fixed_SUMAD_band: 8-9
+  fixed_SPANAD_band: 5-6
+  note: these were identified after outcome inspection and cannot drive promotion
+
+metrics:
+  - mean_exact_winner_percentile
+  - median_exact_winner_percentile
+  - winner_above_median_rate
+  - top20_rate
+  - top50_rate
+  - top100_rate
+  - winner_gate_survival
+  - mean_fraction_lines_retained
+  - compression_fraction
+  - paired_delta_vs_E0013_spectral
+  - independent_decoy_seed_reproduction
+
+promotion_gate:
+  - multiple genuinely prospective targets after 2026-09-04 freeze
+  - winner_gate_survival materially exceeds line-retention fraction
+  - stage-isolated winner percentile improvement over E0013 and simple controls
+  - no reliance on posthoc fixed bands
+  - multiplicity-aware evidence
+  - independent reproduction
+
+forbidden:
+  - K expansion
+  - target-aware parameter or threshold changes
+  - multiplication of HLR VVD terminal as independent evidence
+  - treating Pattern-OR as a coherent probability product
+  - deleting elite E0013 lines without the declared rescue rule
+  - claiming discovery replay as prospective confirmation
