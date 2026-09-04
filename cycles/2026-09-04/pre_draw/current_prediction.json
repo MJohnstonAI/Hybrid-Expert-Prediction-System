@@ -1,13 +1,15 @@
 {
   "target_draw_date": "2026-09-04",
-  "active_prediction": "cycles/2026-09-04/pre_draw/main_prediction_v35_3.json",
+  "active_prediction": "cycles/2026-09-04/pre_draw/main_prediction_v35_3_pattern_triage.json",
   "superseded_pre_draw": [
     "cycles/2026-09-04/pre_draw/main_prediction_v35.json",
-    "cycles/2026-09-04/pre_draw/main_prediction_v35_2.json"
+    "cycles/2026-09-04/pre_draw/main_prediction_v35_2.json",
+    "cycles/2026-09-04/pre_draw/main_prediction_v35_3.json"
   ],
   "invalidated_diagnostic_artifacts": [
     "cycles/2026-09-04/pre_draw/e0026_slot_routed_comparison_slate.json"
   ],
   "policy": "governance/pre_draw_supersession_policy.md",
-  "rule": "Newest explicitly designated pre-result version is official. Preserve all earlier versions for audit. No new version after result knowledge."
+  "rule": "Newest explicitly designated pre-result version is official. Preserve all earlier versions for audit. No new version after result knowledge.",
+  "supersession_note": "Latest binding v35.3 cross-session handoff restores the cycle's frozen K13 and requires E0029 pattern triage only after candidate freeze. The earlier E0026-R v35.3 artifact remains immutable audit evidence but is superseded pre-draw."
 }
