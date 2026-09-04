@@ -1,0 +1,56 @@
+{
+  "experiment_id": "E0027",
+  "analysis_date": "2026-09-04",
+  "lane": "Main",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "eligible_targets": 19,
+  "walk_forward_start_index": 8,
+  "proper_score_summary": {
+    "uniform": {"mean_log_score_delta_vs_uniform": 0.0, "mean_coordinate_brier": 0.09},
+    "signed_transition": {"mean_log_score_delta_vs_uniform": -1.015257, "mean_coordinate_brier": 0.101010, "mean_k13_hits": 1.526316, "targets_3plus": 2, "targets_4plus": 0, "targets_5of5": 0},
+    "gap_pressure_only": {"mean_log_score_delta_vs_uniform": -0.161914, "mean_coordinate_brier": 0.090108, "mean_k13_hits": 0.789474, "targets_3plus": 0, "targets_4plus": 0, "targets_5of5": 0},
+    "signed_plus_gap_pressure": {"mean_log_score_delta_vs_uniform": -0.895622, "mean_coordinate_brier": 0.097949, "mean_k13_hits": 1.526316, "targets_3plus": 2, "targets_4plus": 0, "targets_5of5": 0},
+    "signed_plus_plain_gap_dispersion": {"mean_log_score_delta_vs_uniform": -2.012037, "mean_coordinate_brier": 0.109448, "mean_k13_hits": 1.421053, "targets_3plus": 2, "targets_4plus": 0, "targets_5of5": 0},
+    "acceleration_persistence": {"mean_log_score_delta_vs_uniform": -3.932850, "mean_coordinate_brier": 0.131847, "mean_k13_hits": 1.315789, "targets_3plus": 3, "targets_4plus": 0, "targets_5of5": 0},
+    "acceleration_plus_gap_pressure": {"mean_log_score_delta_vs_uniform": -3.234945, "mean_coordinate_brier": 0.124548, "mean_k13_hits": 1.315789, "targets_3plus": 2, "targets_4plus": 0, "targets_5of5": 0}
+  },
+  "incremental_gap_pressure": {
+    "signed_plus_pressure_minus_signed_mean_log_score": 0.119635,
+    "signed_plus_pressure_minus_signed_mean_brier": -0.003062,
+    "brier_improved_targets": "14/19",
+    "one_sided_paired_t_brier_p": 0.006213,
+    "one_sided_paired_t_logscore_p": 0.142442,
+    "interpretation": "Gap pressure regularizes the tested signed-transition field, but the combined model remains worse than the exact uniform null and does not improve K13 hit count."
+  },
+  "acceleration_repair_diagnostic": {
+    "pressure_minus_acceleration_mean_log_score": 0.697905,
+    "pressure_minus_acceleration_mean_brier": -0.007299,
+    "brier_improved_targets": "19/19",
+    "interpretation": "Gap pressure repairs part of acceleration-model overfit, but both acceleration variants remain materially worse than uniform and receive no authority."
+  },
+  "oracle_k13_pair_collision_matched_100_reps": {
+    "signed_transition_mean_winner_percentile": 0.517629,
+    "signed_plus_pair_weight_0_1": 0.517433,
+    "signed_plus_pair_weight_0_25": 0.517090,
+    "signed_plus_pair_weight_0_5": 0.517019,
+    "pair_collision_only": 0.497486,
+    "incremental_conclusion": "No all-pair separation/collision weight improved the matched oracle-K13 winner percentile over signed transition."
+  },
+  "random_k13_reference": {
+    "expected_mean_winner_coordinates": 1.3,
+    "probability_3plus": 0.1029932602,
+    "probability_4plus": 0.0130935075,
+    "probability_5of5": 0.0006074308
+  },
+  "component_decisions": {
+    "particle_acceleration_orientation": "REJECT_CURRENT_FORM",
+    "plain_gap_dispersion": "REJECT_CURRENT_FORM",
+    "gap_pressure_as_standalone_acquisition": "REJECT_CURRENT_FORM",
+    "all_pair_collision_assembly": "REJECT_CURRENT_FORM",
+    "non_crossing_constraint": "RETAIN_AS_EXISTING_EXACT_LEGAL_LINE_GEOMETRY_NOT_NEW_EXPERT",
+    "gap_pressure_regularizer": "DIAGNOSTIC_ONLY_RESEARCH_NOTE_NO_PREDICTIVE_AUTHORITY"
+  },
+  "architecture_decision": "DO_NOT_ADD_SMOKEFIELD_AS_PREDICTIVE_HEPS_EXPERT",
+  "prospective_2026_09_04_authority": "ZERO"
+}
