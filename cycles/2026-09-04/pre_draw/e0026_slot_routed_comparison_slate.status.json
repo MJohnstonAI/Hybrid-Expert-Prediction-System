@@ -1,0 +1,10 @@
+{
+  "target_draw_date": "2026-09-04",
+  "artifact": "cycles/2026-09-04/pre_draw/e0026_slot_routed_comparison_slate.json",
+  "status": "invalidated_pre_draw_nonconforming_e0026_implementation",
+  "invalidated_on": "2026-09-04 pre-result",
+  "reason": "The first challenger aggregated scenario-conditioned slot support before K13 optimization and therefore failed to preserve candidate + admissible slot provenance + scenario probability through compression. The resulting 27-39 basket assigned zero containment to all S1-LOW and S5-HIGH scenarios and is not a valid E0026 challenger.",
+  "audit_rule": "Preserve the original artifact unchanged for failure analysis. Do not score it as a valid E0026 prediction slate after the draw.",
+  "erratum": "experiments/E0026/implementation_erratum_2026-09-04.md",
+  "official_prediction_unchanged": "cycles/2026-09-04/pre_draw/main_prediction_v35_2.json"
+}
