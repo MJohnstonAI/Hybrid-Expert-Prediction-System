@@ -4,7 +4,7 @@
 
 **HEPS v35.3 — Joint-Distribution-First Staged Mixture-of-Experts with Candidate-Frozen Pattern Triage**
 
-**Updated:** 2026-09-04  
+**Updated:** 2026-09-05  
 **Status:** active methodological architecture; predictive authority remains expert/experiment specific.
 
 ## Purpose
@@ -25,12 +25,18 @@ Historical experiments remain immutable evidence of what was tested. Current for
 ## Data doctrine
 
 - Canonical Main ledger: `data/draw_history.jsonl`
-- Current ledger through: 2026-09-01 / draw id 27
+- Active Main series begins: `2026-06-02`
+- Current ledger through: `2026-09-04` / draw id 28
+- Current latest Main result: `4,7,27,38,50 | PB10`
+- Canonical XTRA ledger: `data/powerball_xtra_history.jsonl`
+- Active XTRA series begins: `2026-06-02`
+- Current XTRA ledger through: `2026-09-04` / draw id 1752
+- No pre-June 2026 winning rows may enter active fitted Main or XTRA state
 - Game format: Main 5 unique numbers from 1-50 + PowerBall 1-16
 - Slot1-Slot5 are sorted order statistics, not physical extraction order
 - `game_format`, `draw_method`, and `machine_name` are distinct metadata axes
 - Never infer machine/method from outcome patterns or date alone
-- Pre-June legacy artifacts may be used only when explicitly allowed for discovery/robustness and may not silently set active-era parameters
+- Legacy pre-June artifacts may remain for audit/discovery context only and may not silently set active-era parameters
 
 ## Architecture principle 1 — joint distribution first
 
@@ -90,7 +96,7 @@ Pattern-recognition features such as HLR scenario compatibility, last-digit-sum 
 
 Once K13 is frozen, enumerate all `C(13,5)=1,287` lines and evaluate pattern constraints at the line level. A pattern gate earns elimination authority only when winner retention is materially higher than the fraction of line space retained.
 
-E0029 establishes a new **candidate-frozen Pattern Constraint Triage shadow stage**. Its preferred discovery architecture is conservative: retain the top 80% of adaptive Pattern-OR lines, rescue the top 5% E0013 spectral lines, then rank retained lines by E0013 spectral. This is shadow only until prospective evidence accumulates.
+E0029 establishes a **candidate-frozen Pattern Constraint Triage shadow stage**. Its preferred discovery architecture is conservative: retain the top 80% of adaptive Pattern-OR lines, rescue the top 5% E0013 spectral lines, then rank retained lines by E0013 spectral. This is shadow only until prospective evidence accumulates.
 
 ---
 
@@ -126,9 +132,9 @@ Current important shadow research:
 - E0021 corrected signed-displacement successor;
 - E0026 scenario-constrained slot routing.
 
-### 2026-09-01 lesson
+### Current prospective lesson through 2026-09-04
 
-From previous `19,22,24,25,47`, the realized HLR for `14,16,31,34,40` was `LLHHL`. The frozen BARP modal vector was also `LLHHL`, an exact 5/5 direction hit. This earns bounded one-target preservation/scenario credit, not promotion or retuning.
+On 2026-09-01, frozen BARP modal `LLHHL` matched all five realized directions. On 2026-09-04, frozen slotwise modal `LHLHH` matched four of five realized directions; actual was `LLLHH`. These outcomes justify continued prospective scoring, not parameter retuning or promotion.
 
 ## Stage 2 — Candidate Funnel
 
@@ -139,7 +145,7 @@ Key doctrine:
 - exact-slot probability and anywhere-coordinate probability are separate;
 - unrestricted anywhere probability must not erase slot provenance;
 - E0026 preserves candidate + admissible slot provenance + scenario probability;
-- adjacent-slot preservation may be tested prospectively at fixed K when scenario-valid;
+- adjacent-slot migration may be tested prospectively at fixed K only when scenario-valid;
 - K expansion receives no predictive credit;
 - K13 remains the primary acquisition research target but is falsifiable.
 
@@ -147,15 +153,17 @@ Key doctrine:
 
 Retain from E0019:
 
-- complete-line containment objective `M(K)`.
+- complete-line containment objective `M(K)` as a decision objective to challenge/test.
 
 Reject/supersede:
 
 - HLR×VVD residual-product probability field.
 
-E0021 is the designated corrected signed-transition successor using one transition information family, legal-line normalization, proper-score-first gating, and fixed-K adjacent-slot preservation research.
+E0021 is the designated corrected signed-transition successor using one transition information family, legal-line normalization, proper-score-first gating, and fixed-K preservation research.
 
 E0026 further refines preservation: a candidate must retain explicit slot provenance and may migrate only through non-negligible pre-draw scenarios compatible with HLR/signed displacement, exact order-statistic support, and legal sorted-line geometry. Unrestricted anywhere-coordinate promotion is not allowed.
+
+The 2026-09-04 official K13 retained only winner `50` from actual `4,7,27,38,50`; candidate acquisition was therefore the first binding failure. The superseded E0026-R shadow retained `38@S4` and `50@S5`, both in their primary routed slots, but remains `INSUFFICIENT_EVIDENCE` because one draw and a negative proper-score history cannot promote it.
 
 Independent candidate shadows may include E0016 nonequilibrium current, but their incremental value must be tested after redundancy controls.
 
@@ -219,9 +227,13 @@ Discovery replay across 19 eligible targets and two independent decoy seeds prod
 
 This is promising stage-isolated discovery evidence but remains `INSUFFICIENT_EVIDENCE`. It has zero production hard-pruning authority until multiple fresh prospective targets confirm the retention/compression advantage.
 
+On the first fresh target, 2026-09-04, the exact winning line was not present in the frozen official K13 because four winners were excluded upstream. E0029 therefore receives no exact-winning-line rank/pruning attribution for that draw.
+
 ### Fixed-band research
 
 E0028 LDSAD `11..13` and exploratory SUMAD `8..9` / SPANAD `5..6` bands remain post-hoc frozen diagnostics. They may be scored prospectively but cannot drive promotion from retrospective strength.
+
+For 2026-09-04, realized LDSAD was `11`, inside the frozen `11..13` band on its first fresh target. This remains one `INSUFFICIENT_EVIDENCE` prospective shadow success and confers no hard-pruning authority.
 
 ## Stage 4 — Morphology
 
@@ -230,7 +242,7 @@ Purpose: evaluate completed legal lines using structural features such as:
 - gaps;
 - parity/register;
 - sum/spread;
-- SLDV/terminal morphology;
+- LDSAD/terminal morphology;
 - transition-pattern residuals declared in E0029;
 - other preregistered line-shape features.
 
@@ -289,6 +301,8 @@ Primary evidence should be proper score. Exact hit rate is secondary.
 PB HLR/VVD/terminal/exact-state representations of one transition are not independent votes.
 
 Sparse state counts prohibit high-confidence conditional authority until prospective evidence beats simpler baselines.
+
+The Director rule `after PB VVD10, the next two VVDs sum to 12` failed its first frozen prospective test on 2026-09-04: from PB4 the realized PB10 gave VVD6, so the observed continuation was `10 -> 7 -> 6` and `7+6=13`. The deterministic sum-12 rule has no forward predictive authority; broader VVD-transition modelling remains a separate `INSUFFICIENT_EVIDENCE` research question.
 
 ---
 
@@ -361,25 +375,28 @@ After result verification:
 
 ---
 
-# 2026-09-01 Physics of Failure summary
+# 2026-09-04 Physics of Failure summary
 
-Actual: `14,16,31,34,40 | PB4`.
+Actual: `4,7,27,38,50 | PB10`.
 
-Successes:
+Previous: `14,16,31,34,40 | PB4`.
 
-- BARP modal HLR: exact `LLHHL` 5/5 direction hit;
-- 31 retained and strongly ranked in S3 diagnostics;
-- 34 retained and ranked #1 in S4 diagnostic field;
-- 40 survived wider diagnostic candidate exposure;
-- terminal S3=1 and S4=4 top calls were correct.
+Realized Main signed transition: `[-10,-9,-4,+4,+10]`; HLR `LLLHH`; VVD `[10,9,4,4,10]`.
 
-Failure:
+Successes / bounded observations:
 
-- primary K13 retained only 31 and 34;
-- 14/16 useful coordinate evidence was partly lost by strict slot provenance;
-- candidate acquisition/compression remained the first binding failure.
+- frozen BARP slotwise modal HLR `LHLHH` got 4/5 direction signs;
+- the realized `LLLHH` scenario existed in the pre-draw distribution rather than being structurally excluded;
+- superseded E0026-R preserved actual `38@S4` and `50@S5` in their primary routed slots;
+- frozen E0028 LDSAD `11..13` diagnostic hit with actual LDSAD `11`.
 
-Operational consequence for 2026-09-04 is encoded in the frozen cycle artifacts. E0026 and E0029 may create new **shadow** counterfactuals before the draw, but discovery evidence alone does not retroactively rewrite earlier frozen artifacts.
+Binding failure:
+
+- official K13 `[3,8,18,19,20,23,32,34,35,39,40,48,50]` retained only winner `50`;
+- candidate acquisition/compression was therefore the first binding failure;
+- E0029, E0013 and Johnson cannot receive exact-winning-line rank/pruning blame or credit because four winners were absent upstream.
+
+All new observations remain governed by the one-draw rule. No parameter retuning or promotion is justified from this target alone.
 
 ---
 
@@ -402,15 +419,15 @@ Current predictive state remains dominated by `INSUFFICIENT_EVIDENCE` and shadow
 
 See `knowledge/open_questions.md`. Highest-value active directions are:
 
-1. E0026 scenario-constrained slot-routed K13 acquisition;
+1. E0026 scenario-constrained slot-routed K13 acquisition, including robust protection against catastrophic opposing-tail exclusions;
 2. E0021 corrected signed-displacement legal-line acquisition and proper-score repair;
-3. E0029 prospective Pattern-OR triage plus E0013 spectral-rescue cascade after frozen K13;
-4. E0028 LDSAD and related whole-line delta patterns as frozen prospective diagnostics only;
-5. E0011 redundancy audit;
-6. E0013 marginal-conditioned/shrunk coalition challenger;
-7. E0022 four-plus-first Johnson geometry for fixed-budget high-order coverage;
-8. machine/ball-set non-exchangeability when metadata permit;
-9. strongly shrunk PB championship;
-10. calibrated full-support modelling to reduce catastrophic exclusions.
+3. information-theoretic/sample-power limits for fixed-K acquisition research;
+4. E0011 redundancy audit of genuinely independent information families;
+5. E0029 prospective Pattern-OR triage plus E0013 spectral-rescue cascade after frozen K13;
+6. E0028 LDSAD and related whole-line delta patterns as frozen prospective diagnostics only;
+7. E0013 marginal-conditioned/shrunk coalition challenger;
+8. E0022 four-plus-first Johnson geometry for fixed-budget high-order coverage;
+9. machine/ball-set non-exchangeability when metadata permit;
+10. strongly shrunk PB championship.
 
 Avoid reopening deprecated strategies without materially new information. Use `governance/methodology_deprecations.md` as the forward-use map.
