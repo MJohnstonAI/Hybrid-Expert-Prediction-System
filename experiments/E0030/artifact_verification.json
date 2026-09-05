@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "replay_targets_verified": 38,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256": {
+    "scripts\\aggressive_expert_lab.py": "89777c5a14e19d0ecb7e539141149fcd1ffa4b18f182cbec371d6dcc35717265",
+    "scripts\\algebraic_sequence_features.py": "3caf1b89f29c330f8a53e529c9ed9396447dff067a2ffbf80b5a93b81681db1d",
+    "scripts\\append_draw.py": "d568f12fca92878be9aa0f557362c93a9486ce5a01f5424ff0a28c2dedb3cc03",
+    "scripts\\candidate_coalition_engine.py": "e6b85e470e2b8af3c60949b09ef7cf5dc61811226c8046dd1680646ef7b44092",
+    "scripts\\check_stationarity.py": "c1ceda17f7a870c1f8bc90a40b96fb66bc19fc84883cb052976a5ecf76495abe",
+    "scripts\\evaluate_expert_orchestration.py": "1b1dd416e9a7854b86b08316b771ca4cb2eba62ecfd9464ed5a32ae95a861395",
+    "scripts\\johnson_portfolio_optimizer.py": "22104b927c92a19a0c57c24b7c98061656ded183150a52de81b34960ba44c015",
+    "scripts\\portfolio_orchestration.py": "f48884953ba1635a56400c73d52bcc806b47480bb83523c77d14f8aa2efb19c3",
+    "scripts\\research_strategy_scaffold.py": "a2a44276df0a86296d369fef94b773091c07f0549e8c5b9f2c0c3f937c0ac992",
+    "scripts\\score_prediction.py": "a505ee459788617f1b47373b6a72c2cc0f0121b0c3beb263c0c8f36d856f8e9d",
+    "scripts\\simulate_null_model.py": "775905df59db1189797d57c503c71be353a952d0edff068be588357c228772ef",
+    "scripts\\structural_null.py": "6d8884d0e5b2a08ed5d5eb68ecd16a7ed60c5663da4e5d38f42fd6fbad7d395c",
+    "scripts\\sync_manifest.py": "31baa6c06daa1b81d62894fc95a885f082ff9cc0d7aee8c7bd2968aa57cb4968",
+    "scripts\\validate_draws.py": "f122626af7a1d844e1152c542613aef492475596c4c4d64d622b1f4f05b0a5b5",
+    "experiments\\E0011\\prototype.py": "18bc704bfa934feb625005870f1b4a454ef7b9f327fc2fc9e33b9bc866a2875e",
+    "experiments\\E0011\\test_prototype.py": "fae8fb42142983209a20f84b3226c8be4ea1878b99fc349146ad7726f76e4ff5",
+    "experiments\\E0011\\protocol.yaml": "6848dcd388e7dcc2babce7ab89a0e772970f4e0609228a5ea66e794db891005a"
+  },
+  "results_sha256": "f3ea67926506fded66d39adfa181840ea8698cd11bbe868979c1c20b8ffbf6ad",
+  "ledger_values_unchanged": true,
+  "independent_reproduction": false
+}

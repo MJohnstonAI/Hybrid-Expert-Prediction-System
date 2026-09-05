@@ -1,0 +1,81 @@
+experiment_id: E0011
+created: 2026-09-05
+evidence_classification: INSUFFICIENT_EVIDENCE
+architecture_status: experimental
+paper_trading_only: true
+evaluation_type: post_hoc_replay
+target: Primary acquisition of at least four winners in fixed K13; downstream success remains at least one four-or-five-match line among 20.
+scope_clarification_before_evaluation: >-
+  User identified candidate acquisition as the bottleneck and accepted 20 lines per game.
+  Add a K13 exact four-plus basket-mass swap optimizer and K17 control. Portfolio diagnostics are
+  secondary and cannot stand in for acquisition improvement. No replay results had been evaluated.
+data:
+  MAIN: data/draw_history.jsonl
+  XTRA: data/powerball_xtra_history.jsonl
+  start: 2026-06-02
+  cutoff: 2026-08-21
+  isolation: Separate model instances; no cross-game fitted state or outcomes.
+  provenance: Retain ledger flags; statistical pooled replay makes no machine-specific claim.
+  validation_adapter: >-
+    Pre-evaluation audit found the shared validator assumes Main IDs starting at 1 and Main-specific
+    provenance flags. Validate an in-memory XTRA view with local sequential IDs and explicit missing
+    metadata flags, preserving all outcomes, original IDs and raw errors in results. No ledger writes.
+    This permits provenance-qualified exploratory replay, not externally verified prospective evidence.
+training:
+  initial_draws: 5
+  rule: Expanding prefix strictly before target; parameters updated after scoring target.
+validation:
+  untouched_historical: none
+  replay: Remaining 19 rows per game if ledger passes validation.
+  prospective: Not activated. First target must be genuinely future when frozen, with current verified ledger.
+features:
+  null: Constant unit weights on each coordinate.
+  frequency: w[n] = 1 + cumulative prior inclusion count[n]/10.
+  recency: w[n] = 1 + count[n] in previous at most five draws / 10.
+joint_model:
+  definition: q(S) = product(w[n] for n in S) / elementary_symmetric_polynomial(w,5).
+  mixture: 0.5 times uniform plus 0.5 times adaptive mixture of null, frequency and recency.
+  adaptive_prior: [0.8, 0.1, 0.1]
+  update: Multiply component weights by its actual legal-line likelihood after reveal; normalize in log space.
+  probability_marginals: Exact legal-five-set marginalization; sum equals five.
+  powerball: Uniform 1/16 secondary output; no new fitted PB hypothesis.
+hyperparameters:
+  selection_rule: One conservative specification declared before executing replay; no retrospective optimization.
+  shrinkage_count: 10
+  recency_window: 5
+  uniform_floor: 0.5
+  acquisition_swap_passes: 5
+  acquisition_rule: Start with top13 marginal probabilities; choose best improving one-out/one-in swap by exact joint four-plus basket mass, five passes maximum, lexicographic ties.
+  seed: 20260905
+  portfolio_lines: 20
+  candidate_line_count: 128
+  candidate_generator: Unique mixture samples over full 50-number field, including exact subset sampling.
+  ties: Deterministic seeded coordinate permutation shared by comparators for each game and target index.
+portfolio:
+  objective: Sum of q(S) over union of winning sets within one replacement of any submitted line.
+  optimizer: Greedy marginal uncovered mass over identical frozen candidate lines; exact event union, restricted candidate search.
+  no_global_optimality_claim: true
+baselines:
+  probability: [uniform legal-five-set, shrunk cumulative frequency, shrunk five-draw recency]
+  candidate: [uniform seeded rank, cumulative frequency, recency, current candidate_coalition_engine adapter]
+  portfolio: [uniform mass greedy on same candidate lines, random 20 lines from same top-K13, random 20 from full field]
+  incumbent: Require actual contemporaneous frozen incumbent for future superiority claim; historical adapter is not original historical forecast.
+metrics:
+  primary_outcome: K13 four-plus winner survival, separately by game; final same-line four-plus remains downstream endpoint
+  probability: [joint natural-log loss, mean 50-coordinate Brier, cumulative log likelihood ratio versus null]
+  candidate: [hits at K7 K10 K13 K16 K17 K20, 3plus 4plus 5 survival, at most one hit catastrophes, joint-tail versus marginal K13]
+  portfolio: [best same-line hits, 3plus 4plus 5 line counts, submitted line count, exact null four-plus union probability]
+  uncertainty: Draw-level paired differences and descriptive standard error; no confirmatory p-values from replay.
+multiple_testing:
+  model_variants: 1 adaptive mixture plus 3 fixed components
+  candidate_K: [7, 10, 13, 16, 17, 20]
+  acquisition_rules: [top marginal, joint four-plus K13 swap]
+  portfolio_variants: 4
+  games: 2
+  repository_prior_search: Extensive and not quantifiable; all replay findings remain exploratory.
+falsification:
+  - If challenger loses proper scores to uniform, predictive improvement is unsupported regardless of coverage gain.
+  - Zero four-plus outcomes cannot demonstrate superiority; report all denominators and exact null expectations.
+  - Prospective design must be re-frozen with a power/precision plan and incumbent artifacts before activation.
+  - No production authority without independent reproduction, adversarial review and promotion decision.
+reproduce: Run prototype.py with the repository Python environment; run test_prototype.py first.

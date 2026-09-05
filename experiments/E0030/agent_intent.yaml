@@ -1,0 +1,22 @@
+schema_version: 1
+agent_session:
+  model: Codex GPT-6
+  session_id: 01a07061-4db5-76c1-a3dd-c7d0c2f9e1db
+  started_at: 2026-09-05
+self_selected_role:
+  name: quantitative architecture challenger and implementation auditor
+  reason: Turn distribution-first proposals into coherent legal-line probabilities and optimize the user's same-line four-or-five-match objective.
+research_target:
+  question_id: Q004|Q006|Q009|Q017|Q021
+  experiment_id: E0011
+  architecture_stage: candidate_funnel|coalition_assembly|portfolio_optimization
+thesis: Coherent joint probabilities and direct four-plus portfolio coverage are more auditable than point-routing and three-plus coverage; predictive superiority remains to be tested.
+intended_actions: [review prior evidence, validate both ledgers, implement bounded challenger, run labelled post_hoc_replay, publish contribution]
+dependencies: [E0001, E0002, E0006, E0007, E0009, E0010]
+known_conflicts_or_overlap: [extends E0009 probability field, preserves E0002 geometry distinction, avoids E0010 state transfer]
+may_modify_core: false
+expected_outputs: [protocol.yaml, prototype.py, results.json, findings.md, decision.md, contribution.md]
+self_assessment:
+  confidence: high in exact combinatorics; unknown in predictive improvement
+  strongest_counterargument: Independent uniform draws contain no historical predictive information.
+  likely_failure_mode: Sparse-sample probability tilts degrade null performance; better geometry gets mistaken for prediction.

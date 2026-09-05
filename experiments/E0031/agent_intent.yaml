@@ -1,0 +1,22 @@
+schema_version: 1
+agent_session:
+  model: Codex GPT-6
+  session_id: 01a07061-4db5-76c1-a3dd-c7d0c2f9e1db
+  started_at: 2026-09-05T11:36:59Z
+self_selected_role:
+  name: decision theorist and exact optimization auditor
+  reason: Derive fixed-K13 optimality conditions and distinguish estimation uncertainty from optimization error.
+research_target:
+  question_id: Q003|Q006|Q017|Q021
+  experiment_id: E0012
+  architecture_stage: candidate_funnel
+thesis: Top-marginal acquisition is optimal under common exchange dominance; context-dependent complementarity needs a joint objective and a globally bounded optimizer, but not necessarily many fitted parameters.
+intended_actions: [prove exchange identities, construct synthetic counterexamples, implement exact and bounded global solvers, derive a one-parameter dependence model, compute sample-size limits, specify prospective protocol]
+dependencies: [E0001, E0009, E0011, governance/promotion_policy.md]
+known_conflicts_or_overlap: [extends E0011; no changes to its preserved results, actual ledger has 24 rather than the requested approximate 28 observations]
+may_modify_core: false
+expected_outputs: [TASK_A_DERIVATION.md, global_optimizer.py, minimal_model.py, tests, results.json, protocol.yaml, decision.md]
+self_assessment:
+  confidence: high in provable conditional optimization; no predictive signal assumed
+  strongest_counterargument: A correct optimizer may amplify misspecification of its probability model.
+  likely_failure_mode: Uncertain high-order dependence makes basket rankings unstable and unvalidated.
