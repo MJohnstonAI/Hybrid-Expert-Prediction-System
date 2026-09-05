@@ -9,6 +9,7 @@ state and executable prediction paths may not silently ingest it.
 from __future__ import annotations
 
 import json
+import re
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -210,15 +211,29 @@ def validate_pre_draw_pointers() -> list[str]:
 
 
 def validate_no_legacy_excel_in_active_code() -> list[str]:
+    """Reject actual code paths that try to open/read legacy workbook inputs.
+
+    Documentation/provenance strings that merely name the deprecated workbooks are
+    allowed. The scanner therefore looks for executable file/path/read patterns,
+    not bare mentions in comments or manifest-rule strings.
+    """
     errors: list[str] = []
-    forbidden_fragments = ("Train on Main" + ".xlsx", "Train on Plus" + ".xlsx")
+    workbook_name = r"Train on (?:Main|Plus)\.xlsx"
+    executable_patterns = [
+        re.compile(rf"read_excel\s*\([^\n]*{workbook_name}", re.IGNORECASE),
+        re.compile(rf"Path\s*\([^\n]*{workbook_name}", re.IGNORECASE),
+        re.compile(rf"open\s*\([^\n]*{workbook_name}", re.IGNORECASE),
+        re.compile(rf"LEDGER\s*=\s*[^\n]*{workbook_name}", re.IGNORECASE),
+        re.compile(rf"DATA(?:SET)?\s*=\s*[^\n]*{workbook_name}", re.IGNORECASE),
+    ]
     for path in sorted((ROOT / "scripts").glob("*.py")):
         if path.name == Path(__file__).name:
             continue
         text = path.read_text(encoding="utf-8")
-        for fragment in forbidden_fragments:
-            if fragment in text:
-                errors.append(f"Active executable references forbidden legacy workbook: {path}: {fragment}")
+        for pattern in executable_patterns:
+            if pattern.search(text):
+                errors.append(f"Active executable opens forbidden legacy workbook: {path}")
+                break
     return errors
 
 
@@ -251,7 +266,7 @@ def main() -> int:
     )
     print(f"- Active-era floor enforced: {ACTIVE_SERIES_START.isoformat()}")
     print("- Pre-draw current_prediction pointers resolve and use pre-target canonical cutoffs")
-    print("- Active scripts do not reference legacy Train on Main/Plus workbooks")
+    print("- Active scripts do not open legacy Train on Main/Plus workbooks")
     return 0
 
 
