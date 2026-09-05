@@ -1,5 +1,5 @@
-schema_version: 2
-updated: 2026-09-02
+schema_version: 3
+updated: 2026-09-05
 features:
   MAIN_SIGNED_SLOT_TRANSITION:
     type: integer
@@ -54,10 +54,30 @@ features:
     type: probability_or_rank
     unit: coordinate_1_to_50
     definition: Probability/rank that a coordinate appears anywhere in the next five-number Main draw.
-    role: candidate_funnel
+    role: candidate_funnel_diagnostic
     note: >-
-      Must remain distinct from exact-slot probability. A coordinate may carry useful acquisition evidence when its strongest
-      support is in an adjacent sorted slot. Fixed-K adjacent-slot preservation is an allowed research question after 2026-09-01.
+      Must remain distinct from exact-slot probability. Reporting an anywhere marginal does not authorize erasing slot provenance.
+      E0026 requires candidate identity, admissible slot provenance and scenario probability to survive into acquisition decisions.
+
+  MAIN_SLOT_ROUTED_CANDIDATE_SUPPORT:
+    type: structured_probability_tensor
+    unit: candidate_x_slot_x_scenario
+    definition: >-
+      U_j(n,s) or equivalent support for candidate coordinate n in sorted slot j under pre-draw transition scenario s,
+      with zero support where HLR/signed-transition/order-statistic/legal-line feasibility fails.
+    role: candidate_funnel
+    leakage_rule: Scenario weights, feasibility rules and probability field must be frozen before target reveal.
+    source: experiments/E0026/
+    invariants:
+      - preserve candidate identity
+      - preserve admissible slot provenance
+      - preserve scenario probability
+      - enforce legal sorted line order
+      - total candidate basket remains fixed K for matched comparisons
+      - unrestricted anywhere-coordinate collapse cannot determine membership by itself
+    note: >-
+      Global inclusion U(n)=sum_j sum_s w_s U_j(n,s) may be reported for diagnostics, but E0026 acquisition must retain
+      the routed decomposition needed to protect plausible scenarios and avoid structurally impossible placements.
 
   MAIN_GAP_VECTOR:
     type: structured_integer_vector
@@ -109,7 +129,7 @@ features:
     type: probability_distribution
     unit: five_slot_hlr_vector
     definition: >-
-      Enumerate all C(50,5)=2,118,760 legal sorted next draws relative to a fixed previous draw and count their 243 HLR vectors.
+      Enumerate all C(50,5)=2,118,760 legal sorted next draws relative to a fixed previous draw and count their HLR vectors.
     role: exact_structural_null
     note: Do not multiply per-slot HLR marginals because sorted slots are dependent.
 
@@ -124,11 +144,60 @@ features:
     note: >-
       Exactly uniform over weak compositions of 45 into six nonnegative gaps; not an ordinary multinomial with fixed p=1/6.
 
-  MORPH_SLDV:
+  LAST_DIGIT_SUM_ABS_DELTA:
+    acronym: LDSAD
     type: integer
-    unit: combination
+    unit: completed_main_line_transition
+    formula: >-
+      abs(sum(n mod 10 for n in target_line) - sum(n mod 10 for n in previous_line))
+    role: candidate_frozen_pattern_diagnostic
+    information_family: MAIN_WHOLE_LINE_DELTA
+    source: experiments/E0028/
+    leakage_rule: Historical bands may be discovered only as discovery evidence; any forward band must be frozen before target reveal.
+    note: >-
+      This is an absolute first difference of last-digit sums, not statistical variance. The E0028 11..13 band is
+      discovery-derived and has no production hard-pruning authority.
+
+  MAIN_SUM_ABS_DELTA:
+    acronym: SUMAD
+    type: integer
+    unit: completed_main_line_transition
+    formula: abs(sum(target_line) - sum(previous_line))
+    role: candidate_frozen_pattern_diagnostic
+    information_family: MAIN_WHOLE_LINE_DELTA
+    leakage_rule: Adaptive distribution for target t must be fit only from rows before t.
+
+  MAIN_SPAN_ABS_DELTA:
+    acronym: SPANAD
+    type: integer
+    unit: completed_main_line_transition
+    formula: >-
+      abs((max(target_line)-min(target_line)) - (max(previous_line)-min(previous_line)))
+    role: candidate_frozen_pattern_diagnostic
+    information_family: MAIN_WHOLE_LINE_DELTA
+    leakage_rule: Adaptive distribution for target t must be fit only from rows before t.
+
+  MAIN_PATTERN_OR:
+    type: percentile_meta_score
+    unit: legal_line_inside_frozen_K13
+    formula: >-
+      max(midrank_pct(HLR_residual), midrank_pct(LDSAD_residual), midrank_pct(SUMAD_residual), midrank_pct(SPANAD_residual))
+    role: candidate_frozen_pattern_constraint_triage
+    source: experiments/E0029/
+    leakage_rule: All component distributions, thresholds and K13 must be frozen before target reveal.
+    authority: shadow_only
+    note: >-
+      One robustness/meta-pattern operator, not multiplication or independent-vote convergence. Preferred E0029 shadow retains
+      the Pattern-OR top 80 percent and rescues E0013 spectral top 5 percent. It has no K13 or production hard-pruning authority.
+
+  MORPH_SLDV:
+    type: legacy_alias
+    unit: combination_transition
     formula: abs(sum(last_digit(candidate_line)) - previous_draw_last_digit_sum)
-    role: morphology
+    role: archived_nomenclature_compatibility
+    superseded_by: LAST_DIGIT_SUM_ABS_DELTA
+    note: >-
+      Historical ambiguous label "Sum of Last-Digit Variance". The formula is not variance. New research must use LDSAD.
 
   MORPH_MACRO_SUM:
     type: integer
@@ -178,6 +247,9 @@ rules:
   - Exact structural-null features are methodological baselines, not predictive experts and not evidence of lottery edge.
   - HLR, VVD, terminal digit, and exact coordinate derived from one sorted-slot transition belong to one information family.
   - Different views of one information family may be scored diagnostically but may not be multiplied or counted as independent expert votes without an explicit coherent dependency model.
+  - Main K13 acquisition must preserve candidate plus admissible slot provenance plus scenario probability when E0026 semantics are invoked.
+  - Pattern recognition normally acts after K13 freeze and may not silently alter candidate membership.
   - New Main acquisition research should prefer one regularized signed-transition representation and exact legal-line normalization where feasible.
   - Proper-score improvement of the underlying probability field is a primary gate before K-basket recall is treated as predictive lift.
   - Exact-slot and anywhere-coordinate probabilities must remain distinct artifacts.
+  - Active fitted Main and XTRA state begins on 2026-06-02; pre-June rows are excluded from active parameterization.
