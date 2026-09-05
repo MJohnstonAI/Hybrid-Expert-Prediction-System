@@ -1,18 +1,23 @@
-schema_version: 2
-updated: 2026-09-02
+schema_version: 3
+updated: 2026-09-05
 purpose: >-
   Machine-readable registry of HEPS expert/stage authority. Architecture status means whether a component
   is available in the pipeline; it does NOT imply proven predictive edge. Evidence classification, authority,
   current-method doctrine, and deprecations control interpretation.
 
 binding_interpretation:
+  - AGENTS.md
   - governance/current_method_doctrine.md
   - governance/methodology_deprecations.md
+  - governance/slot_routed_acquisition_doctrine.md
   - core/feature_dictionary.yaml
 
 architecture_stages:
+  - exact_structural_baseline
   - slot_forecast
   - candidate_funnel
+  - frozen_k_enumeration
+  - candidate_frozen_pattern_constraint_triage
   - coalition_assembly
   - morphology
   - winner_float_ranking
@@ -29,6 +34,15 @@ information_families:
     rule: >-
       These are representations/models of the same sorted-slot transition family and may not be counted
       as independent convergence votes or multiplied as independent likelihood ratios without an explicit coherent dependency model.
+
+  MAIN_WHOLE_LINE_DELTA:
+    members:
+      - LAST_DIGIT_SUM_ABS_DELTA
+      - MAIN_SUM_ABS_DELTA
+      - MAIN_SPAN_ABS_DELTA
+    rule: >-
+      These are completed-line delta summaries. They may be used as separately scored pattern lanes, but E0029 combines
+      them only through a robustness/meta-pattern operator. They are not independent likelihood multipliers.
 
 experts:
   - expert_id: MAIN_SIGNED_SLOT_TRANSITION
@@ -68,9 +82,10 @@ experts:
     evidence_paths:
       - experiments/E0005/
       - cycles/2026-09-01/post_draw/main_audit.json
+      - cycles/2026-09-04/post_draw/physics_of_failure.md
     notes:
       - Frozen BARP modal LLHHL matched all five realized directions on 2026-09-01.
-      - This is positive one-target prospective credit only; no retuning or promotion.
+      - On 2026-09-04 the frozen slotwise modal LHLHH matched 4/5 realized directions; one-target results do not justify retuning.
       - HLR is the sign view of MAIN_SIGNED_SLOT_TRANSITION.
 
   - expert_id: MAIN_VVD_DELTA
@@ -89,7 +104,6 @@ experts:
       - Absolute magnitude view of signed slot transition.
       - Retain for displacement diagnostics/proper-score comparison only.
       - Do not multiply with HLR or terminal ratios as independent evidence.
-      - On 2026-09-01 VVD helped S3 rank but harmed S5; no global reward multiplier.
 
   - expert_id: MAIN_TERMINAL_MOTIF
     name: Main Terminal Motif / Symbolic-Dynamics Diagnostic
@@ -108,27 +122,107 @@ experts:
     notes:
       - Terminal diagnostic family retained.
       - E0020 M1-M3 terminalxHLRxVVD multiplicative chain is REJECT for forward acquisition.
-      - S3 terminal1 and S4 terminal4 were top-1 hits on 2026-09-01 but overall proper-score history remains negative.
+      - Terminal/HVR/VVD projections do not become independent votes by being represented separately.
 
   - expert_id: MAIN_ADJACENT_SLOT_PRESERVATION
-    name: Adjacent-Slot / Anywhere-Coordinate Preservation Challenger
+    name: Legacy Adjacent-Slot Preservation Challenger
     stage: candidate_funnel
     evidence: INSUFFICIENT_EVIDENCE
-    architecture_status: experimental
+    architecture_status: archived
     source: experiments/E0021/
     authority:
       diagnostic: true
-      may_score: true_after_freeze
+      may_score: false
       may_adjust_exposure: false
       may_hard_eliminate: false
       may_change_K: false
-    constraints:
-      fixed_k: 13
-      maximum_preservation_seats: 2
-      union_expansion: forbidden
     notes:
-      - Motivated by 2026-09-01 coordinate14/16 adjacent-slot migration evidence.
-      - Exact-slot and anywhere-coordinate credit remain separate.
+      - Historical E0021 challenger retained for audit.
+      - Forward preservation semantics are superseded by E0026 scenario-constrained slot routing.
+      - Unrestricted anywhere-coordinate promotion is not allowed.
+
+  - expert_id: MAIN_SLOT_ROUTED_K13_ACQUISITION
+    name: Scenario-Constrained Slot-Routed K13 Acquisition
+    stage: candidate_funnel
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    source: experiments/E0026/
+    information_family: MAIN_SLOT_TRANSITION
+    independent_vote_authority: false
+    authority:
+      diagnostic: true
+      may_score: true_after_pre_draw_freeze
+      may_adjust_exposure: true_at_fixed_K13_only
+      may_hard_eliminate: false
+      may_change_K: false
+      may_use_unrestricted_anywhere_collapse: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_june_2026_history: false
+      xtra_state_transfer: false
+    required_state:
+      - candidate_coordinate
+      - admissible_slot_provenance
+      - scenario_probability
+      - legal_line_support
+    notes:
+      - HLR/signed-transition uncertainty is a scenario distribution, not one deterministic modal path.
+      - Candidate support must remain routed to scenario-compatible legal sorted slots.
+      - Adjacent-slot migration is allowed only when supported by a non-negligible pre-draw scenario and legal order-statistic geometry.
+      - Fixed K13 only; no union/K-expansion credit.
+      - Proper-score improvement of the underlying full-support field remains the first promotion gate.
+      - The invalid 27..39 diagnostic slate is preserved as a failure artifact, not an authorized interpretation of E0026.
+
+  - expert_id: LAST_DIGIT_SUM_ABS_DELTA
+    name: Last-Digit Sum Absolute Delta / LDSAD
+    stage: morphology
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    information_family: MAIN_WHOLE_LINE_DELTA
+    source: experiments/E0028/
+    authority:
+      diagnostic: true
+      may_score: true
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_change_K: false
+    data_boundary:
+      active_start: 2026-06-02
+      allow_pre_june_2026_history: false
+    notes:
+      - Frozen 11..13 band is discovery-derived and receives zero retrospective confirmation credit.
+      - 2026-09-04 realized LDSAD=11 was the first fresh target hit; evidence remains INSUFFICIENT_EVIDENCE.
+      - No production hard-pruning authority.
+
+  - expert_id: MAIN_PATTERN_OR_TRIAGE
+    name: Candidate-Frozen Pattern-OR Triage with Spectral Rescue
+    stage: candidate_frozen_pattern_constraint_triage
+    evidence: INSUFFICIENT_EVIDENCE
+    architecture_status: shadow
+    source: experiments/E0029/
+    authority:
+      diagnostic: true
+      may_score: true_after_K13_freeze
+      may_adjust_exposure: false
+      may_hard_eliminate: false
+      may_add_candidates: false
+      may_remove_candidates: false
+      may_change_K: false
+      may_change_powerball: false
+    dependencies:
+      - frozen_K13
+      - enumerate_all_1287_lines
+      - MAIN_PPMI_SPECTRAL_COALITION_for_rescue_and_downstream_ranking
+    parameters:
+      preferred_shadow: MAIN_PATTERN80_SPECTRAL5_RESCUE
+      pattern_keep_fraction: 0.80
+      spectral_rescue_top_fraction: 0.05
+      tie_rule: average_midrank
+    notes:
+      - Pattern-OR is max(midrank(HLR residual), midrank(LDSAD residual), midrank(SUMAD residual), midrank(SPANAD residual)).
+      - It is one robustness/meta-pattern operator, not four independent likelihood votes.
+      - Zero K13 authority and zero production hard-pruning authority.
+      - On 2026-09-04 the exact winning line could not be scored because four winning coordinates were absent from the frozen official K13 upstream.
 
   - expert_id: MAIN_PPMI_SPECTRAL_COALITION
     name: Positive-PMI Spectral Coalition Ranking
@@ -177,7 +271,6 @@ experts:
       - Discovery oracle-K13 mean winner percentile was about 0.531 across 19 targets; no significant lift.
       - Do not add to MAIN_ASSEMBLY_DISSENT_OR until incremental prospective value is demonstrated.
       - No hard decade quotas, candidate changes, or morphology pruning.
-      - First eligible prospective Main target is 2026-09-04.
 
   - expert_id: MAIN_NONEQUILIBRIUM_CURRENT
     name: Nonequilibrium Probability Current Shadow
@@ -202,7 +295,6 @@ experts:
     notes:
       - Statistical chronology operator, not literal particle flow.
       - Must show incremental value after recency/frequency and transition-family redundancy controls.
-      - Frozen K13 captured only 40 on 2026-09-01; no one-target rejection or reward.
 
   - expert_id: MAIN_LEVY_TAIL_DIAGNOSTIC
     name: Levy / Anomalous-Dispersion Tail Diagnostic
@@ -311,17 +403,18 @@ experts:
       - Central-looking morphology is not predictive evidence by itself.
 
   - expert_id: MORPH_SLDV
-    name: Sum of Last-Digit Variance
+    name: Legacy Sum-of-Last-Digits Absolute-Delta Alias
     stage: morphology
     evidence: INSUFFICIENT_EVIDENCE
-    architecture_status: experimental
+    architecture_status: archived
     authority:
       diagnostic: true
-      may_score: true
+      may_score: false
       may_adjust_exposure: false
       may_hard_eliminate: false
     notes:
-      - Combination morphology feature, not standalone candidate predictor.
+      - Historical ambiguous label retained for compatibility.
+      - New work must use canonical LAST_DIGIT_SUM_ABS_DELTA / LDSAD nomenclature.
 
   - expert_id: COALITION_PAIR_OF_PAIRS_ANCHOR
     name: Pair-of-Pairs plus Anchor
@@ -348,7 +441,7 @@ experts:
   - expert_id: JOHNSON_COVER_PORTFOLIO
     name: Johnson Covering Portfolio Optimizer
     stage: portfolio_optimization
-    evidence: PROVISIONAL_SIGNAL
+    evidence: INSUFFICIENT_EVIDENCE
     architecture_status: shadow
     authority:
       diagnostic: true
@@ -363,7 +456,7 @@ experts:
     notes:
       - Assembly/portfolio geometry only.
       - Zero candidate-discovery or safe-exclusion authority.
-      - Coverage geometry is not predictive evidence.
+      - Coverage geometry is deterministic, not predictive evidence.
 
   - expert_id: PORTFOLIO_CHAOS_BASELINE
     name: Chaos / Random Baseline Hedge
@@ -394,7 +487,7 @@ experts:
   - expert_id: PB_ACTIVE_MATRIX
     name: Active PowerBall Matrix
     stage: powerball_matrix
-    evidence: PROVISIONAL_SIGNAL
+    evidence: INSUFFICIENT_EVIDENCE
     architecture_status: production
     authority:
       diagnostic: true
@@ -405,6 +498,7 @@ experts:
       - Production means pipeline-available, not proven conditional edge.
       - PB conditional claims require strong shrinkage and proper-score comparison with uniform/unconditional baselines.
       - PB HLR/VVD/terminal/exact-state projections are not independent votes.
+      - The Director VVD10-next-two-sum12 deterministic rule failed its first fresh 2026-09-04 test and has no forward authority.
 
 legacy_identifiers:
   - expert_id: LEGACY_VVD_VOLUME
@@ -432,3 +526,7 @@ superseded_formulas:
   - id: E0020_TERMINAL_HLR_VVD_CHAIN
     evidence: REJECT
     retained_component: terminal_diagnostic_family
+  - id: MAIN_STRICT_ADJACENT_SLOT_PRESERVER_E0021
+    evidence: INSUFFICIENT_EVIDENCE
+    retained_component: fixed_K_preservation_question
+    successor: E0026
