@@ -18,14 +18,21 @@ class XtraAlgorithmChampionshipTest(unittest.TestCase):
                 cache[key] = original(training)
             return cache[key]
 
+        canonical = xac.load_xtra()
+        self.assertGreaterEqual(len(canonical), 28)
+        self.assertEqual(canonical[0]["date"], "2026-06-02")
+
         xac.spectral_embedding = cached
         try:
             result = xac.run_championship(random_samples=1000, oracle_reps=20)
         finally:
             xac.spectral_embedding = original
 
-        self.assertEqual(result["canonical_rows"], 24)
-        self.assertEqual(result["canonical_cutoff"], "2026-08-21")
+        # The championship intentionally reads the current canonical XTRA ledger.
+        # Do not hard-code an obsolete row count/cutoff; assert exact agreement with
+        # the canonical ledger used by this run instead.
+        self.assertEqual(result["canonical_rows"], len(canonical))
+        self.assertEqual(result["canonical_cutoff"], canonical[-1]["date"])
         self.assertIn("spectral_coalition", result)
         self.assertIn("fixed_k_rescue", result)
         self.assertIn("powerball", result)
