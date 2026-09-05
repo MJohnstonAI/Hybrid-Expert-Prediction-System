@@ -19,6 +19,7 @@ The audit found several **control-plane/staleness defects**, not winning-number 
 7. expert/feature/nomenclature registries had not incorporated E0026/E0028/E0029 semantics.
 8. claim/failure/experiment registries had not yet incorporated the 2026-09-04 prospective outcomes.
 9. XTRA provenance flags were inconsistent: several rows correctly stored unknown/missing metadata but did not explicitly carry the corresponding quality flags.
+10. one XTRA championship unit test hard-coded an obsolete 24-row / 2026-08-21 canonical snapshot and failed correctly when the canonical ledger reached 28 rows.
 
 These issues have been corrected without changing any historical pre-draw prediction artifact.
 
@@ -149,7 +150,7 @@ Important authority corrections include:
 - E0029 cannot be credited/blamed for the 2026-09-04 exact winning line because four winners were excluded upstream;
 - PB VVD10-next-two-sum12 deterministic Director rule is `REJECT` after its first frozen prospective miss.
 
-## CI expansion
+## CI expansion and final result
 
 `.github/workflows/validate-draws.yml` now runs when Main/XTRA data, manifests, schemas, scripts, tests, prediction pointers or core machine-readable control files change.
 
@@ -161,7 +162,13 @@ Required CI checks are now:
 4. randomized null-model smoke test;
 5. full unit-test discovery.
 
-The first expanded run correctly failed on a false-positive legacy-workbook scanner because a manifest warning string merely named the old Excel files. The scanner was corrected to detect executable `read_excel/open/Path` use rather than harmless documentation. A new CI run was triggered after the correction.
+The expanded CI was deliberately treated as part of the audit rather than assumed to pass:
+
+- first run exposed a false-positive legacy-workbook scanner because a manifest warning string merely named the deprecated Excel files; the scanner was narrowed to executable `read_excel/open/Path` use;
+- next run passed all active-data checks but exposed a stale unit test expecting 24 XTRA rows through 2026-08-21; the test was corrected to assert against the current canonical ledger instead of an obsolete snapshot;
+- final run `33956793113` completed **successfully**, including Main validation, manifest check, cross-lane integrity, null smoke test, and all unit tests.
+
+Thus the final Task 0 status is a real CI-backed pass, not a manual assertion.
 
 ## Residual limitations / non-errors
 
@@ -188,6 +195,7 @@ Passing Task 0 establishes data/control integrity only. It does not validate HEP
 **Prediction immutability:** PASS for inspected 2026-09-04 active pointer/artifact.  
 **Research registries:** synchronized through 2026-09-04 evidence.  
 **Legacy Excel active authority:** forbidden and CI-checked.  
+**CI / unit tests:** PASS.  
 **Predictive evidence impact:** none; this is methodological infrastructure.
 
 ## Next frontier-model tasks
