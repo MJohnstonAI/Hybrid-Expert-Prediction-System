@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Strict validation for the HEPS canonical South African PowerBall ledger."""
+"""Strict validation for the HEPS canonical South African PowerBall Main ledger."""
 from __future__ import annotations
 
 import argparse
@@ -11,6 +11,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LEDGER = REPO_ROOT / "data" / "draw_history.jsonl"
 GAME_FORMAT = "powerball_50_16"
+ACTIVE_SERIES_START = date(2026, 6, 2)
 ALLOWED_DRAW_METHODS = {"mechanical_machine", "electronic_rng", "unknown"}
 LEGACY_REGIME = "mechanical_50_16"
 SOURCE_URL_MISSING = "source_url_missing"
@@ -110,7 +111,16 @@ def validate_provenance(row: dict[str, Any], line_no: int, errors: list[str]) ->
         )
 
 
-def validate_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
+def validate_rows(
+    rows: list[tuple[int, dict[str, Any]]],
+    *,
+    enforce_active_boundary: bool = False,
+) -> list[str]:
+    """Validate Main rows.
+
+    `enforce_active_boundary=True` is required for the canonical active ledger and
+    deliberately optional for small synthetic/unit-test fixtures.
+    """
     errors: list[str] = []
     if not rows:
         return ["Ledger must contain at least one draw row"]
@@ -118,6 +128,7 @@ def validate_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
     seen_dates: set[str] = set()
     previous_date: date | None = None
     previous_draw_id = 0
+    parsed_dates: list[tuple[int, date]] = []
 
     for line_no, row in rows:
         draw_id = row.get("draw_id")
@@ -139,6 +150,7 @@ def validate_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
                 errors.append(f"Line {line_no}: duplicate draw_date {draw_date_text}")
             seen_dates.add(draw_date_text)
         if parsed_date is not None:
+            parsed_dates.append((line_no, parsed_date))
             if previous_date is not None and parsed_date <= previous_date:
                 errors.append(f"Line {line_no}: draw_date must be strictly chronological")
             previous_date = parsed_date
@@ -165,19 +177,36 @@ def validate_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
 
         validate_provenance(row, line_no, errors)
 
+    if enforce_active_boundary and parsed_dates:
+        first_line, first_date = parsed_dates[0]
+        if first_date != ACTIVE_SERIES_START:
+            errors.append(
+                f"Line {first_line}: canonical Main ledger must begin on "
+                f"{ACTIVE_SERIES_START.isoformat()}, found {first_date.isoformat()}"
+            )
+        for line_no, parsed_date in parsed_dates:
+            if parsed_date < ACTIVE_SERIES_START:
+                errors.append(
+                    f"Line {line_no}: pre-June active Main row forbidden: {parsed_date.isoformat()} "
+                    f"< {ACTIVE_SERIES_START.isoformat()}"
+                )
+
     return errors
 
 
 def validate(path: Path = DEFAULT_LEDGER) -> int:
     rows = load_jsonl(path)
-    errors = validate_rows(rows)
+    errors = validate_rows(rows, enforce_active_boundary=True)
     if errors:
         print(f"HEPS draw ledger validation FAILED: {path}")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    print(f"HEPS draw ledger validation passed: {path} ({len(rows)} rows)")
+    print(
+        f"HEPS draw ledger validation passed: {path} ({len(rows)} rows; "
+        f"active start {ACTIVE_SERIES_START.isoformat()})"
+    )
     return 0
 
 
