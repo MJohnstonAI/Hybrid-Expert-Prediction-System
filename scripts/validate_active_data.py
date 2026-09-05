@@ -24,6 +24,9 @@ XTRA_MANIFEST = ROOT / "data" / "powerball_xtra_manifest.json"
 CYCLES = ROOT / "cycles"
 GAME_FORMAT = "powerball_50_16"
 XTRA_VARIANT = "powerball_xtra"
+SOURCE_URL_MISSING = "source_url_missing"
+DRAW_METHOD_UNKNOWN = "draw_method_unknown"
+MACHINE_NAME_UNKNOWN = "machine_name_unknown"
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -96,6 +99,20 @@ def validate_xtra_rows(rows: list[tuple[int, dict[str, Any]]]) -> list[str]:
             errors.append(f"XTRA line {line_no}: game_format must be {GAME_FORMAT}")
         if row.get("game_variant") != XTRA_VARIANT:
             errors.append(f"XTRA line {line_no}: game_variant must be {XTRA_VARIANT}")
+
+        flags = row.get("data_quality_flags")
+        if not isinstance(flags, list) or any(not isinstance(flag, str) for flag in flags):
+            errors.append(f"XTRA line {line_no}: data_quality_flags must be an array of strings")
+            flags = []
+        source_url = row.get("source_url")
+        source_missing = source_url is None or (isinstance(source_url, str) and not source_url.strip())
+        if source_missing and SOURCE_URL_MISSING not in flags:
+            errors.append(f"XTRA line {line_no}: missing source_url must carry {SOURCE_URL_MISSING}")
+        if row.get("draw_method") == "unknown" and DRAW_METHOD_UNKNOWN not in flags:
+            errors.append(f"XTRA line {line_no}: unknown draw_method must carry {DRAW_METHOD_UNKNOWN}")
+        machine_name = row.get("machine_name")
+        if (machine_name is None or str(machine_name).strip().lower() == "unknown") and MACHINE_NAME_UNKNOWN not in flags:
+            errors.append(f"XTRA line {line_no}: unknown machine_name must carry {MACHINE_NAME_UNKNOWN}")
 
     first_date = rows[0][1].get("draw_date")
     if first_date != ACTIVE_SERIES_START.isoformat():
@@ -265,6 +282,7 @@ def main() -> int:
         f"- XTRA: {len(xtra_rows)} rows, {xtra_rows[0][1]['draw_date']} through {xtra_rows[-1][1]['draw_date']}"
     )
     print(f"- Active-era floor enforced: {ACTIVE_SERIES_START.isoformat()}")
+    print("- Main/XTRA provenance flags are structurally consistent with missing/unknown metadata")
     print("- Pre-draw current_prediction pointers resolve and use pre-target canonical cutoffs")
     print("- Active scripts do not open legacy Train on Main/Plus workbooks")
     return 0
