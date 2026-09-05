@@ -1,6 +1,6 @@
 # HEPS Binding Nomenclature
 
-**Updated:** 2026-09-02
+**Updated:** 2026-09-05
 
 This file prevents semantic collisions across AI models, historical HEPS versions, and current experiments. Canonical identifiers control meaning.
 
@@ -57,7 +57,24 @@ Terminal-motif models may forecast residue classes against exact slot-specific t
 **Unit:** coordinate 1..50  
 **Meaning:** evidence that a number appears somewhere in the next Main five-number set, irrespective of exact sorted slot.
 
-This must remain distinct from exact-slot probability. A coordinate may earn acquisition credit even when its strongest pre-draw score was assigned to an adjacent slot.
+This must remain distinct from exact-slot probability. Reporting a global/anywhere marginal does **not** grant permission to erase slot provenance in E0026 acquisition.
+
+### `MAIN_SLOT_ROUTED_CANDIDATE_SUPPORT`
+**Name:** Scenario-conditioned candidate × slot support  
+**Unit:** candidate coordinate `n`, sorted slot `j`, pre-draw scenario `s`  
+**Meaning:** candidate support retained together with admissible slot provenance and scenario probability.
+
+Conceptually:
+
+`U_j(n,s) = support for coordinate n in slot j under scenario s`.
+
+Support is zero where HLR/signed-transition feasibility, exact order-statistic support, or complete legal sorted-line geometry makes the placement impossible.
+
+The aggregated marginal
+
+`U(n) = sum_s w_s sum_j U_j(n,s)`
+
+may be reported, but it may not replace the routed tensor when an E0026 K13 decision is made.
 
 ## Other Main-field concepts
 
@@ -140,24 +157,81 @@ For unordered anywhere-coordinate pairs, every distinct pair has identical unifo
 ### `COALITION_PAIR_OF_PAIRS_ANCHOR`
 Assembly hypothesis in which two supported pairs and an anchor contribute to same-line coalition strength.
 
-## Candidate preservation concepts
+## Candidate preservation / acquisition concepts
 
 ### `MAIN_ADJACENT_SLOT_PRESERVATION`
-Fixed-K acquisition challenger motivated by 2026-09-01.
+Historical E0021 fixed-K preservation challenger motivated by 2026-09-01.
 
-A coordinate strongly ranked in an adjacent sorted slot may be preserved for anywhere-coordinate acquisition only by displacing another seat at identical K. Exact-slot and anywhere-coordinate credit remain separate.
+The research question remains useful, but strict E0021 preservation semantics are superseded for forward work by E0026 scenario-constrained slot routing.
 
-No union/K expansion credit.
+### `MAIN_SLOT_ROUTED_K13_ACQUISITION`
+**Name:** Scenario-Constrained Slot-Routed K13 Acquisition  
+**Source:** E0026  
+**Unit:** fixed set of 13 unique Main coordinates with retained candidate × slot × scenario provenance.
+
+Binding semantics:
+
+1. HLR is a distribution over plausible scenarios, not a single hard path;
+2. candidate placements must be scenario-compatible;
+3. exact legal order `x1<x2<x3<x4<x5` must hold;
+4. global marginals may be reported but may not erase provenance;
+5. adjacent-slot migration requires non-negligible pre-draw scenario support;
+6. all comparisons remain fixed K13;
+7. proper-score evidence is the first promotion gate.
+
+The invalid diagnostic `27..39` basket from the 2026-09-04 research cycle is retained as an implementation/failure artifact and is not a valid interpretation of this identifier.
+
+## Candidate-frozen pattern concepts
+
+### `LAST_DIGIT_SUM_ABS_DELTA` / `LDSAD`
+**Name:** Last-Digit Sum Absolute Delta  
+**Unit:** completed Main line transition  
+**Definition:**
+
+`LDSAD(t)=abs(sum_i(X_i(t) mod 10) - sum_i(X_i(t-1) mod 10))`.
+
+This is an absolute first difference, **not statistical variance**.
+
+E0028's `11..13` band is discovery-derived and may be scored prospectively only; it currently has no production hard-pruning authority.
+
+### `MAIN_SUM_ABS_DELTA` / `SUMAD`
+**Definition:**
+
+`SUMAD(t)=abs(sum_i X_i(t) - sum_i X_i(t-1))`.
+
+A completed-line delta diagnostic used in E0029. Adaptive target distributions must be fitted target-excluded.
+
+### `MAIN_SPAN_ABS_DELTA` / `SPANAD`
+For span `R(t)=X_5(t)-X_1(t)`:
+
+`SPANAD(t)=abs(R(t)-R(t-1))`.
+
+A completed-line delta diagnostic used in E0029. Adaptive target distributions must be fitted target-excluded.
+
+### `MAIN_PATTERN_OR`
+**Name:** Candidate-Frozen Pattern-OR  
+**Source:** E0029  
+**Unit:** one legal five-number line inside an already frozen K13.
+
+Definition:
+
+`max(midrank_pct(HLR residual), midrank_pct(LDSAD residual), midrank_pct(SUMAD residual), midrank_pct(SPANAD residual))`.
+
+This is one robustness/meta-pattern operator, not four independent likelihood votes.
+
+The preferred shadow `MAIN_PATTERN80_SPECTRAL5_RESCUE` retains the Pattern-OR top 80% and rescues E0013 spectral top 5%. E0029 has zero K13 authority and zero production hard-pruning authority until prospectively promoted.
 
 ## Combination morphology concepts
 
 ### `MORPH_SLDV`
-**Name:** Sum of Last-Digit Variance  
-**Definition:**
+**Status:** historical nomenclature alias only.  
+**Historical name:** Sum of Last-Digit Variance.
 
-`SLDV(C)=abs(sum(last_digit(C_i))-previous_draw_last_digit_sum)`.
+Its historical formula was:
 
-Despite the name, this is an absolute first difference, not statistical variance. Role: morphology only.
+`abs(sum(last_digit(C_i))-previous_draw_last_digit_sum)`.
+
+Because this is not variance, new work must use canonical `LAST_DIGIT_SUM_ABS_DELTA (LDSAD)` instead. Historical artifacts remain immutable.
 
 ### `MORPH_GAP`
 Completed-line gap morphology. Distinct from `MAIN_GAP_VECTOR`, the six-component state representation.
@@ -223,6 +297,14 @@ Use exactly:
 - `archived`
 
 `production` means pipeline-available, not necessarily proven predictive skill.
+
+## Active data boundary
+
+For active fitted Main and XTRA state:
+
+- earliest allowed canonical winning-draw date: `2026-06-02`;
+- pre-June 2026 winning rows remain historical/legacy only and may not enter active fitted state;
+- Main and XTRA remain independently fitted lanes.
 
 ## Rule for future collisions
 
