@@ -1,0 +1,32 @@
+{
+  "target_draw_date": "2026-09-04",
+  "verified_on": "2026-09-05",
+  "lane": "Main",
+  "draw_number": 1752,
+  "main_numbers": [4, 7, 27, 38, 50],
+  "powerball": 10,
+  "macro_sum": 126,
+  "previous_main_numbers": [14, 16, 31, 34, 40],
+  "previous_powerball": 4,
+  "signed_slot_transition": [-10, -9, -4, 4, 10],
+  "HLR": "LLLHH",
+  "VVD": [10, 9, 4, 4, 10],
+  "terminal_digits": [4, 7, 7, 8, 0],
+  "SLD": 26,
+  "previous_SLD": 15,
+  "LDSAD": 11,
+  "SUMAD": 9,
+  "span": 46,
+  "previous_span": 26,
+  "SPANAD": 20,
+  "powerball_VVD": 6,
+  "source": {
+    "name": "Lottery.co.za PowerBall Results",
+    "url": "https://www.lottery.co.za/powerball/results",
+    "observed_result": "4,7,27,38,50 | PB10"
+  },
+  "machine_name": "unknown",
+  "draw_method": "unknown",
+  "data_quality_flags": ["draw_method_unknown", "machine_name_unknown"],
+  "note": "Verified post-draw result artifact. Canonical ledger append should remain subject to normal HEPS draw validation/sync procedure."
+}
