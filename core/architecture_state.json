@@ -1,10 +1,17 @@
 {
-  "schema_version": 1,
-  "architecture_id": "HEPS-v34.1-johnson-assembly",
+  "schema_version": 2,
+  "architecture_id": "HEPS-v35.3-joint-distribution-candidate-frozen-pattern-triage",
   "status": "active_research",
-  "updated": "2026-08-28",
+  "updated": "2026-09-05",
   "canonical_architecture": "core/heps_architecture.md",
+  "binding_governance": [
+    "AGENTS.md",
+    "governance/current_method_doctrine.md",
+    "governance/methodology_deprecations.md",
+    "governance/research_protocol.md"
+  ],
   "normative_modules": [
+    "governance/slot_routed_acquisition_doctrine.md",
     "core/johnson_portfolio_assembly.md"
   ],
   "shadow_modules": [
@@ -13,11 +20,22 @@
   ],
   "expert_registry": "core/expert_registry.yaml",
   "xtra_expert_registry": "core/powerball_xtra_expert_registry.yaml",
-  "active_data": "data/draw_history.jsonl",
-  "dataset_manifest": "data/draw_manifest.json",
+  "active_data": {
+    "main": "data/draw_history.jsonl",
+    "xtra": "data/powerball_xtra_history.jsonl",
+    "active_series_start": "2026-06-02",
+    "latest_verified_operational_date": "2026-09-04"
+  },
+  "dataset_manifests": {
+    "main": "data/draw_manifest.json",
+    "xtra": "data/powerball_xtra_manifest.json"
+  },
   "pipeline": [
+    "exact_structural_baseline",
     "slot_forecast",
     "candidate_funnel",
+    "frozen_k_enumeration",
+    "candidate_frozen_pattern_constraint_triage",
     "coalition_assembly",
     "morphology",
     "winner_float_ranking",
@@ -27,19 +45,31 @@
   "candidate_acquisition": {
     "primary_research_target_k": 13,
     "status": "research_target_not_hard_cap",
+    "current_method_path": "E0021 -> E0026",
+    "slot_provenance_required": true,
+    "scenario_probability_required": true,
+    "unrestricted_anywhere_collapse_forbidden": true,
     "johnson_candidate_authority": "none",
-    "required_matched_controls": true
+    "required_matched_controls": true,
+    "proper_score_primary_promotion_gate": true
+  },
+  "pattern_constraint_triage": {
+    "experiment": "E0029",
+    "architecture_status": "shadow",
+    "evidence": "INSUFFICIENT_EVIDENCE",
+    "jurisdiction": "after_K13_freeze_only",
+    "hard_pruning_authority": false,
+    "preferred_shadow": "MAIN_PATTERN80_SPECTRAL5_RESCUE"
   },
   "portfolio_optimization": {
     "johnson_module": "JOHNSON_COVER_PORTFOLIO",
     "architecture_status": "shadow",
-    "evidence": "PROVISIONAL_SIGNAL",
-    "jurisdiction": "assembly_only_after_candidate_freeze",
-    "experiment": "E0002"
+    "evidence": "deterministic_geometry_only",
+    "jurisdiction": "assembly_only_after_candidate_freeze"
   },
   "physics_shadow_integration": {
     "experiment": "E0016",
-    "data_boundary": "post_2026_06_02_only",
+    "data_boundary": "2026-06-02_and_later_only",
     "main_nonequilibrium_current": {
       "architecture_status": "shadow",
       "authority": "shadow_candidate_score_only"
@@ -54,7 +84,7 @@
     }
   },
   "learning_speeds": {
-    "fast": "deterministic state updates after each draw",
+    "fast": "deterministic state updates after each validated draw",
     "medium": "predeclared parameter-learning algorithms",
     "slow": "reviewed architecture promotion"
   },
