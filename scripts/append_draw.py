@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Append a validated South African PowerBall draw to the HEPS ledger."""
+"""Append a validated South African PowerBall Main draw to the HEPS active ledger."""
 from __future__ import annotations
 
 import argparse
@@ -10,6 +10,7 @@ from typing import Any
 
 from sync_manifest import DEFAULT_MANIFEST, sync_manifest
 from validate_draws import (
+    ACTIVE_SERIES_START,
     ALLOWED_DRAW_METHODS,
     DEFAULT_LEDGER,
     DRAW_METHOD_UNKNOWN,
@@ -48,9 +49,14 @@ def parse_powerball(value: str) -> int:
 
 def parse_date(value: str) -> str:
     try:
-        return date.fromisoformat(value).isoformat()
+        parsed = date.fromisoformat(value)
     except ValueError as exc:
         raise argparse.ArgumentTypeError("--date must use YYYY-MM-DD format") from exc
+    if parsed < ACTIVE_SERIES_START:
+        raise argparse.ArgumentTypeError(
+            f"--date may not precede the active Main series start {ACTIVE_SERIES_START.isoformat()}"
+        )
+    return parsed.isoformat()
 
 
 def parse_draw_method(value: str) -> str:
@@ -69,6 +75,10 @@ def make_row(
     machine_name: str,
     source_url: str | None,
 ) -> dict[str, Any]:
+    if date.fromisoformat(draw_date) < ACTIVE_SERIES_START:
+        raise ValueError(
+            f"pre-June Main row forbidden: {draw_date} < {ACTIVE_SERIES_START.isoformat()}"
+        )
     if any(row["draw_date"] == draw_date for _, row in rows):
         raise ValueError(f"draw_date already exists in ledger: {draw_date}")
     if rows and draw_date <= rows[-1][1]["draw_date"]:
@@ -112,14 +122,14 @@ def append_draw(
     sync: bool,
 ) -> int:
     rows = load_jsonl(ledger_path) if ledger_path.exists() else []
-    errors = validate_rows(rows)
+    errors = validate_rows(rows, enforce_active_boundary=True)
     if errors:
         joined = "\n".join(f"- {error}" for error in errors)
         raise ValueError(f"Refusing to append to invalid ledger:\n{joined}")
 
     row = make_row(rows, draw_date, main_numbers, powerball, draw_method, machine_name, source_url)
     candidate_rows = [*rows, (len(rows) + 1, row)]
-    candidate_errors = validate_rows(candidate_rows)
+    candidate_errors = validate_rows(candidate_rows, enforce_active_boundary=True)
     if candidate_errors:
         joined = "\n".join(f"- {error}" for error in candidate_errors)
         raise ValueError(f"Refusing to append invalid row:\n{joined}")
