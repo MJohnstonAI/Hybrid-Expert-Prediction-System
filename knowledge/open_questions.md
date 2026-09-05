@@ -1,173 +1,144 @@
 # HEPS Open Questions — Current Priority Registry
 
-**Updated:** 2026-09-02
+**Updated:** 2026-09-05
 
-This file contains only active/high-value questions. The pre-cleanup question list is preserved in `knowledge/open_questions_archive_pre_2026-09-02.md`. Historical questions should not be revived without checking `governance/methodology_deprecations.md` and the latest claim/failure registries.
+This file contains only active/high-value questions. Historical questions remain archived and must not be revived without checking current doctrine, deprecations, claim/failure registries, and the latest cycle evidence.
 
 ## Q001 — Does BARP HLR contain incremental direction information?
 
-The 2026-09-01 frozen BARP modal vector `LLHHL` exactly matched the realized five-slot HLR vector.
+Prospective observations now include:
 
-This is encouraging but only one target.
+- 2026-09-01: frozen modal `LLHHL`, realized `LLHHL` — 5/5 direction hit;
+- 2026-09-04: frozen slotwise modal `LHLHH`, realized `LLLHH` — 4/5 direction hit.
 
-Resolution requires:
+These are encouraging but still too few for promotion. Resolution requires frozen full probability vectors and prospective proper-score comparison against `NULL_HLR_STRUCTURAL` / `NULL_HLR_JOINT_243`, without retuning from either target.
 
-- frozen full per-slot HLR probability vectors;
-- comparison against `NULL_HLR_STRUCTURAL` and `NULL_HLR_JOINT_243` where appropriate;
-- prospective Brier/log-loss, not only modal-vector hit rate;
-- no parameter retuning from the 2026-09-01 success.
+Primary path: E0005 plus future prospective cycle scoring.
 
-Primary path: `experiments/E0005/` plus Friday 2026-09-04 cycle scoring.
+## Q002 — Can one signed-displacement model beat structural/simple controls?
 
-## Q002 — Can one signed-displacement transition model beat the old HLR×VVD field?
+Can `MAIN_SIGNED_SLOT_TRANSITION` produce a better calibrated full-support legal-line field than exact structural nulls, simple frequency/recency and rejected historical transition products?
 
-This is now the central Main acquisition question.
+Primary gate: prospective log/Brier improvement first, matched-K acquisition second.
 
-Can `MAIN_SIGNED_SLOT_TRANSITION` produce a better calibrated full-support field than:
+Primary path: E0021.
 
-- exact structural null;
-- E0019 historical HLR×VVD product;
-- simple frequency/recency;
-- E0016 nonequilibrium current;
-- marginal Top-K rules?
+## Q003 — What is the mathematically optimal fixed-K13 acquisition objective?
 
-Primary gate: prospective proper-score improvement first, then matched K13 containment/recall.
+HEPS currently retains complete-line containment mass `M(K)` as a useful objective, but it is not assumed optimal.
 
-Primary path: `experiments/E0021/`.
+The 2026-09-04 failure shows that aggregate mass optimization can under-protect plausible opposing-tail scenarios. Required research should compare expected containment with scenario-conditioned, lower-tail/CVaR, catastrophic-exclusion and one-seat-regret formulations while keeping K exactly 13.
 
-## Q003 — Can K13 improve without optimization over misspecification?
+This is the highest-value hard research problem and a candidate for external frontier-model review.
 
-HEPS still targets K13 as the primary acquisition research basket, but an optimized K13 is not evidence by itself.
+Primary path: E0026 successor research.
 
-Required simultaneous conditions:
+## Q004 — Can scenario-constrained slot routing reduce catastrophic exclusions?
 
-1. full probability field is calibrated better than structural/simple controls;
-2. K13 recall exceeds matched-random/simple comparators;
-3. catastrophic 0/1 exclusions do not worsen;
-4. gains survive multiple prospective targets and independent reproduction.
+The official 2026-09-04 K13 retained only `50` from `4,7,27,38,50`, despite the transition model assigning nonzero mass to the realized `LLLHH` scenario. The superseded E0026-R basket retained `38@S4` and `50@S5` in their primary routed slots.
 
-E0019's line-containment objective is retained; its old probability operator is not.
+Question: can candidate + admissible slot + scenario probability be converted into materially better fixed-K13 survival without collapsing to unrestricted anywhere marginals or sacrificing proper score?
 
-## Q004 — Does adjacent-slot / anywhere-coordinate preservation improve fixed-K survival?
+Required controls:
 
-The 2026-09-01 draw motivates this question prospectively:
+- random K13;
+- frequency/recency K13;
+- marginal signed-transition K13;
+- E0021 incumbent;
+- E0026 routed and robust variants.
 
-- 14 ranked strongly pre-draw in S2 but realized in S1;
-- 16 ranked strongly across S1/S2 and realized in S2.
+Primary path: E0026.
 
-Test a bounded fixed-K challenger that may preserve up to two strong adjacent-slot coordinates by **displacing** existing K13 members. No K expansion or union credit.
+## Q005 — Can K13 protect plausible opposing-tail movement?
 
-Score exact-slot rank and anywhere-coordinate rank separately.
+The 2026-09-04 realized signed transition was:
 
-Primary path: E0021 adjacent-slot arm.
+`[-10,-9,-4,+4,+10]`.
 
-## Q005 — Which experts are genuinely independent information sources?
+HEPS needs a preregistered stress criterion that asks whether a fixed K13 retains legal-line support under plausible simultaneous deep-low lower slots and high upper slots, without target-specific tuning and without increasing K.
 
-HLR, VVD, terminal digit and exact target coordinate derived from one sorted-slot transition are now one information family.
+This is a risk-control problem, not permission to train toward `4,7,27,38,50` retrospectively.
 
-The active redundancy question concerns genuinely different sources such as:
+## Q006 — Which experts are genuinely independent information sources?
 
-- signed-transition field;
-- E0016 nonequilibrium current;
+HLR, VVD, terminal digit and exact coordinate are one transition information family. The unresolved question concerns incremental information from genuinely different sources such as:
+
+- signed transition;
+- E0016 chronology/current;
 - E0013 coalition topology;
-- machine/ball-set metadata if prospectively available;
-- any future exogenous mechanical covariate.
+- candidate-frozen whole-line delta patterns;
+- machine/ball-set metadata if prospectively available.
 
-Resolution requires residual dependence and incremental proper-score/stage-isolation testing.
+Resolution requires residual-dependence and incremental proper-score/stage-isolation testing.
 
 Primary path: E0011 redundancy audit.
 
-## Q006 — Does E0013 coalition topology survive stronger marginal-conditioned controls?
+## Q007 — Does E0013 coalition topology survive stronger marginal-conditioned controls?
 
-E0013 remains one of the more promising learned downstream signals, but its discovery p-values are post-search and its graph should be challenged with stronger controls.
+E0013 remains coalition-only `PROVISIONAL_SIGNAL`. Test shrunk association conditional on observed coordinate marginals `C_i,C_j`, then compare with original PPMI spectral, raw pair counts, smoothed PMI, frequency, random and incumbent rankings.
 
-Do **not** subtract a supposed central-coordinate structural `P0(i,j)`; unordered anywhere-coordinate pairs have identical IID pair co-inclusion probability under 5/50.
+Do not invent a coordinate-varying central-pair structural null under uniform 5/50.
 
-Instead test a shrunk association statistic conditional on observed marginals `C_i,C_j`, then compare:
+## Q008 — Can E0029 Pattern-OR earn real triage authority?
 
-- original PPMI spectral;
-- marginal-conditioned/shrunk spectral;
-- raw pair counts;
-- smoothed PMI without spectral projection;
-- random/frequency/incumbent line ranking.
+E0029 remains `INSUFFICIENT_EVIDENCE` / prospective shadow.
 
-Coalition-only authority remains binding.
+Its first fresh target, 2026-09-04, could not score exact-winning-line gate survival because four winners were absent from K13 upstream. Therefore the prospective evidence counter remains effectively unresolved for the stage-isolated winner-line question.
 
-## Q007 — Does terminal symbolic dynamics add information as a separate calibrated model?
+Promotion requires multiple future targets where all five winners survive K13, with gate survival materially above line-retention fraction and no post-hoc retuning.
 
-E0020's multiplicative terminal×HLR×VVD chain is rejected for acquisition.
+## Q009 — Does E0028 LDSAD survive prospectively?
 
-The remaining legitimate question is narrower:
+The discovery-derived fixed band `11..13` scored its first fresh hit on 2026-09-04 with actual LDSAD `11`.
 
-Can a prospectively frozen terminal model beat exact slot-specific terminal nulls on proper score, after multiplicity correction, and add incremental information when combined through a coherent ensemble rather than a likelihood product?
+This is one prospective shadow success only. Continue scoring the frozen band and adaptive residual formulation against exact structural-null retention and matched random bands. Do not widen/move the band based on outcomes.
 
-Until then terminal motifs remain diagnostic/hedge only.
+## Q010 — Is there a real machine/ball-set non-exchangeability signal?
 
-## Q008 — Is there a real machine/ball-set non-exchangeability signal?
+If a durable mechanical-era edge exists, prospectively known physical metadata may be more valuable than additional transforms of past winning numbers.
 
-If a durable mechanical-era edge exists, persistent or regime-specific ball/machine bias is a higher-value hypothesis than inventing additional transforms of the previous winning numbers.
+Prerequisites remain known/qualified machine or ball-set state, strong hierarchical shrinkage, pooled controls and no outcome-optimized regime split.
 
-Required prerequisites:
+## Q011 — What is the correct near-term PowerBall model?
 
-- machine/ball-set state known or provenance-qualified before the target;
-- no outcome-optimized regime boundary;
-- strong hierarchical shrinkage;
-- pooled versus machine-conditioned controls;
-- proper-score and matched-exposure evaluation.
+The deterministic Director motif `VVD10 -> next two VVD sum to 12` failed its first fresh test on 2026-09-04 and should not be reused as a predictive rule.
 
-Unknown machine identity remains a hard limitation in the current ledger.
+The legitimate question is broader: can a strongly shrunk PB model beat uniform `1/16` prospectively on proper score?
 
-## Q009 — Can Richardson pair dispersion be converted to coherent exact joint inference?
+Compare:
 
-The pair-separation estimator itself remains a valid shadow component, but E0016's geometric-mean message passing is heuristic and uses all ten slot pairs.
+- uniform;
+- unconditional Dirichlet shrinkage;
+- exact-state conditional shrinkage;
+- VVD-state conditional shrinkage;
+- any coherent dependency-aware model fixed before target reveal.
 
-Test whether direct legal-line scoring with pair potentials and exact normalization improves proper score versus:
+Primary metric: proper score; exact hits secondary.
 
-- structural pair null;
-- incumbent slot field;
-- heuristic Richardson marginals;
-- simple pair baselines.
+## Q012 — What sample size is required to detect a real HEPS edge?
 
-Main and XTRA must remain separate.
+HEPS now needs an explicit information/power analysis for:
 
-## Q010 — What is the correct near-term PowerBall model?
+- fixed-K13 winner-coordinate lift;
+- 3+/4+/5 survival;
+- proper log/Brier improvement;
+- multiple strategy/model search exposure;
+- sequential stopping rules.
 
-With the current small sample, conditional state counts are sparse.
+The aim is to distinguish "no detected edge yet" from "experiment is underpowered to resolve the proposed effect." This is a second high-value hard research task suitable for a frontier model.
 
-The near-term championship should compare:
+## Q013 — Can portfolio diversification improve consistency without pretending to improve expectation?
 
-- uniform 1/16;
-- strongly shrunk unconditional frequency;
-- strongly shrunk exact-current-state conditional model;
-- strongly shrunk VVD-state conditional model;
-- a dependency-aware or pooled model only if preregistered.
+Given model uncertainty, how should a fixed line budget reduce concentration while preserving calibrated line probability mass and high-order K13 coverage?
 
-Primary metric: proper score. Exact hit rate is secondary.
-
-HLR/VVD/terminal/exact-state views of the same PB transition may not be counted as independent votes.
-
-## Q011 — Can full-support modelling reduce catastrophic exclusions?
-
-The 2026-08-21 and 2026-09-01 failures both show that candidate compression can lose useful information even when some upstream structure is correct.
-
-Question:
-
-Can a calibrated full-support field plus fixed-K containment optimization reduce catastrophic 0/1 survival without merely increasing K or flattening the field back to the null?
-
-This is a core E0021/E0011 evaluation target.
-
-## Q012 — Can portfolio diversification improve consistency without pretending to improve expectation?
-
-Given large model uncertainty, how should HEPS allocate a fixed line budget to reduce concentration on noisy top-ranked lines while preserving calibrated line probability mass?
-
-This is a variance/robustness question, not a claim that diversification changes the underlying lottery expectation.
+This remains a variance/robustness question. Johnson geometry receives no predictive-information credit.
 
 ## Resolution rule
 
-When a question is resolved:
+When a question is resolved or materially updated:
 
 1. update `knowledge/claim_registry.jsonl` or `knowledge/failure_registry.jsonl`;
-2. link the supporting experiment/review package;
-3. mark the experiment/strategy status in `experiments/registry.csv`;
-4. if a method is no longer safe to reuse, add it to `governance/methodology_deprecations.md`;
-5. do not delete historical evidence.
+2. link supporting experiment/cycle artifacts;
+3. update `experiments/registry.csv` where applicable;
+4. add unsafe historical methods to `governance/methodology_deprecations.md`;
+5. preserve all historical evidence.
