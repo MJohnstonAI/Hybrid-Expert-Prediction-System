@@ -1,47 +1,51 @@
-name: Validate HEPS draw ledger
+name: Validate HEPS active data and research integrity
 
 on:
   push:
     paths:
       - 'data/draw_history.jsonl'
       - 'data/draw_manifest.json'
-      - 'scripts/validate_draws.py'
-      - 'scripts/sync_manifest.py'
-      - 'scripts/append_draw.py'
-      - 'scripts/simulate_null_model.py'
-      - 'scripts/score_prediction.py'
-      - 'scripts/portfolio_orchestration.py'
-      - 'scripts/evaluate_expert_orchestration.py'
+      - 'data/powerball_xtra_history.jsonl'
+      - 'data/powerball_xtra_manifest.json'
+      - 'data/draw_schema.json'
+      - 'data/powerball_xtra_schema.json'
       - 'scripts/**'
       - 'tests/**'
+      - 'cycles/**/pre_draw/current_prediction.json'
+      - 'core/architecture_state.json'
+      - 'core/expert_registry.yaml'
+      - 'core/feature_dictionary.yaml'
       - '.github/workflows/validate-draws.yml'
   pull_request:
     paths:
       - 'data/draw_history.jsonl'
       - 'data/draw_manifest.json'
-      - 'scripts/validate_draws.py'
-      - 'scripts/sync_manifest.py'
-      - 'scripts/append_draw.py'
-      - 'scripts/simulate_null_model.py'
-      - 'scripts/score_prediction.py'
-      - 'scripts/portfolio_orchestration.py'
-      - 'scripts/evaluate_expert_orchestration.py'
+      - 'data/powerball_xtra_history.jsonl'
+      - 'data/powerball_xtra_manifest.json'
+      - 'data/draw_schema.json'
+      - 'data/powerball_xtra_schema.json'
       - 'scripts/**'
       - 'tests/**'
+      - 'cycles/**/pre_draw/current_prediction.json'
+      - 'core/architecture_state.json'
+      - 'core/expert_registry.yaml'
+      - 'core/feature_dictionary.yaml'
       - '.github/workflows/validate-draws.yml'
 
 jobs:
-  validate-draws:
+  validate-active-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate draw ledger
+      - name: Validate canonical Main ledger and June-2026 boundary
         run: python scripts/validate_draws.py data/draw_history.jsonl
-      - name: Check draw manifest synchronization
+      - name: Check Main manifest synchronization
         run: python scripts/sync_manifest.py --check
+      - name: Validate Main plus XTRA active data and cycle pointers
+        run: python scripts/validate_active_data.py
       - name: Smoke test randomized null-model baseline
         run: python scripts/simulate_null_model.py --trials 1000 --seed 20260704 > /tmp/heps-null-baseline.json
       - name: Run unit tests
