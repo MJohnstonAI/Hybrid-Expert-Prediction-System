@@ -28,22 +28,24 @@ Current read order:
 8. `core/expert_registry.yaml`
 9. `knowledge/open_questions.md`
 10. `experiments/registry.csv`
-11. latest relevant session handoff, currently `knowledge/SESSION_HANDOFF_MAIN_HEPS_2026-09-02.md`
-12. only task-relevant experiment/cycle/review artifacts.
+11. latest relevant handoff, currently `knowledge/HEPS_V35_3_CROSS_SESSION_PREDICTION_HANDOFF_2026-09-04.md`
+12. for pattern-triage work, `knowledge/PATTERN_CONSTRAINT_K13_HANDOFF_2026-09-04.md`, `experiments/E0028/`, and `experiments/E0029/`
+13. only task-relevant experiment/cycle/review artifacts.
 
 Do not recursively ingest all legacy contributions before consulting the registries and deprecation map.
 
 ## Current architecture
 
-**HEPS v35.0 — Joint-Distribution-First Staged Mixture-of-Experts**
+**HEPS v35.3 — Joint-Distribution-First Staged Mixture-of-Experts with Candidate-Frozen Pattern Triage**
 
 ```text
 Exact Structural Controls
         -> Transition / Slot Forecast
-        -> Candidate Funnel
-        -> Coalition Assembly
-        -> Combination Morphology
-        -> Winner-Float Ranking
+        -> Scenario-Constrained Slot-Routed Candidate Funnel
+        -> Freeze K13
+        -> Enumerate all C(13,5)=1,287 lines
+        -> Candidate-Frozen Pattern Constraint Triage (E0029 shadow)
+        -> Coalition / Winner-Float Ranking
         -> Portfolio Optimization
 
 Separate Matrix B:
@@ -56,38 +58,42 @@ The current mathematical doctrine is:
 
 For a sorted slot, HLR, VVD, terminal digit and exact target coordinate are deterministic views of one signed transition. They may be scored for interpretation, but may not be multiplied or counted as independent expert evidence.
 
-New Main acquisition research should prefer one regularized signed-displacement field, exact legal-line normalization where feasible, proper-score evaluation, then fixed-K compression.
+Main acquisition research should preserve **candidate + admissible slot(s) + scenario probability**, use coherent legal-line normalization where feasible, score the full probability field first, and only then compress at fixed K.
 
-See `governance/current_method_doctrine.md`.
+Pattern recognition from E0028/E0029 acts primarily **after K13 freeze** and currently has shadow authority only.
 
-## Important 2026-09-01 lesson
+See `governance/current_method_doctrine.md` and `governance/methodology_deprecations.md`.
+
+## Latest Main cycle lesson — 2026-09-04
 
 Verified Main result:
 
-`14,16,31,34,40 | PB4`
+`4,7,27,38,50 | PB10`
 
 Previous:
 
-`19,22,24,25,47 | PB11`
+`14,16,31,34,40 | PB4`
 
-Realized HLR was `LLHHL`, exactly matching the frozen BARP modal HLR prediction `LLHHL`.
+Realized signed slot transition:
 
-This is positive one-target prospective evidence, not a promotion.
+`[-10,-9,-4,+4,+10]`
 
-The first failure remained candidate compression:
+Realized HLR:
 
-- E0019 K13 retained only 31 and 34;
-- wider diagnostic exposure additionally retained 40;
-- useful 14/16 evidence was partly lost because it was assigned to adjacent sorted slots.
+`LLLHH`
 
-This motivated the fixed-K adjacent-slot preservation challenger and E0021 corrected signed-displacement architecture.
+The frozen slotwise BARP modal HLR was `LHLHH`, so four of five directional signs were correct. The official K13 retained only `50`, making **candidate acquisition the first binding failure stage**. E0029/E0013/Johnson cannot receive blame or credit for the exact winner line because four winning coordinates were already absent upstream.
+
+The superseded E0026-R K13 retained `38` and `50`, with both realized in their primary routed slots S4 and S5. This remains `INSUFFICIENT_EVIDENCE`, but it supports continued slot-routed acquisition research rather than unrestricted anywhere-coordinate collapse.
+
+The frozen E0028 LDSAD diagnostic landed at `11`, inside its pre-draw `11..13` discovery band on its first fresh target. This is one prospective shadow success only and does not confer hard-pruning authority.
 
 ## Repository structure
 
 ```text
 AGENTS.md                     Current AI constitution/read order
 governance/                   Current doctrine, deprecations, research rules
-data/                         Canonical draw ledger and manifest
+data/                         Canonical active-era draw ledgers and manifests
 core/                         Active architecture and expert metadata
 experiments/                  Self-contained hypothesis/review packages
 knowledge/                    Claims, failures, open questions, handoffs
@@ -125,7 +131,9 @@ In particular:
 
 - E0019 HLR×VVD residual-product field is rejected for forward reuse; its complete-line containment objective is retained.
 - E0020 terminal×HLR×VVD multiplicative acquisition chain is rejected; terminal diagnostics remain shadow-only.
+- unrestricted anywhere-coordinate probability may not erase E0026 slot/scenario provenance.
 - pure structural-null global mobility cannot select candidates because every Main coordinate has IID global inclusion probability 0.1.
+- E0029 Pattern-OR has no production hard-pruning authority yet.
 - Johnson covering has zero candidate-discovery authority.
 - original JOS-HDR exact-line density under the exact uniform gap null is rejected.
 - E0016 Richardson geometric-mean message passing is heuristic, not exact joint inference.
@@ -135,21 +143,30 @@ In particular:
 ## Data doctrine
 
 - Canonical Main ledger: `data/draw_history.jsonl`
-- Manifest: `data/draw_manifest.json`
-- Current Main ledger through 2026-09-01 / draw id 27
+- Main manifest: `data/draw_manifest.json`
+- Canonical XTRA ledger: `data/powerball_xtra_history.jsonl`
+- XTRA manifest: `data/powerball_xtra_manifest.json`
+- **Active Main and XTRA winning-draw history begins on 2026-06-02.**
+- **No pre-June 2026 winning rows may enter either active canonical ledger or active fitted state.**
+- Current Main ledger: 28 rows through `2026-09-04`
+- Current XTRA ledger: 28 rows through `2026-09-04`
 - Game format: 5/50 + PowerBall 1/16
-- `game_format`, `draw_method`, and `machine_name` are separate metadata concepts
-- Slot1-Slot5 are sorted order statistics, not physical draw order
-- Unknown method/machine must remain `unknown`; never infer from outcomes/date alone
-- physical/machine hypotheses require provenance and strong controls
+- Main and XTRA remain independently fitted lanes.
+- `game_format`, `draw_method`, and `machine_name` are separate metadata concepts.
+- Slot1-Slot5 are sorted order statistics, not physical draw order.
+- Unknown method/machine must remain `unknown`; never infer them from outcomes/date alone.
+- Physical/machine hypotheses require provenance and strong controls.
+- Legacy Excel/PRNG-era data have no active prediction authority.
 
 ## Quick validation
 
 ```bash
 python scripts/validate_draws.py data/draw_history.jsonl
 python scripts/sync_manifest.py --check
+python scripts/validate_active_data.py
 python scripts/check_stationarity.py
 python scripts/simulate_null_model.py --trials 100000 --seed 20260704
+python -m unittest discover -s tests -v
 ```
 
 ## Per-draw learning rule
@@ -159,6 +176,8 @@ Before the draw, freeze data state, expert formulas/authority, probability field
 After the draw, score the frozen artifacts, trace winner survival, identify the first failure stage, update claim/failure registries, and learn only for the next target under preregistered rules.
 
 Never regenerate historical predictions after outcome reveal.
+
+A pre-draw frozen artifact may only be superseded by a new version **before result knowledge**, under `governance/pre_draw_supersession_policy.md`. Earlier versions remain immutable evidence.
 
 ## Legacy compatibility
 
