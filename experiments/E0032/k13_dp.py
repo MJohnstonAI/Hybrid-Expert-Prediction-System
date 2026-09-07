@@ -183,16 +183,18 @@ def _improve_by_swaps(field: SlotProductField, start: Iterable[int], objective: 
 
 
 def deterministic_starts(field: SlotProductField) -> list[tuple[int, ...]]:
-    """Small deterministic multistart family; no target-conditioned randomness."""
+    """Seven deterministic starts; bounded compute and no target-conditioned randomness."""
     marg = field.anywhere_marginals()
     ranked = sorted(range(1, N + 1), key=lambda v: (-marg[v - 1], v))
-    base = tuple(sorted(ranked[:K]))
+    base_ranked = ranked[:K]
+    base = tuple(sorted(base_ranked))
     starts = {base}
-    # One-seat perturbations of the mean-optimal basket using the next 12 marginals.
-    selected = set(base)
-    for remove in base:
-        for add in ranked[K : K + 12]:
-            starts.add(tuple(sorted((selected - {remove}) | {add})))
+    # Six controlled one-seat perturbations around the exact mean-optimal basket.
+    # Replace progressively weaker selected ranks with progressively lower excluded ranks.
+    for offset in range(6):
+        remove = base_ranked[K - 1 - offset]
+        add = ranked[K + offset]
+        starts.add(tuple(sorted((set(base) - {remove}) | {add})))
     return sorted(starts)
 
 
