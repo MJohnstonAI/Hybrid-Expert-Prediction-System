@@ -1,0 +1,78 @@
+{
+  "target_draw_date": "2026-09-08",
+  "freeze_date": "2026-09-07",
+  "paper_trading_only": true,
+  "official_current_prediction": false,
+  "status": "pre_result_shadow_candidate_slate",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture": "HEPS v35.3 with E0032 probability-field selection shadow, E0013 spectral seeds, and E0022-style four-plus-first geometry",
+  "canonical_cutoff": "2026-09-04",
+  "previous_state": {
+    "main": [4, 7, 27, 38, 50],
+    "powerball": 10
+  },
+  "upstream_probability_field": {
+    "proper_score_champion": "exact_uniform_legal_line_null",
+    "selected_nonuniform_shadow": "E0030_adaptive_uniform_frequency_recency_mixture_extended_without_retuning",
+    "field_artifact": "cycles/2026-09-08/pre_draw/e0032_probability_field_and_k13_shadow.json",
+    "promotion_gate_passed": false,
+    "interpretation": "closest nonuniform prospective shadow only; no predictive promotion"
+  },
+  "candidate_acquisition": {
+    "K": 13,
+    "K_expansion": false,
+    "frozen_shadow_K13": [2, 4, 5, 14, 16, 19, 22, 24, 27, 31, 34, 39, 40],
+    "E0032_objectives": ["K13_MEAN", "K13_4PLUS", "K13_5", "K13_ROBUST"],
+    "objective_disagreement": false,
+    "note": "All four E0032 objectives returned the same K13 under the selected near-null field. Nonlinear arms are best-found, not globally certified."
+  },
+  "assembly": {
+    "universe_size": 1287,
+    "coalition_ranker": "E0013 Positive-PMI spectral",
+    "coalition_evidence": "PROVISIONAL_SIGNAL",
+    "predictive_seed_count": 6,
+    "seed_rule": "top six E0013 spectral lines from all 1287 frozen-K13 combinations",
+    "remaining_line_rule": "greedy four-plus winner-state coverage over the same 1287 universe, seeded by the six spectral lines; ties prefer higher E0013 score then lower lexicographic line",
+    "portfolio_budget": 20,
+    "four_plus_covered_winner_states": 720,
+    "four_plus_winner_states_total": 1287,
+    "four_plus_coverage_fraction": 0.5594405594405595,
+    "exact_5of5_states": 20,
+    "pattern_triage": "not used as hard pruning; E0029 remains shadow-only"
+  },
+  "powerball": {
+    "model_artifact": "cycles/2026-09-08/pre_draw/powerball_bma_shadow_2026-09-07.json",
+    "primary": 11,
+    "shortlist": [11, 4, 15, 1, 13, 6],
+    "assignment_rule": "allocate shortlist counts approximately proportional to current shortlist probability, then pair higher-probability PB values with higher Main-field line probability",
+    "assignment_counts": {"11": 4, "4": 4, "15": 3, "1": 3, "13": 3, "6": 3}
+  },
+  "lines": [
+    {"id": 1, "main": [2, 4, 5, 22, 24], "powerball": 4, "spectral_rank": 1, "role": "spectral_seed"},
+    {"id": 2, "main": [2, 4, 5, 19, 22], "powerball": 1, "spectral_rank": 2, "role": "spectral_seed"},
+    {"id": 3, "main": [14, 27, 31, 39, 40], "powerball": 1, "spectral_rank": 3, "role": "spectral_seed"},
+    {"id": 4, "main": [2, 4, 5, 22, 27], "powerball": 1, "spectral_rank": 4, "role": "spectral_seed"},
+    {"id": 5, "main": [4, 5, 19, 22, 24], "powerball": 4, "spectral_rank": 5, "role": "spectral_seed"},
+    {"id": 6, "main": [4, 5, 19, 22, 39], "powerball": 13, "spectral_rank": 6, "role": "spectral_seed"},
+    {"id": 7, "main": [5, 19, 27, 31, 34], "powerball": 15, "spectral_rank": 80, "role": "four_plus_geometry"},
+    {"id": 8, "main": [4, 16, 24, 27, 34], "powerball": 11, "spectral_rank": 177, "role": "four_plus_geometry"},
+    {"id": 9, "main": [2, 22, 31, 34, 39], "powerball": 13, "spectral_rank": 436, "role": "four_plus_geometry"},
+    {"id": 10, "main": [14, 19, 22, 34, 40], "powerball": 4, "spectral_rank": 498, "role": "four_plus_geometry"},
+    {"id": 11, "main": [2, 19, 24, 27, 39], "powerball": 13, "spectral_rank": 536, "role": "four_plus_geometry"},
+    {"id": 12, "main": [5, 14, 24, 34, 39], "powerball": 4, "spectral_rank": 862, "role": "four_plus_geometry"},
+    {"id": 13, "main": [14, 16, 19, 24, 31], "powerball": 6, "spectral_rank": 1117, "role": "four_plus_geometry"},
+    {"id": 14, "main": [5, 16, 22, 31, 40], "powerball": 15, "spectral_rank": 1167, "role": "four_plus_geometry"},
+    {"id": 15, "main": [2, 4, 14, 16, 39], "powerball": 6, "spectral_rank": 1279, "role": "four_plus_geometry"},
+    {"id": 16, "main": [4, 24, 31, 34, 40], "powerball": 11, "spectral_rank": 854, "role": "four_plus_geometry"},
+    {"id": 17, "main": [16, 19, 34, 39, 40], "powerball": 11, "spectral_rank": 981, "role": "four_plus_geometry"},
+    {"id": 18, "main": [4, 14, 22, 27, 31], "powerball": 6, "spectral_rank": 318, "role": "four_plus_geometry"},
+    {"id": 19, "main": [2, 14, 27, 34, 40], "powerball": 11, "spectral_rank": 572, "role": "four_plus_geometry"},
+    {"id": 20, "main": [22, 24, 27, 39, 40], "powerball": 15, "spectral_rank": 774, "role": "four_plus_geometry"}
+  ],
+  "warnings": [
+    "The upstream nonuniform field did not beat uniform on retrospective proper score; this slate is prospective shadow evidence only.",
+    "The first six lines use E0013 spectral ranking, which remains PROVISIONAL_SIGNAL and has zero candidate-discovery authority.",
+    "The remaining lines are deterministic coverage geometry, not predictive evidence.",
+    "This artifact is not the official current_prediction pointer and may be superseded before result availability under governance."
+  ]
+}
