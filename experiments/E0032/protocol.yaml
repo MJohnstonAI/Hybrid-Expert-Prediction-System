@@ -1,0 +1,137 @@
+experiment_id: E0032
+title: Astra K13 Red-Team and Multi-Objective Compression Championship
+status: active_prospective_shadow
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+stage: candidate_funnel|methodology
+
+data:
+  canonical_main_ledger: data/draw_history.jsonl
+  active_start: 2026-06-02
+  target: 2026-09-08
+  target_excluded: true
+  xtra_transfer: false
+
+binding_governance:
+  - AGENTS.md
+  - governance/current_method_doctrine.md
+  - governance/methodology_deprecations.md
+  - governance/research_protocol.md
+  - governance/pre_draw_supersession_policy.md
+
+upstream_probability_contract:
+  requirement: separately_frozen_coherent_legal_line_field
+  same_field_for_all_arms: true
+  exact_support: all_legal_5_of_50_lines
+  null_recovery_required: true
+  proper_score_gate_required: true
+  compressor_may_fit_probability_model: false
+  note: >-
+    E0032 isolates compression from estimation. It must not change the fitted field,
+    shrinkage, transition model, or scenario weights because one basket objective looks better retrospectively.
+
+k:
+  fixed: 13
+  expansion: forbidden
+
+hit_count:
+  definition: H_B = |X intersect B|
+
+arms:
+  K13_MEAN:
+    utility: expected_hits
+    objective: E[H_B]
+    solver: exact_top13_anywhere_marginals
+    global_certificate: theorem
+    tie_break: lower_coordinate
+
+  K13_4PLUS:
+    utility: four_plus_survival
+    objective: P(H_B >= 4)
+    solver: deterministic_multistart_swap_unless_exact_global_certificate_available
+    reported_status: best_found_or_certified
+    exact_evaluation: polynomial_hit_count_DP
+
+  K13_5:
+    utility: complete_line_containment
+    objective: P(H_B = 5)
+    equivalent: M(B)
+    solver: deterministic_multistart_swap_unless_exact_global_certificate_available
+    reported_status: best_found_or_certified
+    exact_evaluation: restricted_partition_DP
+
+  K13_ROBUST:
+    utility: catastrophic_exclusion_control
+    objective_order:
+      - minimize P(H_B <= 1)
+      - maximize P(H_B >= 4)
+      - maximize P(H_B = 5)
+      - maximize E[H_B]
+    solver: deterministic_multistart_swap_unless_exact_global_certificate_available
+    reported_status: best_found_or_certified
+    rationale: lexicographic_order_avoids_retrospectively_tuned_scalar_weights
+
+comparators:
+  - exact_uniform_K13_hypergeometric
+  - simple_frequency_K13
+  - simple_recency_K13
+  - current_incumbent_K13_if_frozen_pre_target
+  - E0026_scenario_routed_K13_if_frozen_pre_target
+
+required_metrics_per_arm:
+  - expected_hits
+  - P_H_0
+  - P_H_1
+  - P_H_2
+  - P_H_3
+  - P_H_4
+  - P_H_5
+  - P_H_le_1
+  - P_H_ge_3
+  - P_H_ge_4
+  - modeled_containment_mass
+  - actual_winner_count_post_draw
+  - actual_3plus
+  - actual_4plus
+  - actual_5of5
+
+implementation_checks:
+  - uniform_null_partition_equals_C_50_5
+  - uniform_expected_hits_equals_1_3_for_every_K13
+  - uniform_4plus_equals_0_013093507523268327
+  - uniform_5_equals_0_0006074307613887368
+  - uniform_catastrophe_0or1_equals_0_6109620721554117
+  - anywhere_marginals_sum_to_5
+  - random_small_universe_DP_matches_exhaustive_with_tolerance_1e-12
+  - nonlinear_solver_never_claims_global_optimum_without_bound_certificate
+
+prospective_freeze:
+  target: 2026-09-08
+  must_record:
+    - upstream_field_artifact_and_hash
+    - cutoff_date
+    - four_K13_baskets
+    - modeled_hit_distributions
+    - solver_status_and_gap_if_any
+    - exact_K_and_tie_rules
+    - timestamp_before_result_availability
+
+post_draw_scoring:
+  first_stage: candidate_acquisition
+  no_assembly_credit_if_winner_absent_from_K13: true
+  compare_all_four_arms_same_exposure: true
+  one_draw_promotion_forbidden: true
+
+falsification:
+  - upstream field fails proper-score gate and compression differences are therefore non-predictive
+  - nonlinear objective improvement is only in modeled utility and not persistent prospectively
+  - gains depend on K expansion or target-conditioned optimizer choices
+  - exact DP checks fail
+  - solver is reported optimal without a valid certificate
+
+authority:
+  diagnostic: true
+  may_score_shadow: true_after_pre_result_freeze
+  may_change_production_K13: false
+  may_change_K: false
+  may_hard_eliminate: false
