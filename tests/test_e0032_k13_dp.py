@@ -2,6 +2,7 @@ import importlib.util
 import itertools
 import math
 import random
+import sys
 import unittest
 from pathlib import Path
 
@@ -10,6 +11,7 @@ MODULE_PATH = ROOT / "experiments" / "E0032" / "k13_dp.py"
 spec = importlib.util.spec_from_file_location("e0032_k13_dp", MODULE_PATH)
 mod = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
+sys.modules[spec.name] = mod
 spec.loader.exec_module(mod)
 
 
@@ -34,8 +36,6 @@ class E0032K13Tests(unittest.TestCase):
         self.assertAlmostEqual(metrics.catastrophe, c["catastrophe"], places=15)
 
     def test_small_universe_equivalence_embedded_in_50(self):
-        # Only coordinates 1..10 have material weight; tiny positive support elsewhere
-        # keeps the production 5x50 contract while allowing an explicit 10-coordinate check.
         rng = random.Random(20260907)
         weights = []
         for _ in range(5):
@@ -43,8 +43,6 @@ class E0032K13Tests(unittest.TestCase):
             weights.append(row)
         field = mod.SlotProductField(weights)
 
-        # Compare DP partition against explicit enumeration of the dominant 1..10 subspace,
-        # plus require total probability to remain finite/normalized.
         explicit = 0.0
         for line in itertools.combinations(range(1, 11), 5):
             explicit += math.prod(weights[j][line[j] - 1] for j in range(5))
@@ -53,7 +51,6 @@ class E0032K13Tests(unittest.TestCase):
         self.assertAlmostEqual(sum(field.anywhere_marginals()), 5.0, places=10)
 
     def test_mean_arm_is_top13_marginals(self):
-        # Coordinate-product special case expressed as equal slot rows.
         base = [float(i) for i in range(1, 51)]
         field = mod.SlotProductField([base[:] for _ in range(5)])
         self.assertEqual(field.mean_basket(), tuple(range(38, 51)))
