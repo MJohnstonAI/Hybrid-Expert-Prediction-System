@@ -23,6 +23,7 @@ Source-area for material external AI/human/paper/code contributions. Preserve pr
 Current notable intake:
 
 - `contributions/apodex_2026-09-02/` — Apodex HEPS architecture/acquisition research, source implementation, and ChatGPT red-team decomposition.
+- [Astra Codex contribution, 2026-09-07](contributions/Astra_codex_2026-09-07/README.md) — optimal fixed-K13 objectives, exact legal-line inference and basket evaluation by dynamic programming, global-search limits, and reproducible synthetic verification; no predictive promotion.
 
 ## reviews/
 
