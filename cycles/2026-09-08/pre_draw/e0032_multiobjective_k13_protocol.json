@@ -1,0 +1,56 @@
+{
+  "target_draw_date": "2026-09-08",
+  "frozen_protocol_on": "2026-09-07T14:45:00+02:00",
+  "paper_trading_only": true,
+  "experiment": "E0032",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "canonical_main_ledger": "data/draw_history.jsonl",
+  "active_start": "2026-06-02",
+  "canonical_cutoff_required": "2026-09-04",
+  "previous_state_required": {
+    "main": [4, 7, 27, 38, 50],
+    "powerball": 10
+  },
+  "same_upstream_probability_field_for_all_arms": true,
+  "upstream_field_requirements": {
+    "separately_frozen_before_result": true,
+    "coherent_full_support_legal_5of50_distribution": true,
+    "exact_uniform_null_recovery": true,
+    "proper_score_gate": true,
+    "no_target_conditioned_fit": true
+  },
+  "K": 13,
+  "K_expansion": false,
+  "arms": {
+    "K13_MEAN": {
+      "objective": "maximize E[H]",
+      "solver": "Top13 exact anywhere-coordinate marginals",
+      "optimality_status": "globally optimal for expected hit count by theorem"
+    },
+    "K13_4PLUS": {
+      "objective": "maximize P(H>=4)",
+      "solver": "deterministic multistart single-swap unless a valid global certificate is available",
+      "optimality_status": "must report best_found unless globally certified"
+    },
+    "K13_5": {
+      "objective": "maximize P(H=5)=M(B)",
+      "solver": "deterministic multistart single-swap unless a valid global certificate is available",
+      "optimality_status": "must report best_found unless globally certified"
+    },
+    "K13_ROBUST": {
+      "objective": [
+        "minimize P(H<=1)",
+        "maximize P(H>=4)",
+        "maximize P(H=5)",
+        "maximize E[H]"
+      ],
+      "solver": "lexicographic deterministic multistart single-swap unless a valid global certificate is available",
+      "optimality_status": "must report best_found unless globally certified"
+    }
+  },
+  "numerical_baskets_status": "pending separately frozen upstream probability field",
+  "compression_code": "experiments/E0032/k13_dp.py",
+  "red_team_review": "experiments/E0032/red_team/astra_e0031_review_2026-09-07.md",
+  "post_draw_rule": "Score candidate acquisition first at identical K. One target cannot promote any arm. If the upstream probability field is not prospectively proper-score competitive, modeled compression gains are not predictive lift.",
+  "governance_note": "This file freezes the objective definitions only. It is not the official 2026-09-08 prediction and contains no target-result information. Numerical arm baskets require a separate pre-result freeze artifact."
+}
