@@ -10,22 +10,28 @@
   ],
   "observed_machine_names": [
     "Khaya",
+    "MPUMELELO",
     "PB1",
     "SIZWE",
     "unknown"
   ],
-  "latest_draw_id": 28,
-  "latest_draw_date": "2026-09-04",
-  "latest_main_numbers": [4,7,27,38,50],
-  "latest_powerball": 10,
-  "latest_macro_sum": 126,
+  "latest_draw_id": 29,
+  "latest_draw_date": "2026-09-08",
+  "latest_main_numbers": [
+    4,
+    8,
+    13,
+    37,
+    49
+  ],
+  "latest_powerball": 7,
+  "latest_macro_sum": 111,
   "latest_draw_method": "unknown",
-  "latest_machine_name": "unknown",
-  "row_count": 28,
-  "last_synced": "2026-09-05",
+  "latest_machine_name": "MPUMELELO",
+  "row_count": 29,
+  "last_synced": "2026-09-10",
   "latest_data_quality_flags": [
-    "draw_method_unknown",
-    "machine_name_unknown"
+    "draw_method_unknown"
   ],
   "known_data_rules": [
     "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
