@@ -5,6 +5,7 @@
   "active_series_start": "2026-06-02",
   "pre_start_history_policy": "exclude_from_active_main_state",
   "observed_draw_methods": [
+    "electronic_rng",
     "mechanical_machine",
     "unknown"
   ],
@@ -13,26 +14,25 @@
     "MPUMELELO",
     "PB1",
     "SIZWE",
+    "rng",
     "unknown"
   ],
-  "latest_draw_id": 29,
-  "latest_draw_date": "2026-09-08",
+  "latest_draw_id": 30,
+  "latest_draw_date": "2026-09-11",
   "latest_main_numbers": [
-    4,
-    8,
+    9,
+    11,
     13,
-    37,
-    49
+    38,
+    43
   ],
-  "latest_powerball": 7,
-  "latest_macro_sum": 111,
-  "latest_draw_method": "unknown",
-  "latest_machine_name": "MPUMELELO",
-  "row_count": 29,
-  "last_synced": "2026-09-10",
-  "latest_data_quality_flags": [
-    "draw_method_unknown"
-  ],
+  "latest_powerball": 13,
+  "latest_macro_sum": 114,
+  "latest_draw_method": "electronic_rng",
+  "latest_machine_name": "rng",
+  "row_count": 30,
+  "last_synced": "2026-09-15",
+  "latest_data_quality_flags": [],
   "known_data_rules": [
     "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
     "Canonical active Main winning-draw history begins on 2026-06-02; no pre-June 2026 winning rows may be stored in data/draw_history.jsonl",
