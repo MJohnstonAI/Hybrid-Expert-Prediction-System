@@ -1,0 +1,56 @@
+{
+  "experiment_id": "E0034",
+  "analysis_cutoff": "2026-09-08",
+  "targets": 21,
+  "target_range": ["2026-06-30", "2026-09-08"],
+  "oracle_k13": {
+    "construction": "5 target winners + 8 random nonwinner decoys",
+    "lines_per_universe": 1287,
+    "reps_per_target_per_seed": 30,
+    "seeds": [20260915, 20261001],
+    "tie_rule": "average_midrank"
+  },
+  "dimensionless_burgers": {
+    "equation": "u_t + u*u_x = nu*u_xx",
+    "number_scale": 50.0,
+    "slot_dx": 0.25,
+    "nu_estimator": "nonnegative target-excluded least squares",
+    "mean_nu": 0.0440128698,
+    "median_nu": 0.0451847234
+  },
+  "mean_winner_percentile_two_seed_target_average": {
+    "zero_velocity": 0.5675269693,
+    "velocity_persistence": 0.6105167987,
+    "inviscid_burgers": 0.5934653410,
+    "fitted_viscous_burgers": 0.5480134044,
+    "e0029_primary": 0.6240310795,
+    "e0029_plus_burgers_top5_rescue": 0.6230578390
+  },
+  "above_median_target_rate": {
+    "zero_velocity": 0.7142857143,
+    "velocity_persistence": 0.7619047619,
+    "inviscid_burgers": 0.7142857143,
+    "fitted_viscous_burgers": 0.6190476190
+  },
+  "e0029_gate": {
+    "base_winner_survival": 0.9349206349,
+    "burgers_rescue_winner_survival": 0.9380952381,
+    "base_line_retention": 0.8034342201,
+    "burgers_rescue_line_retention": 0.8105641272,
+    "winner_survival_gain": 0.0031746032,
+    "line_retention_cost": 0.0071299071
+  },
+  "paired_target_level_tests": {
+    "burgers_vs_persistence_mean_percentile_delta": -0.0625033943,
+    "burgers_vs_persistence_two_sided_p": 0.1313909660,
+    "burgers_vs_zero_mean_percentile_delta": -0.0195135649,
+    "burgers_vs_zero_two_sided_p": 0.6440177295
+  },
+  "interpretation": {
+    "burgers_alone": "weak positive-looking discovery percentile, but below simpler controls and not statistically persuasive",
+    "viscosity_effect": "fitted viscosity degrades the simpler persistence/inviscid ranking rather than improving it",
+    "e0029_integration": "extra Burgers rescue slightly increases winner survival but costs more line exposure and slightly reduces mean winner percentile",
+    "simple_velocity_persistence": "stronger than Burgers but belongs to the existing signed-slot-transition information family and is not an independent expert"
+  },
+  "decision": "REJECT Burgers predictive promotion and E0029 integration in current form"
+}
