@@ -1,0 +1,8 @@
+{
+  "target_draw_date": "2026-09-18",
+  "active_prediction": "cycles/2026-09-18/pre_draw/main_prediction_2026-09-18.json",
+  "status": "pre_result_frozen_current_prediction",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "freeze_rule": "May be superseded only before result knowledge under governance/pre_draw_supersession_policy.md; immutable after result reveal."
+}
