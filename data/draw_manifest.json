@@ -17,21 +17,21 @@
     "rng",
     "unknown"
   ],
-  "latest_draw_id": 30,
-  "latest_draw_date": "2026-09-11",
+  "latest_draw_id": 31,
+  "latest_draw_date": "2026-09-15",
   "latest_main_numbers": [
-    9,
-    11,
-    13,
-    38,
-    43
+    7,
+    23,
+    25,
+    27,
+    50
   ],
-  "latest_powerball": 13,
-  "latest_macro_sum": 114,
+  "latest_powerball": 7,
+  "latest_macro_sum": 132,
   "latest_draw_method": "electronic_rng",
   "latest_machine_name": "rng",
-  "row_count": 30,
-  "last_synced": "2026-09-15",
+  "row_count": 31,
+  "last_synced": "2026-09-18",
   "latest_data_quality_flags": [],
   "known_data_rules": [
     "Active game format is South African PowerBall 5/50 + PowerBall 1/16",
