@@ -6,10 +6,10 @@
   "predecessor_label": "PowerBall Plus",
   "canonical_ledger": "data/powerball_xtra_history.jsonl",
   "schema": "data/powerball_xtra_schema.json",
-  "canonical_row_count": 29,
+  "canonical_row_count": 31,
   "first_canonical_draw_date": "2026-06-02",
-  "latest_canonical_draw_date": "2026-09-08",
-  "latest_canonical_draw_id": 1753,
+  "latest_canonical_draw_date": "2026-09-15",
+  "latest_canonical_draw_id": 1755,
   "latest_data_quality": "independently_corroborated_nonofficial_source_pending_official_source_verification",
   "missing_expected_draw_dates": [],
   "state_is_complete_through_latest_expected_draw": true,
@@ -34,7 +34,9 @@
       "2026-08-28",
       "2026-09-01",
       "2026-09-04",
-      "2026-09-08"
+      "2026-09-08",
+      "2026-09-11",
+      "2026-09-15"
     ],
     "rule": "Do not strip pending_official_source_verification flags or represent these rows as official-source verified until the configured official source is successfully checked."
   },
@@ -47,7 +49,8 @@
     "The 2026-08-21 row was supplied directly by the project director and independently corroborated by public nonofficial result sources; official National Lottery source verification remains pending.",
     "The 2026-08-25, 2026-08-28 and 2026-09-01 rows were promoted from frozen working/post-draw state after independent public corroboration and retain pending_official_source_verification flags.",
     "The 2026-09-04 and 2026-09-08 XTRA results were independently corroborated from public result sources and are operationally appended with pending_official_source_verification retained.",
-    "Operational XTRA state is complete through 2026-09-08 with 29 rows, all dated 2026-06-02 or later; formal provenance quality remains separately tracked.",
-    "Future routine updates read the local ledger first and consult only the configured official SA National Lottery result page for the newest missing XTRA draw when that source is accessible. Historical web rescans remain disabled."
+    "Future routine updates read the local ledger first and consult only the configured official SA National Lottery result page for the newest missing XTRA draw when that source is accessible. Historical web rescans remain disabled.",
+    "The 2026-09-11 and 2026-09-15 XTRA results were independently corroborated from public result sources and are operationally appended with pending_official_source_verification retained.",
+    "Operational XTRA state is complete through 2026-09-15 with 31 rows, all dated 2026-06-02 or later; formal provenance quality remains separately tracked."
   ]
 }
