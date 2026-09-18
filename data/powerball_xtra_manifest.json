@@ -10,7 +10,7 @@
   "first_canonical_draw_date": "2026-06-02",
   "latest_canonical_draw_date": "2026-09-15",
   "latest_canonical_draw_id": 1755,
-  "latest_data_quality": "independently_corroborated_nonofficial_source_pending_official_source_verification",
+  "latest_data_quality": "externally_corroborated_two_independent_nonofficial_archives_pending_official_source_verification",
   "missing_expected_draw_dates": [],
   "state_is_complete_through_latest_expected_draw": true,
   "latest_draw_update_policy": {
@@ -42,15 +42,12 @@
   },
   "notes": [
     "The active HEPS XTRA lane begins with the South African PowerBall XTRA series on 2026-06-02.",
-    "No pre-June 2026 PowerBall Plus/XTRA winning rows may be stored in the canonical active ledger or enter active XTRA state, priors, recency, HLR/VVD, candidate scores, or validation denominators.",
+    "No pre-June 2026 PowerBall Plus/XTRA history may enter active XTRA state, priors, recency, HLR/VVD, candidate scores, or validation denominators.",
     "Main PowerBall learned state and parameters are not transferred into XTRA.",
-    "The canonical seed through 2026-08-11 was supplied directly by the project director.",
-    "The 2026-08-14 and 2026-08-18 rows were supplied directly by the project director and remain explicitly flagged pending official verification.",
-    "The 2026-08-21 row was supplied directly by the project director and independently corroborated by public nonofficial result sources; official National Lottery source verification remains pending.",
-    "The 2026-08-25, 2026-08-28 and 2026-09-01 rows were promoted from frozen working/post-draw state after independent public corroboration and retain pending_official_source_verification flags.",
-    "The 2026-09-04 and 2026-09-08 XTRA results were independently corroborated from public result sources and are operationally appended with pending_official_source_verification retained.",
-    "Future routine updates read the local ledger first and consult only the configured official SA National Lottery result page for the newest missing XTRA draw when that source is accessible. Historical web rescans remain disabled.",
-    "The 2026-09-11 and 2026-09-15 XTRA results were independently corroborated from public result sources and are operationally appended with pending_official_source_verification retained.",
-    "Operational XTRA state is complete through 2026-09-15 with 31 rows, all dated 2026-06-02 or later; formal provenance quality remains separately tracked."
+    "Rows through 2026-08-21 retain their original project provenance.",
+    "Rows 2026-08-25 through 2026-09-15 were cross-checked against two independent nonofficial XTRA result archives: za.national-lottery.com and lottery.co.za. Dated za.national-lottery.com pages also supplied machine names where recorded.",
+    "The ledger is now date-complete for every Tuesday/Friday XTRA draw from 2026-06-02 through 2026-09-15 inclusive (31 rows, draw ids 1725-1755).",
+    "Official Sizekhaya/National Lottery source verification remains pending for rows carrying the pending_official_source_verification flag; do not mislabel the independent archives as official.",
+    "Future updates should read the local ledger first and follow the configured official-source policy for the newest missing draw whenever the official result endpoint is accessible."
   ]
 }
