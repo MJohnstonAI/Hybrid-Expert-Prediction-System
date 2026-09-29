@@ -1,0 +1,29 @@
+{
+  "experiment_id": "E0032",
+  "title": "Main ten-line PowerBall-aware coverage challenger",
+  "created": "2026-09-10",
+  "role": "implementation engineer and quantitative tester",
+  "intent": "Produce the requested ten-line Main research slate for 2026-09-11 and make its probability, exposure and limitations auditable.",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture_status": "experimental",
+  "paper_trading_only": true,
+  "authority": "New user-requested experimental slate only; no production model promotion or override of earlier cycles.",
+  "hypothesis": "Exact greedy coverage of the same-line four-or-five-main-plus-PowerBall event can reduce redundant exposure within a ten-line slate. Predictive superiority is unproven.",
+  "data": {"ledger": "data/draw_history.jsonl", "start": "2026-06-02", "cutoff": "2026-09-08", "target": "2026-09-11", "expected_rows": 29, "main_only": true, "unknown_draw_methods_retained": true},
+  "source_decomposition": {
+    "E0030": "Reuse SubsetModel normalization, likelihood-updated uniform/frequency/recency mixture, exact basket tails and four-plus neighborhoods as infrastructure. Its prior negative result is retained; no old model promotion implied.",
+    "E0025": "Reuse fixed alpha=2 unconditional PowerBall Dirichlet baseline. No alpha sweep or conditional motif fitting.",
+    "E0022": "Adopt the high-order coverage objective concept; use direct full-field event enumeration, not conditional K13 percentages as unconditional odds.",
+    "E0013_E0029": "Reviewed current decisions; no spectral or pattern score is granted acquisition authority or used in this challenger.",
+    "E0026": "K13 slot-routing remains separate research. This full-field portfolio challenger neither claims to implement E0026 nor promotes a marginal ranking as routed acquisition.",
+    "reported_Sol_3_plus_PB": "User-reported benchmark; exact author, full slate exposure and Main-specific frozen artifact not independently established in this session. Do not claim to have beaten it from replay."
+  },
+  "main_model": {"components": ["uniform", "expanding_frequency", "last_5_frequency"], "coordinate_weights": "1 + prior inclusion count / 10", "joint_probability": "product of five coordinate weights / fifth elementary symmetric polynomial", "component_prior": [0.8, 0.1, 0.1], "mixture": "0.5 uniform + 0.5 likelihood-updated three-component mixture", "update": "After each scored outcome only, from minimum five prior draws."},
+  "pb_model": {"components": ["uniform", "unconditional_Dirichlet_alpha2"], "component_prior": [0.8, 0.2], "mixture": "0.5 uniform + 0.5 likelihood-updated two-component mixture", "update": "After each scored outcome only, from minimum five prior draws.", "main_pb_independence": "Explicit working null assumption; fitted Main results do not update PB mixture weights."},
+  "portfolio": {"budget": 10, "seed": 20260911, "candidate_pool": "All 1287 lines in diagnostic marginal K13 plus 256 unique seeded samples from the full-support Main model.", "sampling": "E0030 exact subset sampler; sample sequence fixed, no seed search.", "primary_objective": "At each step choose a distinct Main line and PB maximizing previously uncovered joint probability for at least four Main matches AND that PB.", "tie_break": "Rounded 14-digit objective, new Main-only four-plus coverage, exact-line joint mass, seeded candidate order, PB numeric order.", "coverage": "For every board enumerate all 226 legal Main outcomes with >=4 matches, including winners outside K13; union separately for each PB.", "scope": "Full-field slate with explicit total coordinate exposure; compare identical ten-line budgets. No expanded-K acquisition credit, no global model-weighted optimum claim."},
+  "replay": {"type": "post_hoc_replay", "minimum_prior_draws": 5, "targets": 24, "untouched_historical_validation": "none", "rule": "Build and hash each output from prefix before scoring target; update likelihood weights only afterward.", "baselines": ["uniform proper scores", "fixed shrunk frequency and recency proper scores", "same-pool uniform joint coverage", "same-budget K13-only joint coverage", "ten seeded random full-field boards with uniform PB"], "metrics": ["joint Main log loss", "mean coordinate Brier", "PB log loss and Brier", "same-line >=3 and >=4 plus PB", "exact joint uniform event coverage", "coordinate union size", "K13 winner hits and catastrophic <=1 exclusions"], "decision_rule": "Do not choose a different method, seed, parameter or preferred final slate based on replay outcomes; primary full-field arm is fixed here."},
+  "search_exposure": {"main_model_specifications": 1, "pb_model_specifications": 1, "portfolio_arms": 4, "seed_families": 1, "parameter_tuning": "none", "repository_prior_search": "Extensive; all historical replay results remain discovery, with zero prospective credit."},
+  "falsification": ["Worse proper scores than uniform block predictive superiority or promotion claims even if replay hit counts improve.", "Any temporal leakage or inconsistent exact probability invalidates the artifact.", "No single hit or 24-draw replay may establish superiority to Sol or other models."],
+  "prospective_scoring": {"first_target": "2026-09-11", "primary_endpoint": "At least one of ten frozen lines with >=4 Main matches and its PowerBall", "probability_gate": "Report Main and PB proper-score deltas against uniform; no promotion from this one target.", "precision_plan": "Descriptive one-target freeze only. A sustained promotion study and formal power horizon are outside this slate request; rare-event hit superiority cannot be established here."},
+  "freeze_policy": "Final JSON records UTC timestamp and hashes; fail if output already exists or target is not in the future. Any correction requires a new version and preserved original."
+}

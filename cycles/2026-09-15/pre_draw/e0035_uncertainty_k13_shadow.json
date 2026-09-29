@@ -1,0 +1,82 @@
+{
+  "target_draw_date": "2026-09-15",
+  "frozen_on": "2026-09-15 pre-result",
+  "paper_trading_only": true,
+  "official_current_prediction": false,
+  "status": "prospective_shadow",
+  "experiment": "E0035",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "canonical_main_ledger": "data/draw_history.jsonl",
+  "canonical_cutoff": "2026-09-11",
+  "canonical_rows": 30,
+  "previous_state": {
+    "main": [9, 11, 13, 38, 43],
+    "powerball": 13
+  },
+  "upstream_field": {
+    "model": "E0030 adaptive uniform/frequency/recent-five mixture unchanged",
+    "proper_score_promotion_passed": false,
+    "mean_historical_logloss_delta_model_minus_uniform": 0.0014658755748200036,
+    "component_posterior": [0.8625150068092201, 0.03602701725614748, 0.10145797593463236],
+    "effective_mixture_weights": [0.93125750340461, 0.01801350862807374, 0.05072898796731618]
+  },
+  "fixed_K": 13,
+  "K_expansion": false,
+  "arms": {
+    "POINT_MEAN": {
+      "basket": [4, 8, 9, 13, 14, 16, 19, 22, 27, 31, 37, 38, 40],
+      "solver_status": "globally_optimal_for_expected_hits_under_point_field_by_top13_marginal_theorem",
+      "modeled_catastrophe_P_H_le_1": 0.6078376149742839,
+      "modeled_P_H_ge_4": 0.01342276988783445,
+      "modeled_P_H_5": 0.0006294645464249445,
+      "modeled_E_H": 1.3071104975793282
+    },
+    "POINT_ROBUST": {
+      "basket": [4, 8, 9, 13, 14, 16, 19, 22, 27, 31, 37, 38, 40],
+      "solver_status": "best_found_deterministic_multistart_one_swap_not_global_certificate",
+      "modeled_catastrophe_P_H_le_1": 0.6078376149742839,
+      "modeled_P_H_ge_4": 0.01342276988783445,
+      "modeled_P_H_5": 0.0006294645464249445,
+      "modeled_E_H": 1.3071104975793282
+    },
+    "BB_MEAN": {
+      "basket": [4, 9, 13, 14, 16, 19, 22, 27, 31, 34, 37, 38, 40],
+      "solver_status": "globally_optimal_for_expected_hits_under_finite_posterior_predictive_mixture_by_top13_marginal_theorem",
+      "modeled_catastrophe_P_H_le_1": 0.6077507312983655,
+      "modeled_P_H_ge_4": 0.013435063651206593,
+      "modeled_P_H_5": 0.0006304116315678317,
+      "modeled_E_H": 1.30731093511454
+    },
+    "BB_ROBUST": {
+      "basket": [4, 9, 13, 14, 16, 19, 22, 27, 31, 34, 37, 38, 40],
+      "solver_status": "best_found_deterministic_multistart_one_swap_not_global_certificate",
+      "modeled_catastrophe_P_H_le_1": 0.6077507312983655,
+      "modeled_P_H_ge_4": 0.013435063651206593,
+      "modeled_P_H_5": 0.0006304116315678317,
+      "modeled_E_H": 1.30731093511454
+    }
+  },
+  "prospective_comparison": {
+    "common_seats": [4, 9, 13, 14, 16, 19, 22, 27, 31, 37, 38, 40],
+    "POINT_MEAN_unique_seat": 8,
+    "BB_ROBUST_unique_seat": 34,
+    "interpretation": "clean one-seat fixed-K prospective comparison"
+  },
+  "retrospective_discovery_summary": {
+    "targets": 25,
+    "POINT_MEAN_total_hits": 31,
+    "POINT_MEAN_catastrophes_H_le_1": 18,
+    "BB_ROBUST_total_hits": 30,
+    "BB_ROBUST_catastrophes_H_le_1": 17,
+    "paired_BB_minus_POINT_sum_hit_delta": -1,
+    "paired_targets_better_equal_worse": [4, 17, 4]
+  },
+  "governance": {
+    "target_outcome_used": false,
+    "bootstrap_replicates": 16,
+    "bootstrap_base_seed": 20260915,
+    "upstream_formula_retuned": false,
+    "predictive_authority": "none",
+    "warning": "The upstream field has not beaten uniform on proper score; modeled K13 utility differences receive zero predictive promotion. Do not alter this artifact after result availability."
+  }
+}

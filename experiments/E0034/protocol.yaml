@@ -1,0 +1,46 @@
+experiment_id: E0034
+title: Dimensionless Burgers Flow-Deformation Challenger
+status: completed_target_excluded_discovery_replay
+evidence_classification: REJECT
+paper_trading_only: true
+
+dataset:
+  canonical: data/draw_history.jsonl
+  active_start: 2026-06-02
+  cutoff: 2026-09-08
+  targets: 21
+  minimum_prior_draws: 8
+  target_range: 2026-06-30 through 2026-09-08
+
+oracle_k13:
+  construction: five target winners plus eight random nonwinner decoys
+  lines_per_universe: 1287
+  reps_per_target_per_seed: 30
+  seeds: [20260915, 20261001]
+  tie_rule: average_midrank
+
+burgers:
+  equation: u_t + u*u_x = nu*u_xx
+  number_scale: 50.0
+  slot_coordinate: [0.0, 0.25, 0.5, 0.75, 1.0]
+  dx: 0.25
+  interior_slots_only: [2,3,4]
+  viscosity_estimator: nonnegative target-excluded least_squares
+  viscosity_parameters: 1
+  candidate_score: negative interior velocity RMSE to one-step Burgers forecast
+
+controls:
+  - zero_velocity
+  - previous_velocity_persistence
+  - inviscid_burgers_nu_0
+  - E0013_spectral
+  - E0029_MAIN_PATTERN80_SPECTRAL5_RESCUE
+
+integration_test:
+  challenger: add top_5_percent Burgers lines as an extra rescue lane after the existing E0029 Pattern80 plus E0013 spectral5 gate
+  success_rule: winner-survival gain must exceed the added line-retention cost and exact-winner ranking must not degrade
+
+falsification:
+  - reject predictive promotion if fitted Burgers does not outperform simple velocity persistence
+  - reject integration if Burgers rescue increases retained-line exposure without improving winner rank/retention efficiently
+  - do not count simple velocity persistence as an independent expert because it belongs to the existing signed-slot-transition information family

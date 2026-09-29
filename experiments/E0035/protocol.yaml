@@ -1,0 +1,100 @@
+experiment_id: E0035
+title: Bayesian-Bootstrap Uncertainty-Aware Fixed-K13 Compression Championship
+status: active_experimental
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+lane: Main
+stage:
+  - candidate_funnel
+  - methodology
+
+active_data_boundary:
+  start: 2026-06-02
+  replay_cutoff: 2026-09-11
+  first_eligible_prospective_target: 2026-09-15
+  allow_pre_june_2026: false
+
+upstream_field:
+  source: experiments/E0030/prototype.py
+  family: E0030 adaptive uniform-frequency-recent5 mixture
+  formula_retuned: false
+  initial_component_prior: [0.8, 0.1, 0.1]
+  uniform_floor: 0.5
+  cumulative_coordinate_weight: "1 + count/10"
+  recent5_coordinate_weight: "1 + count_recent5/10"
+  update_rule: sequential component likelihood using revealed prior targets only
+  warning: upstream proper-score gate has not passed; compression gains cannot be promoted as predictive lift
+
+uncertainty_model:
+  method: Bayesian_bootstrap_over_prior_draws
+  bootstrap_replicates: 16
+  base_seed: 20260915
+  cumulative_bootstrap: independent Exp(1) weights normalized to training-row count
+  recent5_bootstrap: independent Exp(1) weights normalized to five rows
+  mixture_component_weights: inherit target-excluded E0030 weights unchanged
+  uniform_component: exact_unbootstrapped
+  target_outcome_in_bootstrap: forbidden
+
+arms:
+  POINT_MEAN:
+    field: point_E0030
+    objective: maximize_E_H
+    solver: exact_top13_anywhere_marginals
+  POINT_ROBUST:
+    field: point_E0030
+    objective: [minimize_P_H_le_1, maximize_P_H_ge_4, maximize_P_H_5, maximize_E_H]
+    solver: deterministic_multistart_one_swap_best_found_not_global_certificate
+  BB_MEAN:
+    field: Bayesian_bootstrap_posterior_predictive
+    objective: maximize_E_H
+    solver: exact_top13_posterior_predictive_anywhere_marginals
+  BB_ROBUST:
+    field: Bayesian_bootstrap_posterior_predictive
+    objective: [minimize_P_H_le_1, maximize_P_H_ge_4, maximize_P_H_5, maximize_E_H]
+    solver: deterministic_multistart_one_swap_best_found_not_global_certificate
+
+fixed_constraints:
+  K: 13
+  K_expansion: false
+  main_number_bounds: [1, 50]
+  winner_count: 5
+
+walk_forward:
+  min_prior_draws: 5
+  target_excluded: true
+  component_weight_learning_uses_only_prior_targets: true
+  bootstrap_seed_rule: "base_seed + 1009 * target_index"
+
+metrics:
+  - coordinate_hits_total
+  - mean_hits_per_draw
+  - catastrophes_H_le_1
+  - draws_H_ge_3
+  - draws_H_ge_4
+  - draws_H_5
+  - paired_hit_delta_vs_POINT_MEAN
+  - basket_symmetric_difference_vs_POINT_MEAN
+  - recent_10_target_metrics
+  - recent_3_target_metrics
+
+controls:
+  - exact_hypergeometric_random_K13
+  - POINT_MEAN
+  - POINT_ROBUST
+  - BB_MEAN
+
+promotion_gate:
+  - no production promotion from retrospective replay
+  - multiple prospective targets after 2026-09-15
+  - lower catastrophe rate at identical K13 without materially reducing mean hits
+  - upstream probability field must independently pass proper-score gate before predictive lift claim
+  - independent reproduction
+
+forbidden:
+  - K expansion
+  - target-aware bootstrap or seed changes
+  - target-aware objective changes
+  - changing E0030 component formulas
+  - treating bootstrap dispersion as a new predictive expert
+  - claiming global optimality for one-swap nonlinear arms
+  - using post-result 2026-09-15 information in the frozen prospective artifact

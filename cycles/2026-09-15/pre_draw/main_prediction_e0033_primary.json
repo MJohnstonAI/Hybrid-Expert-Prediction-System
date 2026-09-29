@@ -1,0 +1,81 @@
+{
+  "target_draw_date": "2026-09-15",
+  "frozen_on": "2026-09-15 pre-result",
+  "paper_trading_only": true,
+  "official_current_prediction": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture": "HEPS v35.3 + E0035-reviewed point K13 acquisition + E0033 geometry-first Johnson20 + positive-PMI reorder",
+  "canonical_cutoff": "2026-09-11",
+  "canonical_rows": 30,
+  "previous_state": {"main": [9,11,13,38,43], "powerball": 13},
+  "pre_slate_method_lock": "cycles/2026-09-15/pre_draw/pre_slate_method_lock.md",
+  "main_probability_field": {
+    "model": "E0030 adaptive uniform/frequency/recent-five mixture unchanged",
+    "effective_weights": {"uniform": 0.93125750340461, "cumulative_frequency": 0.01801350862807374, "recent_five": 0.05072898796731618},
+    "historical_proper_score": {"targets": 25, "mean_legal_line_logloss_delta_model_minus_uniform": 0.0014658755748200036, "cumulative_delta": 0.03664688937050009},
+    "promotion_gate_passed": false,
+    "interpretation": "near-null shadow field; uniform remains calibration control/champion"
+  },
+  "candidate_acquisition": {
+    "K": 13,
+    "K_expansion": false,
+    "primary_arm": "E0035 POINT_MEAN / POINT_ROBUST consensus",
+    "frozen_K13": [4,8,9,13,14,16,19,22,27,31,37,38,40],
+    "modeled_catastrophe_P_H_le_1": 0.6078376149742839,
+    "modeled_P_H_ge_4": 0.01342276988783445,
+    "modeled_P_H_5": 0.0006294645464249445,
+    "modeled_E_H": 1.3071104975793282,
+    "e0035_shadow_K13": [4,9,13,14,16,19,22,27,31,34,37,38,40],
+    "e0035_shadow_only_difference": {"primary_seat": 8, "shadow_seat": 34},
+    "e0035_promoted": false
+  },
+  "assembly": {
+    "method": "E0033 prospective: Johnson four-plus-first membership, then positive-PMI reorder only",
+    "universe_size": 1287,
+    "portfolio_budget": 20,
+    "four_plus_covered_states": 788,
+    "four_plus_coverage_fraction": 0.6122766122766122,
+    "ordering_score": "mean positive-PMI over the ten unordered pairs, fitted on 30 pre-target Main draws",
+    "membership_fixed_before_ordering": true,
+    "ordering_changes_membership": false,
+    "ordering_evidence": "INSUFFICIENT_EVIDENCE"
+  },
+  "powerball": {
+    "model": "PB_BMA_ALPHA2_V1 updated by unchanged sequential rule through 2026-09-11 PB13",
+    "component_weights": {"uniform": 0.19618447597326702, "unconditional_frequency": 0.39184530058493433, "exact_previous_state": 0.1785451312260705, "VVD_state": 0.23342509221572819},
+    "walk_forward": {"targets": 25, "mean_logloss_delta_model_minus_uniform": -0.009696219893648408, "cumulative_logloss_delta": -0.2424054973412102, "mean_brier_delta_model_minus_uniform": -0.0009925799908636712, "cumulative_brier_delta": -0.02481449977159178},
+    "primary": 11,
+    "shortlist": [11,4,15,13,7,1],
+    "probabilities": {"11":0.08595297187807469,"4":0.0796328863847693,"15":0.0796328863847693,"13":0.07453159692116729,"7":0.06896491357745735,"1":0.06821151142786189,"6":0.061891425934556495,"10":0.061891425934556495,"3":0.0555713404412511,"5":0.0555713404412511,"12":0.0555713404412511,"16":0.0555713404412511,"2":0.04925125494794571,"8":0.04925125494794571,"9":0.04925125494794571,"14":0.04925125494794571}
+  },
+  "lines": [
+    {"rank":1,"main":[4,13,22,31,38],"powerball":11,"ppmi_score":0.5100018855230941},
+    {"rank":2,"main":[8,13,22,31,40],"powerball":4,"ppmi_score":0.4106767082220658},
+    {"rank":3,"main":[4,8,9,13,14],"powerball":15,"ppmi_score":0.4070628035604785},
+    {"rank":4,"main":[4,8,16,19,22],"powerball":13,"ppmi_score":0.3960584572042577},
+    {"rank":5,"main":[8,9,22,37,38],"powerball":7,"ppmi_score":0.3510783650114361},
+    {"rank":6,"main":[4,9,16,27,38],"powerball":1,"ppmi_score":0.34544418961809675},
+    {"rank":7,"main":[8,13,19,27,38],"powerball":11,"ppmi_score":0.34136199016607127},
+    {"rank":8,"main":[8,14,16,31,38],"powerball":4,"ppmi_score":0.29797553190308507},
+    {"rank":9,"main":[4,8,27,31,37],"powerball":15,"ppmi_score":0.29148002180080634},
+    {"rank":10,"main":[9,13,22,27,37],"powerball":13,"ppmi_score":0.25912076964954106},
+    {"rank":11,"main":[14,16,22,31,37],"powerball":7,"ppmi_score":0.23068108457884245},
+    {"rank":12,"main":[9,13,14,16,19],"powerball":1,"ppmi_score":0.21326860561986485},
+    {"rank":13,"main":[4,14,19,37,38],"powerball":11,"ppmi_score":0.1937713381851135},
+    {"rank":14,"main":[8,14,19,37,40],"powerball":4,"ppmi_score":0.1937713381851135},
+    {"rank":15,"main":[4,14,22,27,40],"powerball":15,"ppmi_score":0.19095425048844386},
+    {"rank":16,"main":[16,19,22,38,40],"powerball":13,"ppmi_score":0.15810384379124026},
+    {"rank":17,"main":[4,13,16,37,40],"powerball":7,"ppmi_score":0.13055909031289642},
+    {"rank":18,"main":[27,31,37,38,40],"powerball":1,"ppmi_score":0.12365980316420126},
+    {"rank":19,"main":[4,9,19,31,40],"powerball":11,"ppmi_score":0.0916290731874155},
+    {"rank":20,"main":[8,9,16,27,40],"powerball":4,"ppmi_score":0.07339691750802005}
+  ],
+  "warnings": [
+    "The upstream nonuniform Main field remains slightly worse than uniform on historical proper score; no predictive edge is established.",
+    "E0035 uncertainty-aware K13 remains a separate one-seat shadow and is not merged into the primary K13.",
+    "Johnson four-plus-first is deterministic conditional coverage geometry, not a probability that tonight will produce 4+ hits.",
+    "Positive-PMI ordering remains prospective/shadow evidence and does not solve exact 5/5 assembly.",
+    "E0034 Burgers is rejected and is not used in this slate.",
+    "Paper-trading research only."
+  ]
+}

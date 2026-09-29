@@ -1,0 +1,68 @@
+{
+  "target_draw_date": "2026-09-11",
+  "result_status": "user_reported_pending_external_verification",
+  "canonical_ledger_updated": false,
+  "actual": {
+    "main_numbers": [9, 11, 13, 38, 43],
+    "powerball": 13
+  },
+  "frozen_prediction_artifact": "cycles/2026-09-11/pre_draw/main_prediction_e0033_shadow.json",
+  "candidate_acquisition": {
+    "frozen_K13": [4,8,13,14,16,19,22,27,31,34,37,39,40],
+    "actual_main_hits": [13],
+    "hit_count": 1,
+    "first_binding_failure": "candidate_acquisition"
+  },
+  "top_anywhere_ranking_diagnostic": {
+    "9": 25,
+    "11": 42,
+    "13": 8,
+    "38": 19,
+    "43": 20,
+    "top20_actual_hit_count": 3,
+    "note": "Top20 diagnostic is not primary K13 credit; K remains fixed at 13."
+  },
+  "portfolio": {
+    "max_main_overlap": 1,
+    "lines_with_main_13": [3,8,9,11,12,13,15],
+    "assembly_stage_exact_4plus_scoreable": false,
+    "reason": "Only one actual main number survived K13, so E0033 Johnson membership and PPMI ordering cannot receive 4+/5 predictive credit or blame."
+  },
+  "powerball": {
+    "actual": 13,
+    "primary": 11,
+    "shortlist": [11,4,15,6,1,13],
+    "primary_hit": false,
+    "shortlist_hit": true,
+    "portfolio_lines_with_PB13": [6,12,18],
+    "best_combined_line": {"rank": 12, "main": [8,13,27,37,39], "main_hits": 1, "powerball": 13}
+  },
+  "transition_from_2026_09_08": {
+    "previous_main": [4,8,13,37,49],
+    "delta": [5,3,0,1,-6],
+    "HLR": "HHRHL",
+    "VVD": [5,3,0,1,6],
+    "sum": 114,
+    "previous_sum": 111,
+    "SUMAD": 3,
+    "last_digit_sum": 24,
+    "previous_last_digit_sum": 31,
+    "LDSAD": 7,
+    "span": 34,
+    "previous_span": 45,
+    "SPANAD": 11,
+    "powerball_delta": 6,
+    "powerball_VVD": 6
+  },
+  "probability_field_target_score": {
+    "actual_line_probability": 4.731686934056211e-7,
+    "uniform_line_probability": 4.719741735732221e-7,
+    "target_logloss_delta_model_minus_uniform": -0.0025277035041870732,
+    "interpretation": "Tiny target-level improvement versus uniform; not evidence of durable edge."
+  },
+  "evidence": {
+    "E0032_acquisition": "INSUFFICIENT_EVIDENCE",
+    "E0033_assembly_ordering": "INSUFFICIENT_EVIDENCE; unscoreable for 4+/5 because acquisition failed",
+    "PB_BMA": "INSUFFICIENT_EVIDENCE; primary missed, six-ball shortlist contained actual PB13"
+  }
+}

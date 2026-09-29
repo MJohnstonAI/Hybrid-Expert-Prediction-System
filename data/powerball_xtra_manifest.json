@@ -6,11 +6,11 @@
   "predecessor_label": "PowerBall Plus",
   "canonical_ledger": "data/powerball_xtra_history.jsonl",
   "schema": "data/powerball_xtra_schema.json",
-  "canonical_row_count": 28,
+  "canonical_row_count": 34,
   "first_canonical_draw_date": "2026-06-02",
-  "latest_canonical_draw_date": "2026-09-04",
-  "latest_canonical_draw_id": 1752,
-  "latest_data_quality": "independently_corroborated_nonofficial_source_pending_official_source_verification",
+  "latest_canonical_draw_date": "2026-09-25",
+  "latest_canonical_draw_id": 1758,
+  "latest_data_quality": "externally_verified_single_designated_nonofficial_archive_pending_official_source_verification",
   "missing_expected_draw_dates": [],
   "state_is_complete_through_latest_expected_draw": true,
   "latest_draw_update_policy": {
@@ -33,20 +33,25 @@
       "2026-08-25",
       "2026-08-28",
       "2026-09-01",
-      "2026-09-04"
+      "2026-09-04",
+      "2026-09-08",
+      "2026-09-11",
+      "2026-09-15",
+      "2026-09-18",
+      "2026-09-22",
+      "2026-09-25"
     ],
     "rule": "Do not strip pending_official_source_verification flags or represent these rows as official-source verified until the configured official source is successfully checked."
   },
   "notes": [
     "The active HEPS XTRA lane begins with the South African PowerBall XTRA series on 2026-06-02.",
-    "No pre-June 2026 PowerBall Plus/XTRA winning rows may be stored in the canonical active ledger or enter active XTRA state, priors, recency, HLR/VVD, candidate scores, or validation denominators.",
+    "No pre-June 2026 PowerBall Plus/XTRA history may enter active XTRA state, priors, recency, HLR/VVD, candidate scores, or validation denominators.",
     "Main PowerBall learned state and parameters are not transferred into XTRA.",
-    "The canonical seed through 2026-08-11 was supplied directly by the project director.",
-    "The 2026-08-14 and 2026-08-18 rows were supplied directly by the project director and remain explicitly flagged pending official verification.",
-    "The 2026-08-21 row was supplied directly by the project director and independently corroborated by public nonofficial result sources; official National Lottery source verification remains pending.",
-    "The 2026-08-25, 2026-08-28 and 2026-09-01 rows were promoted from frozen working/post-draw state after independent public corroboration and retain pending_official_source_verification flags.",
-    "The 2026-09-04 XTRA result was independently corroborated from public result sources and is operationally appended with pending_official_source_verification retained.",
-    "Operational XTRA state is complete through 2026-09-04 with 28 rows, all dated 2026-06-02 or later; formal provenance quality remains separately tracked.",
-    "Future routine updates read the local ledger first and consult only the configured official SA National Lottery result page for the newest missing XTRA draw when that source is accessible. Historical web rescans remain disabled."
+    "Rows through 2026-08-21 retain their original project provenance.",
+    "Rows 2026-08-25 through 2026-09-15 were cross-checked against two independent nonofficial XTRA result archives: za.national-lottery.com and lottery.co.za. Dated za.national-lottery.com pages also supplied machine names where recorded.",
+    "Rows 2026-09-18 through 2026-09-25 were verified against the designated za.national-lottery.com dated XTRA result pages after the configured official Sizekhaya/National Lottery source returned HTTP 403; they remain explicitly pending official-source verification.",
+    "The ledger is date-complete for every Tuesday/Friday XTRA draw from 2026-06-02 through 2026-09-25 inclusive (34 rows, draw ids 1725-1758).",
+    "Official Sizekhaya/National Lottery source verification remains pending for rows carrying the pending_official_source_verification flag; do not mislabel the independent archive as official.",
+    "Future updates should read the local ledger first and follow the configured official-source policy for the newest missing draw whenever the official result endpoint is accessible."
   ]
 }

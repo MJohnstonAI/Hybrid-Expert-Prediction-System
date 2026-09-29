@@ -1,0 +1,60 @@
+{
+  "target_draw_date": "2026-09-08",
+  "freeze_date": "2026-09-07",
+  "paper_trading_only": true,
+  "lane": "PowerBall_1_to_16",
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "status": "prospective_shadow",
+  "canonical_cutoff": "2026-09-04",
+  "previous_powerball": 10,
+  "previous_vvd": 6,
+  "model": {
+    "id": "PB_BMA_ALPHA2_V1",
+    "components": [
+      "uniform_1_over_16",
+      "strongly_shrunk_unconditional_frequency_alpha2",
+      "strongly_shrunk_exact_previous_state_transition_alpha2",
+      "strongly_shrunk_previous_VVD_state_to_next_PB_alpha2"
+    ],
+    "initial_component_prior": "equal",
+    "update_rule": "sequential Bayesian model averaging using only revealed prior targets",
+    "alpha_per_ball": 2.0,
+    "no_HLR_VVD_terminal_independent_multiplication": true
+  },
+  "walk_forward_screen": {
+    "targets": 23,
+    "start_after_observations": 5,
+    "mean_logloss_delta_model_minus_uniform": -0.010550681753862786,
+    "cumulative_logloss_delta_model_minus_uniform": -0.24266568033884406,
+    "mean_brier_delta_model_minus_uniform": -0.0011703004130326283,
+    "cumulative_brier_delta_model_minus_uniform": -0.026916909499750452,
+    "interpretation": "negative deltas are better than uniform, but sample is small and this remains discovery/shadow evidence"
+  },
+  "current_component_weights": {
+    "uniform": 0.19613343874801328,
+    "unconditional_frequency": 0.3733803922511792,
+    "exact_previous_state": 0.18982916566023514,
+    "VVD_state": 0.24065700334057247
+  },
+  "current_probability_ranking": [
+    {"pb": 11, "p": 0.08237},
+    {"pb": 4, "p": 0.07614},
+    {"pb": 15, "p": 0.07614},
+    {"pb": 1, "p": 0.06992},
+    {"pb": 13, "p": 0.06992},
+    {"pb": 6, "p": 0.06370},
+    {"pb": 10, "p": 0.06370},
+    {"pb": 3, "p": 0.06323},
+    {"pb": 5, "p": 0.05747},
+    {"pb": 7, "p": 0.05747},
+    {"pb": 12, "p": 0.05747},
+    {"pb": 16, "p": 0.05747},
+    {"pb": 2, "p": 0.05125},
+    {"pb": 8, "p": 0.05125},
+    {"pb": 9, "p": 0.05125},
+    {"pb": 14, "p": 0.05125}
+  ],
+  "primary_powerball": 11,
+  "shortlist": [11, 4, 15, 1, 13, 6],
+  "governance_note": "PB remains separate from Main. The deterministic VVD10-next-two-sum12 rule remains rejected and is not used. One target cannot promote this model."
+}
