@@ -1,0 +1,741 @@
+{
+  "source": "C:\\Users\\Marc\\Documents\\MotorHome\\Sum of last digits.xlsx",
+  "source_sha256": "6a00e2fa7f8790ab9a839d15bcc12e8efd1a886eeb4db8620b2b3bad6d0e267e",
+  "ledger_sha256": "67c23a65f88cbd9aef70c0670b3009e06b5b9f95fb3b55e882fd0174f1b393d1",
+  "audit": [
+    {
+      "excel_row": 2,
+      "digits": [
+        4,
+        7,
+        7,
+        8,
+        0
+      ],
+      "pb_digit": 0,
+      "G": 26,
+      "main_sum": 26,
+      "six_digit_sum": 26,
+      "formula": "=SUM(A2:F2)",
+      "dates": [
+        "2026-09-04"
+      ]
+    },
+    {
+      "excel_row": 3,
+      "digits": [
+        4,
+        6,
+        1,
+        4,
+        0
+      ],
+      "pb_digit": 4,
+      "G": 19,
+      "main_sum": 15,
+      "six_digit_sum": 19,
+      "formula": "=SUM(A3:F3)",
+      "dates": [
+        "2026-09-01"
+      ]
+    },
+    {
+      "excel_row": 4,
+      "digits": [
+        9,
+        2,
+        4,
+        5,
+        7
+      ],
+      "pb_digit": 1,
+      "G": 28,
+      "main_sum": 27,
+      "six_digit_sum": 28,
+      "formula": "=SUM(A4:F4)",
+      "dates": [
+        "2026-08-28"
+      ]
+    },
+    {
+      "excel_row": 5,
+      "digits": [
+        5,
+        4,
+        9,
+        3,
+        5
+      ],
+      "pb_digit": 1,
+      "G": 27,
+      "main_sum": 26,
+      "six_digit_sum": 27,
+      "formula": "=SUM(A5:F5)",
+      "dates": [
+        "2026-08-25"
+      ]
+    },
+    {
+      "excel_row": 6,
+      "digits": [
+        2,
+        4,
+        5,
+        4,
+        9
+      ],
+      "pb_digit": 4,
+      "G": 28,
+      "main_sum": 24,
+      "six_digit_sum": 28,
+      "formula": "=SUM(A6:F6)",
+      "dates": [
+        "2026-08-21"
+      ]
+    },
+    {
+      "excel_row": 7,
+      "digits": [
+        3,
+        7,
+        0,
+        1,
+        9
+      ],
+      "pb_digit": 3,
+      "G": 23,
+      "main_sum": 20,
+      "six_digit_sum": 23,
+      "formula": "=SUM(A7:F7)",
+      "dates": [
+        "2026-08-18"
+      ]
+    },
+    {
+      "excel_row": 8,
+      "digits": [
+        4,
+        5,
+        9,
+        9,
+        4
+      ],
+      "pb_digit": 3,
+      "G": 34,
+      "main_sum": 31,
+      "six_digit_sum": 34,
+      "formula": "=SUM(A8:F8)",
+      "dates": [
+        "2026-08-14"
+      ]
+    },
+    {
+      "excel_row": 9,
+      "digits": [
+        3,
+        4,
+        6,
+        0,
+        8
+      ],
+      "pb_digit": 0,
+      "G": 21,
+      "main_sum": 21,
+      "six_digit_sum": 21,
+      "formula": "=SUM(A9:F9)",
+      "dates": [
+        "2026-08-11"
+      ]
+    },
+    {
+      "excel_row": 10,
+      "digits": [
+        8,
+        2,
+        1,
+        9,
+        0
+      ],
+      "pb_digit": 5,
+      "G": 25,
+      "main_sum": 20,
+      "six_digit_sum": 25,
+      "formula": "=SUM(A10:F10)",
+      "dates": [
+        "2026-08-07"
+      ]
+    },
+    {
+      "excel_row": 11,
+      "digits": [
+        6,
+        4,
+        9,
+        4,
+        8
+      ],
+      "pb_digit": 5,
+      "G": 36,
+      "main_sum": 31,
+      "six_digit_sum": 36,
+      "formula": "=SUM(A11:F11)",
+      "dates": [
+        "2026-08-04"
+      ]
+    },
+    {
+      "excel_row": 12,
+      "digits": [
+        0,
+        1,
+        7,
+        5,
+        6
+      ],
+      "pb_digit": 1,
+      "G": 20,
+      "main_sum": 19,
+      "six_digit_sum": 20,
+      "formula": "=SUM(A12:F12)",
+      "dates": [
+        "2026-07-31"
+      ]
+    },
+    {
+      "excel_row": 13,
+      "digits": [
+        3,
+        2,
+        7,
+        6,
+        7
+      ],
+      "pb_digit": 5,
+      "G": 30,
+      "main_sum": 25,
+      "six_digit_sum": 30,
+      "formula": "=SUM(A13:F13)",
+      "dates": [
+        "2026-07-28"
+      ]
+    },
+    {
+      "excel_row": 14,
+      "digits": [
+        4,
+        8,
+        3,
+        2,
+        8
+      ],
+      "pb_digit": 1,
+      "G": 26,
+      "main_sum": 25,
+      "six_digit_sum": 26,
+      "formula": "=SUM(A14:F14)",
+      "dates": [
+        "2026-07-24"
+      ]
+    },
+    {
+      "excel_row": 15,
+      "digits": [
+        5,
+        0,
+        1,
+        7,
+        0
+      ],
+      "pb_digit": 6,
+      "G": 19,
+      "main_sum": 13,
+      "six_digit_sum": 19,
+      "formula": "=SUM(A15:F15)",
+      "dates": [
+        "2026-07-21"
+      ]
+    },
+    {
+      "excel_row": 16,
+      "digits": [
+        6,
+        9,
+        1,
+        7,
+        2
+      ],
+      "pb_digit": 4,
+      "G": 29,
+      "main_sum": 25,
+      "six_digit_sum": 29,
+      "formula": "=SUM(A16:F16)",
+      "dates": [
+        "2026-07-17"
+      ]
+    },
+    {
+      "excel_row": 17,
+      "digits": [
+        9,
+        3,
+        1,
+        6,
+        0
+      ],
+      "pb_digit": 4,
+      "G": 23,
+      "main_sum": 19,
+      "six_digit_sum": 23,
+      "formula": "=SUM(A17:F17)",
+      "dates": [
+        "2026-07-14"
+      ]
+    },
+    {
+      "excel_row": 18,
+      "digits": [
+        2,
+        2,
+        3,
+        0,
+        3
+      ],
+      "pb_digit": 2,
+      "G": 12,
+      "main_sum": 10,
+      "six_digit_sum": 12,
+      "formula": "=SUM(A18:F18)",
+      "dates": [
+        "2026-07-10"
+      ]
+    },
+    {
+      "excel_row": 19,
+      "digits": [
+        6,
+        8,
+        1,
+        9,
+        7
+      ],
+      "pb_digit": 1,
+      "G": 32,
+      "main_sum": 31,
+      "six_digit_sum": 32,
+      "formula": "=SUM(A19:F19)",
+      "dates": [
+        "2026-07-07"
+      ]
+    },
+    {
+      "excel_row": 20,
+      "digits": [
+        9,
+        4,
+        7,
+        2,
+        4
+      ],
+      "pb_digit": 5,
+      "G": 31,
+      "main_sum": 26,
+      "six_digit_sum": 31,
+      "formula": "=SUM(A20:F20)",
+      "dates": [
+        "2026-07-03"
+      ]
+    },
+    {
+      "excel_row": 21,
+      "digits": [
+        1,
+        6,
+        0,
+        2,
+        4
+      ],
+      "pb_digit": 5,
+      "G": 18,
+      "main_sum": 13,
+      "six_digit_sum": 18,
+      "formula": "=SUM(A21:F21)",
+      "dates": [
+        "2026-06-30"
+      ]
+    },
+    {
+      "excel_row": 22,
+      "digits": [
+        7,
+        6,
+        7,
+        0,
+        5
+      ],
+      "pb_digit": 3,
+      "G": 28,
+      "main_sum": 25,
+      "six_digit_sum": 28,
+      "formula": "=SUM(A22:F22)",
+      "dates": [
+        "2026-06-26"
+      ]
+    },
+    {
+      "excel_row": 23,
+      "digits": [
+        6,
+        5,
+        2,
+        3,
+        0
+      ],
+      "pb_digit": 1,
+      "G": 17,
+      "main_sum": 16,
+      "six_digit_sum": 17,
+      "formula": "=SUM(A23:F23)",
+      "dates": [
+        "2026-06-23"
+      ]
+    },
+    {
+      "excel_row": 24,
+      "digits": [
+        9,
+        0,
+        7,
+        7,
+        4
+      ],
+      "pb_digit": 3,
+      "G": 30,
+      "main_sum": 27,
+      "six_digit_sum": 30,
+      "formula": "=SUM(A24:F24)",
+      "dates": [
+        "2026-06-19"
+      ]
+    },
+    {
+      "excel_row": 25,
+      "digits": [
+        2,
+        9,
+        0,
+        0,
+        3
+      ],
+      "pb_digit": 1,
+      "G": 15,
+      "main_sum": 14,
+      "six_digit_sum": 15,
+      "formula": "=SUM(A25:F25)",
+      "dates": [
+        "2026-06-16"
+      ]
+    }
+  ],
+  "missing_ledger_dates": [
+    "2026-06-02",
+    "2026-06-05",
+    "2026-06-09",
+    "2026-06-12"
+  ],
+  "null": {
+    "line_count": 2118760,
+    "sum_mean": 22.5,
+    "sum_sd": 6.154888549862173,
+    "unconditional_ldsad_11_13": 0.10937535775751954,
+    "slot_digit_probabilities": [
+      [
+        0.058454001397043556,
+        0.15191904698974873,
+        0.13781645868338085,
+        0.12477817213842059,
+        0.11274283071230343,
+        0.1016514376333327,
+        0.09144735600067964,
+        0.08207630878438332,
+        0.07348637882535068,
+        0.06562800883535654
+      ],
+      [
+        0.09618833657422265,
+        0.09293171477656742,
+        0.09745322735939889,
+        0.10064849251448961,
+        0.1026543827521758,
+        0.10359833109932225,
+        0.10359833109932225,
+        0.10276293681209764,
+        0.1011912628140988,
+        0.09897298419830466
+      ],
+      [
+        0.10050690026241764,
+        0.10050690026241764,
+        0.10012932092355906,
+        0.09989569370764032,
+        0.09976354093903982,
+        0.09970454416734316,
+        0.09970454416734316,
+        0.09976354093903982,
+        0.09989569370764032,
+        0.10012932092355906
+      ],
+      [
+        0.09293171477656742,
+        0.09618833657422265,
+        0.09897298419830466,
+        0.1011912628140988,
+        0.10276293681209764,
+        0.10359833109932225,
+        0.10359833109932225,
+        0.1026543827521758,
+        0.10064849251448961,
+        0.09745322735939889
+      ],
+      [
+        0.15191904698974873,
+        0.058454001397043556,
+        0.06562800883535654,
+        0.07348637882535068,
+        0.08207630878438332,
+        0.09144735600067964,
+        0.1016514376333327,
+        0.11274283071230343,
+        0.12477817213842059,
+        0.13781645868338085
+      ]
+    ]
+  },
+  "workbook": {
+    "n": 24,
+    "start": "2026-06-16",
+    "end": "2026-09-04",
+    "digits_counts": [
+      16,
+      9,
+      12,
+      10,
+      17,
+      9,
+      11,
+      15,
+      7,
+      14
+    ],
+    "sum_sequence": [
+      14,
+      27,
+      16,
+      25,
+      13,
+      26,
+      31,
+      10,
+      19,
+      25,
+      13,
+      25,
+      25,
+      19,
+      31,
+      20,
+      21,
+      31,
+      20,
+      24,
+      26,
+      27,
+      15,
+      26
+    ],
+    "sum_mean": 22.041666666666668,
+    "sum_sd": 6.1253512173778155,
+    "sum_range": [
+      10,
+      31
+    ],
+    "lag_correlations": [
+      -0.43603010851345764,
+      -0.05569068893948285,
+      0.43499157915204534,
+      -0.22705613525767557,
+      0.040424526790678074
+    ],
+    "lag_max_permutation_p": 0.18994050297485127,
+    "ldsad_11_13": 11,
+    "transitions": 23,
+    "conditional_null_expected_band_hits": 2.6110644905510774,
+    "max_three_band_permutation_p": 0.0014499275036248187,
+    "best_three_band": [
+      11,
+      13
+    ],
+    "score": {
+      "null": {
+        "sum_log_loss": 3.063771146115945,
+        "line_log_loss": 14.56634156986377,
+        "gain_nats": 0.0,
+        "paired_sd": 0.0,
+        "positive_targets": 0,
+        "targets": 16
+      },
+      "sum_frequency": {
+        "sum_log_loss": 2.9787600960430627,
+        "line_log_loss": 14.481330519790887,
+        "gain_nats": 0.08501105007288251,
+        "paired_sd": 0.5556159987146235,
+        "positive_targets": 8,
+        "targets": 16
+      },
+      "sum_recent8": {
+        "sum_log_loss": 2.907420124036004,
+        "line_log_loss": 14.409990547783831,
+        "gain_nats": 0.15635102207994078,
+        "paired_sd": 0.481327436540163,
+        "positive_targets": 9,
+        "targets": 16
+      },
+      "sum_conditional": {
+        "sum_log_loss": 2.936202393027684,
+        "line_log_loss": 14.438772816775508,
+        "gain_nats": 0.1275687530882612,
+        "paired_sd": 0.559176005467699,
+        "positive_targets": 7,
+        "targets": 16
+      },
+      "adaptive_delta": {
+        "sum_log_loss": 2.923247146689204,
+        "line_log_loss": 14.42581757043703,
+        "gain_nats": 0.14052399942674113,
+        "paired_sd": 0.5828494669627212,
+        "positive_targets": 9,
+        "targets": 16
+      }
+    },
+    "slot_mean_log_loss": {
+      "null": 2.2680617045229052,
+      "frequency": 2.3546378645660453,
+      "conditional": 2.2727907647230015
+    }
+  },
+  "canonical": {
+    "n": 28,
+    "start": "2026-06-02",
+    "end": "2026-09-04",
+    "digits_counts": [
+      18,
+      9,
+      16,
+      13,
+      17,
+      11,
+      12,
+      18,
+      10,
+      16
+    ],
+    "sum_sequence": [
+      21,
+      21,
+      32,
+      22,
+      14,
+      27,
+      16,
+      25,
+      13,
+      26,
+      31,
+      10,
+      19,
+      25,
+      13,
+      25,
+      25,
+      19,
+      31,
+      20,
+      21,
+      31,
+      20,
+      24,
+      26,
+      27,
+      15,
+      26
+    ],
+    "sum_mean": 22.321428571428573,
+    "sum_sd": 5.969388401134398,
+    "sum_range": [
+      10,
+      32
+    ],
+    "lag_correlations": [
+      -0.38761808832160993,
+      -0.14913482299580563,
+      0.4432332782930601,
+      -0.2638567824083257,
+      0.06379275550459376
+    ],
+    "lag_max_permutation_p": 0.10894455277236138,
+    "ldsad_11_13": 12,
+    "transitions": 27,
+    "conditional_null_expected_band_hits": 2.985177651078933,
+    "max_three_band_permutation_p": 0.00279986000699965,
+    "best_three_band": [
+      11,
+      13
+    ],
+    "score": {
+      "null": {
+        "sum_log_loss": 3.208760969168716,
+        "line_log_loss": 14.56634156986377,
+        "gain_nats": 0.0,
+        "paired_sd": 0.0,
+        "positive_targets": 0,
+        "targets": 20
+      },
+      "sum_frequency": {
+        "sum_log_loss": 3.25664649977207,
+        "line_log_loss": 14.614227100467124,
+        "gain_nats": -0.04788553060335439,
+        "paired_sd": 0.4984443855591609,
+        "positive_targets": 9,
+        "targets": 20
+      },
+      "sum_recent8": {
+        "sum_log_loss": 3.1509745988290057,
+        "line_log_loss": 14.508555199524059,
+        "gain_nats": 0.057786370339710035,
+        "paired_sd": 0.47308287708941144,
+        "positive_targets": 9,
+        "targets": 20
+      },
+      "sum_conditional": {
+        "sum_log_loss": 3.165502037116689,
+        "line_log_loss": 14.523082637811743,
+        "gain_nats": 0.043258932052027375,
+        "paired_sd": 0.4962956783743816,
+        "positive_targets": 8,
+        "targets": 20
+      },
+      "adaptive_delta": {
+        "sum_log_loss": 3.0855050681133367,
+        "line_log_loss": 14.44308566880839,
+        "gain_nats": 0.12325590105537935,
+        "paired_sd": 0.5730087735847541,
+        "positive_targets": 12,
+        "targets": 20
+      }
+    },
+    "slot_mean_log_loss": {
+      "null": 2.2791690951769135,
+      "frequency": 2.3657094048600675,
+      "conditional": 2.2775384683018984
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# Follow-up: previous digit to next digit in the same sorted slot
+
+User specifically requests x-after-y-in-slot-z prediction. Scope: 24 matched workbook draws and 28 canonical active Main draws, separately. One-step 10x10 transition tables in each of five sorted slots. No PB, no pre-June records. Diagnostic research only, INSUFFICIENT_EVIDENCE unless future evidence independently justifies change.
+
+Compute every transition count and denominator, unconditional target digit rate, exact order-statistic digit baseline, and leave-target-out-in-time forecasts. Prior: exact per-slot digit null with concentration 20. Conditional forecasts use only previous same-slot digit matches in earlier transitions. Comparator: exact slot null and unconditional shrunk slot digit frequency. Warm-up eight draws, no tuning.
+
+Temporal permutation test (20,000, seed 202609081): permute complete draw rows, preserving cross-slot dependence and slot marginal counts. Per transition use standardized excess count against the permutation mean and standard deviation. Report the maximum across all 500 transitions to control the bounded slot/digit search. Nominal cell p-values are descriptive only; no broader historical-search correction is implied. Inspect five slot-level paired log-loss gains, with their sample SDs, and combined per-draw mean marginal gain. These are not joint line probabilities. No K13 or pipeline modifications.
+
+Report top observed transitions with at least three antecedent occurrences to avoid showcasing 1/1 coincidences; this display threshold does not narrow the 500-cell multiplicity correction. Direction chronology is oldest to newest, sorted slot z not physical ball-extraction position. Both samples overlap and cannot count as independent replications. All results are post-hoc discovery, not prospective validation.
