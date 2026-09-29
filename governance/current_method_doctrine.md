@@ -176,7 +176,11 @@ HLR, VVD, terminal digit, and exact-state successor views of the same PB transit
 
 ## 12. Machine/mechanical research
 
-If a durable mechanical-era edge exists, machine/ball-set non-exchangeability or regime-specific bias is a higher-value hypothesis than inventing additional transforms of the previous winning numbers.
+**Naming rule (added 2026-09-29).** The canonical active series beginning 2026-06-02 must be described as the **"active post-2026-06-02 HEPS era"**, not as the "mechanical era". The active series is not mechanically homogeneous: `data/draw_history.jsonl` rows `draw_id` 30 and 31 (2026-09-11, 2026-09-15) carry `draw_method: "electronic_rng"` and `machine_name: "rng"`, and the manifest's `observed_draw_methods` now lists `electronic_rng` alongside `mechanical_machine` and `unknown`. The "mechanical era" label was accurate while every active row was `mechanical_machine` or `unknown`; it is no longer accurate for 2 of 34 Main rows and must not be used unqualified in new work.
+
+The legacy "mechanical era" label may still be used **only** where an analysis explicitly isolates draws whose `draw_method` is verified as `mechanical_machine` — and such an analysis must state the isolated row count and ids. Pre-existing historical artifacts retain their original wording as immutable evidence; this rule governs forward wording and new documents.
+
+If a durable physical or mechanical-era edge exists, machine/ball-set non-exchangeability or regime-specific bias is a higher-value hypothesis than inventing additional transforms of the previous winning numbers.
 
 However:
 
@@ -184,7 +188,8 @@ However:
 - no guessed machine state;
 - no post-hoc split-point search presented as confirmation;
 - heavy hierarchical shrinkage is mandatory at current sample sizes;
-- physical claims require evidence beyond sorted-number statistics.
+- physical claims require evidence beyond sorted-number statistics;
+- the two `electronic_rng` rows are a **provenance fact, not a regime signal**. Treating them as a regime boundary without external equipment evidence is exactly the "infer mechanism from outcome pattern" error prohibited by `AGENTS.md` §11.
 
 ## 13. Historical experiment precedence
 

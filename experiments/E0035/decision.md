@@ -58,6 +58,25 @@ The uncertainty-aware challenger replaces `8` with `34`. All other 12 seats are 
 
 This is a clean one-seat prospective comparison. Neither basket has production authority.
 
+## Post-draw scoring — frozen 2026-09-15 target (added 2026-09-29)
+
+Added under `AGENTS.md` §13 (post-draw scoring is permitted; frozen pre-draw artifacts above remain immutable).
+
+**Training cutoff:** 2026-09-11. **Result:** `[7,23,25,27,50] | PB7`.
+
+| Arm | Frozen K13 | Winner coordinates retained | H |
+|---|---|---|---|
+| `POINT_MEAN` | `[4,8,9,13,14,16,19,22,27,31,37,38,40]` | `{27}` | 1/5 |
+| `BB_ROBUST` | `[4,9,13,14,16,19,22,27,31,34,37,38,40]` | `{27}` | 1/5 |
+
+**Result: prospective tie.** Both arms retain exactly one winner coordinate — the single shared seat `27`. The only seat that differed (`8` in `POINT_MEAN` versus `34` in `BB_ROBUST`) was a non-winner in both cases. Both arms are `H <= 1`, i.e. both are catastrophic exclusions under the declared `H<=1` criterion.
+
+**Decision: no promotion, no demotion of the shadow.** This is HEPS's first clean frozen one-seat prospective comparison and it is a null. It is consistent with the retrospective replay and provides no evidence that uncertainty-aware compression adds value.
+
+Cumulative prospective record for the E0035 challenger: **1 target, 1 tie, 0 wins, 0 losses, 0 promotions.** One target is far below the E0035 decision's own stated bar ("Reassess after multiple prospective targets; one draw cannot promote or reject the uncertainty-aware compressor"). The shadow continues under the forward rule below, unchanged.
+
+Context for later readers: for a uniformly random 13-coordinate basket against a 5-of-50 draw, `E[H] = 13/50 x 5 = 1.30` and `P(H <= 1) = 0.6110`. Both frozen arms scored `H = 1` with winner-coordinate retention of 0.20 against a random-basket expectation of 0.26. This single target cannot distinguish the arms from each other or from uniform selection; it is recorded as a tie and nothing more.
+
 ## Forward rule
 
 1. Continue `BB_ROBUST` only as a prospective matched-K shadow.

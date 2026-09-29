@@ -329,7 +329,9 @@ Functionally derived views count as one information family. E0029 Pattern-OR is 
 
 # Machine / physical research
 
-If a real mechanical-era edge exists, persistent or regime-specific ball/machine non-exchangeability is a higher-value hypothesis than inventing more transforms of prior winning numbers.
+The canonical active series beginning 2026-06-02 is the **"active post-2026-06-02 HEPS era"**, not the "mechanical era". It is not mechanically homogeneous: Main `draw_id` 30 and 31 (2026-09-11, 2026-09-15) carry `draw_method: "electronic_rng"` / `machine_name: "rng"`. Use the legacy "mechanical era" label only when an analysis explicitly isolates rows verified as `mechanical_machine`, and state the isolated row count and ids. See `governance/current_method_doctrine.md` §12.
+
+If a real physical or mechanical-era edge exists, persistent or regime-specific ball/machine non-exchangeability is a higher-value hypothesis than inventing more transforms of prior winning numbers.
 
 But:
 

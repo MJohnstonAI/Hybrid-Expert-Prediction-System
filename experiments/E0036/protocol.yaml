@@ -1,0 +1,311 @@
+experiment_id: E0036
+title: Power/Identifiability Gate and Unary-Residual Adequacy Test
+status: preregistered_awaiting_red_team_review
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+lane: [Main, XTRA]
+stage:
+  - methodology
+  - candidate_funnel
+
+experiment_type: gate_not_feature_family
+
+governing_hypothesis_file: experiments/E0036/hypothesis.md
+preregistration_note: >
+  Every model, prior scale, metric, threshold and stopping rule in this file is
+  frozen before any replay. Any addition voids the preregistration and requires a
+  new experiment ID.
+
+active_data_boundary:
+  start: 2026-06-02
+  retrospective_cutoff: 2026-09-25
+  first_eligible_prospective_target: 2026-09-29
+  allow_pre_june_2026: false
+  min_training_rows: 6
+  retrospective_targets: 28
+  ledger_rows: 34
+  target_count_note: >
+    Ledger size (34) and usable target count (28) differ because the first six
+    rows are reserved as minimum training history. Both are reported in every table.
+
+ledgers:
+  Main:
+    path: data/draw_history.jsonl
+    sha256: 2DA888679F9D397CE57246C324108952DD952F4B756905F4803AB928DAD528D6
+    rows: 34
+    draw_id_range: [1, 34]
+    date_range: [2026-06-02, 2026-09-25]
+  XTRA:
+    path: data/powerball_xtra_history.jsonl
+    sha256: 07DF3FBEFB46182E553712DBEB045B1BE0EFA0D9DB66E4A5AC3860E1CABD35F2
+    rows: 34
+    draw_id_range: [1725, 1758]
+    date_range: [2026-06-02, 2026-09-25]
+    provenance_caveat: >
+      13 of 34 rows carry pending_official_source_verification. The official
+      Sizekhaya/National Lottery source returned HTTP 403 and verification used a
+      designated non-official archive. Every XTRA headline must carry this caveat.
+
+excluded_inputs:
+  - Train on Main.xlsx
+  - Train on Plus.xlsx
+  - any row dated before 2026-06-02
+  - any row dated after 2026-09-25 within the retrospective window
+  - the 2026-09-29 result (shadow only; must not inform variant or threshold selection)
+
+phase_a:
+  purpose: identifiability_before_fitting
+  gates_phase_b: true
+  reference_uniform_log_loss: 14.566342
+  legal_lines: 2118760
+  alpha: 0.05
+  sided: two
+  provisional_sigma_source: experiments/E0030/results.json
+  provisional_sigma:
+    M1_Main: 0.0095737
+    M1_XTRA: 0.0085404
+    Main_frequency_component: 0.1347579
+    XTRA_recency_component: 0.1003795
+  sigma_rule: >
+    Each model's own sigma is re-estimated on targets 7..28 during the pilot and
+    used for that model's own MDE. M1's sigma must not be used for M2, because
+    interaction potentials inflate the left tail of the per-target log-loss delta.
+  sigma_sensitivity_grid: [0.005, 0.01, 0.02, 0.05]
+  mde_80_log_loss_nats_per_target:
+    Main: {28: 0.005067, 100: 0.002681, 250: 0.001696, 500: 0.001199}
+    XTRA: {28: 0.004521, 100: 0.002392, 250: 0.001513, 500: 0.001070}
+  exact_null_reference:
+    uniform_line_probability: 4.718971e-07
+    random_K13_E_H: 1.30
+    random_K13_sd_H_per_draw: 0.939931
+    P_H_le_1: 0.610962
+    P_H_ge_3: 0.102993
+    P_H_ge_4: 0.013094
+    P_H_eq_5: 0.000607
+  mde_80_secondary_at_n28:
+    K13_mean_winner_count: 0.704
+    P_H_le_1_rate: 0.365
+    P_H_ge_3_rate: 0.228
+    P_H_ge_4_rate: 0.085
+  five_of_five:
+    role: very_low_power_diagnostic
+    threshold: none
+    claim_authority: none
+    expected_events: {28: 0.017, 34: 0.021, 100: 0.061, 250: 0.152, 500: 0.304, 8232: 5.0}
+    note: >
+      One expected 5/5 event requires ~1650 targets (~15 years at ~108 draws/yr);
+      five expected events require ~8232 targets (~76 years). 5/5 can never be a gate.
+
+  multiplicity:
+    historical_experiments: 35
+    historical_family_wise_false_positive_probability: 0.834
+    historical_claim_policy: >
+      E0036 re-claims no historical effect size. No retrospective HEPS result may
+      be promoted on the basis of E0036's analysis.
+    primary_comparisons_per_lane: 3
+    primary_comparisons: [M1_vs_M0, M2a_vs_M0, M2b_vs_M0]
+    primary_metric: exact_legal_line_log_loss
+    primary_control: Holm-Bonferroni
+    fwer_within_lane: 0.05
+    cross_lane_bonferroni: 0.008333
+    interaction_increment:
+      comparisons: [M2a_vs_M1, M2b_vs_M1]
+      control: Holm_step_down
+      precondition: corresponding M2 variant rejected M0 at its own level
+      otherwise: descriptive confidence interval only, no claim
+    secondary:
+      metrics: [brier_calibration, K13_mean_hits, P_H_le_1, P_H_ge_3, P_H_ge_4]
+      count_per_lane: 15
+      control: Benjamini-Hochberg FDR q=0.10
+      authority: labelling_only
+    variant_selection_tiebreak:
+      rule: larger_absolute_Delta_wins
+      exact_tie_priority: [M2a, M2b]
+
+  sequential_rule:
+    window: expanding
+    target_excluded: true
+    binding_checkpoints: [28, 100, 250, 500]
+    interim_binding_analysis: false
+    early_stopping_for_benefit: false
+    early_stopping_for_falsification: true
+    hyperparameters_frozen_at_preregistration_hash: true
+    accumulation_horizon_note: >
+      At the n=100 MDE80 of 0.002681 nats/target, accumulating 5 nats of total
+      log-loss advantage requires ~1865 targets (~17 years). At n=250 MDE80 of
+      0.001696 it requires ~2948 targets (~27 years).
+
+phase_b:
+  models:
+    M0:
+      description: exact uniform legal-line null
+      parameters: 0
+      P: "1/C(50,5) for every legal line"
+    M1:
+      description: coherent unary-residual signed-displacement field
+      formula: "exp(alpha*sum_j sign(delta_j) + beta*sum_j sign(delta_j)*log(1+abs(delta_j)))"
+      parameters: 2
+      prior: "alpha, beta ~ N(0, 0.25^2) independent, per lane"
+      normalisation: exact_DP_chain
+      dp_cost: "O(5*50^2) = 12500 operations"
+      null_recovery: "alpha=beta=0 gives w1==1 identically, hence P1==P0 exactly"
+      replication_target: experiments/E0032/upstream_field_screen_2026-09-07.md
+    M2a:
+      description: adjacent-slot displacement cross-potential
+      formula: "M1 plus ca*sum_{j=1..4} tanh(delta_j)*tanh(delta_{j+1})"
+      parameters: 3
+      prior: "ca ~ N(0, 0.50^2)"
+      normalisation: exact_DP_chain
+      nondegenerate: "tanh(delta_j)*tanh(delta_{j+1}) is not additively separable; ca=0 recovers M1 exactly"
+      boundedness_note: "tanh is bounded so the potential cannot diverge on extreme displacements"
+      tests: H3_adjacent_slot_conditional_independence
+    M2b:
+      description: adjacent-gap run potential
+      formula: "M1 plus cb*sum_{i=1..5} u(g_i)*u(g_{i+1})"
+      gap_definition: "g1=x1-1; g_i=x_i-x_{i-1}-1 for i=2..5; g6=50-x5"
+      u: "1 if g >= 1 else 0"
+      parameters: 3
+      prior: "cb ~ N(0, 0.50^2)"
+      normalisation: exact_DP_gap_chain
+      dp_cost: "O(6*46^2)"
+      nondegenerate: "u(g_i)*u(g_{i+1}) is not additively separable; cb=0 recovers M1 exactly"
+      tests: winning_line_clustering_beyond_displacement
+
+  parameter_budget:
+    M0: 0
+    M1: 2
+    M2a: 3
+    M2b: 3
+    total: 8
+    free_50x50_tables: 0
+    per_coordinate_free_parameters: 0
+
+  information_family_compliance:
+    transition_family: one
+    independent_votes_for_HLR_VVD_terminal_coordinate: false
+    terminal_digit_used: false
+    rule: >
+      sign(delta), abs(delta), x_j and x_j mod 10 enter only as basis functions
+      inside one jointly fitted transition model. They are never multiplied as
+      separate likelihood ratios and never counted as independent expert evidence.
+    free_50x50_pair_tables: forbidden
+
+  construction_admissibility_note: >
+    M1 in exponential form is the same family as the doctrine's residual-ratio form
+    up to slot normalisation, because T_j(x) = exp(phi_j(delta_j))/Z_j already has
+    P0_j-mean 1, so prod_j T_j(x_j) is proportional to exp(sum_j phi_j(delta_j)),
+    and P0_line is constant on legal lines. This is NOT the prod_j q_j(x_j) trap
+    rejected in governance/methodology_deprecations.md: that trap re-multiplies
+    order-statistic geometry and fails null recovery, and this construction
+    provably satisfies null recovery.
+
+  baselines_reported_not_gated:
+    - E0030 adaptive mixture (experiments/E0030/prototype.py, unchanged)
+    - strongly shrunk cumulative-frequency field
+    - strongly shrunk recent-five field
+    - uniform Top13 with exact hypergeometric controls
+    baseline_note: >
+      The E0030 field is an exchangeable coordinate-marginal model, NOT the same
+      family as M1/M2, which are conditional transition models. E0030 is reported
+      alongside but is not the gate.
+
+  k13_optimisation: forbidden_until_probability_field_gate_passes
+
+estimands:
+  sign_convention: "Delta < 0 means better than uniform; matches E0030 convention"
+  per_target_delta: "d_t = 14.566342 - (-log P_M(x_t))"
+  primary: [Delta_M1, Delta_M2a, Delta_M2b]
+  key_secondary: Delta_int = Delta_M2 - Delta_M1
+  diagnostic: "S_M = sum_t d_t"
+  exploratory_only: [Delta_Brier, Delta_K13hits, Delta_P_H_le_1, Delta_P_H_ge_3, Delta_P_H_ge_4]
+
+decision_gates:
+  G1: "Delta_M < 0 (beats uniform)"
+  G2: "Holm-adjusted p < 0.05 within lane, two-sided"
+  G3: "abs(Delta_M) >= MDE80(n) at the checkpoint"
+  G4: "full support retained: min over legal x of P_M(x) > 0, verified numerically"
+  G5: "null recovery: all parameters 0 gives max |P_M(x) - 1/C(50,5)| <= 1e-12"
+  G6: "DP vs brute-force enumeration agreement <= 1e-9 relative on >= 10000 sampled legal lines plus the previous draw"
+  G7: "independent reimplementation of the estimator by a second reviewer"
+  G3_note: >
+    G3 is deliberately stricter than G2. A statistically significant but sub-MDE
+    effect is labelled but not promoted; it is too small to matter economically.
+    At n=28 MDE80 is 0.005067 (Main) and 0.004521 (XTRA), so promotion at the
+    current sample size is expected to be effectively unreachable. A null result
+    is the expected and acceptable outcome.
+  admissibility_precedence: "G4-G7 failure is immediate REJECT regardless of G1-G3"
+  m2_requirement: "M2 additionally requires Delta_M2 < Delta_M1"
+  lane_policy: >
+    Main and XTRA are independent systems with no parameter transfer. A result
+    passing in one lane and failing in the other is reported as lane-specific with
+    explicit disclosure and does not support promotion.
+
+frozen_hyperparameters:
+  prior_sd_M1: 0.25
+  prior_sd_M2: 0.50
+  estimator: MAP_penalised_maximum_likelihood
+  optimiser: deterministic_Newton_with_backtracking
+  tolerance: 1.0e-10
+  max_iterations: 200
+  initialisation: [0, 0, 0]
+  restarts: 0
+  window: expanding_only
+  window_length_search: false
+  target_conditioned_hyperparameter_selection: forbidden
+
+falsification:
+  F1: "null recovery fails (G5) -> REJECT family"
+  F2: "DP disagrees with enumeration (G6) -> REJECT implementation"
+  F3: "any parameter or feature for target t depends on the outcome at t -> REJECT temporal integrity"
+  F4: "improvement only by pushing P_M(x) below 1e-300 for some legal x -> REJECT, full support lost"
+  F5: "M2 gain versus M0 vanishes under multiplicity budget -> INSUFFICIENT_EVIDENCE"
+  F6: "M2 beats M0 but Delta_M2 >= Delta_M1 -> INSUFFICIENT_EVIDENCE, recorded as conditional-exchangeability confirmation"
+  F7: "checkpoint result flips sign between adjacent checkpoints -> unstable, no promotion"
+  F8: "estimate at n=28 depends materially on excluding rows 30-31 -> report both, no promotion"
+  F9: "G1-G3 pass but G4-G7 fail -> REJECT regardless of proper score"
+
+validation_required_before_results:
+  - python scripts/validate_draws.py data/draw_history.jsonl
+  - python scripts/sync_manifest.py --check
+  - python scripts/check_stationarity.py
+  - python -m unittest discover -s tests -v
+  - E0036 unit test: null recovery to 1e-12
+  - E0036 unit test: DP vs brute-force enumeration to 1e-9
+  - E0036 unit test: partition function vs direct enumeration on a toy alphabet
+  - E0036 unit test: two-parameter estimator against a closed-form optimum
+  - E0036 unit test: temporal-exclusion assertion that fails loudly if any target row is read during its own fit
+
+mixed_mechanism_disclosure:
+  active_series_label: active_post_2026-06-02_HEPS_era
+  legacy_label_forbidden_unqualified: mechanical_era
+  Main_rng_rows:
+    draw_id: [30, 31]
+    dates: [2026-09-11, 2026-09-15]
+    draw_method: electronic_rng
+    machine_name: rng
+  primary_analysis_includes_rng_rows: true
+  sensitivity_analysis_excludes_rng_rows: true
+  sensitivity_is_preregistered_and_nonselective: true
+  interpretation: >
+    This is a provenance fact, not a regime signal. No mechanism inference may be
+    drawn from the ledger; a regime claim requires external equipment evidence.
+
+requested_authority:
+  evidence_classification_sought: [INSUFFICIENT_EVIDENCE, PROVISIONAL_SIGNAL]
+  architecture_status: experimental
+  production_authority: false
+  candidate_discovery_authority: false
+  hard_pruning_authority: false
+  K_change: false
+  shadow_forecast_2026_09_29: true
+  shadow_effect_on_production_slate: none
+  modifies_E0035_frozen_artifacts: false
+  modifies_E0033_assembly_semantics: false
+  on_gate_failure: >
+    E0036 requests authority to record a demonstrated null and to recommend that the
+    programme cease generating candidate-feature families, choosing between a
+    long-horizon fixed-protocol monitoring design sized from the phase_a
+    accumulation horizon table, and recording the null and stopping.
+
+registry_row_added: false
+registry_row_note: "added on approval, to avoid registering an unapproved preregistration"

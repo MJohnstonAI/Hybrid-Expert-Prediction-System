@@ -95,9 +95,11 @@ This is one prospective shadow success only. Continue scoring the frozen band an
 
 ## Q010 — Is there a real machine/ball-set non-exchangeability signal?
 
-If a durable mechanical-era edge exists, prospectively known physical metadata may be more valuable than additional transforms of past winning numbers.
+If a durable physical or mechanical-era edge exists, prospectively known physical metadata may be more valuable than additional transforms of past winning numbers.
 
 Prerequisites remain known/qualified machine or ball-set state, strong hierarchical shrinkage, pooled controls and no outcome-optimized regime split.
+
+**Terminology and a live complication (updated 2026-09-29).** The active series is the "active post-2026-06-02 HEPS era", not the "mechanical era". Main `draw_id` 30 and 31 (2026-09-11, 2026-09-15) are recorded as `draw_method: "electronic_rng"` / `machine_name: "rng"`. Whether the active series actually contains a mechanism change is **unresolved and must not be inferred from outcome patterns** (`AGENTS.md` §11). Resolving it requires external equipment/operator evidence, not the ledger. Until then, every Main result must disclose that the training window mixes `mechanical_machine`, `unknown` and `electronic_rng` rows.
 
 ## Q011 — What is the correct near-term PowerBall model?
 
