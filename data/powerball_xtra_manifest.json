@@ -10,7 +10,7 @@
   "first_canonical_draw_date": "2026-06-02",
   "latest_canonical_draw_date": "2026-09-29",
   "latest_canonical_draw_id": 1759,
-  "latest_data_quality": "externally_corroborated_two_independent_nonofficial_sources_pending_official_source_verification",
+  "latest_data_quality": "externally_verified_single_designated_public_archive_pending_official_source_verification",
   "missing_expected_draw_dates": [],
   "state_is_complete_through_latest_expected_draw": true,
   "latest_draw_update_policy": {
@@ -54,6 +54,7 @@
     "Official Sizekhaya/National Lottery source verification remains pending for rows carrying the pending_official_source_verification flag; do not mislabel the independent archive as official.",
     "Future updates should read the local ledger first and follow the configured official-source policy for the newest missing draw whenever the official result endpoint is accessible.",
     "The 2026-09-29 XTRA row was verified on 2026-10-02 against lottery.co.za and cross-checked against the independent za.national-lottery.com live-draw archive; official Sizekhaya verification and machine identity remain pending.",
-    "The ledger is date-complete for every Tuesday/Friday XTRA draw from 2026-06-02 through 2026-09-29 inclusive (35 rows, draw ids 1725-1759)."
+    "The ledger is date-complete for every Tuesday/Friday XTRA draw from 2026-06-02 through 2026-09-29 inclusive (35 rows, draw ids 1725-1759).",
+    "The 2026-09-29 row was verified against lottery.co.za after reading the local ledger first; it remains pending configured official-source verification."
   ]
 }
