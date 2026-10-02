@@ -27,10 +27,11 @@ Read in this order before substantive prediction/research work:
 8. `core/expert_registry.yaml`
 9. `knowledge/open_questions.md`
 10. `experiments/registry.csv`
-11. latest relevant prediction/research handoff, currently `knowledge/HEPS_V35_3_CROSS_SESSION_PREDICTION_HANDOFF_2026-09-04.md`
-12. for pattern-triage work, `knowledge/PATTERN_CONSTRAINT_K13_HANDOFF_2026-09-04.md`, `experiments/E0028/`, and `experiments/E0029/`
-13. for coalition/portfolio work, `knowledge/ASSEMBLY_EVOLUTION_HANDOFF_2026-09-02.md` and `experiments/E0022/`
-14. only the experiment/cycle/review files directly relevant to the task.
+11. latest relevant prediction/research handoff, currently `knowledge/HEPS_PREDICTION_HANDOFF_2026-10-02_E0036_REPAIR.md`
+12. for probability-field/power work, read `experiments/E0036/red_team_review_2026-10-02.md` and `experiments/E0036/decision.md`; E0036 is methodology-only and has zero current slate authority
+13. for pattern-triage work, `knowledge/PATTERN_CONSTRAINT_K13_HANDOFF_2026-09-04.md`, `experiments/E0028/`, and `experiments/E0029/`
+14. for coalition/portfolio work, `knowledge/ASSEMBLY_EVOLUTION_HANDOFF_2026-09-02.md` and `experiments/E0022/`
+15. only the experiment/cycle/review files directly relevant to the task.
 
 Use `data/draw_history.jsonl` as the canonical Main ledger.
 
