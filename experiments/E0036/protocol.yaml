@@ -1,6 +1,6 @@
 experiment_id: E0036
 title: Power/Identifiability Gate and Unary-Residual Adequacy Test
-status: preregistered_awaiting_red_team_review
+status: red_team_revised_preregistration_fresh_freeze_required
 evidence_classification: INSUFFICIENT_EVIDENCE
 paper_trading_only: true
 lane: [Main, XTRA]
@@ -12,9 +12,10 @@ experiment_type: gate_not_feature_family
 
 governing_hypothesis_file: experiments/E0036/hypothesis.md
 preregistration_note: >
-  Every model, prior scale, metric, threshold and stopping rule in this file is
-  frozen before any replay. Any addition voids the preregistration and requires a
-  new experiment ID.
+  The 2026-09-29 draft was red-team reviewed before implementation/replay and is
+  superseded by this corrected protocol. Git history preserves the original.
+  A fresh SHA-256 freeze is required before execution; any later model/metric change
+  voids that freeze and requires a new amendment or experiment ID.
 
 active_data_boundary:
   start: 2026-06-02
@@ -98,8 +99,10 @@ phase_a:
 
   multiplicity:
     historical_experiments: 35
-    historical_family_wise_false_positive_probability: 0.834
+    historical_independence_illustration_fwer: 0.834
+    historical_fwer_status: not_identified_due_to_dependency_and_multiple_tests_per_experiment
     historical_claim_policy: >
+      The 0.834 figure is illustrative under 35 independent 5% tests only.
       E0036 re-claims no historical effect size. No retrospective HEPS result may
       be promoted on the basis of E0036's analysis.
     primary_comparisons_per_lane: 3
@@ -125,7 +128,10 @@ phase_a:
   sequential_rule:
     window: expanding
     target_excluded: true
-    binding_checkpoints: [28, 100, 250, 500]
+    descriptive_checkpoints: [28, 100, 250]
+    terminal_confirmatory_checkpoint: 500
+    repeated_look_promotion_without_sequential_rule: forbidden
+    sequential_rule_required_for_early_promotion: true
     interim_binding_analysis: false
     early_stopping_for_benefit: false
     early_stopping_for_falsification: true
@@ -158,7 +164,7 @@ phase_b:
       normalisation: exact_DP_chain
       nondegenerate: "tanh(delta_j)*tanh(delta_{j+1}) is not additively separable; ca=0 recovers M1 exactly"
       boundedness_note: "tanh is bounded so the potential cannot diverge on extreme displacements"
-      tests: H3_adjacent_slot_conditional_independence
+      tests: H3_adjacent_slot_residual_interaction_increment
     M2b:
       description: adjacent-gap run potential
       formula: "M1 plus cb*sum_{i=1..5} u(g_i)*u(g_{i+1})"
@@ -212,8 +218,8 @@ phase_b:
   k13_optimisation: forbidden_until_probability_field_gate_passes
 
 estimands:
-  sign_convention: "Delta < 0 means better than uniform; matches E0030 convention"
-  per_target_delta: "d_t = 14.566342 - (-log P_M(x_t))"
+  sign_convention: "Delta < 0 means better than uniform; Delta > 0 means worse"
+  per_target_delta: "d_t = (-log P_M(x_t)) - 14.566342"
   primary: [Delta_M1, Delta_M2a, Delta_M2b]
   key_secondary: Delta_int = Delta_M2 - Delta_M1
   diagnostic: "S_M = sum_t d_t"
@@ -222,19 +228,17 @@ estimands:
 decision_gates:
   G1: "Delta_M < 0 (beats uniform)"
   G2: "Holm-adjusted p < 0.05 within lane, two-sided"
-  G3: "abs(Delta_M) >= MDE80(n) at the checkpoint"
+  G3: "prospective confirmatory evidence passes the declared test and estimated improvement meets a separately frozen SESOI; MDE is detectability-only"
   G4: "full support retained: min over legal x of P_M(x) > 0, verified numerically"
   G5: "null recovery: all parameters 0 gives max |P_M(x) - 1/C(50,5)| <= 1e-12"
   G6: "DP vs brute-force enumeration agreement <= 1e-9 relative on >= 10000 sampled legal lines plus the previous draw"
   G7: "independent reimplementation of the estimator by a second reviewer"
   G3_note: >
-    G3 is deliberately stricter than G2. A statistically significant but sub-MDE
-    effect is labelled but not promoted; it is too small to matter economically.
-    At n=28 MDE80 is 0.005067 (Main) and 0.004521 (XTRA), so promotion at the
-    current sample size is expected to be effectively unreachable. A null result
-    is the expected and acceptable outcome.
+    MDE is a design/detectability quantity, not a practical-value threshold.
+    Practical significance requires a separately frozen SESOI. Until SESOI is
+    frozen, E0036 has no predictive promotion authority.
   admissibility_precedence: "G4-G7 failure is immediate REJECT regardless of G1-G3"
-  m2_requirement: "M2 additionally requires Delta_M2 < Delta_M1"
+  m2_requirement: "M2 additionally requires prospective Delta_M2 < Delta_M1; failure of M2a/M2b does not prove general residual independence"
   lane_policy: >
     Main and XTRA are independent systems with no parameter transfer. A result
     passing in one lane and failing in the other is reported as lane-specific with
@@ -309,3 +313,18 @@ requested_authority:
 
 registry_row_added: false
 registry_row_note: "added on approval, to avoid registering an unapproved preregistration"
+
+
+red_team_amendment_2026_10_02:
+  original_draft: 2026-09-29
+  implementation_before_amendment: false
+  replay_before_amendment: false
+  fresh_freeze_required: true
+  retrospective_authority: discovery_only_no_promotion
+  corrected_structural_question: unary_residual_sufficiency_and_specific_interaction_increment
+  ordinary_slot_independence_claim: forbidden
+  m2_scope: specific_preregistered_bases_only
+  MDE_role: detectability_only
+  SESOI_status: must_be_frozen_before_any_practical_significance_promotion
+  repeated_look_rule: descriptive_until_valid_sequential_method_is_preregistered
+  first_confirmatory_target_rule: first draw strictly after corrected protocol freeze
