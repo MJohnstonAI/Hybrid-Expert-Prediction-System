@@ -218,7 +218,7 @@ w2a(x) = exp( alpha * sum_{j=1..5} sign(delta_j)
 ```
 - Parameters: **3**. `ca ~ N(0, 0.50^2)`. Exact DP normalisation, same chain structure.
 - `tanh` is bounded, so the potential cannot diverge on extreme displacements — a deliberate, preregistered boundedness choice.
-- **Non-degeneracy:** `tanh(delta_j) tanh(delta_{j+1})` cannot be written as a sum of single-coordinate functions, so `ca = 0` recovers M1 **exactly** and `ca != 0` is a genuine second-order term. This is the direct test of adjacent-slot conditional independence.
+- **Non-degeneracy:** `tanh(delta_j) tanh(delta_{j+1})` cannot be written as a sum of single-coordinate functions, so `ca = 0` recovers M1 **exactly** and `ca != 0` is a genuine second-order term. This is a specific test of whether an adjacent-slot displacement interaction adds proper-score information beyond M1; it is not a universal conditional-independence test.
 
 **M2b — adjacent-gap run potential.**
 Let `g_1 = x_1 - 1`, `g_i = x_i - x_{i-1} - 1` for `i = 2..5`, `g_6 = 50 - x_5`; these form a weak composition of 45 into 6 parts. Define `u(g) = 1 if g >= 1 else 0`.
@@ -241,7 +241,7 @@ w2b(x) = exp( alpha * sum_{j=1..5} sign(delta_j)
 Sign convention throughout: `d_t^M = (-log P_M(x_t)) - (-log P0(x_t)) = (-log P_M(x_t)) - 14.566342`. **`Delta < 0` means the model is better than uniform; `Delta > 0` means worse.** This matches E0030's convention.
 
 - **Primary:** `Delta_M1`, `Delta_M2a`, `Delta_M2b` — expected paired exact-line log-loss difference versus `M0`, estimated by the expanding-window walk-forward mean of `d_t^M`.
-- **Key secondary:** `Delta_int = Delta_M2 - Delta_M1` — incremental value of the interaction over the unary family. This is the direct test of H3.
+- **Key secondary:** `Delta_int = Delta_M2 - Delta_M1` — incremental value of the interaction over the unary family. This is one preregistered basis for the restricted H3 model-adequacy question.
 - **Diagnostic:** `S_M = sum_t d_t^M`, the cumulative paired log-loss delta.
 - **Exploratory only:** `Delta_Brier`, `Delta_K13hits`, `Delta_P(H<=1)`, `Delta_P(H>=3)`, `Delta_P(H>=4)`. `5/5` reported with no estimand and no threshold.
 
@@ -295,7 +295,7 @@ No target-conditioned selection of any hyperparameter is permitted. A variant ad
 
 **Target-exclusion.** Target `t` uses only rows with `draw_date < draw_date(t)`. Targets are rows 7..34, giving **28 retrospective targets**.
 
-**2026-09-29 is target 29 and is SHADOW ONLY.** Its result must not be used to select variants, adjust thresholds, or rescore the retrospective window.
+**2026-09-29 is pre-correction history, not confirmatory evidence.** Because the red-team-corrected protocol was frozen on 2026-10-02, the 2026-09-29 result may be used as ordinary prior training state once independently verified, but it receives zero prospective E0036 credit. The first eligible clean E0036 prospective target is 2026-10-02.
 
 **XTRA provenance caveat (mandatory on every XTRA headline).** 13 of 34 XTRA rows carry `pending_official_source_verification`; the official Sizekhaya/National Lottery source returned HTTP 403 and verification proceeded against a designated non-official archive (`data/powerball_xtra_manifest.json:29-43, 52`). XTRA is fitted independently with **no parameter transfer** from Main. An XTRA-only result cannot support promotion on its own.
 
