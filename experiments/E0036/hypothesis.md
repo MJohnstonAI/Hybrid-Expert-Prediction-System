@@ -1,11 +1,28 @@
 # E0036 — Power/Identifiability Gate and Unary-Residual Adequacy Test
 
 **Date opened:** 2026-09-29
-**Status:** PREREGISTERED — awaiting red-team review. No implementation, no replay.
+**Status:** RED-TEAM REVISED PREREGISTRATION — no implementation, no replay; fresh freeze/hash required before execution.
 **Evidence classification sought:** `INSUFFICIENT_EVIDENCE` (expected) or `PROVISIONAL_SIGNAL` (only if all gates pass)
 **Architecture status:** `experimental`
 **Stage:** methodology | candidate_funnel
 **Paper trading only:** true
+
+---
+
+> **RED-TEAM AMENDMENT — 2026-10-02**
+>
+> The 2026-09-29 preregistration draft was reviewed before implementation or replay and is **superseded by this corrected draft**. The original Git history remains the audit record. A new preregistration hash must be recorded before any E0036 run.
+>
+> Binding corrections:
+> 1. Log-loss delta is defined only as `Delta_t = L_model,t - L_uniform,t = (-log P_M(x_t)) - 14.566342`; therefore **Delta < 0 means better than uniform**.
+> 2. The structural question is renamed **unary-residual sufficiency / residual-interaction necessity**. The legal-order constraint already induces slot dependence; M1 does not assert ordinary conditional independence.
+> 3. M2a/M2b can falsify *specific* low-dimensional interaction omissions only. Failure of both does not prove general residual independence; success of either establishes only incremental information in that preregistered basis.
+> 4. Historical targets are **target-excluded retrospective discovery only** and can never promote a model. Promotion authority begins only with fresh targets occurring after the corrected protocol is frozen.
+> 5. MDE is a detectability quantity, not a practical-importance threshold. Promotion uses statistical evidence plus a separately declared smallest effect size of interest (SESOI).
+> 6. Checkpoints before the terminal confirmatory horizon are descriptive unless an explicit valid sequential alpha/e-value rule is added in a new amendment before prospective scoring. No repeated-look promotion is allowed under per-checkpoint Holm alone.
+> 7. The historical `1-0.95^35` calculation is only an illustration under 35 independent 5% tests, not an estimate of HEPS's actual FWER.
+> 8. E0032/BARP and similar point estimates without uncertainty are descriptive negative evidence, not statistically settled findings.
+
 
 ---
 
@@ -107,7 +124,7 @@ At the observed ledger cadence of approximately **108 draws per year** (34 draws
 ### A.5 Multiplicity budget
 
 **Historical exposure (declared, not repaired).**
-`experiments/registry.csv` contains **35 numbered experiments** (E0001–E0035) plus four legacy/unnumbered entries. At an unadjusted one-sided 5% threshold, the family-wise probability of at least one false positive is `1 - 0.95^35 = 0.834`. **E0036 makes no claim on behalf of any historical effect size.** No retrospective HEPS result may be promoted on the basis of E0036's analysis. This is the single most important honesty clause in this document.
+`experiments/registry.csv` contains **35 numbered experiments** (E0001–E0035) plus four legacy/unnumbered entries. As an illustration only, **if** these were 35 independent 5% tests, the family-wise probability of at least one false positive would be `1 - 0.95^35 = 0.834`. HEPS's actual historical FWER is not identified by this calculation because experiments share data, contain multiple tests, and are dependent. **E0036 makes no claim on behalf of any historical effect size.** No retrospective HEPS result may be promoted on the basis of E0036's analysis. This is the single most important honesty clause in this document.
 
 **E0036's own budget.**
 
@@ -124,10 +141,10 @@ Additional exposure sources declared: Main and XTRA are **fitted independently w
 ### A.6 Sequential stopping and evidence-accumulation rule
 
 - **Expanding window, target-excluded.** Minimum training length 6 draws. Targets are ledger rows 7 through 34, giving **28 retrospective targets**. The ledger size (34) and the usable target count (28) differ and both are reported in every table.
-- **Binding checkpoints only at n in {28, 100, 250, 500}** target counts. No interim binding analysis between checkpoints.
+- **Descriptive checkpoints at n in {28, 100, 250}; terminal confirmatory checkpoint at n=500 unless a valid sequential alpha-spending/e-process rule is preregistered before prospective scoring.** Per-checkpoint Holm alone does not authorize repeated-look promotion.
 - **No early stopping for benefit.** The only early stop is a falsification trigger (Section 5), which stops for *rejection*, never for success.
 - **The model form and all hyperparameters in Section 6 are frozen at the hash of this file** before any replay. Only the fitted parameters update per target, via the preregistered estimator. Any change to model form, variant set, prior scales, metrics, thresholds or stopping rule voids the preregistration and requires a new experiment ID.
-- At each checkpoint report: `Delta_M`, its SE, t-statistic, Holm-adjusted p, and `|Delta_M|` against the `MDE80(n)` from A.3/A.4.
+- At each checkpoint report: `Delta_M`, its SE, t-statistic or valid sequential evidence measure, multiplicity-adjusted result, MDE80 for detectability, and the separately frozen SESOI for practical significance.
 - **Phase A pilot.** Before the Phase B gate is evaluated, re-estimate each model's own `sigma` on targets 7..28 and report a sensitivity grid over `sigma in {0.005, 0.01, 0.02, 0.05}`. The MDE reported for each model uses **that model's own** sigma. A conclusion that holds only at one sigma value is not a conclusion.
 - **Accumulation horizon.** At the n=100 MDE80 of 0.002681 nats/target, accumulating a total log-loss advantage of 5 nats requires ~1,865 targets (~17 years at 108 draws/yr); at the n=250 MDE80 of 0.001696, ~2,948 targets (~27 years). HEPS should record this before committing to any long-horizon monitoring design.
 
@@ -148,7 +165,7 @@ Additional exposure sources declared: Main and XTRA are **fitted independently w
 | E0034 percentile comparison | 0.624 vs 0.611 vs 0.568 | **no CIs reported** | **Uninterpretable.** Reporting defect. |
 | E0030 4+/5 across all arms | 0 events | random K13 expects 0.33 in 19 draws | **No** — and 0.33 events is itself unremarkable. |
 
-**The canonical multiplicity illustration.** E0028 reports that the band `LDSAD in 11..13` occurred 11 times in 26 transitions (42.31%) against an exact structural-null probability of 10.94% (`experiments/E0028/decision.md:13`). If that band had been fixed *a priori*, the binomial z-statistic would be `(11 - 2.844)/1.591 = 5.13` — an overwhelming signal. It was **discovered on the same data**, so it is a discovery statistic with zero inferential content. This single case demonstrates why the ~83% historical family-wise false-positive probability is not a theoretical concern but a measured one. E0036 will not repeat it.
+**The canonical multiplicity illustration.** E0028 reports that the band `LDSAD in 11..13` occurred 11 times in 26 transitions (42.31%) against an exact structural-null probability of 10.94% (`experiments/E0028/decision.md:13`). If that band had been fixed *a priori*, the binomial z-statistic would be `(11 - 2.844)/1.591 = 5.13` — an overwhelming signal. It was **discovered on the same data**, so it is a discovery statistic with zero inferential content. This single case demonstrates why the ~83% historical family-wise false-positive probability is not a theoretical concern but a measured one. E0036 will not repeat it. Historical multiplicity is treated as an exposure warning, not repaired retrospectively.
 
 **Three "no standard error reported" entries are themselves findings.** E0032 and E0035 report point estimates on a proper score without any dispersion measure, which makes them uninterpretable against any threshold. E0036 requires a paired SE for every proper-score claim.
 
@@ -162,9 +179,9 @@ Additional exposure sources declared: Main and XTRA are **fitted independently w
 >
 > **H2 (interaction increment).** A strictly preregistered, low-dimensional interaction extension `M2` contains out-of-sample proper-score information beyond `M1` and beyond `M0`.
 >
-> **H3 (conditional exchangeability).** The residual ratios `T_j(x_j)` in the load-bearing construction `Q(x) = P0_line(x) · prod_j T_j(x_j)` are conditionally independent across sorted slots given the exact order-statistic geometry. If H3 is false, the entire candidate-acquisition architecture (E0021, E0026, E0030, E0032, E0035) is misspecified at its foundation.
+> **H3 (unary-residual sufficiency / residual-interaction necessity).** After exact legal-line geometry is imposed, does adding a preregistered low-dimensional interaction potential improve out-of-sample proper score beyond the unary residual model? M1 does not imply ordinary slot independence because legal ordering already couples the slots. Failure of M2a/M2b does not prove general interaction absence.
 
-H1 is the incumbent's burden. H2 is the challenger's burden. H3 is the structural question that both presuppose and that has never been tested.
+H1 is the incumbent's burden. H2 is the challenger's burden. H3 is a restricted model-adequacy question: whether either preregistered interaction basis adds information beyond M1. It is not a universal test of conditional independence.
 
 ### 2. Formal null and alternative
 
@@ -221,7 +238,7 @@ w2b(x) = exp( alpha * sum_{j=1..5} sign(delta_j)
 
 ### 4. Estimands
 
-Sign convention throughout: `d_t^M = -log P_M(x_t) - (-log P0(x_t)) = 14.566342 - (-log P_M(x_t))`. **`Delta < 0` means the model is better than uniform.** This matches E0030's convention, where a positive mean delta means worse.
+Sign convention throughout: `d_t^M = (-log P_M(x_t)) - (-log P0(x_t)) = (-log P_M(x_t)) - 14.566342`. **`Delta < 0` means the model is better than uniform; `Delta > 0` means worse.** This matches E0030's convention.
 
 - **Primary:** `Delta_M1`, `Delta_M2a`, `Delta_M2b` — expected paired exact-line log-loss difference versus `M0`, estimated by the expanding-window walk-forward mean of `d_t^M`.
 - **Key secondary:** `Delta_int = Delta_M2 - Delta_M1` — incremental value of the interaction over the unary family. This is the direct test of H3.
@@ -236,17 +253,17 @@ A model `M` is promoted to *shadow with prospective authority* **only if every o
 |---|---|
 | **G1** | `Delta_M < 0` (beats uniform) |
 | **G2** | Holm-adjusted `p < 0.05` within lane, two-sided |
-| **G3** | `|Delta_M| >= MDE80(n)` at the checkpoint |
+| **G3** | prospective statistical evidence passes the declared confirmatory test, and the estimated improvement magnitude meets the separately frozen SESOI; MDE is reported for detectability only |
 | **G4** | Full support retained: `min over legal x of P_M(x) > 0`, verified numerically |
 | **G5** | Exact null recovery: all parameters forced to 0 gives `max |P_M(x) - 1/C(50,5)| <= 1e-12` over legal `x` |
 | **G6** | DP/enumeration agreement: on `>= 10,000` deterministically sampled legal lines plus the previous draw, DP-derived probabilities match brute-force enumeration to `<= 1e-9` relative |
 | **G7** | Independent reimplementation of the estimator by a second reviewer |
 
-**G3 is deliberately stricter than G2.** A statistically significant but sub-MDE effect is *labelled* but **not promoted** — it is too small to matter economically. At n = 28, `MDE80` is 0.005067 nats/target (Main) and 0.004521 (XTRA), so **promotion at the current sample size is expected to be effectively unreachable. A null result is the expected and acceptable outcome, and E0036 is designed to be informative when it returns one.**
+**MDE interpretation.** MDE describes what effect sizes the design can detect at a specified power; it is not an economic-value threshold. Practical significance is governed by a separately frozen SESOI. Until a SESOI is frozen, E0036 may diagnose detectability and model adequacy but may not promote on practical significance.
 
 G2-G3 failure of an admissibility gate (G4-G7) is an immediate `REJECT` of the family regardless of G1-G3. M2 additionally requires `Delta_M2 < Delta_M1`, with the M1-vs-M2 contrast reported.
 
-A Main-consistent result that fails in XTRA is reported as lane-specific with explicit disclosure and does **not** support promotion. A result that passes in XTRA but not Main likewise. Main and XTRA are independent systems (`AGENTS.md` §1) and neither transfers authority to the other.
+A Main-consistent result that fails in XTRA is reported as lane-specific with explicit disclosure; Main and XTRA are not mutual replication sets because they are independently fitted systems. Promotion, if ever permitted, is lane-specific and prospective only. Main and XTRA are independent systems (`AGENTS.md` §1) and neither transfers authority to the other.
 
 ### 6. Hyperparameters frozen before replay
 
