@@ -288,12 +288,13 @@ No target-conditioned selection of any hyperparameter is permitted. A variant ad
 
 | Lane | File | SHA-256 | Rows | Range |
 |---|---|---|---|---|
-| Main | `data/draw_history.jsonl` | `2DA888679F9D397CE57246C324108952DD952F4B756905F4803AB928DAD528D6` | 34 | `draw_id` 1..34, 2026-06-02..2026-09-25 |
-| XTRA | `data/powerball_xtra_history.jsonl` | `07DF3FBEFB46182E553712DBEB045B1BE0EFA0D9DB66E4A5AC3860E1CABD35F2` | 34 | `draw_id` 1725..1758, 2026-06-02..2026-09-25 |
+| Main retrospective snapshot | `data/draw_history.jsonl` as frozen through 2026-09-25 | `2DA888679F9D397CE57246C324108952DD952F4B756905F4803AB928DAD528D6` | 34 | `draw_id` 1..34, 2026-06-02..2026-09-25 |
+| XTRA retrospective snapshot | `data/powerball_xtra_history.jsonl` as frozen through 2026-09-25 | `07DF3FBEFB46182E553712DBEB045B1BE0EFA0D9DB66E4A5AC3860E1CABD35F2` | 34 | `draw_id` 1725..1758, 2026-06-02..2026-09-25 |
+| Current canonical ledgers | same paths, append-only | live | 35 each | through 2026-09-29; row 35 may train the 2026-10-02 prospective state but is excluded from retrospective E0036 scoring |
 
 **Strictly excluded:** `Train on Main.xlsx`, `Train on Plus.xlsx`, every row dated before 2026-06-02, and every row dated after 2026-09-25 in the retrospective window.
 
-**Target-exclusion.** Target `t` uses only rows with `draw_date < draw_date(t)`. Targets are rows 7..34, giving **28 retrospective targets**.
+**Target-exclusion.** Retrospective E0036 scoring is frozen to the 34-row snapshots through 2026-09-25. Target `t` uses only rows with `draw_date < draw_date(t)`; rows 7..34 give **28 retrospective discovery targets**. The live ledgers may contain later append-only rows, which do not alter this retrospective window.
 
 **2026-09-29 is pre-correction history, not confirmatory evidence.** Because the red-team-corrected protocol was frozen on 2026-10-02, the 2026-09-29 result may be used as ordinary prior training state once independently verified, but it receives zero prospective E0036 credit. The first eligible clean E0036 prospective target is 2026-10-02.
 
