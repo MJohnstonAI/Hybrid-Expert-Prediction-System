@@ -20,7 +20,7 @@ preregistration_note: >
 active_data_boundary:
   start: 2026-06-02
   retrospective_cutoff: 2026-09-25
-  first_eligible_prospective_target: 2026-09-29
+  first_eligible_prospective_target: 2026-10-02
   allow_pre_june_2026: false
   min_training_rows: 6
   retrospective_targets: 28
@@ -52,7 +52,7 @@ excluded_inputs:
   - Train on Plus.xlsx
   - any row dated before 2026-06-02
   - any row dated after 2026-09-25 within the retrospective window
-  - the 2026-09-29 result (shadow only; must not inform variant or threshold selection)
+  - the 2026-09-29 result from retrospective/confirmatory scoring; it may enter ordinary training state after verification but receives zero E0036 prospective credit
 
 phase_a:
   purpose: identifiability_before_fitting
@@ -240,9 +240,9 @@ decision_gates:
   admissibility_precedence: "G4-G7 failure is immediate REJECT regardless of G1-G3"
   m2_requirement: "M2 additionally requires prospective Delta_M2 < Delta_M1; failure of M2a/M2b does not prove general residual independence"
   lane_policy: >
-    Main and XTRA are independent systems with no parameter transfer. A result
-    passing in one lane and failing in the other is reported as lane-specific with
-    explicit disclosure and does not support promotion.
+    Main and XTRA are independent systems with no parameter transfer. Any eventual
+    promotion is lane-specific and requires that lane's own genuinely prospective
+    evidence; success in one lane does not replicate or validate the other.
 
 frozen_hyperparameters:
   prior_sd_M1: 0.25
@@ -301,7 +301,8 @@ requested_authority:
   candidate_discovery_authority: false
   hard_pruning_authority: false
   K_change: false
-  shadow_forecast_2026_09_29: true
+  first_clean_prospective_target_2026_10_02: true
+  pre_correction_2026_09_29_credit: zero
   shadow_effect_on_production_slate: none
   modifies_E0035_frozen_artifacts: false
   modifies_E0033_assembly_semantics: false
