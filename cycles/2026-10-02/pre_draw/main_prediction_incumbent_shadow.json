@@ -1,0 +1,520 @@
+{
+  "target_draw_date": "2026-10-02",
+  "frozen_on": "2026-10-02 pre-result",
+  "paper_trading_only": true,
+  "official_current_prediction": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture": "Incumbent E0030 point-field Top13 + E0033 Johnson four-plus-first Top20 + PPMI reorder; E0036 methodology gate has zero slate authority",
+  "canonical_cutoff": "2026-09-29",
+  "canonical_rows": 35,
+  "previous_state": {
+    "main": [
+      17,
+      19,
+      24,
+      43,
+      44
+    ],
+    "powerball": 6
+  },
+  "data_provenance": {
+    "main_latest_source": "https://www.lottery.co.za/results",
+    "main_cross_check": "https://za.national-lottery.com/live-draws",
+    "xtra_latest_draw_id": 1759,
+    "xtra_latest_date": "2026-09-29",
+    "xtra_latest_main": [
+      17,
+      18,
+      22,
+      34,
+      50
+    ],
+    "xtra_latest_powerball": 2,
+    "xtra_official_source_verification_pending": true
+  },
+  "research_review": {
+    "e0036_status": "red_team_revised_preregistration_fresh_freeze_required",
+    "e0036_authority": "zero_slate_authority",
+    "e0036_first_eligible_clean_prospective_target": "2026-10-02",
+    "e0036_note": "Do not use M1/M2, MDE, interaction terms, K13 output, line ranking, or PB selection tonight."
+  },
+  "hlr": {
+    "main_model": "E0005 BARP diagnostic only",
+    "barp_modal": "LLHLL",
+    "structural_null_modal": "LLHLH",
+    "barp_probabilities": {
+      "S1": {
+        "L": 0.7180654064007347,
+        "R": 0.019313183182616246,
+        "H": 0.26262141041664916
+      },
+      "S2": {
+        "L": 0.6236783814951703,
+        "R": 0.038187430383809395,
+        "H": 0.33813418812102014
+      },
+      "S3": {
+        "L": 0.4453942531939351,
+        "R": 0.038808076422058184,
+        "H": 0.5157976703840068
+      },
+      "S4": {
+        "L": 0.6438487123044551,
+        "R": 0.037927844588344126,
+        "H": 0.3182234431072009
+      },
+      "S5": {
+        "L": 0.5175643872693011,
+        "R": 0.058246332760671336,
+        "H": 0.42418927997002753
+      }
+    },
+    "structural_probabilities": {
+      "S1": {
+        "L": 0.8686703543582095,
+        "R": 0.019313183182616246,
+        "H": 0.11201646245917422
+      },
+      "S2": {
+        "L": 0.5994562857520437,
+        "R": 0.038187430383809395,
+        "H": 0.36235628386414703
+      },
+      "S3": {
+        "L": 0.422112462006079,
+        "R": 0.038808076422058184,
+        "H": 0.5390794615718627
+      },
+      "S4": {
+        "L": 0.8241178802695917,
+        "R": 0.037927844588344126,
+        "H": 0.1379542751420642
+      },
+      "S5": {
+        "L": 0.45432139553323636,
+        "R": 0.058246332760671336,
+        "H": 0.48743227170609227
+      }
+    },
+    "powerball_direction_from_bma": {
+      "L": 0.3034971300818546,
+      "R": 0.06765211805457054,
+      "H": 0.6288507518635749,
+      "modal": "H"
+    },
+    "six_state_diagnostic": "LLHLLH",
+    "warning": "HLR remains diagnostic and receives no independent predictive vote."
+  },
+  "main_probability_field": {
+    "model": "E0030 adaptive uniform/cumulative-frequency/recent-five mixture unchanged",
+    "component_posterior": [
+      0.7938789973628375,
+      0.05832973322766496,
+      0.14779126940949744
+    ],
+    "effective_weights": {
+      "uniform": 0.8969394986814188,
+      "cumulative_frequency": 0.02916486661383248,
+      "recent_five": 0.07389563470474872
+    },
+    "walk_forward": {
+      "targets": 30,
+      "mean_legal_line_logloss_delta_model_minus_uniform": -0.0001727265741946482,
+      "cumulative_delta": -0.005181797225839446,
+      "paired_sd": 0.00963681322656352,
+      "paired_se": 0.0017594333288843277,
+      "t_statistic": -0.0981717075373215,
+      "interpretation": "statistically indistinguishable from uniform; negative delta is better"
+    },
+    "promotion_gate_passed": false
+  },
+  "candidate_acquisition": {
+    "K": 13,
+    "K_expansion": false,
+    "incumbent_shadow": "POINT_MEAN Top13 anywhere marginals",
+    "frozen_K13": [
+      2,
+      4,
+      8,
+      9,
+      19,
+      22,
+      27,
+      31,
+      34,
+      38,
+      40,
+      43,
+      50
+    ],
+    "current_model_hit_distribution": [
+      0.2024407995205344,
+      0.40336917155367513,
+      0.2884981377633513,
+      0.09204189613269392,
+      0.013004792271484784,
+      0.0006452027582602979
+    ],
+    "current_model_catastrophe_P_H_le_1": 0.6058099710742095,
+    "current_model_P_H_ge_3": 0.105691891162439,
+    "current_model_P_H_ge_4": 0.013649995029745081,
+    "current_model_P_H_5": 0.0006452027582602979,
+    "current_model_E_H": 1.3117363183557,
+    "random_K13_control": {
+      "E_H": 1.3,
+      "P_H_le_1": 0.6109620721554117,
+      "P_H_ge_3": 0.10299326020880137,
+      "P_H_ge_4": 0.013093507523268327,
+      "P_H_5": 0.0006074307613887368
+    },
+    "historical_walk_forward": {
+      "targets": 30,
+      "total_winner_coordinates": 41,
+      "mean_hits": 1.3666666666666667,
+      "catastrophes_H_le_1": 20,
+      "catastrophe_rate": 0.6666666666666666,
+      "draws_H_ge_3": 4,
+      "draws_H_ge_4": 0,
+      "interpretation": "mean recall is now slightly above random expectation, but catastrophe rate remains worse and the upstream proper-score gate still fails"
+    }
+  },
+  "assembly": {
+    "method": "E0033 Johnson four-plus-first fixed membership, then positive-PMI reorder only",
+    "universe_size": 1287,
+    "portfolio_budget": 20,
+    "four_plus_covered_states": 788,
+    "four_plus_coverage_fraction": 0.6122766122766122,
+    "ordering_score": "mean positive-PMI over ten unordered pairs fitted on 35 pre-target Main draws",
+    "tie_rule": "scores equal within 1e-12 use lexicographic line order",
+    "membership_fixed_before_ordering": true,
+    "ordering_evidence": "INSUFFICIENT_EVIDENCE",
+    "barp_exact_matching_ranks": [
+      5,
+      8,
+      9,
+      11,
+      12
+    ],
+    "structural_null_exact_matching_ranks": [
+      1,
+      13
+    ]
+  },
+  "powerball": {
+    "model": "PB_BMA_ALPHA2_V1 unchanged sequential update through 2026-09-29 PB6",
+    "component_weights": {
+      "uniform": 0.13397965019206678,
+      "unconditional_frequency": 0.5274845932764758,
+      "exact_previous_state": 0.1564360976404051,
+      "VVD_state": 0.1820996588910523
+    },
+    "walk_forward": {
+      "targets": 30,
+      "mean_logloss_delta_model_minus_uniform": -0.02079243312274112,
+      "cumulative_logloss_delta": -0.6237729936822336,
+      "paired_se": 0.02449301493842982,
+      "t_statistic": -0.848912768599898,
+      "mean_brier_delta_model_minus_uniform": -0.002323709986552332,
+      "interpretation": "better point estimate than uniform but statistically inconclusive"
+    },
+    "primary": 11,
+    "shortlist": [
+      11,
+      15,
+      13,
+      4,
+      1,
+      6
+    ],
+    "probabilities": {
+      "1": 0.07225317974987656,
+      "2": 0.04403340492278804,
+      "3": 0.059779213677309706,
+      "4": 0.07552502243183137,
+      "5": 0.05190630930004887,
+      "6": 0.06765211805457054,
+      "7": 0.06765211805457054,
+      "8": 0.04403340492278804,
+      "9": 0.04403340492278804,
+      "10": 0.059779213677309706,
+      "11": 0.10122776520198414,
+      "12": 0.05190630930004887,
+      "13": 0.08088089475215644,
+      "14": 0.04403340492278804,
+      "15": 0.08339792680909221,
+      "16": 0.05190630930004887
+    }
+  },
+  "lines": [
+    {
+      "rank": 1,
+      "main": [
+        4,
+        9,
+        31,
+        38,
+        50
+      ],
+      "powerball": 11,
+      "ppmi_score": 0.3248632410324699,
+      "hlr": "LLHLH"
+    },
+    {
+      "rank": 2,
+      "main": [
+        4,
+        19,
+        22,
+        38,
+        43
+      ],
+      "powerball": 15,
+      "ppmi_score": 0.32486324103246983,
+      "hlr": "LRLLL"
+    },
+    {
+      "rank": 3,
+      "main": [
+        4,
+        8,
+        22,
+        34,
+        50
+      ],
+      "powerball": 13,
+      "ppmi_score": 0.32445946398605346,
+      "hlr": "LLLLH"
+    },
+    {
+      "rank": 4,
+      "main": [
+        2,
+        8,
+        22,
+        34,
+        43
+      ],
+      "powerball": 4,
+      "ppmi_score": 0.2673684845306353,
+      "hlr": "LLLLL"
+    },
+    {
+      "rank": 5,
+      "main": [
+        4,
+        8,
+        31,
+        40,
+        43
+      ],
+      "powerball": 1,
+      "ppmi_score": 0.25308281720978537,
+      "hlr": "LLHLL"
+    },
+    {
+      "rank": 6,
+      "main": [
+        8,
+        9,
+        19,
+        22,
+        27
+      ],
+      "powerball": 6,
+      "ppmi_score": 0.24456703637575467,
+      "hlr": "LLLLL"
+    },
+    {
+      "rank": 7,
+      "main": [
+        2,
+        4,
+        8,
+        9,
+        19
+      ],
+      "powerball": 11,
+      "ppmi_score": 0.23815484225051914,
+      "hlr": "LLLLL"
+    },
+    {
+      "rank": 8,
+      "main": [
+        4,
+        9,
+        27,
+        34,
+        43
+      ],
+      "powerball": 15,
+      "ppmi_score": 0.22753547470769334,
+      "hlr": "LLHLL"
+    },
+    {
+      "rank": 9,
+      "main": [
+        8,
+        9,
+        31,
+        34,
+        40
+      ],
+      "powerball": 13,
+      "ppmi_score": 0.21943559354766404,
+      "hlr": "LLHLL"
+    },
+    {
+      "rank": 10,
+      "main": [
+        19,
+        22,
+        31,
+        38,
+        40
+      ],
+      "powerball": 4,
+      "ppmi_score": 0.2194355935476641,
+      "hlr": "HHHLL"
+    },
+    {
+      "rank": 11,
+      "main": [
+        2,
+        4,
+        34,
+        38,
+        40
+      ],
+      "powerball": 1,
+      "ppmi_score": 0.20683761326160788,
+      "hlr": "LLHLL"
+    },
+    {
+      "rank": 12,
+      "main": [
+        2,
+        9,
+        31,
+        38,
+        43
+      ],
+      "powerball": 6,
+      "ppmi_score": 0.20364628387945838,
+      "hlr": "LLHLL"
+    },
+    {
+      "rank": 13,
+      "main": [
+        2,
+        8,
+        27,
+        38,
+        50
+      ],
+      "powerball": 11,
+      "ppmi_score": 0.19392990903409366,
+      "hlr": "LLHLH"
+    },
+    {
+      "rank": 14,
+      "main": [
+        34,
+        38,
+        40,
+        43,
+        50
+      ],
+      "powerball": 15,
+      "ppmi_score": 0.17600747729615623,
+      "hlr": "HHHRH"
+    },
+    {
+      "rank": 15,
+      "main": [
+        2,
+        4,
+        22,
+        27,
+        31
+      ],
+      "powerball": 13,
+      "ppmi_score": 0.17573941134321977,
+      "hlr": "LLLLL"
+    },
+    {
+      "rank": 16,
+      "main": [
+        2,
+        19,
+        27,
+        40,
+        43
+      ],
+      "powerball": 4,
+      "ppmi_score": 0.160634067301952,
+      "hlr": "LRHLL"
+    },
+    {
+      "rank": 17,
+      "main": [
+        22,
+        27,
+        31,
+        43,
+        50
+      ],
+      "powerball": 1,
+      "ppmi_score": 0.14885576373631365,
+      "hlr": "HHHRH"
+    },
+    {
+      "rank": 18,
+      "main": [
+        4,
+        19,
+        27,
+        40,
+        50
+      ],
+      "powerball": 6,
+      "ppmi_score": 0.1334406957535878,
+      "hlr": "LRHLH"
+    },
+    {
+      "rank": 19,
+      "main": [
+        2,
+        19,
+        31,
+        34,
+        50
+      ],
+      "powerball": 11,
+      "ppmi_score": 0.10234249383519974,
+      "hlr": "LRHLH"
+    },
+    {
+      "rank": 20,
+      "main": [
+        2,
+        9,
+        22,
+        40,
+        50
+      ],
+      "powerball": 15,
+      "ppmi_score": 0.0402367868693584,
+      "hlr": "LLLLH"
+    }
+  ],
+  "warnings": [
+    "No Main full-support probability field has established predictive lift over the exact uniform legal-line null.",
+    "The incumbent point field is used only for continuity as a shadow comparator; E0036 explicitly has zero slate authority tonight.",
+    "Historical K13 mean recall is slightly above random after the newest draws, but catastrophic exclusion remains worse than random and proper-score evidence is null.",
+    "Johnson 61.23% is conditional coverage of K13 winner states, not a 61.23% probability of a 4+ outcome.",
+    "PPMI ordering remains experimental and has not earned exact-winner authority.",
+    "BARP HLR is diagnostic only; structural null differs at S5.",
+    "PowerBall BMA remains statistically inconclusive despite a favorable point estimate.",
+    "Paper-trading research only."
+  ]
+}
