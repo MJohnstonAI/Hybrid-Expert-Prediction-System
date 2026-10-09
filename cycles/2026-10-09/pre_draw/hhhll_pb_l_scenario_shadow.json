@@ -1,0 +1,118 @@
+{
+  "target_draw_date": "2026-10-09",
+  "game_variant": "powerball_main",
+  "created_pre_result": "2026-10-09",
+  "status": "director_requested_prospective_scenario_shadow",
+  "paper_trading_only": true,
+  "official_current_prediction": false,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "canonical_ledger": "data/draw_history.jsonl",
+  "canonical_cutoff": "2026-10-06",
+  "canonical_rows": 37,
+  "canonical_ledger_blob_sha": "eb72cf8efd925003a8dd594a631c3923216e816d",
+  "previous_state": {
+    "main": [
+      12,
+      18,
+      21,
+      35,
+      46
+    ],
+    "powerball": 10
+  },
+  "scenario": {
+    "main_HLR": "HHHLL",
+    "pb_HLR": "L",
+    "inequalities": [
+      "S1 > 12",
+      "S2 > 18",
+      "S3 > 21",
+      "S4 < 35",
+      "S5 < 46",
+      "PB < 10"
+    ],
+    "sorting": "strictly ascending distinct five-number line",
+    "conditional_nature": "user-requested scenario, not a fitted HLR probability winner"
+  },
+  "frozen_primary_K13": [
+    2,
+    5,
+    9,
+    19,
+    22,
+    27,
+    28,
+    31,
+    34,
+    38,
+    39,
+    43,
+    50
+  ],
+  "selection": {
+    "main": "enumerate exactly C(13,5)=1287 lines; filter HHHLL; score mean positive-PMI across ten unordered pairs using 37 historical target-excluded draws; greedy descending PPMI selecting lines with pairwise maximum overlap <=3, tie lexicographic; first four",
+    "conditional_hhhll_states_within_primary_K13": 51,
+    "PB": "select distinct four highest-ranked PB values <10 using already frozen PB_BMA_ALPHA2_V1 probabilities; no new PB model fitting or tuning",
+    "constraints": "all four main lines within existing K13; no new candidate acquisition; four extra shadow lines; do not claim 20-line Johnson coverage or increase official line budget"
+  },
+  "shadow_lines": [
+    {
+      "shadow_rank": 1,
+      "main": [
+        22,
+        28,
+        31,
+        34,
+        39
+      ],
+      "pb": 4,
+      "main_HLR": "HHHLL",
+      "pb_HLR": "L",
+      "ppmi": 0.5622997688756992
+    },
+    {
+      "shadow_rank": 2,
+      "main": [
+        22,
+        27,
+        28,
+        31,
+        38
+      ],
+      "pb": 7,
+      "main_HLR": "HHHLL",
+      "pb_HLR": "L",
+      "ppmi": 0.4412600520339044
+    },
+    {
+      "shadow_rank": 3,
+      "main": [
+        19,
+        22,
+        28,
+        34,
+        38
+      ],
+      "pb": 1,
+      "main_HLR": "HHHLL",
+      "pb_HLR": "L",
+      "ppmi": 0.39673139180442085
+    },
+    {
+      "shadow_rank": 4,
+      "main": [
+        19,
+        27,
+        28,
+        31,
+        39
+      ],
+      "pb": 6,
+      "main_HLR": "HHHLL",
+      "pb_HLR": "L",
+      "ppmi": 0.3749041296964595
+    }
+  ],
+  "official_prediction_unchanged": "cycles/2026-10-09/pre_draw/main_prediction_e0033_2026-10-09.json",
+  "scientific_warning": "A user-conditioned HLR pattern, PPMI reordering, and supplemental line exposure have no demonstrated predictive edge. Assess separately and never blend outcomes into official E0033 20-line scoring."
+}
