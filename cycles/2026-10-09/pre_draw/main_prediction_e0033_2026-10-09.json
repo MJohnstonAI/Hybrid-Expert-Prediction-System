@@ -1,0 +1,481 @@
+{
+  "target_draw_date": "2026-10-09",
+  "frozen_on": "2026-10-09 pre-result (SAST)",
+  "game_variant": "powerball_main",
+  "official_current_prediction": true,
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "canonical_ledger": "data/draw_history.jsonl",
+  "ledger_sha_at_calculation": "eb72cf8efd925003a8dd594a631c3923216e816d",
+  "cutoff": "2026-10-06",
+  "active_rows": 37,
+  "previous_draw": {
+    "main": [
+      12,
+      18,
+      21,
+      35,
+      46
+    ],
+    "powerball": 10
+  },
+  "research_governance": {
+    "E0036": "power/identifiability gate only, zero slate authority",
+    "E0035": "Bayesian compressor shadow, not promoted",
+    "E0034": "Burgers rejected",
+    "upstream_proper_score_gate_passed": false
+  },
+  "main_HLR": {
+    "model": "E0005 BARP diagnostic, non-promoted",
+    "slotwise_modal": "LLHHL",
+    "slot_probabilities": [
+      {
+        "slot": 1,
+        "previous": 12,
+        "run_length": 2,
+        "probabilities": {
+          "L": 0.6392780937295195,
+          "R": 0.03483877362230739,
+          "H": 0.3258831326481731
+        },
+        "modal": "L"
+      },
+      {
+        "slot": 2,
+        "previous": 18,
+        "run_length": 1,
+        "probabilities": {
+          "L": 0.5803500435446867,
+          "R": 0.039796862315694084,
+          "H": 0.37985309413961915
+        },
+        "modal": "L"
+      },
+      {
+        "slot": 3,
+        "previous": 21,
+        "run_length": 1,
+        "probabilities": {
+          "L": 0.35755039113053333,
+          "R": 0.03640808774943835,
+          "H": 0.6060415211200282
+        },
+        "modal": "H"
+      },
+      {
+        "slot": 4,
+        "previous": 35,
+        "run_length": 1,
+        "probabilities": {
+          "L": 0.4006048852587781,
+          "R": 0.04236440181993242,
+          "H": 0.5570307129212896
+        },
+        "modal": "H"
+      },
+      {
+        "slot": 5,
+        "previous": 46,
+        "run_length": 1,
+        "probabilities": {
+          "L": 0.582507422838298,
+          "R": 0.07032179199154222,
+          "H": 0.34717078517015965
+        },
+        "modal": "L"
+      }
+    ],
+    "PB_direction_probabilities": {
+      "L": 0.5181363397374261,
+      "R": 0.07935617132619899,
+      "H": 0.4025074889363747
+    },
+    "PB_modal_direction": "L",
+    "HLR_has_candidate_authority": false
+  },
+  "acquisition": {
+    "model": "E0030 unchanged adaptive prior mixture, point Top13 (shadow)",
+    "effective_weights": {
+      "uniform": 0.927745564914743,
+      "cumulative_frequency": 0.013012366218434794,
+      "recent5": 0.05924206886682228
+    },
+    "mean_target_excluded_exact_line_logloss_delta_model_minus_uniform": 0.00098970000262949,
+    "walkforward_targets": 32,
+    "K": 13,
+    "primary_K13": [
+      2,
+      5,
+      9,
+      19,
+      22,
+      27,
+      28,
+      31,
+      34,
+      38,
+      39,
+      43,
+      50
+    ],
+    "K_expansion": false,
+    "ranked_anywhere_25": [
+      38,
+      28,
+      2,
+      27,
+      9,
+      43,
+      19,
+      22,
+      31,
+      34,
+      39,
+      50,
+      5,
+      12,
+      21,
+      24,
+      26,
+      44,
+      15,
+      17,
+      18,
+      46,
+      40,
+      35,
+      37
+    ],
+    "modeled_P_H_le_1": 0.6082296445336004,
+    "modeled_P_H_ge_4": 0.013374228047032737,
+    "modeled_P_H_5": 0.000625958557972668,
+    "modeled_expected_hits": 1.3062136957111778
+  },
+  "assembly": {
+    "method": "E0033 Johnson four-plus-first greedy fixed membership, PPMI only reorders same 20",
+    "state_space": 1287,
+    "portfolio_lines": 20,
+    "states_with_4plus_coverage": 788,
+    "coverage_fraction": 0.6122766122766122,
+    "ordering": "positive PMI historical counts 37 pre-target draws",
+    "ranking_has_predictive_promotion": false
+  },
+  "powerball": {
+    "model": "PB_BMA_ALPHA2_V1 unchanged, learned separately from Main PB1..16",
+    "component_weights": {
+      "uniform": 0.13165191227047068,
+      "frequency": 0.582484478306063,
+      "exact_prev_state": 0.1361656076497038,
+      "prev_vvd": 0.14969800177376247
+    },
+    "probabilities": {
+      "1": 0.06702392135992911,
+      "2": 0.041698509259665506,
+      "3": 0.06247256325935659,
+      "4": 0.07546572539335031,
+      "5": 0.05014031329308671,
+      "6": 0.06702392135992911,
+      "7": 0.0709143672927778,
+      "8": 0.041698509259665506,
+      "9": 0.041698509259665506,
+      "10": 0.07935617132619899,
+      "11": 0.09675221586530337,
+      "12": 0.05014031329308671,
+      "13": 0.07546572539335031,
+      "14": 0.041698509259665506,
+      "15": 0.08390752942677152,
+      "16": 0.05454319569819737
+    },
+    "ranking": [
+      11,
+      15,
+      10,
+      4,
+      13,
+      7,
+      1,
+      6,
+      3,
+      16,
+      5,
+      12,
+      2,
+      8,
+      9,
+      14
+    ],
+    "shortlist": [
+      11,
+      15,
+      10,
+      4,
+      13,
+      7
+    ],
+    "mean_walkforward_logloss_delta_model_minus_uniform": -0.020040609581675917,
+    "walkforward_targets": 32
+  },
+  "lines": [
+    {
+      "main": [
+        2,
+        22,
+        28,
+        39,
+        43
+      ],
+      "ppmi_score": 0.44332198075417795,
+      "rank": 1,
+      "powerball": 11,
+      "hlr": "LHHHL"
+    },
+    {
+      "main": [
+        5,
+        22,
+        28,
+        39,
+        50
+      ],
+      "ppmi_score": 0.4178222931690076,
+      "rank": 2,
+      "powerball": 15,
+      "hlr": "LHHHH"
+    },
+    {
+      "main": [
+        2,
+        9,
+        28,
+        38,
+        50
+      ],
+      "ppmi_score": 0.4154089825187543,
+      "rank": 3,
+      "powerball": 10,
+      "hlr": "LLHHH"
+    },
+    {
+      "main": [
+        2,
+        5,
+        34,
+        38,
+        39
+      ],
+      "ppmi_score": 0.3752138536379176,
+      "rank": 4,
+      "powerball": 4,
+      "hlr": "LLHHL"
+    },
+    {
+      "main": [
+        5,
+        9,
+        27,
+        34,
+        50
+      ],
+      "ppmi_score": 0.3679631845592427,
+      "rank": 5,
+      "powerball": 13,
+      "hlr": "LLHLH"
+    },
+    {
+      "main": [
+        27,
+        28,
+        31,
+        43,
+        50
+      ],
+      "ppmi_score": 0.3316177214668316,
+      "rank": 6,
+      "powerball": 7,
+      "hlr": "HHHHH"
+    },
+    {
+      "main": [
+        9,
+        19,
+        31,
+        34,
+        39
+      ],
+      "ppmi_score": 0.3310534381655138,
+      "rank": 7,
+      "powerball": 11,
+      "hlr": "LHHLL"
+    },
+    {
+      "main": [
+        5,
+        19,
+        28,
+        34,
+        43
+      ],
+      "ppmi_score": 0.32704842899134645,
+      "rank": 8,
+      "powerball": 15,
+      "hlr": "LHHLL"
+    },
+    {
+      "main": [
+        5,
+        9,
+        31,
+        39,
+        43
+      ],
+      "ppmi_score": 0.3162934791258256,
+      "rank": 9,
+      "powerball": 10,
+      "hlr": "LLHHL"
+    },
+    {
+      "main": [
+        22,
+        27,
+        31,
+        38,
+        39
+      ],
+      "ppmi_score": 0.30228523092033566,
+      "rank": 10,
+      "powerball": 4,
+      "hlr": "HHHHL"
+    },
+    {
+      "main": [
+        2,
+        5,
+        9,
+        19,
+        22
+      ],
+      "ppmi_score": 0.302085130853619,
+      "rank": 11,
+      "powerball": 13,
+      "hlr": "LLLLL"
+    },
+    {
+      "main": [
+        2,
+        5,
+        27,
+        28,
+        31
+      ],
+      "ppmi_score": 0.2923134626558709,
+      "rank": 12,
+      "powerball": 7,
+      "hlr": "LLHLL"
+    },
+    {
+      "main": [
+        34,
+        38,
+        39,
+        43,
+        50
+      ],
+      "ppmi_score": 0.26939316623461046,
+      "rank": 13,
+      "powerball": 11,
+      "hlr": "HHHHH"
+    },
+    {
+      "main": [
+        2,
+        9,
+        27,
+        34,
+        43
+      ],
+      "ppmi_score": 0.26781833053779647,
+      "rank": 14,
+      "powerball": 15,
+      "hlr": "LLHLL"
+    },
+    {
+      "main": [
+        9,
+        19,
+        22,
+        27,
+        28
+      ],
+      "ppmi_score": 0.2602410746905635,
+      "rank": 15,
+      "powerball": 10,
+      "hlr": "LHHLL"
+    },
+    {
+      "main": [
+        5,
+        19,
+        31,
+        38,
+        50
+      ],
+      "ppmi_score": 0.2577337109353519,
+      "rank": 16,
+      "powerball": 4,
+      "hlr": "LHHHH"
+    },
+    {
+      "main": [
+        5,
+        22,
+        27,
+        38,
+        43
+      ],
+      "ppmi_score": 0.24513573064929567,
+      "rank": 17,
+      "powerball": 13,
+      "hlr": "LHHHL"
+    },
+    {
+      "main": [
+        2,
+        19,
+        31,
+        38,
+        43
+      ],
+      "ppmi_score": 0.2321508361439233,
+      "rank": 18,
+      "powerball": 7,
+      "hlr": "LHHHL"
+    },
+    {
+      "main": [
+        2,
+        22,
+        31,
+        34,
+        50
+      ],
+      "ppmi_score": 0.2167002358718609,
+      "rank": 19,
+      "powerball": 11,
+      "hlr": "LHHLH"
+    },
+    {
+      "main": [
+        2,
+        19,
+        27,
+        39,
+        50
+      ],
+      "ppmi_score": 0.15244177454402613,
+      "rank": 20,
+      "powerball": 15,
+      "hlr": "LHHHH"
+    }
+  ],
+  "warning": "Only a research forecast. E0030 Main probability field remains indistinguishable from and descriptively worse than exact uniform on walk-forward proper score. Johnson 4+ fraction is conditional combinatorial coverage, NOT a real-world winning probability. HLR and PPMI are diagnostic/experimental."
+}
