@@ -1,0 +1,61 @@
+schema_version: 1
+agent_session:
+  model: "claude-opus-5-5"
+  session_id: "opus-55-independent-challenge-2026-10-14"
+  started_at: "2026-10-14"
+
+self_selected_role:
+  name: "adversarial statistician / independent reproducer / meta-research auditor"
+  reason: >
+    The binding HEPS failure is upstream: no probability field has beaten the exact
+    uniform legal-line null, and the corrected E0036 gate was frozen but never
+    implemented. The highest-value contribution is to (1) bound what any downstream
+    stage can gain from a given amount of field information, (2) give HEPS a
+    sequential test that is valid at every draw, (3) execute the frozen E0036
+    specification, and (4) audit the evidence used for current assembly choices.
+
+research_target:
+  question_id: "Q002, Q003, Q006, Q010, Q011, Q012"
+  experiment_id: "E0037"
+  architecture_stage: "methodology | slot_forecast | candidate_funnel | coalition_assembly (audit)"
+
+thesis: >
+  Every downstream HEPS metric is bounded by the per-draw KL divergence of the true
+  draw law from uniform. The prequential likelihood ratio is simultaneously the
+  proper-score gate and an anytime-valid test. If no coherent forecaster
+  accumulates evidence, the K13/assembly programme cannot exceed chance by more
+  than the ceiling implied by the plausible divergence.
+
+intended_actions:
+  - preregister E0037 before executing code on canonical data
+  - implement exact forecasters with null-recovery and DP-vs-enumeration checks
+  - independently implement E0036 M1/M2a/M2b from the frozen spec
+  - run retrospective prequential replay on Main and XTRA independently
+  - simulate power under ball-bias alternatives
+  - audit official K13 record and E0033 oracle-replacement calibration
+  - write report for director review; no slate, no authority change
+
+dependencies:
+  - experiments/E0036/hypothesis.md (frozen 2026-10-02)
+  - experiments/E0030/prototype.py (incumbent field definition)
+  - scripts/johnson_portfolio_optimizer.py (four_plus_first geometry)
+  - scripts/xtra_algorithm_championship.py (PPMI adjacency definition)
+
+known_conflicts_or_overlap:
+  - "E0036 package belongs to Space Bunny Alpha; E0037 implements it as a reproduction inside E0037 without editing E0036 files"
+
+may_modify_core: false
+
+expected_outputs:
+  - experiments/E0037/{hypothesis.md, protocol.yaml, results.json, results.md, decision.md}
+  - scripts/e0037_prequential_gate.py
+  - tests/test_e0037_prequential_gate.py
+  - knowledge/OPUS55_INDEPENDENT_ARCHITECTURE_CHALLENGE_2026-10-14.md
+
+self_assessment:
+  confidence: 0.85
+  strongest_counterargument: >
+    A null e-value at 33 targets is uninformative about small biases; the work may be
+    read as 'proving fairness'. Mitigated by Part D power tables and explicit
+    language that failure to reject is not proof of zero effect.
+  likely_failure_mode: "implementation error in chain DP moments; mitigated by full enumeration checks"
