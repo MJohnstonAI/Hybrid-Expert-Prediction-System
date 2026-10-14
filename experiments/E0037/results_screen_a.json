@@ -1,0 +1,25 @@
+{
+ "meta": {
+  "experiment": "E0037",
+  "script": "scripts/e0037_prequential_gate.py",
+  "script_sha256_lf": "bb616fd2f8e5fd3bbc7dda14d47509ae12e61516df556f48d0f163edb7f47306",
+  "evidence_mode": "retrospective_discovery_and_methodology",
+  "slate_authority": "none"
+ },
+ "screen_a_reproduction": {
+  "rows": 28,
+  "targets": 22,
+  "mean_delta_e0036_sign": 0.05084265968456729,
+  "mean_log_prob_delta_e0032_sign": -0.05084265968456729,
+  "reported_e0032_log_prob_delta": -0.05084,
+  "abs_discrepancy": 2.6596845672868796e-06,
+  "full_fit_theta": [
+   0.031886235261170306,
+   -0.0015586363628608871
+  ],
+  "reported_full_fit": {
+   "alpha": 0.0319,
+   "beta": -0.00156
+  }
+ }
+}

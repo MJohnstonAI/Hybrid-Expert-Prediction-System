@@ -1,0 +1,66 @@
+{
+ "meta": {
+  "experiment": "E0037",
+  "script": "scripts/e0037_prequential_gate.py",
+  "script_sha256_lf": "bb616fd2f8e5fd3bbc7dda14d47509ae12e61516df556f48d0f163edb7f47306",
+  "evidence_mode": "retrospective_discovery_and_methodology",
+  "slate_authority": "none"
+ },
+ "null_martingale_check": [
+  {
+   "reps": 4000,
+   "horizon": 39,
+   "mean_E": 0.9877760519664277,
+   "se_mean_E": 0.022487347978457663,
+   "z_vs_1": -0.5435922477511596,
+   "median_log_E": -0.1989042792446445,
+   "P_supE_ge_20": 0.00175,
+   "exact_one_step_total_probability_BB_t040_main": 0.9999999999999996
+  },
+  {
+   "reps": 2000,
+   "horizon": 250,
+   "mean_E": 0.7576076452293842,
+   "se_mean_E": 0.01735627981321262,
+   "z_vs_1": -13.965686044430587,
+   "median_log_E": -0.6333542666726657,
+   "P_supE_ge_20": 0.006,
+   "exact_one_step_total_probability_BB_t040_main": 0.9999999999999996
+  }
+ ],
+ "component_null_check": {
+  "reps": 3000,
+  "horizon": 250,
+  "components": {
+   "BB_t005": {
+    "mean_E_250": 0.9956209945529897,
+    "se": 0.005112438113626401,
+    "z_vs_1": -0.8565395511270362,
+    "median_log_E": -0.05036221711484146,
+    "var_log_E": 0.07012185524899808
+   },
+   "BB_t010": {
+    "mean_E_250": 0.9579752948012003,
+    "se": 0.023565138775260792,
+    "z_vs_1": -1.7833421478900104,
+    "median_log_E": -0.5340359205905809,
+    "var_log_E": 0.8301380970235713
+   },
+   "BB_t020": {
+    "mean_E_250": 0.34570981561657843,
+    "se": 0.06100723357815088,
+    "z_vs_1": -10.724796815205023,
+    "median_log_E": -4.375561739238542,
+    "var_log_E": 5.445629762004268
+   },
+   "BB_t040": {
+    "mean_E_250": 1.754462910440303e-05,
+    "se": 6.545755990797956e-06,
+    "z_vs_1": -152768.06174514815,
+    "median_log_E": -18.951097656996208,
+    "var_log_E": 14.516982895788805
+   }
+  },
+  "interpretation": "sample means of heavy-tailed nonnegative martingales are biased low at feasible reps; the light-tailed components (var log E < 1) must be consistent with mean 1"
+ }
+}

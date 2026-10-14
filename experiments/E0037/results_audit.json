@@ -1,0 +1,421 @@
+{
+ "meta": {
+  "experiment": "E0037",
+  "script": "scripts/e0037_prequential_gate.py",
+  "script_sha256_lf": "bb616fd2f8e5fd3bbc7dda14d47509ae12e61516df556f48d0f163edb7f47306",
+  "evidence_mode": "retrospective_discovery_and_methodology",
+  "slate_authority": "none"
+ },
+ "official_k13": {
+  "targets": [
+   {
+    "date": "2026-08-11",
+    "basket": [
+     9,
+     15,
+     16,
+     23,
+     26,
+     27,
+     29,
+     36,
+     37,
+     38,
+     40,
+     42,
+     47
+    ],
+    "source": "cycles/2026-08-11/pre_draw/candidate_k13.json",
+    "status": "frozen_candidates",
+    "verified_in_source": true,
+    "actual": [
+     3,
+     14,
+     26,
+     40,
+     48
+    ],
+    "hits": 2
+   },
+   {
+    "date": "2026-08-28",
+    "basket": [
+     2,
+     6,
+     8,
+     15,
+     19,
+     24,
+     29,
+     33,
+     34,
+     40,
+     43,
+     44,
+     46
+    ],
+    "source": "cycles/2026-08-28/pre_draw/main_prediction.json",
+    "status": "official",
+    "verified_in_source": true,
+    "actual": [
+     19,
+     22,
+     24,
+     25,
+     47
+    ],
+    "hits": 2
+   },
+   {
+    "date": "2026-09-01",
+    "basket": [
+     20,
+     22,
+     23,
+     26,
+     30,
+     31,
+     32,
+     34,
+     35,
+     39,
+     41,
+     43,
+     49
+    ],
+    "source": "cycles/2026-09-01/pre_draw/main_prediction.json",
+    "status": "official_primary_line_mass",
+    "verified_in_source": true,
+    "actual": [
+     14,
+     16,
+     31,
+     34,
+     40
+    ],
+    "hits": 2
+   },
+   {
+    "date": "2026-09-04",
+    "basket": [
+     3,
+     8,
+     18,
+     19,
+     20,
+     23,
+     32,
+     34,
+     35,
+     39,
+     40,
+     48,
+     50
+    ],
+    "source": "cycles/2026-09-04/pre_draw/main_prediction_v35_3_pattern_triage.json",
+    "status": "designated_current",
+    "verified_in_source": true,
+    "actual": [
+     4,
+     7,
+     27,
+     38,
+     50
+    ],
+    "hits": 1
+   },
+   {
+    "date": "2026-09-08",
+    "basket": [
+     2,
+     4,
+     5,
+     14,
+     16,
+     19,
+     22,
+     24,
+     27,
+     31,
+     34,
+     39,
+     40
+    ],
+    "source": "cycles/2026-09-08/pre_draw/main_shadow_slate_e0032_2026-09-07.json",
+    "status": "sole_frozen_shadow_no_designation",
+    "verified_in_source": true,
+    "actual": [
+     4,
+     8,
+     13,
+     37,
+     49
+    ],
+    "hits": 1
+   },
+   {
+    "date": "2026-09-11",
+    "basket": [
+     4,
+     8,
+     13,
+     14,
+     16,
+     19,
+     22,
+     27,
+     31,
+     34,
+     37,
+     39,
+     40
+    ],
+    "source": "cycles/2026-09-11/pre_draw/main_prediction_e0033_shadow.json",
+    "status": "designated_current",
+    "verified_in_source": true,
+    "actual": [
+     9,
+     11,
+     13,
+     38,
+     43
+    ],
+    "hits": 1
+   },
+   {
+    "date": "2026-09-15",
+    "basket": [
+     4,
+     8,
+     9,
+     13,
+     14,
+     16,
+     19,
+     22,
+     27,
+     31,
+     37,
+     38,
+     40
+    ],
+    "source": "cycles/2026-09-15/pre_draw/main_prediction_e0033_primary.json",
+    "status": "designated_current",
+    "verified_in_source": true,
+    "actual": [
+     7,
+     23,
+     25,
+     27,
+     50
+    ],
+    "hits": 1
+   },
+   {
+    "date": "2026-09-18",
+    "basket": [
+     4,
+     7,
+     8,
+     9,
+     13,
+     14,
+     16,
+     27,
+     31,
+     37,
+     38,
+     40,
+     50
+    ],
+    "source": "cycles/2026-09-18/pre_draw/main_prediction_2026-09-18.json",
+    "status": "designated_current",
+    "verified_in_source": true,
+    "actual": [
+     2,
+     4,
+     6,
+     8,
+     43
+    ],
+    "hits": 2
+   },
+   {
+    "date": "2026-10-02",
+    "basket": [
+     2,
+     4,
+     8,
+     9,
+     19,
+     22,
+     27,
+     31,
+     34,
+     38,
+     40,
+     43,
+     50
+    ],
+    "source": "cycles/2026-10-02/pre_draw/main_prediction_incumbent_shadow.json",
+    "status": "designated_current",
+    "verified_in_source": true,
+    "actual": [
+     15,
+     26,
+     27,
+     28,
+     39
+    ],
+    "hits": 1
+   },
+   {
+    "date": "2026-10-09",
+    "basket": [
+     2,
+     5,
+     9,
+     19,
+     22,
+     27,
+     28,
+     31,
+     34,
+     38,
+     39,
+     43,
+     50
+    ],
+    "source": "cycles/2026-10-09/pre_draw/main_prediction_e0033_2026-10-09.json",
+    "status": "designated_current",
+    "verified_in_source": true,
+    "actual": [
+     3,
+     14,
+     17,
+     19,
+     37
+    ],
+    "hits": 1
+   }
+  ],
+  "n": 10,
+  "total_hits": 14,
+  "expected_null": 13.0,
+  "H_le_1": 6,
+  "expected_H_le_1": 6.10962,
+  "H_ge_3": 0,
+  "expected_H_ge_3": 1.02993,
+  "H_ge_4": 0,
+  "expected_H_ge_4": 0.13094,
+  "p_upper_total": 0.4246471785508708,
+  "p_lower_total": 0.698920052233273
+ },
+ "oracle_replacement": {
+  "johnson20_states_with_4plus_coverage": 788,
+  "johnson20_coverage_fraction": 0.6122766122766122,
+  "reported_e0033": {
+   "2026-09-01": {
+    "top10_4plus": 0.5879,
+    "top20_4plus": 0.9212
+   },
+   "2026-09-04": {
+    "top10_4plus": 0.4465,
+    "top20_4plus": 0.8889
+   },
+   "2026-09-08": {
+    "top10_4plus": 0.5576,
+    "top20_4plus": 0.7636
+   }
+  },
+  "targets": {
+   "2026-09-01": {
+    "actual_winner_e0033": {
+     "n": 165,
+     "ppmi_pct": 0.11062255525708092,
+     "freq_pct": 0.9618101701305434,
+     "top20_4plus": 0.9212121212121213,
+     "top10_4plus_ppmi": 0.5878787878787879,
+     "top10_4plus_random_order": 0.46060606060606063,
+     "se_ppmi_pct_by_winner": null
+    },
+    "null_e0033_replacement": {
+     "n": 3200,
+     "ppmi_pct": 0.4308230462674961,
+     "freq_pct": 0.5869989307931571,
+     "top20_4plus": 0.72125,
+     "top10_4plus_ppmi": 0.3140625,
+     "top10_4plus_random_order": 0.3658059210526316,
+     "se_ppmi_pct_by_winner": null
+    },
+    "null_random_decoys": {
+     "n": 3200,
+     "ppmi_pct": 0.48978081259720063,
+     "freq_pct": 0.4943968701399689,
+     "top20_4plus": 0.6071875,
+     "top10_4plus_ppmi": 0.31625,
+     "top10_4plus_random_order": 0.30976151315789474,
+     "se_ppmi_pct_by_winner": null
+    }
+   },
+   "2026-09-04": {
+    "actual_winner_e0033": {
+     "n": 495,
+     "ppmi_pct": 0.5098967906121872,
+     "freq_pct": 0.30768964921375497,
+     "top20_4plus": 0.8888888888888888,
+     "top10_4plus_ppmi": 0.44646464646464645,
+     "top10_4plus_random_order": 0.4444444444444444,
+     "se_ppmi_pct_by_winner": null
+    },
+    "null_e0033_replacement": {
+     "n": 3200,
+     "ppmi_pct": 0.5059633796656299,
+     "freq_pct": 0.46255005832037327,
+     "top20_4plus": 0.6328125,
+     "top10_4plus_ppmi": 0.3259375,
+     "top10_4plus_random_order": 0.3244654605263158,
+     "se_ppmi_pct_by_winner": null
+    },
+    "null_random_decoys": {
+     "n": 3200,
+     "ppmi_pct": 0.5213079558709176,
+     "freq_pct": 0.4817238530326594,
+     "top20_4plus": 0.6159375,
+     "top10_4plus_ppmi": 0.32,
+     "top10_4plus_random_order": 0.31520559210526317,
+     "se_ppmi_pct_by_winner": null
+    }
+   },
+   "2026-09-08": {
+    "actual_winner_e0033": {
+     "n": 495,
+     "ppmi_pct": 0.8693372292128124,
+     "freq_pct": 0.04850841227202036,
+     "top20_4plus": 0.7636363636363637,
+     "top10_4plus_ppmi": 0.5575757575757576,
+     "top10_4plus_random_order": 0.38181818181818183,
+     "se_ppmi_pct_by_winner": null
+    },
+    "null_e0033_replacement": {
+     "n": 3200,
+     "ppmi_pct": 0.7673370674572317,
+     "freq_pct": 0.0924462966562986,
+     "top20_4plus": 0.5703125,
+     "top10_4plus_ppmi": 0.4128125,
+     "top10_4plus_random_order": 0.29000822368421053,
+     "se_ppmi_pct_by_winner": null
+    },
+    "null_random_decoys": {
+     "n": 3200,
+     "ppmi_pct": 0.5066987023716952,
+     "freq_pct": 0.4873973318429238,
+     "top20_4plus": 0.625625,
+     "top10_4plus_ppmi": 0.3275,
+     "top10_4plus_random_order": 0.3198026315789474,
+     "se_ppmi_pct_by_winner": null
+    }
+   }
+  }
+ }
+}

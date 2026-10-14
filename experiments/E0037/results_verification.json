@@ -1,0 +1,81 @@
+{
+ "meta": {
+  "experiment": "E0037",
+  "script": "scripts/e0037_prequential_gate.py",
+  "script_sha256_lf": "bb616fd2f8e5fd3bbc7dda14d47509ae12e61516df556f48d0f163edb7f47306",
+  "evidence_mode": "retrospective_discovery_and_methodology",
+  "slate_authority": "none"
+ },
+ "verification": {
+  "previous_line": [
+   3,
+   15,
+   24,
+   30,
+   31
+  ],
+  "M1": {
+   "theta": [
+    0.31,
+    -0.17
+   ],
+   "enumerated_lines": 2118760,
+   "log_z_enumeration": 14.389838022862104,
+   "log_z_moment_dp": 14.389838022862035,
+   "log_z_forward_backward": 14.389838022862035,
+   "rel_err_Z_moment_dp": 6.882911624992665e-14,
+   "rel_err_Z_forward_backward": 6.882911624992665e-14,
+   "max_abs_err_mean": 7.238654120556021e-13,
+   "max_abs_err_cov": 1.5987211554602254e-11,
+   "max_abs_err_slot_marginals": 9.076073226310655e-15,
+   "max_rel_err_sampled_line_probability": 6.985480038238925e-14,
+   "sampled_lines": 10001,
+   "min_line_probability_positive": true
+  },
+  "M2a": {
+   "theta": [
+    0.31,
+    -0.17,
+    0.42
+   ],
+   "enumerated_lines": 2118760,
+   "log_z_enumeration": 15.336631632554946,
+   "log_z_moment_dp": 15.336631632555001,
+   "log_z_forward_backward": 15.336631632555001,
+   "rel_err_Z_moment_dp": 5.595235042304219e-14,
+   "rel_err_Z_forward_backward": 5.595235042304219e-14,
+   "max_abs_err_mean": 1.6298074001497298e-13,
+   "max_abs_err_cov": 8.256506589532364e-12,
+   "max_abs_err_slot_marginals": 7.008282842946301e-15,
+   "max_rel_err_sampled_line_probability": 5.772271017460791e-14,
+   "sampled_lines": 10001,
+   "min_line_probability_positive": true
+  },
+  "M2b": {
+   "theta": [
+    0.31,
+    -0.17,
+    -0.38
+   ],
+   "enumerated_lines": 2118760,
+   "log_z_enumeration": 12.955100450703954,
+   "log_z_moment_dp": 12.955100450703696,
+   "log_z_forward_backward": 12.955100450703696,
+   "rel_err_Z_moment_dp": 2.574692077610021e-13,
+   "rel_err_Z_forward_backward": 2.574692077610021e-13,
+   "max_abs_err_mean": 1.5023537969227618e-12,
+   "max_abs_err_cov": 8.86402062860725e-12,
+   "max_abs_err_slot_marginals": 4.243827511629661e-14,
+   "max_rel_err_sampled_line_probability": 2.5855976907102613e-13,
+   "sampled_lines": 10001,
+   "min_line_probability_positive": true
+  },
+  "null_recovery_max_rel_err": {
+   "product": 5.551115123125783e-16,
+   "repeat": 5.551115123125783e-16,
+   "M1": 5.551115123125783e-16,
+   "M2a": 5.551115123125783e-16,
+   "M2b": 5.551115123125783e-16
+  }
+ }
+}
