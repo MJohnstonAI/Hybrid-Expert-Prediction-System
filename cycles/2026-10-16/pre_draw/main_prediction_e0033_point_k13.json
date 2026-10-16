@@ -1,0 +1,474 @@
+{
+  "target_draw_date": "2026-10-16",
+  "frozen_on_sast": "2026-10-16 before evening draw",
+  "paper_trading_only": true,
+  "official_current_prediction": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "architecture": "E0030 strongly shrunk point field + fixed K13 expected-hit optimum + E0033 Johnson20 protected membership + positive-PMI shadow ordering; PB_BMA_ALPHA2_V1",
+  "data_integrity": {
+    "canonical_main": "data/draw_history.jsonl",
+    "canonical_xtra": "data/powerball_xtra_history.jsonl",
+    "main_rows": 39,
+    "xtra_rows": 39,
+    "cutoff": "2026-10-13",
+    "latest_main": {
+      "date": "2026-10-13",
+      "main": [
+        3,
+        15,
+        24,
+        30,
+        31
+      ],
+      "powerball": 7
+    },
+    "latest_xtra": {
+      "date": "2026-10-13",
+      "main": [
+        19,
+        39,
+        40,
+        41,
+        48
+      ],
+      "powerball": 2
+    },
+    "github_main_blob_sha": "57de0151dbf57889b120f43ec3836ce8114c471f",
+    "github_xtra_blob_sha": "24812cf24e2a7cc058a958ffd5e676b72cbdfbc4",
+    "main_manifest_sha": "1672734eb7faa8937b8a322ab94f28259c3e16b2",
+    "xtra_manifest_sha": "f7b78b89e0018b4c6ff6baed96845f99ca5171c7",
+    "xtra_provenance_note": "Numerous XTRA rows carry pending_official_source_verification; no Main/XTRA fitted state sharing",
+    "active_start": "2026-06-02"
+  },
+  "directional_baseline": {
+    "model": "exact uniform legal-line order-statistic marginal null; direction diagnostic only",
+    "previous_main": [
+      3,
+      15,
+      24,
+      30,
+      31
+    ],
+    "slot_probabilities": [
+      {
+        "L": 0.19183673469387758,
+        "R": 0.08418367346938775,
+        "H": 0.7239795918367345
+      },
+      {
+        "L": 0.4328465706356548,
+        "R": 0.04324699352451434,
+        "H": 0.5239064358398309
+      },
+      {
+        "L": 0.422112462006079,
+        "R": 0.038808076422058184,
+        "H": 0.5390794615718627
+      },
+      {
+        "L": 0.2914563235099775,
+        "R": 0.03449187260473107,
+        "H": 0.6740518038852913
+      },
+      {
+        "L": 0.06725915157922559,
+        "R": 0.012934452226774152,
+        "H": 0.9198063961940002
+      }
+    ],
+    "slotwise_modal": "HHHHH",
+    "previous_powerball": 7,
+    "powerball_null": {
+      "L": 0.375,
+      "R": 0.0625,
+      "H": 0.5625
+    },
+    "note": "Slot marginals are dependent and must not be multiplied or treated as independent expert evidence."
+  },
+  "probability_field": {
+    "model": "E0030 adaptive uniform/cumulative-frequency/recent-five mixture (unchanged formula)",
+    "component_posterior": [
+      0.8583385291640497,
+      0.023981195530193677,
+      0.11768027530575668
+    ],
+    "effective_weights": {
+      "uniform": 0.9291692645820249,
+      "cumulative_frequency": 0.011990597765096839,
+      "recent_five": 0.05884013765287834
+    },
+    "historical_target_excluded_screen": {
+      "targets": 34,
+      "mean_exact_line_logloss_delta_vs_uniform": 0.0009802951928661189,
+      "cumulative_delta_vs_uniform": 0.03333003655744804
+    },
+    "proper_score_promotion_passed": false
+  },
+  "acquisition": {
+    "K": 13,
+    "fixed_K13": [
+      3,
+      12,
+      14,
+      15,
+      17,
+      19,
+      21,
+      24,
+      27,
+      31,
+      37,
+      39,
+      43
+    ],
+    "predicted_marginal_rank_top20": [
+      19,
+      3,
+      24,
+      15,
+      17,
+      27,
+      37,
+      31,
+      43,
+      14,
+      39,
+      12,
+      21,
+      26,
+      44,
+      28,
+      18,
+      30,
+      46,
+      40
+    ],
+    "expected_winning_coordinates": 1.3071846058127154,
+    "modeled_P_H_le_1": 0.6078030416715846,
+    "modeled_P_H_ge_4": 0.013420890104086225,
+    "modeled_P_H_eq_5": 0.000629125339100803,
+    "exact_random_K13_expected_hits": 1.3,
+    "no_K_expansion": true
+  },
+  "assembly": {
+    "method": "Johnson 4+-first greedy membership, protected then PPMI mean 10-pair score ordering",
+    "candidate_legal_lines": 1287,
+    "fixed_portfolio_budget": 20,
+    "conditional_four_plus_covered_states": 788,
+    "conditional_four_plus_coverage_fraction": 0.6122766122766122,
+    "membership_frozen_before_ppmi_reordering": true,
+    "evidence": "INSUFFICIENT_EVIDENCE; Johnson is deterministic conditional geometry"
+  },
+  "powerball": {
+    "model": "PB_BMA_ALPHA2_V1 unchanged sequential Bayesian averaging of uniform, alpha2 unconditional, alpha2 previous-state successor, alpha2 prior-VVD-state successor",
+    "component_weights": [
+      0.11947565193881585,
+      0.4202625467273102,
+      0.10955637103730126,
+      0.35070543029657253
+    ],
+    "historical_score": {
+      "targets": 34,
+      "mean_logloss_delta_vs_uniform": -0.021716126962249175,
+      "cumulative": -0.7383483167164719
+    },
+    "shortlist": [
+      11,
+      15,
+      1,
+      13,
+      4,
+      7
+    ],
+    "primary": 11,
+    "exact_probs": {
+      "1": 0.07520585814547431,
+      "2": 0.04682084846683139,
+      "3": 0.05865923006478379,
+      "4": 0.07049761166273619,
+      "5": 0.05274003926580758,
+      "6": 0.06770860289339717,
+      "7": 0.07049761166273619,
+      "8": 0.04682084846683139,
+      "9": 0.04682084846683139,
+      "10": 0.07049761166273619,
+      "11": 0.08233599326068858,
+      "12": 0.05274003926580758,
+      "13": 0.07362779369237336,
+      "14": 0.04682084846683139,
+      "15": 0.07954698449134956,
+      "16": 0.05865923006478379
+    }
+  },
+  "lines": [
+    {
+      "main": [
+        3,
+        15,
+        24,
+        31,
+        39
+      ],
+      "ppmi_score": 0.6014730721200066,
+      "hlr": "RRRHH",
+      "rank": 1,
+      "powerball": 11
+    },
+    {
+      "main": [
+        3,
+        12,
+        14,
+        15,
+        17
+      ],
+      "ppmi_score": 0.47817674050543885,
+      "hlr": "RLLLL",
+      "rank": 2,
+      "powerball": 15
+    },
+    {
+      "main": [
+        17,
+        19,
+        24,
+        31,
+        37
+      ],
+      "ppmi_score": 0.4513627289602735,
+      "hlr": "HHRHH",
+      "rank": 3,
+      "powerball": 1
+    },
+    {
+      "main": [
+        14,
+        15,
+        17,
+        19,
+        21
+      ],
+      "ppmi_score": 0.4162311616762949,
+      "hlr": "HRLLL",
+      "rank": 4,
+      "powerball": 13
+    },
+    {
+      "main": [
+        3,
+        14,
+        19,
+        27,
+        39
+      ],
+      "ppmi_score": 0.4065723332730172,
+      "hlr": "RLLLH",
+      "rank": 5,
+      "powerball": 4
+    },
+    {
+      "main": [
+        3,
+        12,
+        19,
+        21,
+        24
+      ],
+      "ppmi_score": 0.3690706706150239,
+      "hlr": "RLLLL",
+      "rank": 6,
+      "powerball": 7
+    },
+    {
+      "main": [
+        3,
+        17,
+        24,
+        27,
+        43
+      ],
+      "ppmi_score": 0.35334587869084005,
+      "hlr": "RHRLH",
+      "rank": 7,
+      "powerball": 11
+    },
+    {
+      "main": [
+        12,
+        15,
+        21,
+        27,
+        39
+      ],
+      "ppmi_score": 0.2986926269288925,
+      "hlr": "HRLLH",
+      "rank": 8,
+      "powerball": 15
+    },
+    {
+      "main": [
+        12,
+        17,
+        19,
+        31,
+        39
+      ],
+      "ppmi_score": 0.29348664562518706,
+      "hlr": "HHLHH",
+      "rank": 9,
+      "powerball": 1
+    },
+    {
+      "main": [
+        12,
+        17,
+        21,
+        37,
+        43
+      ],
+      "ppmi_score": 0.27447647121389535,
+      "hlr": "HHLHH",
+      "rank": 10,
+      "powerball": 13
+    },
+    {
+      "main": [
+        3,
+        17,
+        21,
+        37,
+        39
+      ],
+      "ppmi_score": 0.268842295820556,
+      "hlr": "RHLHH",
+      "rank": 11,
+      "powerball": 4
+    },
+    {
+      "main": [
+        12,
+        14,
+        19,
+        27,
+        43
+      ],
+      "ppmi_score": 0.26218665758158,
+      "hlr": "HLLLH",
+      "rank": 12,
+      "powerball": 7
+    },
+    {
+      "main": [
+        19,
+        21,
+        24,
+        39,
+        43
+      ],
+      "ppmi_score": 0.25242862474769356,
+      "hlr": "HHRHH",
+      "rank": 13,
+      "powerball": 11
+    },
+    {
+      "main": [
+        3,
+        15,
+        19,
+        37,
+        43
+      ],
+      "ppmi_score": 0.24860731515069134,
+      "hlr": "RRLHH",
+      "rank": 14,
+      "powerball": 15
+    },
+    {
+      "main": [
+        3,
+        12,
+        27,
+        31,
+        37
+      ],
+      "ppmi_score": 0.2329485982582465,
+      "hlr": "RLHHH",
+      "rank": 15,
+      "powerball": 1
+    },
+    {
+      "main": [
+        3,
+        14,
+        21,
+        31,
+        43
+      ],
+      "ppmi_score": 0.2169873335222567,
+      "hlr": "RLLHH",
+      "rank": 16,
+      "powerball": 13
+    },
+    {
+      "main": [
+        14,
+        15,
+        24,
+        27,
+        37
+      ],
+      "ppmi_score": 0.2111457531935025,
+      "hlr": "HRRLH",
+      "rank": 17,
+      "powerball": 4
+    },
+    {
+      "main": [
+        12,
+        15,
+        24,
+        31,
+        43
+      ],
+      "ppmi_score": 0.18442223372329375,
+      "hlr": "HRRHH",
+      "rank": 18,
+      "powerball": 7
+    },
+    {
+      "main": [
+        27,
+        31,
+        37,
+        39,
+        43
+      ],
+      "ppmi_score": 0.14587157660101188,
+      "hlr": "HHHHH",
+      "rank": 19,
+      "powerball": 11
+    },
+    {
+      "main": [
+        12,
+        14,
+        24,
+        37,
+        39
+      ],
+      "ppmi_score": 0.06833335591116207,
+      "hlr": "HLRHH",
+      "rank": 20,
+      "powerball": 15
+    }
+  ],
+  "warnings": [
+    "No model has established a statistically reliable predictive advantage over uniform legal lines.",
+    "E0036 is a methodological/power gate, not a prediction expert.",
+    "HLR is the structural baseline, not a separate independent predictive vote.",
+    "PPMI ranking is experimental, not a calibrated line-probability rank.",
+    "The 788/1287 coverage is conditional on all five winners being in the frozen K13 and is not a forecast hit probability.",
+    "XTRA remains independently fitted; XTRA pending official-source verification flags are retained.",
+    "Research/paper trading only, no assurance of winning."
+  ]
+}
