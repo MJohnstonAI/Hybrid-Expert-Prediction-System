@@ -1,0 +1,8 @@
+{
+  "target_draw_date": "2026-10-16",
+  "active_prediction": "cycles/2026-10-16/pre_draw/main_prediction_e0033_point_k13.json",
+  "status": "pre_result_frozen_current_prediction",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "freeze_rule": "Pre-result supersession requires an immutable new version under governance/pre_draw_supersession_policy.md; no alteration after target result becomes known."
+}
