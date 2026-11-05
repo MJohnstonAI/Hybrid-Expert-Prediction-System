@@ -5,6 +5,7 @@ import json
 import math
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,7 +36,10 @@ class E0035Tests(unittest.TestCase):
         self.assertEqual(a.marginals, b.marginals)
 
     def test_full_protocol_replay_and_emit_result(self):
-        result = mod.run_replay(bootstrap_reps=16)
+        # Reproduce the frozen historical experiment, not a growing live window.
+        rows = [row for row in mod.load_rows() if row["draw_date"] <= "2026-09-11"]
+        with patch.object(mod, "load_rows", return_value=rows):
+            result = mod.run_replay(bootstrap_reps=16)
         self.assertEqual(result["canonical_cutoff"], "2026-09-11")
         self.assertEqual(result["canonical_rows"], 30)
         self.assertEqual(result["bootstrap_replicates"], 16)

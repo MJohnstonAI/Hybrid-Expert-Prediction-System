@@ -1,0 +1,64 @@
+{
+  "model": "uniform_random_null_model",
+  "trials": 100000,
+  "seed": 20260704,
+  "target_draw": {
+    "draw_id": 45,
+    "draw_date": "2026-11-03",
+    "main_numbers": [
+      13,
+      15,
+      32,
+      34,
+      43
+    ],
+    "powerball": 12
+  },
+  "main_hit_distribution": {
+    "0": 57528,
+    "1": 35313,
+    "2": 6682,
+    "3": 470,
+    "4": 7,
+    "5": 0
+  },
+  "main_hit_rates": {
+    "0": 0.57528,
+    "1": 0.35313,
+    "2": 0.06682,
+    "3": 0.0047,
+    "4": 7e-05,
+    "5": 0.0
+  },
+  "threshold_rates": {
+    "main_hits_at_least_3": 0.00477,
+    "main_hits_at_least_4": 7e-05,
+    "main_hits_exactly_5": 0.0
+  },
+  "joint_threshold_rates": {
+    "main_hits_at_least_3_plus_powerball": 0.00036,
+    "main_hits_at_least_4_plus_powerball": 1e-05,
+    "main_hits_exactly_5_plus_powerball": 0.0
+  },
+  "theoretical_rates": {
+    "main_hits_at_least_3": 0.004779210481602446,
+    "main_hits_at_least_4": 0.00010666616322754819,
+    "main_hits_exactly_5": 4.719741735732221e-07,
+    "main_hits_at_least_3_plus_powerball": 0.0002987006551001529,
+    "main_hits_at_least_4_plus_powerball": 6.666635201721762e-06,
+    "main_hits_exactly_5_plus_powerball": 2.949838584832638e-08,
+    "full_5_plus_powerball_odds_denominator": 33900160
+  },
+  "main_plus_powerball_distribution": {
+    "0+PB0": 53925,
+    "0+PB1": 3603,
+    "1+PB0": 33025,
+    "1+PB1": 2288,
+    "2+PB0": 6240,
+    "2+PB1": 442,
+    "3+PB0": 435,
+    "3+PB1": 35,
+    "4+PB0": 6,
+    "4+PB1": 1
+  }
+}

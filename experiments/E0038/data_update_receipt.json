@@ -1,0 +1,48 @@
+{
+  "checked_on": "2026-11-05",
+  "official_endpoints_returned": 403,
+  "lanes": {
+    "MAIN": {
+      "original_sha256": "8ab828f0fa16963e73a01b3e7c2097f72a9ad3a8058b6d48506882e04657d3fe",
+      "original_rows": 39,
+      "added_dates": [
+        "2026-10-16",
+        "2026-10-20",
+        "2026-10-23",
+        "2026-10-27",
+        "2026-10-30",
+        "2026-11-03"
+      ],
+      "sources": [
+        "https://www.lottery.co.za/powerball/results/2026",
+        "https://www.powerball.net/southafrica/results/history/2026",
+        "https://za.national-lottery.com/powerball/results"
+      ],
+      "final_sha256": "e2aa8e01e17fc2c9cb6442d565a6cde34624668314089e39303fb6b1b6aafc9d",
+      "final_rows": 45,
+      "historical_bytes_preserved": true,
+      "missing_expected_dates": []
+    },
+    "XTRA": {
+      "original_sha256": "7a7a0ad2bdaddea4323a074bd28493f9d4fb66bcbd94663ddef078736b83823b",
+      "original_rows": 39,
+      "added_dates": [
+        "2026-10-16",
+        "2026-10-20",
+        "2026-10-23",
+        "2026-10-27",
+        "2026-10-30",
+        "2026-11-03"
+      ],
+      "sources": [
+        "https://www.lottery.co.za/powerball-xtra/results/2026",
+        "https://www.powerball.net/southafrica/results/history/2026",
+        "https://za.national-lottery.com/powerball-xtra/results"
+      ],
+      "final_sha256": "4e13529d69f06b015d11e51d1938f8e8ff70d9e260749d45d6de5ca5a77495d9",
+      "final_rows": 45,
+      "historical_bytes_preserved": true,
+      "missing_expected_dates": []
+    }
+  }
+}

@@ -1,0 +1,12 @@
+test_allocation_convolution_against_exhaustive_small_universe (__main__.Verification.test_allocation_convolution_against_exhaustive_small_universe) ... ok
+test_full_enum_residual_fields (__main__.Verification.test_full_enum_residual_fields) ... ok
+test_history_only_centering_cannot_change_normalized_law (__main__.Verification.test_history_only_centering_cannot_change_normalized_law) ... ok
+test_saved_forecasts_and_scores (__main__.Verification.test_saved_forecasts_and_scores) ... ok
+test_shell_counts_and_group_symmetry (__main__.Verification.test_shell_counts_and_group_symmetry) ... ok
+test_target_and_future_do_not_change_forecasts (__main__.Verification.test_target_and_future_do_not_change_forecasts) ... ok
+test_uniform_allocation_equals_random_k13 (__main__.Verification.test_uniform_allocation_equals_random_k13) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.373s
+
+OK

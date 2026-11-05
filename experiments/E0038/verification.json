@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "lane": "MAIN",
+      "targets_reproduced": 6,
+      "target_and_future_mutation_invariant": true,
+      "all_freeze_hashes_valid": true,
+      "all_portfolios_unique_20_legal_lines": true
+    },
+    {
+      "lane": "XTRA",
+      "targets_reproduced": 6,
+      "target_and_future_mutation_invariant": true,
+      "all_freeze_hashes_valid": true,
+      "all_portfolios_unique_20_legal_lines": true
+    }
+  ],
+  "historical_ledger_prefixes_unchanged": true,
+  "reproduction_type": "code_reproduction_not_independent_implementation"
+}

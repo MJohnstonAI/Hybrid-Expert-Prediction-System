@@ -6,10 +6,10 @@
   "predecessor_label": "PowerBall Plus",
   "canonical_ledger": "data/powerball_xtra_history.jsonl",
   "schema": "data/powerball_xtra_schema.json",
-  "canonical_row_count": 39,
+  "canonical_row_count": 45,
   "first_canonical_draw_date": "2026-06-02",
-  "latest_canonical_draw_date": "2026-10-13",
-  "latest_canonical_draw_id": 1763,
+  "latest_canonical_draw_date": "2026-11-03",
+  "latest_canonical_draw_id": 1769,
   "latest_data_quality": "externally_corroborated_independent_public_archives_pending_official_sizekhaya_verification",
   "missing_expected_draw_dates": [],
   "state_is_complete_through_latest_expected_draw": true,
@@ -27,8 +27,6 @@
     "enabled": true,
     "purpose": "Permit operational XTRA rows independently corroborated from public result histories to enter the ledger when the configured official source is unavailable or stale, while retaining explicit pending-official-verification flags.",
     "formal_official_source_verification_pending_dates": [
-      "2026-08-14",
-      "2026-08-18",
       "2026-08-21",
       "2026-08-25",
       "2026-08-28",
@@ -44,7 +42,13 @@
       "2026-10-02",
       "2026-10-06",
       "2026-10-09",
-      "2026-10-13"
+      "2026-10-13",
+      "2026-10-16",
+      "2026-10-20",
+      "2026-10-23",
+      "2026-10-27",
+      "2026-10-30",
+      "2026-11-03"
     ],
     "rule": "Do not strip pending_official_source_verification flags or represent these rows as official-source verified until the configured official source is successfully checked."
   },
@@ -62,6 +66,7 @@
     "2026-10-02 and 2026-10-06 XTRA results independently corroborated 2026-10-09 against za.national-lottery.com, lottery.co.za, and powerball.net while configured official Sizekhaya source returned HTTP 403. Preserve pending_official_source_verification flags and do not infer machine metadata.",
     "The ledger is date-complete for every Tuesday/Friday XTRA draw from 2026-06-02 through 2026-10-06 inclusive (37 rows, draw ids 1725-1761).",
     "The 2026-10-09 and 2026-10-13 XTRA winning results were independently corroborated on 2026-10-14 using named public archives while the configured official National Lottery endpoint did not return usable results. Both dates remain formally pending official-source verification under the existing provenance-qualified operational exception.",
-    "The XTRA ledger is date-complete on every Tuesday and Friday from 2026-06-02 through 2026-10-13 inclusive (39 rows; draw IDs 1725-1763). Earlier notes describe historical point-in-time states and must not be read as current cutoffs."
+    "The XTRA ledger is date-complete on every Tuesday and Friday from 2026-06-02 through 2026-10-13 inclusive (39 rows; draw IDs 1725-1763). Earlier notes describe historical point-in-time states and must not be read as current cutoffs.",
+    "2026-11-05 update: 45 rows through 2026-11-03; all Tuesday/Friday dates present. Six new results corroborated from lottery.co.za and public result archives; configured official endpoint returned 403. Pending verification and unknown machine/method retained."
   ]
 }

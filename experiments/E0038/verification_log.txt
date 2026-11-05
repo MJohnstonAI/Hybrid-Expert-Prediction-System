@@ -1,0 +1,1 @@
+E0038 verification passed: all 12 targets reproduce frozen E0037 scores; future mutation cannot alter forecast.

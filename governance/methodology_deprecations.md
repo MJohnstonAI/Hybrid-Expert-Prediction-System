@@ -33,6 +33,10 @@ If a historical experiment contains a formula listed here, the experiment's froz
 
 ## Historical artifacts that require warning-first reading
 
+### 2026-11-05 repair clarification — history-only centering
+
+The proposed repair language in failure F020 / E0037 is insufficient: subtracting an exact structural expectation depending only on the previous draw from an exponential-model feature cannot change the normalized law. The common factor cancels from numerator and partition function. This is **REJECT as a standalone repair**, not a rejection of the observed coordinate-height collapse. A useful successor must change outcome-dependent features, fitting or regularization and earn fresh proper-score evidence. E0039 verifies the identity algebraically and numerically; see `experiments/E0039/report.md` and claim C036. No historical artifact or frozen E0037 model is changed.
+
 Future agents should read the relevant decision/failure record before copying formulas from:
 
 - `experiments/E0019/` — retain line-containment objective; do not reuse HLR×VVD residual product.

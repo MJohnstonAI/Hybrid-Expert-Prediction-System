@@ -1,0 +1,25 @@
+{
+  "status": "advisory_only",
+  "purpose": "detect/report possible non-stationarity; never used as an automatic predictive feature",
+  "row_count": 45,
+  "draw_methods": {
+    "electronic_rng": 2,
+    "mechanical_machine": 15,
+    "unknown": 28
+  },
+  "machine_names": {
+    "GRACE": 1,
+    "Khaya": 7,
+    "MPUMELELO": 1,
+    "PB1": 2,
+    "SIZWE": 6,
+    "rng": 2,
+    "unknown": 26
+  },
+  "mixed_draw_method": true,
+  "mixed_machine_identity": true,
+  "warnings": [
+    "Training windows may mix draw mechanisms. Physical/mechanical experts must disclose and test this explicitly.",
+    "Training windows mix machine identities. Machine-dependent physical experts must compare pooled versus machine-conditioned evidence."
+  ]
+}

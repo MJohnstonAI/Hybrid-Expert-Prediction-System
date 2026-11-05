@@ -1,0 +1,13 @@
+Forecasting MAIN 2026-10-16 from 39 previous rows
+Forecasting MAIN 2026-10-20 from 40 previous rows
+Forecasting MAIN 2026-10-23 from 41 previous rows
+Forecasting MAIN 2026-10-27 from 42 previous rows
+Forecasting MAIN 2026-10-30 from 43 previous rows
+Forecasting MAIN 2026-11-03 from 44 previous rows
+Forecasting XTRA 2026-10-16 from 39 previous rows
+Forecasting XTRA 2026-10-20 from 40 previous rows
+Forecasting XTRA 2026-10-23 from 41 previous rows
+Forecasting XTRA 2026-10-27 from 42 previous rows
+Forecasting XTRA 2026-10-30 from 43 previous rows
+Forecasting XTRA 2026-11-03 from 44 previous rows
+Wrote experiments/E0038/results.json

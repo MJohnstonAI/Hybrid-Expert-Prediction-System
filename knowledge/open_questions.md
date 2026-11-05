@@ -137,6 +137,14 @@ This remains a variance/robustness question. Johnson geometry receives no predic
 
 ## Resolution rule
 
+### 2026-11-05 follow-up — decade/VVD/K13 research (E0039)
+
+New finite replay: five decade/transition fields plus a fixed mixture, 39 target-excluded targets per lane, and exact optimization over 2,305 fixed-K13 decade seat allocations. All new fields lose complete-window joint proper score to uniform. No Main improvement is established. XTRA decade allocation has a weak marginal capture/Brier lead but worse joint score; a lower-dimensional decade-rate model is an untested question, not a promoted selector. Unlabelled decade group shapes leave every number's inclusion marginal at 0.1. Q002/Q003 remain unresolved. E0039 also corrects F020's proposed history-only centering repair: it cancels in normalization and cannot change predictions. See claims C035/C036 and `experiments/E0039/report.md`. All evidence is post-hoc; authority unchanged.
+
+### 2026-11-05 evidence update (E0038)
+
+The ledgers are complete through 2026-11-03 (45 rows each). The six-target Main acquisition replay retained 7 incumbent winner coordinates versus 7.8 expected; the separately fitted XTRA comparator retained 4. Both incumbent fields lost proper score to uniform; the same-field four-plus optimizer made no swaps. Q002/Q003/Q004 remain unresolved, with acquisition still the first binding failure. Q011's XTRA PB monitor has a small favorable point estimate but no evidence threshold passed. None of the four frozen E0037 monitors reached E>=80. See `experiments/E0038/report.md`, `decision.md`, and claim C034. This is target-excluded post-hoc replay with separately identified delayed execution of E0037's frozen monitor, not a new official slate record. No authority changed.
+
 When a question is resolved or materially updated:
 
 1. update `knowledge/claim_registry.jsonl` or `knowledge/failure_registry.jsonl`;
