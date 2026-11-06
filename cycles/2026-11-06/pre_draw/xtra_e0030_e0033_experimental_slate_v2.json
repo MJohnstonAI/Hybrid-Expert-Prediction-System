@@ -1,0 +1,393 @@
+{
+  "target_draw_date": "2026-11-06",
+  "game": "xtra",
+  "freeze_date": "2026-11-06 pre-result",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "status": "pre_draw_frozen_experimental_corrected_v2",
+  "official_current_prediction": false,
+  "cutoff_date": "2026-11-03",
+  "canonical_row_count": 45,
+  "previous_state": {
+    "main": [
+      1,
+      7,
+      10,
+      16,
+      24
+    ],
+    "powerball": 15
+  },
+  "canonical_ledger": "data/powerball_xtra_history.jsonl",
+  "probability_field": {
+    "model": "E0030-style independent per-game uniform / cumulative-frequency / recent-five normalized subset mixture",
+    "effective_component_weights": {
+      "uniform": 0.9809929892452831,
+      "cumulative_frequency": 0.0050615094571409055,
+      "recent_five": 0.013945501297576053
+    },
+    "walk_forward_targets": 40,
+    "mean_exact_line_logloss_delta_model_minus_uniform": 0.0022796523288506785,
+    "proper_score_promotion_gate_passed": false
+  },
+  "acquisition": {
+    "K": 13,
+    "candidates": [
+      3,
+      5,
+      16,
+      18,
+      21,
+      24,
+      31,
+      32,
+      33,
+      34,
+      36,
+      37,
+      39
+    ],
+    "walk_forward_targets": 40,
+    "coordinate_hits": 39,
+    "mean_hits_per_target": 0.975,
+    "random_expected_mean_hits": 1.3,
+    "H_at_most_1_catastrophes": 30,
+    "authority": "experimental; no proven lift"
+  },
+  "hlr_diagnostic": {
+    "main_slotwise_modal": "HHHHH",
+    "per_slot_probabilities_L_R_H": [
+      [
+        0,
+        0.1,
+        0.9
+      ],
+      [
+        0.1805757948726403,
+        0.0349477996564028,
+        0.7844764054709569
+      ],
+      [
+        0.10426597172600605,
+        0.013253034793936075,
+        0.8824809934800579
+      ],
+      [
+        0.08152902291371855,
+        0.0073014404651777455,
+        0.9111695366211037
+      ],
+      [
+        0.08215444235537472,
+        0.004179331306990881,
+        0.9136662263376344
+      ]
+    ],
+    "PB_modal_direction": "L",
+    "PB_direction_probabilities": {
+      "L": 0.8128525878829986,
+      "R": 0.10288409977179976,
+      "H": 0.0842633123452017
+    }
+  },
+  "assembly": {
+    "method": "E0022 deterministic Johnson 4+ greedy 20 membership; historical E0033 positive-PMI ordering of unchanged membership",
+    "legal_basket_lines": 1287,
+    "portfolio_budget": 20,
+    "four_plus_states_covered": 788,
+    "coverage_conditional_on_all_five_winners_in_K13": 0.6122766122766122
+  },
+  "bonus": {
+    "method": "PB_BMA_ALPHA2_V1 separately fitted on game ledger",
+    "ranking": [
+      2,
+      15,
+      16,
+      12,
+      4,
+      11
+    ],
+    "walk_forward_mean_logloss_delta_vs_uniform": -0.04882367856110157,
+    "authority": "shadow"
+  },
+  "lines": [
+    {
+      "rank": 1,
+      "main": [
+        5,
+        21,
+        31,
+        36,
+        39
+      ],
+      "powerball": 2,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.2839908221301316
+    },
+    {
+      "rank": 2,
+      "main": [
+        3,
+        18,
+        32,
+        34,
+        37
+      ],
+      "powerball": 15,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.28148345837492006
+    },
+    {
+      "rank": 3,
+      "main": [
+        5,
+        21,
+        24,
+        34,
+        37
+      ],
+      "powerball": 16,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.27615900692303885
+    },
+    {
+      "rank": 4,
+      "main": [
+        3,
+        5,
+        33,
+        34,
+        36
+      ],
+      "powerball": 12,
+      "hlr": "HLHHH",
+      "ppmi_score": 0.2733419192263692
+    },
+    {
+      "rank": 5,
+      "main": [
+        5,
+        16,
+        24,
+        33,
+        39
+      ],
+      "powerball": 4,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.266132908136216
+    },
+    {
+      "rank": 6,
+      "main": [
+        33,
+        34,
+        36,
+        37,
+        39
+      ],
+      "powerball": 11,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.2612310319637726
+    },
+    {
+      "rank": 7,
+      "main": [
+        3,
+        21,
+        32,
+        33,
+        39
+      ],
+      "powerball": 2,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.250385256456532
+    },
+    {
+      "rank": 8,
+      "main": [
+        3,
+        16,
+        24,
+        33,
+        37
+      ],
+      "powerball": 15,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.2421308659700013
+    },
+    {
+      "rank": 9,
+      "main": [
+        5,
+        16,
+        32,
+        36,
+        37
+      ],
+      "powerball": 16,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.225854463278336
+    },
+    {
+      "rank": 10,
+      "main": [
+        16,
+        18,
+        21,
+        24,
+        31
+      ],
+      "powerball": 12,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.22514096229046157
+    },
+    {
+      "rank": 11,
+      "main": [
+        3,
+        18,
+        24,
+        36,
+        39
+      ],
+      "powerball": 4,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.22312069155870956
+    },
+    {
+      "rank": 12,
+      "main": [
+        24,
+        31,
+        32,
+        37,
+        39
+      ],
+      "powerball": 11,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.22023908611801818
+    },
+    {
+      "rank": 13,
+      "main": [
+        21,
+        24,
+        32,
+        34,
+        36
+      ],
+      "powerball": 2,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.21536006970107496
+    },
+    {
+      "rank": 14,
+      "main": [
+        5,
+        18,
+        31,
+        33,
+        37
+      ],
+      "powerball": 15,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.21423066903919907
+    },
+    {
+      "rank": 15,
+      "main": [
+        5,
+        18,
+        32,
+        34,
+        39
+      ],
+      "powerball": 16,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.20853197590183803
+    },
+    {
+      "rank": 16,
+      "main": [
+        16,
+        18,
+        32,
+        33,
+        36
+      ],
+      "powerball": 12,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.2032720421939786
+    },
+    {
+      "rank": 17,
+      "main": [
+        3,
+        21,
+        31,
+        36,
+        37
+      ],
+      "powerball": 4,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.19994500171834914
+    },
+    {
+      "rank": 18,
+      "main": [
+        3,
+        16,
+        31,
+        34,
+        39
+      ],
+      "powerball": 11,
+      "hlr": "HHHHH",
+      "ppmi_score": 0.16509718404489376
+    },
+    {
+      "rank": 19,
+      "main": [
+        3,
+        5,
+        16,
+        18,
+        21
+      ],
+      "powerball": 2,
+      "hlr": "HLHHL",
+      "ppmi_score": 0.13839090551998923
+    },
+    {
+      "rank": 20,
+      "main": [
+        3,
+        5,
+        24,
+        31,
+        32
+      ],
+      "powerball": 15,
+      "hlr": "HLHHH",
+      "ppmi_score": 0.12692232589580893
+    }
+  ],
+  "data_integrity": {
+    "sources": [
+      "https://www.powerball.net/southafrica/results/history/2026",
+      "https://za.national-lottery.com/powerball/results/2026-archive",
+      "https://www.lottery.co.za/powerball-xtra/results/2026"
+    ],
+    "xtra_official_source_403": true,
+    "source_flags_preserved": true
+  },
+  "warnings": [
+    "The primary field loses to the uniform null on retrospective proper score.",
+    "The K13 recall does not exceed random expectation at matched exposure.",
+    "HLR is a diagnostic of sorted-slot transitions and must not double-count the probability field.",
+    "Johnson 788/1287 coverage is conditional on all five winners reaching K13, not a draw-level success probability.",
+    "This is paper-trading research; none of the models has established a reliable predictive edge."
+  ],
+  "supersedes": "cycles/2026-11-06/pre_draw/xtra_e0030_e0033_experimental_slate.json",
+  "supersession_reason": "Pre-result exact-support correction: at previous XTRA S1=1, L is impossible; prior diagnostic assigned L=0.9 due an impossible-support guard bug. Correct structural treatment yields L=0,R=0.1,H=0.9. Candidate basket, Johnson portfolio and PB assignments are unchanged."
+}
