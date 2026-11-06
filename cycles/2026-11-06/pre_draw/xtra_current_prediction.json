@@ -1,0 +1,13 @@
+{
+  "target_draw_date": "2026-11-06",
+  "game_variant": "xtra",
+  "active_prediction": "cycles/2026-11-06/pre_draw/xtra_e0030_e0033_experimental_slate_v2.json",
+  "status": "pre_result_frozen_current_paper_trading_prediction",
+  "paper_trading_only": true,
+  "evidence_classification": "INSUFFICIENT_EVIDENCE",
+  "canonical_cutoff": "2026-11-03",
+  "canonical_rows": 45,
+  "freeze_rule": "Preserve version immutability; supersede only before result knowledge according to governance/pre_draw_supersession_policy.md.",
+  "superseded_pre_result": "cycles/2026-11-06/pre_draw/xtra_e0030_e0033_experimental_slate.json",
+  "reason": "S1 HLR impossible-support implementation correction; candidate, assembly and PB unchanged"
+}
