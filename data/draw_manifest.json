@@ -18,21 +18,21 @@
     "rng",
     "unknown"
   ],
-  "latest_draw_id": 45,
-  "latest_draw_date": "2026-11-03",
+  "latest_draw_id": 51,
+  "latest_draw_date": "2026-11-24",
   "latest_main_numbers": [
-    13,
-    15,
-    32,
-    34,
-    43
+    7,
+    17,
+    24,
+    36,
+    45
   ],
-  "latest_powerball": 12,
-  "latest_macro_sum": 137,
+  "latest_powerball": 4,
+  "latest_macro_sum": 129,
   "latest_draw_method": "unknown",
   "latest_machine_name": "unknown",
-  "row_count": 45,
-  "last_synced": "2026-11-06",
+  "row_count": 51,
+  "last_synced": "2026-11-27",
   "latest_data_quality_flags": [
     "draw_method_unknown",
     "machine_name_unknown"
