@@ -1,0 +1,55 @@
+experiment_id: E0037
+title: Bucket-Depletion / Cold-Number Residual Championship
+status: preregistered_discovery_replay
+evidence_classification: INSUFFICIENT_EVIDENCE
+paper_trading_only: true
+lanes: [Main, XTRA]
+data_cutoff: 2026-11-24
+ledger_rows_per_lane: 51
+min_history_draws: 12
+eligible_targets: 39
+target_excluded: true
+fixed_windows: [3,5,8,12]
+probability_model:
+  form: exchangeable_coordinate_weighted_5subset
+  weight: exp(beta*z_i)
+  normalization: exact_elementary_symmetric_polynomial_e5
+  null_recovery: beta_0_equals_uniform_5_of_50
+  beta_prior: N(0,1)
+  fit: one_dimensional_MAP_prior_targets_only
+features:
+  AGE:
+    standardization: cross_sectional_zscore
+    cold_sign: positive
+  UNSEEN_W:
+    windows: [3,5,8,12]
+    cold_sign: positive
+  RECENT_COUNT_W:
+    windows: [3,5,8,12]
+    cold_sign: negative
+k13:
+  k: 13
+  arms:
+    - AGE_COLD
+    - AGE_HOT
+    - COUNT_COLD_W
+    - COUNT_HOT_W
+  count_windows: [3,5,8,12]
+  tie_break_cold: larger_age_then_coordinate_ascending
+  tie_break_hot: smaller_age_then_coordinate_ascending
+primary_metric: paired_exact_line_log_loss_delta_model_minus_uniform
+secondary_metrics: [mean_hits,H_le_1,H_ge_3,H_ge_4,H_eq_5]
+random_k13_null:
+  E_H: 1.30
+  P_H_le_1: 0.610962
+  P_H_ge_3: 0.102993
+  P_H_ge_4: 0.013094
+  P_H_eq_5: 0.00060743
+multiplicity:
+  status: discovery_championship
+  arms_are_not_confirmatory: true
+prospective_rule:
+  earliest_shadow_target: 2026-11-27
+  weight_in_production: 0
+  may_change_official_slate: false
+  freeze_before_result_required: true
