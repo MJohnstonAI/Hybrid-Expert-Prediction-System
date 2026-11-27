@@ -1,0 +1,152 @@
+{
+  "experiment_id": "E0037",
+  "data_cutoff": "2026-11-24",
+  "targets_per_lane": 39,
+  "windows": [
+    3,
+    5,
+    8,
+    12
+  ],
+  "main": {
+    "unseen_diagnostics": {
+      "W3": {
+        "avg_unseen": 36.0769230769,
+        "observed": 143,
+        "expected": 140.7,
+        "z": 0.3838
+      },
+      "W5": {
+        "avg_unseen": 29.0769230769,
+        "observed": 110,
+        "expected": 113.4,
+        "z": -0.5161
+      },
+      "W8": {
+        "avg_unseen": 20.8974358974,
+        "observed": 87,
+        "expected": 81.5,
+        "z": 0.8362
+      },
+      "W12": {
+        "avg_unseen": 13.5128205128,
+        "observed": 54,
+        "expected": 52.7,
+        "z": 0.2201
+      }
+    },
+    "proper_score": {
+      "AGE": {
+        "mean_delta": 0.075293,
+        "se": 0.036255,
+        "t": 2.0768,
+        "final_beta": 0.045
+      },
+      "UNSEEN_W8": {
+        "mean_delta": 0.047744,
+        "se": 0.030574,
+        "t": 1.5616,
+        "final_beta": 0.125
+      },
+      "best_arm_note": "No cold arm beat uniform on mean target-excluded log loss; lower delta is better."
+    },
+    "cold_k13": {
+      "mean_hits": 1.282051,
+      "total_hits": 50,
+      "random_expected_mean": 1.3,
+      "H_le_1": 0.692308,
+      "H_ge_3": 0.102564,
+      "H_ge_4": 0.025641,
+      "H_eq_5": 0.025641
+    },
+    "isolated_5of5": {
+      "date": "2026-10-06",
+      "winning_line": [
+        12,
+        18,
+        21,
+        35,
+        46
+      ],
+      "note": "Spectacular isolated hit but full 39-target mean remains below random-K13 expectation."
+    },
+    "verdict": "REJECT current bucket-depletion formulation for Main"
+  },
+  "xtra": {
+    "provenance": "Canonical XTRA ledger is operationally complete but rows carrying pending_official_source_verification remain provenance-qualified.",
+    "unseen_diagnostics": {
+      "W3": {
+        "avg_unseen": 36.3333333333,
+        "observed": 146,
+        "expected": 141.7,
+        "z": 0.7215
+      },
+      "W5": {
+        "avg_unseen": 29.1282051282,
+        "observed": 126,
+        "expected": 113.6,
+        "z": 1.8818
+      },
+      "W8": {
+        "avg_unseen": 20.4358974359,
+        "observed": 97,
+        "expected": 79.7,
+        "z": 2.6374
+      },
+      "W12": {
+        "avg_unseen": 12.6923076923,
+        "observed": 59,
+        "expected": 49.5,
+        "z": 1.6392
+      }
+    },
+    "W8_enrichment": {
+      "winner_fraction_unseen": 0.49743589743589745,
+      "expected_fraction_unseen": 0.40871794871794875,
+      "relative_enrichment": 1.2170639899623588
+    },
+    "split_stability": {
+      "early_19": {
+        "observed": 46,
+        "expected": 39.3,
+        "z": 1.4599
+      },
+      "late_20": {
+        "observed": 51,
+        "expected": 40.4,
+        "z": 2.2618
+      }
+    },
+    "iid_monte_carlo": {
+      "simulations": 50000,
+      "W8_one_sided_p": 0.00438,
+      "max_across_four_windows_one_sided_p": 0.0141,
+      "note": "Discovery diagnostic only; does not create confirmatory authority."
+    },
+    "proper_score": {
+      "UNSEEN_W8": {
+        "mean_delta": -0.044214,
+        "se": 0.056318,
+        "t": -0.7851,
+        "final_beta": 0.385
+      },
+      "UNSEEN_W5": {
+        "mean_delta": -0.007264,
+        "se": 0.047194,
+        "t": -0.1539
+      },
+      "note": "Negative delta is better than uniform. Neither proper-score result is statistically decisive."
+    },
+    "cold_k13": {
+      "mean_hits": 1.410256,
+      "total_hits": 55,
+      "random_expected_mean": 1.3,
+      "exact_null_p_total_hits_ge_55": 0.25656,
+      "H_le_1": 0.589744,
+      "H_ge_3": 0.153846,
+      "H_ge_4": 0.025641,
+      "H_eq_5": 0
+    },
+    "verdict": "PROVISIONAL_SIGNAL discovery only; authorize zero-weight prospective XTRA shadow"
+  }
+}
